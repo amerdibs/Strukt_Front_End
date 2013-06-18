@@ -1,0 +1,128 @@
+﻿namespace Mockup2
+{
+    partial class UCMainTask
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lbTitle = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnLink = new System.Windows.Forms.Button();
+            this.btnProp = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(3, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // lbTitle
+            // 
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbTitle.ForeColor = System.Drawing.Color.White;
+            this.lbTitle.Location = new System.Drawing.Point(24, 4);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(110, 13);
+            this.lbTitle.TabIndex = 1;
+            this.lbTitle.Text = "[Main Task Name]";
+            this.lbTitle.Click += new System.EventHandler(this.lbTitle_Click_1);
+            this.lbTitle.DoubleClick += new System.EventHandler(this.lbTitle_DoubleClick);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.Image = global::Mockup2.Properties.Resources.help1;
+            this.btnHelp.Location = new System.Drawing.Point(289, 2);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(28, 23);
+            this.btnHelp.TabIndex = 4;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnLink
+            // 
+            this.btnLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLink.Image = global::Mockup2.Properties.Resources.web;
+            this.btnLink.Location = new System.Drawing.Point(262, 2);
+            this.btnLink.Name = "btnLink";
+            this.btnLink.Size = new System.Drawing.Size(28, 23);
+            this.btnLink.TabIndex = 3;
+            this.btnLink.UseVisualStyleBackColor = true;
+            this.btnLink.Click += new System.EventHandler(this.btnLink_Click);
+            // 
+            // btnProp
+            // 
+            this.btnProp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProp.Image = global::Mockup2.Properties.Resources.edit;
+            this.btnProp.Location = new System.Drawing.Point(235, 2);
+            this.btnProp.Name = "btnProp";
+            this.btnProp.Size = new System.Drawing.Size(28, 23);
+            this.btnProp.TabIndex = 2;
+            this.btnProp.UseVisualStyleBackColor = true;
+            this.btnProp.Click += new System.EventHandler(this.btnProp_Click);
+            // 
+            // UCMainTask
+            // 
+            this.AllowDrop = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.btnLink);
+            this.Controls.Add(this.btnProp);
+            this.Controls.Add(this.lbTitle);
+            this.Controls.Add(this.checkBox1);
+            this.Name = "UCMainTask";
+            this.Size = new System.Drawing.Size(318, 27);
+            this.Load += new System.EventHandler(this.UCMainTask_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragEnter);
+            this.QueryContinueDrag += new System.Windows.Forms.QueryContinueDragEventHandler(this.UCMainTask_QueryContinueDrag);
+            this.Leave += new System.EventHandler(this.UCMainTask_Leave);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UCMainTask_MouseDown);
+            this.MouseEnter += new System.EventHandler(this.UCMainTask_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.UCMainTask_MouseLeave);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label lbTitle;
+        private System.Windows.Forms.Button btnProp;
+        private System.Windows.Forms.Button btnLink;
+        private System.Windows.Forms.Button btnHelp;
+    }
+}
