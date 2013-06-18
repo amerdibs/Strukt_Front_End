@@ -16,7 +16,7 @@ namespace Mockup2
         public frmMain()
         {
             InitializeComponent();
-            this.BackColor = global.ColorSubTask;
+            //this.BackColor = global.ColorSubTask;
          
         }
 
@@ -269,7 +269,7 @@ namespace Mockup2
 
             global.dragTaskControlObject = null;
             global.dragTaskControlID = 0;
-            global.dragTaskControlObject = null;
+
 
         }
 
@@ -298,7 +298,7 @@ namespace Mockup2
 
             global.dragTaskControlObject = null;
             global.dragTaskControlID = 0;
-            global.dragTaskControlObject = null;
+
         }
 
         private void clearOtherSelectColor()
@@ -314,8 +314,8 @@ namespace Mockup2
                     }
                     else if (uClickControl.GetType() == typeof(UCSubTask))
                     {
-                        UCSubTask uMain = (UCSubTask)uClickControl;
-                        uMain.BackColor = global.ColorSubTask;
+                        UCSubTask uSub = (UCSubTask)uClickControl;
+                        uSub.BackColor = global.ColorSubTask;
                     }
                 }
             }
