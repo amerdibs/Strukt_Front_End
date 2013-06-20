@@ -27,5 +27,9 @@ namespace Mockup2
         public static Color ColorHover = Color.Tan;
         public static Color ColorSubTask = Color.Lavender;
         public static Color ColorSelect = Color.SandyBrown;
+
+        // fix value is used for the first prototype only
+        public static int intWorkflowID = 0;
+        public static int intUserID = 0;
     }
 }
