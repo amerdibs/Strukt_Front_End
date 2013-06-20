@@ -8,5 +8,6 @@ namespace Mockup2
 {
     class User
     {
+	
     }
 }
