@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mockup2
 {
-    public class User
+    public class Users
     {
         public int id { get; set; }
         public String email { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mockup2
 {
-    class Workflow
+    class Tasks
     {
     }
 }
