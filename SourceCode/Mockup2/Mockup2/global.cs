@@ -9,7 +9,7 @@ namespace Mockup2
 {
     class global
     {
-        
+        // Users Interface part --------------
         public static bool hideWindows;
 
         public static int currentTaskControlID;
@@ -27,6 +27,7 @@ namespace Mockup2
         public static Color ColorHover = Color.Tan;
         public static Color ColorSubTask = Color.Lavender;
         public static Color ColorSelect = Color.SandyBrown;
+
 
         // fix value is used for the first prototype only
         public static int intWorkflowID = 0;
