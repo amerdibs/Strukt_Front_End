@@ -63,7 +63,7 @@ namespace Mockup2
             string strReturn;
 
             if (strParam == "{\"values\":[null]}")
-                return "null";
+                return "";
 
             List<string> lStrExtract = new List<string>();
             string[] aStrFirst = strParam.Split(new string[] { ":{" }, StringSplitOptions.None);
