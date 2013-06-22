@@ -48,18 +48,19 @@ namespace Mockup2
             {
                 //List<Roles> roles = null;
                 
-                string strSect = global.getRespondFromStruktGet(Strukt.URL_Role, "");
-                if (strSect != "")
-                {
-                    strSect = strSect.Split(new string[] {":{"}, StringSplitOptions.None)[1];
-                    strSect = strSect.Split(new string[] {"}}]"}, StringSplitOptions.None)[0];
-                }
-                strSect = "{" + strSect + "}";
+                string strSect = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Role, ""));
+
+                //if (strSect != "")
+                //{
+                //    strSect = strSect.Split(new string[] {":{"}, StringSplitOptions.None)[1];
+                //    strSect = strSect.Split(new string[] {"}}]"}, StringSplitOptions.None)[0];
+                //}
+                //strSect = "{" + strSect + "}";
                 //strSect = strSect.Replace('\"','\'');
 
 
                 //string strTest = "{\"values\":[{\"role\":{\"id\":\"http://strukt.west.uni-koblenz.de/role/1\",\"name\":\"architect\"}},{\"role\":{\"id\":\"http://strukt.west.uni-koblenz.de/role/2\",\"name\":\"structural analyst\"}}]}";
-                string strTest = "[{\"id\":\"http://strukt.west.uni-koblenz.de/role/1\",\"name\":\"architect\"},{\"id\":\"http://strukt.west.uni-koblenz.de/role/2\",\"name\":\"structural analyst\"}]";
+                //string strTest = "[{\"id\":\"http://strukt.west.uni-koblenz.de/role/1\",\"name\":\"architect\"},{\"id\":\"http://strukt.west.uni-koblenz.de/role/2\",\"name\":\"structural analyst\"}]";
                 //List<Roles> roles = JsonConvert.DeserializeObject<List<Roles>>(global.getRespondFromStruktGet(Strukt.URL_Role, ""));
                 //strTest = strTest.Replace('\\','\0' );
 

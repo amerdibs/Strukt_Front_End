@@ -57,5 +57,32 @@ namespace Mockup2
             }
             
         }
+
+        public static string getExtractValueFromRespond(string strParam)
+        {
+            string strReturn;
+
+            if (strParam == "{\"values\":[null]}")
+                return "null";
+
+            List<string> lStrExtract = new List<string>();
+            string[] aStrFirst = strParam.Split(new string[] { ":{" }, StringSplitOptions.None);
+            for (int i = 1; i < aStrFirst.Length; i++)
+            {
+
+                string[] aStrSecond = aStrFirst[i].Split(new string[] { "}}" }, StringSplitOptions.None);
+                lStrExtract.Add("{"+aStrSecond[0]+"}");
+            }
+
+            strReturn = "[";
+            foreach (string str in lStrExtract)
+            {
+                strReturn += str + ',';
+            }
+            strReturn = strReturn.Remove(strReturn.Length - 1);
+            strReturn += "]";
+
+            return strReturn;
+        }
     }
 }
