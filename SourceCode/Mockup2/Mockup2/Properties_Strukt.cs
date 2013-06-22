@@ -11,54 +11,54 @@ namespace Mockup2
         public class Locations
         {
             public int id { get; set; }
-            public String name { get; set; }
-            public String l_lat { get; set; }
-            public String l_long { get; set; }
+            public string name { get; set; }
+            public string l_lat { get; set; }
+            public string l_long { get; set; }
         }
         public class Projects
         {
             public int id { get; set; }
-            public String name { get; set; }
+            public string name { get; set; }
         }
         public class ResourceTypes
         {
             public int id { get; set; }
-            public String name { get; set; }
-            public String ending { get; set; }
-            public String icon_url { get; set; }
+            public string name { get; set; }
+            public string ending { get; set; }
+            public string icon_url { get; set; }
         }
         public class Resources
         {
             public int id { get; set; }
-            public String type_id { get; set; }
-            public String task_id { get; set; }
-            public String user_id { get; set; }
-            public String name { get; set; }
-            public String url { get; set; }
-            public String size { get; set; }
-            public String date { get; set; }
+            public string type_id { get; set; }
+            public string task_id { get; set; }
+            public string user_id { get; set; }
+            public string name { get; set; }
+            public string url { get; set; }
+            public string size { get; set; }
+            public string date { get; set; }
         }
         public class Roles
         {
             public int id { get; set; }
-            public String name { get; set; }
+            public string name { get; set; }
         }
         public class Statuses
         {
             public int id { get; set; }
-            public String name { get; set; }
-            public String url { get; set; }
+            public string name { get; set; }
+            public string url { get; set; }
         }
         public class Task_Types
         {
             public int id { get; set; }
-            public String name { get; set; }
+            public string name { get; set; }
         }
         public class Tools
         {
             public int id { get; set; }
-            public String name { get; set; }
-            public String url { get; set; }
+            public string name { get; set; }
+            public string url { get; set; }
         }
 
     }

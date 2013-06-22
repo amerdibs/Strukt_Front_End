@@ -33,12 +33,10 @@ namespace Mockup2
         public static int intWorkflowID = 0;
         public static int intUserID = 0;
 
-        public String getValueFromStruktValue(String strParam)
+        public string getValueFromStruktValue(string strParam)
         {
-            string strExtract;
-
-
-
+            string strExtract = "";
+            strExtract = strParam.Substring(strParam.IndexOf("/", (strParam.IndexOf(Strukt.TypeStruktEnding) + 1)), strParam.Length);
             return strExtract;
         }
     }

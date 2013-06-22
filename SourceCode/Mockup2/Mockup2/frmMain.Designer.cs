@@ -33,8 +33,8 @@
             this.pnCenter = new System.Windows.Forms.Panel();
             this.btnHide = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSaveProcessAs = new System.Windows.Forms.Button();
+            this.btnLoadProcess = new System.Windows.Forms.Button();
             this.ccbProcess = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -102,8 +102,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnSaveProcessAs);
+            this.panel2.Controls.Add(this.btnLoadProcess);
             this.panel2.Controls.Add(this.ccbProcess);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -112,23 +112,24 @@
             this.panel2.Size = new System.Drawing.Size(326, 45);
             this.panel2.TabIndex = 2;
             // 
-            // button1
+            // btnSaveProcessAs
             // 
-            this.button1.Image = global::Mockup2.Properties.Resources.save;
-            this.button1.Location = new System.Drawing.Point(294, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(28, 23);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSaveProcessAs.Image = global::Mockup2.Properties.Resources.save;
+            this.btnSaveProcessAs.Location = new System.Drawing.Point(294, 8);
+            this.btnSaveProcessAs.Name = "btnSaveProcessAs";
+            this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 23);
+            this.btnSaveProcessAs.TabIndex = 3;
+            this.btnSaveProcessAs.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnLoadProcess
             // 
-            this.button2.Image = global::Mockup2.Properties.Resources.down1;
-            this.button2.Location = new System.Drawing.Point(266, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(28, 23);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLoadProcess.Image = global::Mockup2.Properties.Resources.down1;
+            this.btnLoadProcess.Location = new System.Drawing.Point(266, 8);
+            this.btnLoadProcess.Name = "btnLoadProcess";
+            this.btnLoadProcess.Size = new System.Drawing.Size(28, 23);
+            this.btnLoadProcess.TabIndex = 2;
+            this.btnLoadProcess.UseVisualStyleBackColor = true;
+            this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
             // 
             // ccbProcess
             // 
@@ -248,7 +249,7 @@
             this.deleteTaskToolStripMenuItem,
             this.editNameToolStripMenuItem});
             this.ctmTask.Name = "ctmTask";
-            this.ctmTask.Size = new System.Drawing.Size(154, 114);
+            this.ctmTask.Size = new System.Drawing.Size(154, 92);
             // 
             // addMainTaskToolStripMenuItem
             // 
@@ -307,7 +308,7 @@
         private System.Windows.Forms.Panel pnCenter;
         private System.Windows.Forms.Button btnHide;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLoadProcess;
         private System.Windows.Forms.ComboBox ccbProcess;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -318,7 +319,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSubAdd;
         private System.Windows.Forms.Button btnOption;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveProcessAs;
         private System.Windows.Forms.ContextMenuStrip ctmTask;
         private System.Windows.Forms.ToolStripMenuItem addMainTaskToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addSubTaskToolStripMenuItem;
