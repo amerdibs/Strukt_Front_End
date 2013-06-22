@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mockup2
 {
-    class Workflows
+   public class Workflows
     {
 
     public int id { get; set; }
