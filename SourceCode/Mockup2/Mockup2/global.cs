@@ -44,9 +44,18 @@ namespace Mockup2
         {
             // still did not define Proxy
             System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strResource + strParam);
-            System.Net.WebResponse resp = req.GetResponse();
-            System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
-            return sr.ReadToEnd().Trim();
+            try
+            {
+                System.Net.WebResponse resp = req.GetResponse();
+                System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
+                return sr.ReadToEnd().Trim();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
     }
 }
