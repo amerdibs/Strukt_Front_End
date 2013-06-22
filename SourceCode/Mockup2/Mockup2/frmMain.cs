@@ -324,9 +324,14 @@ namespace Mockup2
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(global.getRespondFromStruktGet(Strukt.URL_Role,""));
-            List<Properties_Strukt.Roles> roles = Properties_Strukt.Roles.getRolesAll();
-            MessageBox.Show("OK");
+            //List<Properties_Strukt.Roles> roles = Properties_Strukt.Roles.getRolesAll();
 
+            //List<Workflows> workflows = Workflows.getWorkflowByID("102243516");
+            //List<> workflows = Workflows.getWorkflowByID("102243516");
+            List<Conditions.Precondtion_sets> precon = Conditions.Precondtion_sets.getPrecondtion_setsByTaskID("2031343073");
+
+
+            MessageBox.Show(precon[0].id);
         }
     }
 }

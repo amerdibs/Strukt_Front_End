@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Mockup2
 {
@@ -20,9 +21,9 @@ namespace Mockup2
         public string current_sign_in_ip { get; set; } 
         public string last_sign_in_ip { get; set; } 
         public DateTime created_at { get; set; } 
-        public DateTime updated_at { get; set; } 
-        public int workflow_id { get; set; } 
-        public int role_id { get; set; } 
+        public DateTime updated_at { get; set; }
+        public string workflow_id { get; set; }
+        public string role_id { get; set; } 
         public string username { get; set; }
         public DateTime last_action_at { get; set; }
     }
