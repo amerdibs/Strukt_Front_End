@@ -9,21 +9,21 @@ namespace Mockup2
     public class Users
     {
         public int id { get; set; }
-        public String email { get; set; }
-        public String encrypted_password { get; set; }
-        public String reset_password_token { get; set; }
+        public string email { get; set; }
+        public string encrypted_password { get; set; }
+        public string reset_password_token { get; set; }
         public DateTime reset_password_sent_at { get; set; }
         public DateTime remember_created_at { get; set; } 
         public int sign_in_count { get; set; } 
         public DateTime current_sign_in_at { get; set; }
         public DateTime last_sign_in_at { get; set; }
-        public String current_sign_in_ip { get; set; } 
-        public String last_sign_in_ip { get; set; } 
+        public string current_sign_in_ip { get; set; } 
+        public string last_sign_in_ip { get; set; } 
         public DateTime created_at { get; set; } 
         public DateTime updated_at { get; set; } 
         public int workflow_id { get; set; } 
         public int role_id { get; set; } 
-        public String username { get; set; }
+        public string username { get; set; }
         public DateTime last_action_at { get; set; }
     }
 }

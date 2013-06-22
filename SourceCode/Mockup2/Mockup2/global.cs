@@ -33,8 +33,13 @@ namespace Mockup2
         public static int intWorkflowID = 0;
         public static int intUserID = 0;
 
-        //public String getValueFromStruktValue(String)
-        //{
-        //}
+        public String getValueFromStruktValue(String strParam)
+        {
+            string strExtract;
+
+
+
+            return strExtract;
+        }
     }
 }
