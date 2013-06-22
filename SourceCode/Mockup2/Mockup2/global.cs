@@ -39,5 +39,14 @@ namespace Mockup2
             strExtract = strParam.Substring(strParam.IndexOf("/", (strParam.IndexOf(Strukt.TypeStruktEnding) + Strukt.TypeStruktEndingChecking)) + 1);
             return strExtract;
         }
+
+        public static string getRespondFromStruktGet(string strResource , string strParam)
+        {
+            // still did not define Proxy
+            System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strResource + strParam);
+            System.Net.WebResponse resp = req.GetResponse();
+            System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
+            return sr.ReadToEnd().Trim();
+        }
     }
 }
