@@ -52,9 +52,9 @@ namespace Mockup2
                 if (strSect != "")
                 {
                     strSect = strSect.Split(new string[] {":{"}, StringSplitOptions.None)[1];
-                    strSect = strSect.Split(']')[0];
+                    strSect = strSect.Split(new string[] {"}}]"}, StringSplitOptions.None)[0];
                 }
-                strSect = "[" + strSect + "]";
+                strSect = "{" + strSect + "}";
                 //strSect = strSect.Replace('\"','\'');
 
 
@@ -64,7 +64,7 @@ namespace Mockup2
                 //strTest = strTest.Replace('\\','\0' );
 
 
-                List<Roles> roles = JsonConvert.DeserializeObject<List<Roles>>(strTest);
+                List<Roles> roles = JsonConvert.DeserializeObject<List<Roles>>(strSect);
                 return roles;
             }
 
