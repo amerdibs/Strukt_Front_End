@@ -24,7 +24,8 @@ namespace Mockup2
         public static string URL_Status = URLStrukt + "/status/";
 
         public static string TypeStrukt = "http://strukt.west.uni-koblenz.de";
-        public static string TypeStruktEnding = TypeStrukt.Substring(TypeStrukt.Length-3,3) + "/"; 
+        public static byte TypeStruktEndingChecking = 4;
+        public static string TypeStruktEnding = TypeStrukt.Substring(TypeStrukt.Length - TypeStruktEndingChecking + 1) + "/"; // Use 3 characters for ending checking
         public static string Type_Assignment = URLStrukt + "/assignment/";
         public static string Type_Workflow = URLStrukt + "/workflow/";
         public static string Type_Task = URLStrukt + "/task/";
