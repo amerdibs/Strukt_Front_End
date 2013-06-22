@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mockup2
 {
-    public class Properties
+    public class Properties_Strukt
     {
         public class Locations
         {

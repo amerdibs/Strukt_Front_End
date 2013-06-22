@@ -32,5 +32,9 @@ namespace Mockup2
         // fix value is used for the first prototype only
         public static int intWorkflowID = 0;
         public static int intUserID = 0;
+
+        //public String getValueFromStruktValue(String)
+        //{
+        //}
     }
 }
