@@ -23,7 +23,7 @@ namespace Mockup2
             public string contributor_id { get; set; }
         }
 
-        public class OptionalConditoins_sets
+        public class OptionalConditions_sets
         {
             public string id { get; set; }
             public string task_id { get; set; }

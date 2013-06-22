@@ -70,7 +70,7 @@ namespace Mockup2
             public string name { get; set; }
             public string url { get; set; }
         }
-        public class Task_Types
+        public class TaskTypes
         {
             public string id { get; set; }
             public string name { get; set; }
