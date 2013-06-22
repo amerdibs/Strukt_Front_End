@@ -323,7 +323,10 @@ namespace Mockup2
 
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(global.getRespondFromStruktGet(Strukt.URL_Role,""));
+            //MessageBox.Show(global.getRespondFromStruktGet(Strukt.URL_Role,""));
+            List<Properties_Strukt.Roles> roles = Properties_Strukt.Roles.getRolesAll();
+            MessageBox.Show("OK");
+
         }
     }
 }

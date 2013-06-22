@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Mockup2
 {
@@ -45,10 +46,7 @@ namespace Mockup2
 
             public static List<Roles> getRolesAll()
             {
-                List<Roles> roles  = new List<Roles>();
-
-
-
+                List<Roles> roles = JsonConvert.DeserializeObject<List<Roles>>(global.getRespondFromStruktGet(Strukt.URL_Role, ""));
                 return roles;
             }
 
