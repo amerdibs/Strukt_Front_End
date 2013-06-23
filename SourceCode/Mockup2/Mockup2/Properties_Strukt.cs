@@ -140,8 +140,25 @@ namespace Mockup2
                     throw;
                 }
 
-            }
 
+            }
+            public static List<Status> getStatusByID(string statusID)
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Status, "/" + statusID));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<Status> status = JsonConvert.DeserializeObject<List<Status>>(strResponse);
+                    return status;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
          
 
         }
