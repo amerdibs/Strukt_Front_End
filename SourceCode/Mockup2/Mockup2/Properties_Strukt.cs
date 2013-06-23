@@ -20,6 +20,23 @@ namespace Mockup2
         {
             public string id { get; set; }
             public string name { get; set; }
+            public static List<Projects> getProjectsAll()
+            {
+                try
+                {
+                    string strResponse =global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Project,""));
+                    if (strResponse == "")
+                        return null;
+                    List<Projects> projects = JsonConvert.DeserializeObject<List<Projects>>(strResponse);
+                    return projects;
+
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }
+            }
         }
         public class ResourceTypes
         {
@@ -69,6 +86,9 @@ namespace Mockup2
             public string id { get; set; }
             public string name { get; set; }
             public string url { get; set; }
+
+         
+
         }
         public class TaskTypes
         {
