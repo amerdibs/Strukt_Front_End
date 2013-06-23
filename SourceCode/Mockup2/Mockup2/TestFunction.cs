@@ -19,7 +19,7 @@ namespace Mockup2
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            List<Conditions.Precondtion_sets> precon = Conditions.Precondtion_sets.getPrecondtion_setsByTaskID("2031343073");
+            List<Condition.Precondtion_set> precon = Condition.Precondtion_set.getPrecondtion_setsByTaskID("2031343073");
             MessageBox.Show(precon[0].id);
         }
 

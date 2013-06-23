@@ -7,36 +7,36 @@ using Newtonsoft.Json;
 
 namespace Mockup2
 {
-    public class Conditions
+    public class Condition
     {
-        public class AlternativeContion_sets
+        public class AlternativeContion_set
         {
             public string id { get; set; }
             public string task_id { get; set; }
             public string alternativecontion_id { get; set; }
         }
 
-        public class Contributor_sets
+        public class Contributor_set
         {
             public string id { get; set; }
             public string task_id { get; set; }
             public string contributor_id { get; set; }
         }
 
-        public class OptionalConditions_sets
+        public class OptionalCondition_set
         {
             public string id { get; set; }
             public string task_id { get; set; }
             public string value_id { get; set; }
         }
 
-        public class Precondtion_sets
+        public class Precondtion_set
         {
             public string id { get; set; }
             public string task_id { get; set; }
             public string precondition_id { get; set; }
 
-            public static List<Precondtion_sets> getPrecondtion_setsByTaskID(string strTaskID)
+            public static List<Precondtion_set> getPrecondtion_setsByTaskID(string strTaskID)
             {
                 try
                 {
@@ -46,8 +46,8 @@ namespace Mockup2
                     if (strSect == "")
                         return null;
 
-                    List<Precondtion_sets> precondtion_sets = JsonConvert.DeserializeObject<List<Precondtion_sets>>(strSect);
-                    return precondtion_sets;
+                    List<Precondtion_set> precondtion_set = JsonConvert.DeserializeObject<List<Precondtion_set>>(strSect);
+                    return precondtion_set;
                 }
                 catch (Exception)
                 {
@@ -56,35 +56,35 @@ namespace Mockup2
             }
         }
 
-        public class Resource_sets
+        public class Resource_set
         {
             public string id { get; set; }
             public string task_id { get; set; }
             public string resourcce_id { get; set; }
         }
 
-        public class ResourceCondition_sets
+        public class ResourceCondition_set
         {
             public string id { get; set; }
             public string task_id { get; set; }
             public string resourceCondition_id { get; set; }
         }
 
-        public class Role_sets
+        public class Role_set
         {
             public string id { get; set; }
             public string user_id { get; set; }
             public string role_id { get; set; }
         }
 
-        public class RoleCondition_sets
+        public class RoleCondition_set
         {
             public string id { get; set; }
             public string task_id { get; set; }
             public string roleCondition_id { get; set; }
         }
 
-        public class Tools_sets
+        public class Tools_set
         {
             public string id { get; set; }
             public string task_id { get; set; }

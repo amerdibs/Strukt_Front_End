@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Mockup2
 {
-    public class Assignments
+    public class Assignment
     {
         public string source_task_id { get; set; }
         public string target_user_id { get; set; }

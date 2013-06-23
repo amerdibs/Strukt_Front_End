@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Mockup2
 {
-    public class Users
+    public class User
     {
         public int id { get; set; }
         public string email { get; set; }

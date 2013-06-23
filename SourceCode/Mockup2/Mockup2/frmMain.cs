@@ -328,7 +328,7 @@ namespace Mockup2
 
             //List<Workflows> workflows = Workflows.getWorkflowByID("102243516");
             //List<> workflows = Workflows.getWorkflowByID("102243516");
-            List<Conditions.Precondtion_sets> precon = Conditions.Precondtion_sets.getPrecondtion_setsByTaskID("2031343073");
+            List<Condition.Precondtion_set> precon = Condition.Precondtion_set.getPrecondtion_setsByTaskID("2031343073");
 
 
             MessageBox.Show(precon[0].id);

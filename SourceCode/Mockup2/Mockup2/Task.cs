@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Mockup2
 {
-    public class Tasks
+    public class Task
     {
         public string id { get; set; }
         public string precedes_id { get; set; }

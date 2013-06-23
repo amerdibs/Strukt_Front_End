@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Mockup2
 {
-   public class Workflows
+   public class Workflow    
     {
         public string id { get; set; }
         public string user_id { get; set; }
@@ -18,7 +18,7 @@ namespace Mockup2
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
 
-        public static List<Workflows> getWorkflowByID(string strWorkflowID)
+        public static List<Workflow> getWorkflowByID(string strWorkflowID)
         {
             try
             {
@@ -27,8 +27,8 @@ namespace Mockup2
                 if (strSect == "")
                     return null;
 
-                List<Workflows> workflows = JsonConvert.DeserializeObject<List<Workflows>>(strSect);
-                return workflows;
+                List<Workflow> workflow = JsonConvert.DeserializeObject<List<Workflow>>(strSect);
+                return workflow;
             }
             catch (Exception)
             {
