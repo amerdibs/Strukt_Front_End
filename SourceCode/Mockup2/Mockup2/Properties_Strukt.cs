@@ -15,6 +15,24 @@ namespace Mockup2
             public string name { get; set; }
             public string l_lat { get; set; }
             public string l_long { get; set; }
+
+            public static List<Locations> getProjectsAll()
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Location, ""));
+                    if (strResponse == "")
+                        return null;
+                    List<Locations> locations = JsonConvert.DeserializeObject<List<Locations>>(strResponse);
+                    return locations;
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
         }
         public class Projects
         {
@@ -44,6 +62,24 @@ namespace Mockup2
             public string name { get; set; }
             public string ending { get; set; }
             public string icon_url { get; set; }
+            public static List<ResourceTypes> getResourceTypesAll()
+            {
+                try
+                {
+                    string strRespo = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Resource_type, ""));
+
+                    if (strRespo == "")
+                        return null;
+
+                    List<ResourceTypes> resource_type  = JsonConvert.DeserializeObject<List<ResourceTypes>>(strRespo);
+                    return resource_type;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
         }
         public class Resources
         {
@@ -65,12 +101,12 @@ namespace Mockup2
             {
                 try
                 {
-                    string strSect = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Role, ""));
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Role, ""));
 
-                    if (strSect == "")
+                    if (strResponse == "")
                         return null;
 
-                    List<Roles> roles = JsonConvert.DeserializeObject<List<Roles>>(strSect);
+                    List<Roles> roles = JsonConvert.DeserializeObject<List<Roles>>(strResponse);
                     return roles;
                 }
                 catch (Exception)
