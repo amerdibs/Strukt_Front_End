@@ -9,22 +9,22 @@ namespace Mockup2
 {
     public class Properties_Strukt
     {
-        public class Locations
+        public class Location
         {
             public string id { get; set; }
             public string name { get; set; }
             public string l_lat { get; set; }
             public string l_long { get; set; }
 
-            public static List<Locations> getProjectsAll()
+            public static List<Location> getLocationAll()
             {
                 try
                 {
                     string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Location, ""));
                     if (strResponse == "")
                         return null;
-                    List<Locations> locations = JsonConvert.DeserializeObject<List<Locations>>(strResponse);
-                    return locations;
+                    List<Location> location = JsonConvert.DeserializeObject<List<Location>>(strResponse);
+                    return location;
 
                 }
                 catch (Exception)
@@ -34,19 +34,19 @@ namespace Mockup2
                 }
             }
         }
-        public class Projects
+        public class Project
         {
             public string id { get; set; }
             public string name { get; set; }
-            public static List<Projects> getProjectsAll()
+            public static List<Project> getProjectAll()
             {
                 try
                 {
                     string strResponse =global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Project,""));
                     if (strResponse == "")
                         return null;
-                    List<Projects> projects = JsonConvert.DeserializeObject<List<Projects>>(strResponse);
-                    return projects;
+                    List<Project> project = JsonConvert.DeserializeObject<List<Project>>(strResponse);
+                    return project;
 
                 }
                 catch (Exception)
@@ -56,13 +56,13 @@ namespace Mockup2
                 }
             }
         }
-        public class ResourceTypes
+        public class ResourceType
         {
             public string id { get; set; }
             public string name { get; set; }
             public string ending { get; set; }
             public string icon_url { get; set; }
-            public static List<ResourceTypes> getResourceTypesAll()
+            public static List<ResourceType> getResourceTypeAll()
             {
                 try
                 {
@@ -71,7 +71,7 @@ namespace Mockup2
                     if (strRespo == "")
                         return null;
 
-                    List<ResourceTypes> resource_type  = JsonConvert.DeserializeObject<List<ResourceTypes>>(strRespo);
+                    List<ResourceType> resource_type  = JsonConvert.DeserializeObject<List<ResourceType>>(strRespo);
                     return resource_type;
                 }
                 catch (Exception)
@@ -81,7 +81,7 @@ namespace Mockup2
 
             }
         }
-        public class Resources
+        public class Resource
         {
             public string id { get; set; }
             public string type_id { get; set; }
@@ -92,12 +92,12 @@ namespace Mockup2
             public string size { get; set; }
             public string date { get; set; }
         }
-        public class Roles
+        public class Role
         {
             public string id { get; set; }
             public string name { get; set; }
 
-            public static List<Roles> getRolesAll()
+            public static List<Role> getRoleAll()
             {
                 try
                 {
@@ -106,8 +106,8 @@ namespace Mockup2
                     if (strResponse == "")
                         return null;
 
-                    List<Roles> roles = JsonConvert.DeserializeObject<List<Roles>>(strResponse);
-                    return roles;
+                    List<Role> role = JsonConvert.DeserializeObject<List<Role>>(strResponse);
+                    return role;
                 }
                 catch (Exception)
                 {
@@ -117,21 +117,40 @@ namespace Mockup2
             }
 
         }
-        public class Statuses
+        public class Status
         {
             public string id { get; set; }
             public string name { get; set; }
             public string url { get; set; }
 
+            public static List<Status> getStatusAll()
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Status, ""));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<Status> status = JsonConvert.DeserializeObject<List<Status>>(strResponse);
+                    return status;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+
          
 
         }
-        public class TaskTypes
+        public class TaskType
         {
             public string id { get; set; }
             public string name { get; set; }
         }
-        public class Tools
+        public class Tool
         {
             public string id { get; set; }
             public string name { get; set; }
