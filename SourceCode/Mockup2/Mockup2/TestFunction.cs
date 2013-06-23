@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Mockup2
 {
@@ -21,6 +23,9 @@ namespace Mockup2
         {
             List<Condition.Precondtion_set> precon = Condition.Precondtion_set.getPrecondtion_setsByTaskID("2031343073");
             MessageBox.Show(precon[0].id);
+
+            string json = JsonConvert.SerializeObject(precon, Formatting.Indented);
+            MessageBox.Show(json);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

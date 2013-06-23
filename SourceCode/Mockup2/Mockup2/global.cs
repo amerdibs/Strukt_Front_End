@@ -85,5 +85,38 @@ namespace Mockup2
 
             return strReturn;
         }
+
+        public static string sendJSONintoStruktPost(string strResource, string strJSON)
+        {
+            System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strResource);
+            //req.Proxy = new System.Net.WebProxy(ProxyString, true); // still did not define Proxy
+            //Add these, as we're doing a POST
+            req.ContentType = "application/json";
+            req.Method = "POST";
+            //We need to count how many bytes we're sending. 
+            byte[] bytes = System.Text.Encoding.ASCII.GetBytes(strJSON);
+            req.ContentLength = bytes.Length;
+            try
+            {
+                System.IO.Stream os = req.GetRequestStream();
+                os.Write(bytes, 0, bytes.Length); //Push it out there
+                os.Close();
+                System.Net.WebResponse resp = req.GetResponse();
+                if (resp == null) return null;
+                System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
+                return sr.ReadToEnd().Trim();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        //public static string 
+
+        
+
+
     }
 }
