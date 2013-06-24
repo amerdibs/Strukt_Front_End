@@ -41,7 +41,7 @@ namespace Mockup2
         {
             try
             {
-                string strSource = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Assignment, "?source_task_id=" + Strukt.Type_User + strTargetUserID));
+                string strSource = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Assignment, "?source_user_id=" + Strukt.Type_User + strTargetUserID));
 
                 if (strSource == "")
 
