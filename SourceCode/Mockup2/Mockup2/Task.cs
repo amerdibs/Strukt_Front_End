@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,5 +26,43 @@ namespace Mockup2
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
 
+
+        public static List<Task> getTaskByParentWorkflowID(string strParentWorkflowID)
+        {
+            try
+            {
+                string strFlowID = global.getExtractValueFromRespond(
+                                    global.getRespondFromStruktGet(Strukt.URL_Task, "?parent_workflow_id=" + Strukt.Type_Workflow + strParentWorkflowID));
+
+                if (strFlowID == "")
+                    return null;
+
+                List<Task> taskList = JsonConvert.DeserializeObject<List<Task>>(strFlowID);
+                return taskList;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static List<Task> getTaskByUserID(string strUserID)
+        {
+            try
+            {
+                string strUser = global.getExtractValueFromRespond(
+                                    global.getRespondFromStruktGet(Strukt.URL_Task, "?user_id=" + Strukt.Type_User + strUserID));
+
+                if (strUser == "")
+                    return null;
+
+                List<Task> UserList = JsonConvert.DeserializeObject<List<Task>>(strUser);
+                return UserList;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
