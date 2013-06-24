@@ -9,7 +9,7 @@ namespace Mockup2
 {
     public class Condition
     {
-        public class AlternativeContion_set
+        public class AlternativeCondition_set
         {
             public string id { get; set; }
             public string task_id { get; set; }

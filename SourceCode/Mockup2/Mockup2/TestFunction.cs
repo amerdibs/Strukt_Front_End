@@ -24,9 +24,9 @@ namespace Mockup2
             List<Condition.Precondtion_set> precon = Condition.Precondtion_set.getPrecondtion_setsByTaskID("2031343073");
             MessageBox.Show(precon[0].id);
 
-            string json = JsonConvert.SerializeObject(precon, Formatting.Indented);
-            json = global.composeJSONforStrukt(json, Strukt.T_Precondition_set);
-            MessageBox.Show(json);
+            //string json = JsonConvert.SerializeObject(precon, Formatting.Indented);
+            //json = global.composeJSONforStrukt(json, Strukt.T_Precondition_set);
+            //MessageBox.Show(json);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
