@@ -8,14 +8,15 @@ using Newtonsoft.Json;
 namespace Mockup2
 {
     public class Properties_Strukt
+
     {
+
         public class Location
         {
             public string id { get; set; }
             public string name { get; set; }
             public string l_lat { get; set; }
             public string l_long { get; set; }
-
             public static List<Location> getLocationAll()
             {
                 try
@@ -33,6 +34,24 @@ namespace Mockup2
                     throw;
                 }
             }
+            public static List<Location> getLocationByID(string locationID)
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Location, "/" + locationID));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<Location> location = JsonConvert.DeserializeObject<List<Location>>(strResponse);
+                    return location;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+
         }
         public class Project
         {
@@ -52,6 +71,23 @@ namespace Mockup2
                 catch (Exception)
                 {
                     
+                    throw;
+                }
+            }
+            public static List<Project> getProjectByID(string projectID)
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Project, "/" + projectID));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<Project> project = JsonConvert.DeserializeObject<List<Project>>(strResponse);
+                    return project;
+                }
+                catch (Exception)
+                {
                     throw;
                 }
             }
@@ -80,6 +116,23 @@ namespace Mockup2
                 }
 
             }
+            public static List<ResourceType> getResourceTypeByID(string resourceTypeID)
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Resource_type, "/" + resourceTypeID));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<ResourceType> resourceType = JsonConvert.DeserializeObject<List<ResourceType>>(strResponse);
+                    return resourceType;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
         public class Resource
         {
@@ -91,6 +144,7 @@ namespace Mockup2
             public string url { get; set; }
             public string size { get; set; }
             public string date { get; set; }
+
         }
         public class Role
         {
@@ -114,6 +168,23 @@ namespace Mockup2
                     throw;
                 }
               
+            }
+            public static List<Role> getRoleByID(string roleID)
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Role, "/" + roleID));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<Role> role = JsonConvert.DeserializeObject<List<Role>>(strResponse);
+                    return role;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
 
         }
@@ -166,13 +237,101 @@ namespace Mockup2
         {
             public string id { get; set; }
             public string name { get; set; }
+            public static List<TaskType> getTasktypeAll()
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Task_type, ""));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<TaskType> tasktype = JsonConvert.DeserializeObject<List<TaskType>>(strResponse);
+                    return tasktype;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+
+            }
+            public static List<TaskType> getTaskTypeByID(string taskTypeID)
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Task_type, "/" + taskTypeID));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<TaskType> taskType = JsonConvert.DeserializeObject<List<TaskType>>(strResponse);
+                    return taskType;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
         public class Tool
         {
             public string id { get; set; }
             public string name { get; set; }
             public string url { get; set; }
+            public static List<Tool> getToolAll()
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Tool, ""));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<Tool> tool = JsonConvert.DeserializeObject<List<Tool>>(strResponse);
+                    return tool;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+
+            }
+            public static List<Tool> getToolByID(string toolID)
+            {
+                try
+                {
+                    string strResponse = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Tool, "/" + toolID));
+
+                    if (strResponse == "")
+                        return null;
+
+                    List<Tool> tool = JsonConvert.DeserializeObject<List<Tool>>(strResponse);
+                    return tool;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
+        
+       /* public static Properties_Strukt getProperties_StruktAll()
+        {
+            try
+            {
+                Properties_Strukt propertiesS = new Properties_Strukt();
+                 propertiesS.
+
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }*/
 
     }
 }
