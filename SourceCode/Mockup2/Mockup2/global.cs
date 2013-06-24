@@ -113,7 +113,12 @@ namespace Mockup2
 
         }
 
-        //public static string 
+        public static string composeJSONforStrukt(string strJSON, string strTType)
+        {
+            string strSect;
+            strSect = "{\"values\":[{\"" + strTType + "\":" + strJSON.Substring(1).Substring(0, strJSON.Length - 2) + "}]}";
+            return strSect;
+        }
 
         
 

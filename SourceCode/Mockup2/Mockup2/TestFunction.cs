@@ -25,6 +25,7 @@ namespace Mockup2
             MessageBox.Show(precon[0].id);
 
             string json = JsonConvert.SerializeObject(precon, Formatting.Indented);
+            json = global.composeJSONforStrukt(json, Strukt.T_Precondition_set);
             MessageBox.Show(json);
         }
 
