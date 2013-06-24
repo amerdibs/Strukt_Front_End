@@ -8,8 +8,34 @@ using Newtonsoft.Json;
 namespace Mockup2
 {
     public class Properties_Strukt
-
     {
+        List<Properties_Strukt.Location> locationList;
+        List<Properties_Strukt.Project> projectList;
+        List<Properties_Strukt.ResourceType> resourceTypeList;
+        List<Properties_Strukt.Resource> resourceList;
+        List<Properties_Strukt.Role> roleList;
+        List<Properties_Strukt.Status> statusList;
+        List<Properties_Strukt.TaskType> taskTypeList;
+        List<Properties_Strukt.Tool> toolList;
+
+        public static Properties_Strukt getProperties_StruktAll()
+        {
+            try
+            {
+                Properties_Strukt properties = new Properties_Strukt();
+                properties.locationList = Properties_Strukt.Location.getLocationAll();
+
+
+
+                
+                return properties;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public class Location
         {
@@ -317,21 +343,7 @@ namespace Mockup2
             }
         }
         
-       /* public static Properties_Strukt getProperties_StruktAll()
-        {
-            try
-            {
-                Properties_Strukt propertiesS = new Properties_Strukt();
-                 propertiesS.
-
-
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-        }*/
+        
 
     }
 }
