@@ -23,7 +23,7 @@ namespace Mockup2
         {
             List<Properties_Strukt.ResourceType> resource_type = Properties_Strukt.ResourceType.getResourceTypeAll();
             MessageBox.Show("Ok");
-            //comment what to do 
+
             /*List<Properties_Strukt.Status> status = Properties_Strukt.Status.getStatusByID("4");
             MessageBox.Show(status[0].id);
              List<Properties_Strukt.Location> location = Properties_Strukt.Location.getLocationAll();
