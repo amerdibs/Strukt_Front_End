@@ -26,6 +26,9 @@ namespace Mockup2
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
 
+        public Workflow workflowMember;
+
+
 
         public static List<Task> getTaskByParentWorkflowID(string strParentWorkflowID)
         {
