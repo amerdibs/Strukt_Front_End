@@ -10,6 +10,7 @@ namespace Mockup2
 {
     class global
     {
+
         // Users Interface part --------------
         public static bool hideWindows;
 
