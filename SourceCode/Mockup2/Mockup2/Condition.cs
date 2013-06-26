@@ -9,6 +9,9 @@ namespace Mockup2
 {
     public class Condition
     {
+        List<AlternativeCondition_set> AlternativeConditionLis;
+ 
+
         public class AlternativeCondition_set
         {
             public string id { get; set; }
