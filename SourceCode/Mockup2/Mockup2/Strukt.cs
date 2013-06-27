@@ -9,7 +9,6 @@ namespace Mockup2
     public class Strukt
     {
 
-
         public static string T_Assignment = "assignment";
         public static string T_Workflow = "workflow";
         public static string T_Task = "task";
