@@ -9,14 +9,31 @@ namespace Mockup2
 {
     public class Condition
     {
-        List<AlternativeCondition_set> AlternativeConditionLis;
- 
 
         public class AlternativeCondition_set
         {
             public string id { get; set; }
             public string task_id { get; set; }
             public string alternativecontion_id { get; set; }
+
+            public static List<AlternativeCondition_set> getAlternativeCondition_setByTaskID(string strTaskID)
+            {
+                try
+                {
+                    string strResourceSet = global.getExtractValueFromRespond(
+                                        global.getRespondFromStruktGet(Strukt.URL_Resourcecondition, "?task_id=" + Strukt.Type_Task + strTaskID));
+
+                    if (strResourceSet == "")
+                        return null;
+
+                    List<AlternativeCondition_set> alternateCondtion_set = JsonConvert.DeserializeObject<List<AlternativeCondition_set>>(strResourceSet);
+                    return alternateCondtion_set;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
 
         public class Contributor_set
@@ -72,12 +89,12 @@ namespace Mockup2
             public string task_id { get; set; }
             public string resourceCondition_id { get; set; }
 
-            public static List<ResourceCondition_set> setByTaskID(string strTaskID)
+            public static List<ResourceCondition_set> getResourceCondition_setByTaskID(string strTaskID)
             {
                 try
                 {
                     string strResourceSet = global.getExtractValueFromRespond(
-                                        global.getRespondFromStruktGet(Strukt.URL_Resource_type, "?resourceCondition_id=" + Strukt.Type_Resource_type + strTaskID));
+                                        global.getRespondFromStruktGet(Strukt.URL_Resourcecondition, "?task_id=" + Strukt.Type_Task + strTaskID));
 
                     if (strResourceSet == "")
                         return null;

@@ -21,7 +21,7 @@ namespace Mockup2
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            List<Properties_Strukt.ResourceType> resource_type = Properties_Strukt.ResourceType.getResourceTypeAll();
+            List<Condition.AlternativeCondition_set> alternate_set = Condition.AlternativeCondition_set.getAlternativeCondition_setByTaskID("338836980");
             MessageBox.Show("Ok");
 
             /*List<Properties_Strukt.Status> status = Properties_Strukt.Status.getStatusByID("4");
