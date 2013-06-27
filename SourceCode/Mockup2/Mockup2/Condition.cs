@@ -71,6 +71,25 @@ namespace Mockup2
             public string id { get; set; }
             public string task_id { get; set; }
             public string resourceCondition_id { get; set; }
+
+            public static List<ResourceCondition_set> setByTaskID(string strTaskID)
+            {
+                try
+                {
+                    string strResourceSet = global.getExtractValueFromRespond(
+                                        global.getRespondFromStruktGet(Strukt.URL_Resource_type, "?resourceCondition_id=" + Strukt.Type_Resource_type + strTaskID));
+
+                    if (strResourceSet == "")
+                        return null;
+
+                    List<ResourceCondition_set> resourceCondtion_set = JsonConvert.DeserializeObject<List<ResourceCondition_set>>(strResourceSet);
+                    return resourceCondtion_set;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
 
         public class Role_set
