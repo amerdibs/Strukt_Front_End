@@ -15,6 +15,7 @@ namespace Mockup2
         public static string T_Task = "task";
         public static string T_Precondition_set = "precondition_set";
         public static string T_Optionalcondition = "optionalcondition";
+        public static string T_Alternatecondition = "alternatecondition";
         public static string T_Resourcecondition = "resourcecondition_set";
         public static string T_Rolecondition = "rolecondition_set";
         public static string T_Role = "role";
@@ -33,6 +34,7 @@ namespace Mockup2
         public static string URL_Task = "/" + T_Task;
         public static string URL_Precondition_set = "/" + T_Precondition_set;
         public static string URL_Optionalcondition = "/" + T_Optionalcondition;
+        public static string URL_Alternatecondition = "/" + T_Alternatecondition;
         public static string URL_Resourcecondition = "/" + T_Resourcecondition;
         public static string URL_Rolecondition = "/" + T_Rolecondition;
         public static string URL_Role = "/" + T_Role;
@@ -52,6 +54,7 @@ namespace Mockup2
         public static string Type_Task = TypeStrukt + "/" + T_Task + "/";
         public static string Type_Precondition_set = TypeStrukt + "/" + T_Precondition_set + "/";
         public static string Type_Optionalcondition = TypeStrukt + "/" + T_Optionalcondition + "/";
+        public static string Type_Alternatecondition = TypeStrukt + "/" + T_Alternatecondition + "/";
         public static string Type_Resourcecondition = TypeStrukt + "/" + T_Resourcecondition + "/";
         public static string Type_Rolecondition = TypeStrukt + "/" + T_Rolecondition + "/";
         public static string Type_Role = TypeStrukt + "/" + T_Role + "/";
