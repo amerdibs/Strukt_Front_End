@@ -15,7 +15,7 @@ namespace Mockup2
         public static string T_Task = "task";
         public static string T_Precondition_set = "precondition_set";
         public static string T_Optionalcondition = "optionalcondition";
-        public static string T_Alternatecondition_set = "alternatecondition_set";
+        public static string T_Alternatecondition_set = "alternativecondition_set";
         public static string T_Resourcecondition = "resourcecondition_set";
         public static string T_Rolecondition = "rolecondition_set";
         public static string T_Role = "role";
