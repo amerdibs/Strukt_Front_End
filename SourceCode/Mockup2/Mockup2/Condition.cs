@@ -21,7 +21,7 @@ namespace Mockup2
                 try
                 {
                     string strResourceSet = global.getExtractValueFromRespond(
-                                        global.getRespondFromStruktGet(Strukt.URL_Alternatecondition, "?task_id=" + Strukt.Type_Task + strTaskID));
+                                        global.getRespondFromStruktGet(Strukt.URL_Alternatecondition_set, "?task_id=" + Strukt.Type_Task + strTaskID));
 
                     if (strResourceSet == "")
                         return null;
