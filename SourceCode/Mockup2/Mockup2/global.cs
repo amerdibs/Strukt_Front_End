@@ -34,6 +34,7 @@ namespace Mockup2
         public static string strWorkflowID = "354249471";
         public static string strUserID = "4";
 
+        //Extract the value from type
         public static string getValueFromStruktValue(string strParam)
         {
             string strExtract = "";
@@ -41,6 +42,7 @@ namespace Mockup2
             return strExtract;
         }
 
+        //Send Get to Strukt and receive data
         public static string getRespondFromStruktGet(string strResource , string strParam)
         {
             // still did not define Proxy
@@ -59,6 +61,7 @@ namespace Mockup2
             
         }
 
+        //Arrange the Strukt's JSON structure into serialized JSON structure after GET
         public static string getExtractValueFromRespond(string strParam)
         {
             string strReturn;
@@ -86,6 +89,7 @@ namespace Mockup2
             return strReturn;
         }
 
+        //Send POST with value to Strukt and receive the result
         public static string sendJSONintoStruktPost(string strResource, string strJSON)
         {
             System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strResource);
@@ -113,6 +117,7 @@ namespace Mockup2
 
         }
 
+        //Arrange serialized JSON structure into Strukt's JSON structure before POST
         public static string composeJSONforStrukt(string strJSON, string strTType)
         {
             string strSect;
