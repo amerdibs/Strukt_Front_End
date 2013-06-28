@@ -23,17 +23,23 @@ namespace Mockup2
         }
 
         private void frmTaskEdit_Load(object sender, EventArgs e)
-        {try
+        {
+            try
  
-	{	
-             ccbTask.SelectedIndex = 1;
+	        {	
+                cbTask.SelectedIndex = 1;
 
 
-             Properties_Strukt propertie = Properties_Strukt.getProperties_StruktAll();
-             for (int i = 0; i <propertie.locationList.Count; i++)
-			{
-                CBX_Location.Items.Add(propertie.locationList[i].name);
-			}
+                Properties_Strukt propertie = Properties_Strukt.getProperties_StruktAll();
+                cbLocation.DataSource = propertie.locationList;
+                cbLocation.ValueMember = "id";
+                cbLocation.DisplayMember = "name";
+
+
+            //for (int i = 0; i <propertie.locationList.Count; i++)
+			//{
+            //    CBX_Location.Items.Add(propertie.locationList[i].name);
+			//}
            
             
                        

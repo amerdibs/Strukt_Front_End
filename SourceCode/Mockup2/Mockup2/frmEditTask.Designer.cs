@@ -30,17 +30,18 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.ccbTask = new System.Windows.Forms.ComboBox();
+            this.cbTask = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CBX_Project = new System.Windows.Forms.ComboBox();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.cbProject = new System.Windows.Forms.ComboBox();
             this.dateTimePicker_Deadline = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_Date = new System.Windows.Forms.DateTimePicker();
-            this.CBX_Location = new System.Windows.Forms.ComboBox();
-            this.CBX_Model = new System.Windows.Forms.ComboBox();
-            this.CBX_Task_Type = new System.Windows.Forms.ComboBox();
+            this.cbLocation = new System.Windows.Forms.ComboBox();
+            this.cbModel = new System.Windows.Forms.ComboBox();
+            this.cbTaskType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.CBX_Status = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,7 +72,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.ccbTask);
+            this.panel1.Controls.Add(this.cbTask);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -88,10 +88,10 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Task/ SubTask";
             // 
-            // ccbTask
+            // cbTask
             // 
-            this.ccbTask.FormattingEnabled = true;
-            this.ccbTask.Items.AddRange(new object[] {
+            this.cbTask.FormattingEnabled = true;
+            this.cbTask.Items.AddRange(new object[] {
             "Main Task 1",
             "________Sub Task 1",
             "________Sub Task 2",
@@ -102,10 +102,10 @@
             "________Sub Task 2_2",
             "________Sub Task 2_3",
             "________Sub Task 2_4"});
-            this.ccbTask.Location = new System.Drawing.Point(100, 10);
-            this.ccbTask.Name = "ccbTask";
-            this.ccbTask.Size = new System.Drawing.Size(233, 21);
-            this.ccbTask.TabIndex = 0;
+            this.cbTask.Location = new System.Drawing.Point(100, 10);
+            this.cbTask.Name = "cbTask";
+            this.cbTask.Size = new System.Drawing.Size(233, 21);
+            this.cbTask.TabIndex = 0;
             // 
             // panel2
             // 
@@ -139,13 +139,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.CBX_Status);
-            this.groupBox1.Controls.Add(this.CBX_Project);
+            this.groupBox1.Controls.Add(this.cbStatus);
+            this.groupBox1.Controls.Add(this.cbProject);
             this.groupBox1.Controls.Add(this.dateTimePicker_Deadline);
             this.groupBox1.Controls.Add(this.dateTimePicker_Date);
-            this.groupBox1.Controls.Add(this.CBX_Location);
-            this.groupBox1.Controls.Add(this.CBX_Model);
-            this.groupBox1.Controls.Add(this.CBX_Task_Type);
+            this.groupBox1.Controls.Add(this.cbLocation);
+            this.groupBox1.Controls.Add(this.cbModel);
+            this.groupBox1.Controls.Add(this.cbTaskType);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -161,10 +161,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Properties";
             // 
-            // CBX_Project
+            // cbStatus
             // 
-            this.CBX_Project.FormattingEnabled = true;
-            this.CBX_Project.Items.AddRange(new object[] {
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
             "Main Task 1",
             "\tSub Task 1",
             "\tSub Task 2",
@@ -176,10 +176,30 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.CBX_Project.Location = new System.Drawing.Point(124, 149);
-            this.CBX_Project.Name = "CBX_Project";
-            this.CBX_Project.Size = new System.Drawing.Size(145, 21);
-            this.CBX_Project.TabIndex = 14;
+            this.cbStatus.Location = new System.Drawing.Point(124, 11);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(145, 21);
+            this.cbStatus.TabIndex = 15;
+            // 
+            // cbProject
+            // 
+            this.cbProject.FormattingEnabled = true;
+            this.cbProject.Items.AddRange(new object[] {
+            "Main Task 1",
+            "\tSub Task 1",
+            "\tSub Task 2",
+            "\tSub Task 3",
+            "\tSub Task 4",
+            "Main Task 2",
+            "\tSub Task 2_1",
+            "\tSub Task 2_2",
+            "\tSub Task 2_3",
+            "\tSub Task 2_4",
+            ""});
+            this.cbProject.Location = new System.Drawing.Point(124, 149);
+            this.cbProject.Name = "cbProject";
+            this.cbProject.Size = new System.Drawing.Size(145, 21);
+            this.cbProject.TabIndex = 14;
             // 
             // dateTimePicker_Deadline
             // 
@@ -195,10 +215,10 @@
             this.dateTimePicker_Date.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_Date.TabIndex = 12;
             // 
-            // CBX_Location
+            // cbLocation
             // 
-            this.CBX_Location.FormattingEnabled = true;
-            this.CBX_Location.Items.AddRange(new object[] {
+            this.cbLocation.FormattingEnabled = true;
+            this.cbLocation.Items.AddRange(new object[] {
             "Main Task 1",
             "\tSub Task 1",
             "\tSub Task 2",
@@ -210,15 +230,15 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.CBX_Location.Location = new System.Drawing.Point(124, 82);
-            this.CBX_Location.Name = "CBX_Location";
-            this.CBX_Location.Size = new System.Drawing.Size(145, 21);
-            this.CBX_Location.TabIndex = 10;
+            this.cbLocation.Location = new System.Drawing.Point(124, 82);
+            this.cbLocation.Name = "cbLocation";
+            this.cbLocation.Size = new System.Drawing.Size(145, 21);
+            this.cbLocation.TabIndex = 10;
             // 
-            // CBX_Model
+            // cbModel
             // 
-            this.CBX_Model.FormattingEnabled = true;
-            this.CBX_Model.Items.AddRange(new object[] {
+            this.cbModel.FormattingEnabled = true;
+            this.cbModel.Items.AddRange(new object[] {
             "Main Task 1",
             "\tSub Task 1",
             "\tSub Task 2",
@@ -230,15 +250,15 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.CBX_Model.Location = new System.Drawing.Point(124, 60);
-            this.CBX_Model.Name = "CBX_Model";
-            this.CBX_Model.Size = new System.Drawing.Size(145, 21);
-            this.CBX_Model.TabIndex = 9;
+            this.cbModel.Location = new System.Drawing.Point(124, 60);
+            this.cbModel.Name = "cbModel";
+            this.cbModel.Size = new System.Drawing.Size(145, 21);
+            this.cbModel.TabIndex = 9;
             // 
-            // CBX_Task_Type
+            // cbTaskType
             // 
-            this.CBX_Task_Type.FormattingEnabled = true;
-            this.CBX_Task_Type.Items.AddRange(new object[] {
+            this.cbTaskType.FormattingEnabled = true;
+            this.cbTaskType.Items.AddRange(new object[] {
             "Main Task 1",
             "\tSub Task 1",
             "\tSub Task 2",
@@ -250,10 +270,10 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.CBX_Task_Type.Location = new System.Drawing.Point(124, 38);
-            this.CBX_Task_Type.Name = "CBX_Task_Type";
-            this.CBX_Task_Type.Size = new System.Drawing.Size(145, 21);
-            this.CBX_Task_Type.TabIndex = 8;
+            this.cbTaskType.Location = new System.Drawing.Point(124, 38);
+            this.cbTaskType.Name = "cbTaskType";
+            this.cbTaskType.Size = new System.Drawing.Size(145, 21);
+            this.cbTaskType.TabIndex = 8;
             // 
             // label8
             // 
@@ -498,26 +518,6 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
-            // CBX_Status
-            // 
-            this.CBX_Status.FormattingEnabled = true;
-            this.CBX_Status.Items.AddRange(new object[] {
-            "Main Task 1",
-            "\tSub Task 1",
-            "\tSub Task 2",
-            "\tSub Task 3",
-            "\tSub Task 4",
-            "Main Task 2",
-            "\tSub Task 2_1",
-            "\tSub Task 2_2",
-            "\tSub Task 2_3",
-            "\tSub Task 2_4",
-            ""});
-            this.CBX_Status.Location = new System.Drawing.Point(124, 11);
-            this.CBX_Status.Name = "CBX_Status";
-            this.CBX_Status.Size = new System.Drawing.Size(145, 21);
-            this.CBX_Status.TabIndex = 15;
-            // 
             // frmTaskEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,13 +555,13 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox ccbTask;
-        private System.Windows.Forms.ComboBox CBX_Project;
+        private System.Windows.Forms.ComboBox cbTask;
+        private System.Windows.Forms.ComboBox cbProject;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Deadline;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Date;
-        private System.Windows.Forms.ComboBox CBX_Location;
-        private System.Windows.Forms.ComboBox CBX_Model;
-        private System.Windows.Forms.ComboBox CBX_Task_Type;
+        private System.Windows.Forms.ComboBox cbLocation;
+        private System.Windows.Forms.ComboBox cbModel;
+        private System.Windows.Forms.ComboBox cbTaskType;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -580,6 +580,6 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.ComboBox CBX_Status;
+        private System.Windows.Forms.ComboBox cbStatus;
     }
 }
