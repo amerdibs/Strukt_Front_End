@@ -318,7 +318,8 @@ namespace Mockup2
 
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
-
+            Workflow wfMain = Workflow.getWorkflowHierachybyID(global.strWorkflowID);
+            MessageBox.Show("OK");
         }
 
         private void btnHide_Click(object sender, EventArgs e)

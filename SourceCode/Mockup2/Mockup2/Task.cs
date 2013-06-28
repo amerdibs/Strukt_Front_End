@@ -27,8 +27,7 @@ namespace Mockup2
         public DateTime updated_at { get; set; }
 
         public Workflow workflowMember;
-        public Task taskFollow;
-        public Task taskPrecedes;
+
 
 
 

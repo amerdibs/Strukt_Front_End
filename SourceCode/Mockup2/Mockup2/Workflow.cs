@@ -20,7 +20,7 @@ namespace Mockup2
 
         public List<Task> taskList;
 
-        public static Workflow getWorkflowByID(string strWorkflowID)
+        public static List<Workflow> getWorkflowByID(string strWorkflowID)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace Mockup2
                 if (strSect == "")
                     return null;
 
-                Workflow workflow = JsonConvert.DeserializeObject<Workflow>(strSect);
+                List<Workflow> workflow = JsonConvert.DeserializeObject<List<Workflow>>(strSect);
                 return workflow;
             }
             catch (Exception)
@@ -41,17 +41,24 @@ namespace Mockup2
 
         public static Workflow getWorkflowHierachybyID(string strWorkflowID)
         {
-            Workflow wfGet = getWorkflowByID(global.strWorkflowID);
-            List<Task> tkList = Task.getTaskByParentWorkflowID(global.strWorkflowID);
-            wfGet.taskList = tkList;
+            List<Workflow> wfGet = getWorkflowByID(strWorkflowID);
+            List<Task> tkList = Task.getTaskByParentWorkflowID(strWorkflowID);
+            if (tkList == null)
+            {
+                return null;
+            }
+            wfGet[0].taskList = tkList;
+
             foreach (Task tkUse in tkList)
             {
-                if (tkUse.child_workflow_id != null)
+                List<Workflow> wfSubGet = getWorkflowByID(global.getValueFromStruktValue(tkUse.child_workflow_id));
+                tkUse.workflowMember = wfSubGet[0];
+                if ( !tkUse.user_id.Contains("null") )
                 {
                     tkUse.workflowMember = getWorkflowHierachybyID(global.getValueFromStruktValue(tkUse.child_workflow_id));
                 }
             }
-            return wfGet;
+            return wfGet[0];
         }
 
     }
