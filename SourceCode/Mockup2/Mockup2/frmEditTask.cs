@@ -27,13 +27,23 @@ namespace Mockup2
             try
  
 	        {	
+               /* 
+                string work_flow_id = cbTask.SelectedValue.ToString();
+                Task _task[] = Task.getTaskByParentWorkflowID(work_flow_id);*/
                 cbTask.SelectedIndex = 1;
-
-
                 Properties_Strukt propertie = Properties_Strukt.getProperties_StruktAll();
                 cbLocation.DataSource = propertie.locationList;
                 cbLocation.ValueMember = "id";
                 cbLocation.DisplayMember = "name";
+                cbStatus.DataSource = propertie.statusList;
+                cbStatus.ValueMember = "id";
+                cbStatus.DisplayMember = "name";
+                cbTaskType.DataSource = propertie.taskTypeList;
+                cbTaskType.ValueMember="id";
+                cbTaskType.DisplayMember = "name";
+                cbProject.DataSource = propertie.projectList;
+                cbProject.ValueMember = "id";
+                cbProject.DisplayMember = "name";
 
 
             //for (int i = 0; i <propertie.locationList.Count; i++)
