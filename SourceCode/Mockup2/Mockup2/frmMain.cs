@@ -318,6 +318,7 @@ namespace Mockup2
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
             Workflow wfMain = Workflow.getWorkflowHierachybyID(global.strWorkflowID);
+            generateTaskControl(wfMain);
             MessageBox.Show("OK");
         }
 
@@ -336,6 +337,12 @@ namespace Mockup2
                 btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_sw));
                 global.hideWindows = false;
             }
+        }
+
+        private void generateTaskControl(Workflow wfParam)
+        {
+
+
         }
     }
 }
