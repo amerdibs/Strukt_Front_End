@@ -23,8 +23,31 @@ namespace Mockup2
         }
 
         private void frmTaskEdit_Load(object sender, EventArgs e)
-        {
-            ccbTask.SelectedIndex = 1;
+        {try
+ 
+	{	
+             ccbTask.SelectedIndex = 1;
+
+
+             Properties_Strukt propertie = Properties_Strukt.getProperties_StruktAll();
+             for (int i = 0; i <propertie.locationList.Count; i++)
+			{
+                CBX_Location.Items.Add(propertie.locationList[i].name);
+			}
+           
+            
+                       
+             //CBX_Location.DataSource = propertie.locationList;
+       
+            
+		
+	}
+	catch (Exception)
+	{
+		
+		throw;
+	}
+           
         }
 
         private void btnOK_Click(object sender, EventArgs e)

@@ -9,14 +9,14 @@ namespace Mockup2
 {
     public class Properties_Strukt
     {
-        List<Properties_Strukt.Location> locationList;
-        List<Properties_Strukt.Project> projectList;
-        List<Properties_Strukt.ResourceType> resourceTypeList;
-        List<Properties_Strukt.Resource> resourceList;
-        List<Properties_Strukt.Role> roleList;
-        List<Properties_Strukt.Status> statusList;
-        List<Properties_Strukt.TaskType> taskTypeList;
-        List<Properties_Strukt.Tool> toolList;
+       public List<Properties_Strukt.Location> locationList;
+       public List<Properties_Strukt.Project> projectList;
+       public List<Properties_Strukt.ResourceType> resourceTypeList;
+       public List<Properties_Strukt.Role> roleList;
+       public List<Properties_Strukt.Status> statusList;
+       public List<Properties_Strukt.TaskType> taskTypeList;
+       public List<Properties_Strukt.Tool> toolList;
+       // List<Properties_Strukt.Resource> resourceList;
 
         public static Properties_Strukt getProperties_StruktAll()
         {
@@ -24,10 +24,13 @@ namespace Mockup2
             {
                 Properties_Strukt properties = new Properties_Strukt();
                 properties.locationList = Properties_Strukt.Location.getLocationAll();
-
-
-
-                
+                properties.projectList = Properties_Strukt.Project.getProjectAll();
+                properties.resourceTypeList = Properties_Strukt.ResourceType.getResourceTypeAll();
+                properties.roleList = Properties_Strukt.Role.getRoleAll();
+                properties.statusList = Properties_Strukt.Status.getStatusAll();
+                properties.taskTypeList = Properties_Strukt.TaskType.getTasktypeAll();
+                properties.toolList = Properties_Strukt.Tool.getToolAll();
+                                 
                 return properties;
             }
             catch (Exception)

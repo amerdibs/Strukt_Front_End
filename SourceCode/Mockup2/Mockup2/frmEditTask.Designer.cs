@@ -35,13 +35,12 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.CBX_Project = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker_Deadline = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_Date = new System.Windows.Forms.DateTimePicker();
+            this.CBX_Location = new System.Windows.Forms.ComboBox();
+            this.CBX_Model = new System.Windows.Forms.ComboBox();
+            this.CBX_Task_Type = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,6 +49,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
@@ -59,9 +61,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.CBX_Status = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -139,13 +139,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.CBX_Status);
+            this.groupBox1.Controls.Add(this.CBX_Project);
+            this.groupBox1.Controls.Add(this.dateTimePicker_Deadline);
+            this.groupBox1.Controls.Add(this.dateTimePicker_Date);
+            this.groupBox1.Controls.Add(this.CBX_Location);
+            this.groupBox1.Controls.Add(this.CBX_Model);
+            this.groupBox1.Controls.Add(this.CBX_Task_Type);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -161,10 +161,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Properties";
             // 
-            // comboBox4
+            // CBX_Project
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.CBX_Project.FormattingEnabled = true;
+            this.CBX_Project.Items.AddRange(new object[] {
             "Main Task 1",
             "\tSub Task 1",
             "\tSub Task 2",
@@ -176,29 +176,29 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.comboBox4.Location = new System.Drawing.Point(124, 149);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(145, 21);
-            this.comboBox4.TabIndex = 14;
+            this.CBX_Project.Location = new System.Drawing.Point(124, 149);
+            this.CBX_Project.Name = "CBX_Project";
+            this.CBX_Project.Size = new System.Drawing.Size(145, 21);
+            this.CBX_Project.TabIndex = 14;
             // 
-            // dateTimePicker2
+            // dateTimePicker_Deadline
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(124, 125);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 13;
+            this.dateTimePicker_Deadline.Location = new System.Drawing.Point(124, 125);
+            this.dateTimePicker_Deadline.Name = "dateTimePicker_Deadline";
+            this.dateTimePicker_Deadline.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_Deadline.TabIndex = 13;
             // 
-            // dateTimePicker1
+            // dateTimePicker_Date
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(124, 104);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker_Date.Location = new System.Drawing.Point(124, 104);
+            this.dateTimePicker_Date.Name = "dateTimePicker_Date";
+            this.dateTimePicker_Date.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_Date.TabIndex = 12;
             // 
-            // comboBox3
+            // CBX_Location
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.CBX_Location.FormattingEnabled = true;
+            this.CBX_Location.Items.AddRange(new object[] {
             "Main Task 1",
             "\tSub Task 1",
             "\tSub Task 2",
@@ -210,15 +210,15 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.comboBox3.Location = new System.Drawing.Point(124, 82);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(145, 21);
-            this.comboBox3.TabIndex = 10;
+            this.CBX_Location.Location = new System.Drawing.Point(124, 82);
+            this.CBX_Location.Name = "CBX_Location";
+            this.CBX_Location.Size = new System.Drawing.Size(145, 21);
+            this.CBX_Location.TabIndex = 10;
             // 
-            // comboBox2
+            // CBX_Model
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.CBX_Model.FormattingEnabled = true;
+            this.CBX_Model.Items.AddRange(new object[] {
             "Main Task 1",
             "\tSub Task 1",
             "\tSub Task 2",
@@ -230,15 +230,15 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.comboBox2.Location = new System.Drawing.Point(124, 60);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(145, 21);
-            this.comboBox2.TabIndex = 9;
+            this.CBX_Model.Location = new System.Drawing.Point(124, 60);
+            this.CBX_Model.Name = "CBX_Model";
+            this.CBX_Model.Size = new System.Drawing.Size(145, 21);
+            this.CBX_Model.TabIndex = 9;
             // 
-            // comboBox1
+            // CBX_Task_Type
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CBX_Task_Type.FormattingEnabled = true;
+            this.CBX_Task_Type.Items.AddRange(new object[] {
             "Main Task 1",
             "\tSub Task 1",
             "\tSub Task 2",
@@ -250,22 +250,10 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.comboBox1.Location = new System.Drawing.Point(124, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(145, 21);
-            this.comboBox1.TabIndex = 8;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(125, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(56, 17);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Active";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CBX_Task_Type.Location = new System.Drawing.Point(124, 38);
+            this.CBX_Task_Type.Name = "CBX_Task_Type";
+            this.CBX_Task_Type.Size = new System.Drawing.Size(145, 21);
+            this.CBX_Task_Type.TabIndex = 8;
             // 
             // label8
             // 
@@ -343,6 +331,38 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tools";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(223, 20);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(79, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.Text = "Attachment";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(115, 20);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(77, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.Text = "Application";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(28, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(45, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Link";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -478,37 +498,25 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
-            // radioButton1
+            // CBX_Status
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(28, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(45, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Link";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(115, 20);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Application";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(223, 20);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(79, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.Text = "Attachment";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.CBX_Status.FormattingEnabled = true;
+            this.CBX_Status.Items.AddRange(new object[] {
+            "Main Task 1",
+            "\tSub Task 1",
+            "\tSub Task 2",
+            "\tSub Task 3",
+            "\tSub Task 4",
+            "Main Task 2",
+            "\tSub Task 2_1",
+            "\tSub Task 2_2",
+            "\tSub Task 2_3",
+            "\tSub Task 2_4",
+            ""});
+            this.CBX_Status.Location = new System.Drawing.Point(124, 11);
+            this.CBX_Status.Name = "CBX_Status";
+            this.CBX_Status.Size = new System.Drawing.Size(145, 21);
+            this.CBX_Status.TabIndex = 15;
             // 
             // frmTaskEdit
             // 
@@ -548,13 +556,12 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ccbTask;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox CBX_Project;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_Deadline;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_Date;
+        private System.Windows.Forms.ComboBox CBX_Location;
+        private System.Windows.Forms.ComboBox CBX_Model;
+        private System.Windows.Forms.ComboBox CBX_Task_Type;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -573,5 +580,6 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.ComboBox CBX_Status;
     }
 }

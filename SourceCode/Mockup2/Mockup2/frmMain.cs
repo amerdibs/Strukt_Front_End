@@ -92,7 +92,7 @@ namespace Mockup2
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            /*
+            
             UCMainTask uMain = new UCMainTask();
             pnCenter.Controls.Add(uMain);
             uMain.Dock = DockStyle.Top;
@@ -119,8 +119,7 @@ namespace Mockup2
             
             uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
             uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-             * 
-             * */
+            
 
         }
 
