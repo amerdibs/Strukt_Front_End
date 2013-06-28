@@ -20,7 +20,7 @@ namespace Mockup2
 
         public List<Task> taskList;
 
-        public static List<Workflow> getWorkflowByID(string strWorkflowID)
+        public static Workflow getWorkflowByID(string strWorkflowID)
         {
             try
             {
@@ -29,13 +29,29 @@ namespace Mockup2
                 if (strSect == "")
                     return null;
 
-                List<Workflow> workflow = JsonConvert.DeserializeObject<List<Workflow>>(strSect);
+                Workflow workflow = JsonConvert.DeserializeObject<Workflow>(strSect);
                 return workflow;
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+
+        public static Workflow getWorkflowHierachybyID(string strWorkflowID)
+        {
+            Workflow wfGet = getWorkflowByID(global.strWorkflowID);
+            List<Task> tkList = Task.getTaskByParentWorkflowID(global.strWorkflowID);
+            wfGet.taskList = tkList;
+            foreach (Task tkUse in tkList)
+            {
+                if (tkUse.child_workflow_id != null)
+                {
+                    tkUse.workflowMember = getWorkflowHierachybyID(global.getValueFromStruktValue(tkUse.child_workflow_id));
+                }
+            }
+            return wfGet;
         }
 
     }

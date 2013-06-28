@@ -98,7 +98,7 @@
             this.btnHide.Size = new System.Drawing.Size(23, 45);
             this.btnHide.TabIndex = 1;
             this.btnHide.UseVisualStyleBackColor = true;
-            this.btnHide.Click += new System.EventHandler(this.button1_Click);
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
             // 
             // panel2
             // 

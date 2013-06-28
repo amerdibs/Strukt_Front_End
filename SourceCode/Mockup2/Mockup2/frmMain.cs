@@ -20,24 +20,6 @@ namespace Mockup2
          
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-
-            if (global.hideWindows == false)
-            {
-                frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 33;
-                btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_bk));
-                global.hideWindows = true;
-            }
-            else
-            {
-                frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 400;
-                btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_sw));
-                global.hideWindows = false;
-            }
-        }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             ccbProcess.SelectedIndex = 0;
@@ -75,6 +57,8 @@ namespace Mockup2
                 MessageBox.Show("Please add a main task before.");
                 return;
             }
+
+            /*
             UCSubTask uSub = new UCSubTask();
             pnCenter.Controls.Add(uSub);
             uSub.Dock = DockStyle.Top;
@@ -102,10 +86,13 @@ namespace Mockup2
 
             uSub.MouseDown += new MouseEventHandler(EventHandlerFromSubTask_MouseDown);
             uSub.DragDrop += new DragEventHandler(EventHandlerFromSubTask_DragDrop);
+             */
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+            /*
             UCMainTask uMain = new UCMainTask();
             pnCenter.Controls.Add(uMain);
             uMain.Dock = DockStyle.Top;
@@ -132,12 +119,14 @@ namespace Mockup2
             
             uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
             uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+             * 
+             * */
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            /*
             if (pnCenter.Controls.Count == 0)
             {
                 MessageBox.Show("There are no any tasks.");
@@ -170,6 +159,7 @@ namespace Mockup2
                 global.currentTaskControlObject = null;
                 global.currentTaskControlID = 0;
             }
+             */
         }
 
         private void btnOption_Click(object sender, EventArgs e)
@@ -224,6 +214,7 @@ namespace Mockup2
 
         private void pnCenter_DragDrop(object sender, DragEventArgs e)
         {
+            /*
             //For test
             //MessageBox.Show((string)e.Data.GetData(typeof(string)));
 
@@ -241,11 +232,12 @@ namespace Mockup2
                 
             global.dragTaskControlObject = null;
             global.dragTaskControlID = 0;
-            
+            */
         }
 
         private void EventHandlerFromMainTask_DragDrop(object sender, DragEventArgs e)
         {
+            /*
             // --- Mouse clicked event
             clearOtherSelectColor();
 
@@ -270,11 +262,12 @@ namespace Mockup2
             global.dragTaskControlObject = null;
             global.dragTaskControlID = 0;
 
-
+            */
         }
 
         private void EventHandlerFromSubTask_DragDrop(object sender, DragEventArgs e)
         {
+            /*
             // --- Mouse clicked event
             clearOtherSelectColor();
 
@@ -298,11 +291,12 @@ namespace Mockup2
 
             global.dragTaskControlObject = null;
             global.dragTaskControlID = 0;
-
+            */
         }
 
         private void clearOtherSelectColor()
         {
+            /*
             foreach (Object uClickControl in pnCenter.Controls)
             {
                 if (uClickControl.GetHashCode() != global.currentTaskControlID)
@@ -319,19 +313,29 @@ namespace Mockup2
                     }
                 }
             }
+             * */
         }
 
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(global.getRespondFromStruktGet(Strukt.URL_Role,""));
-            //List<Properties_Strukt.Roles> roles = Properties_Strukt.Roles.getRolesAll();
 
-            //List<Workflows> workflows = Workflows.getWorkflowByID("102243516");
-            //List<> workflows = Workflows.getWorkflowByID("102243516");
-            List<Condition.Precondtion_set> precon = Condition.Precondtion_set.getPrecondtion_setsByTaskID("2031343073");
+        }
 
+        private void btnHide_Click(object sender, EventArgs e)
+        {
 
-            MessageBox.Show(precon[0].id);
+            if (global.hideWindows == false)
+            {
+                frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 33;
+                btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_bk));
+                global.hideWindows = true;
+            }
+            else
+            {
+                frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 400;
+                btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_sw));
+                global.hideWindows = false;
+            }
         }
     }
 }

@@ -15,6 +15,8 @@ namespace Mockup2
         public Color preColor;
         public event EventHandler MainTaskMouseDown;
         public event EventHandler MainTaskDragDrop;
+        public byte byteTaskLevel = 0;
+        public Task taskMenber;
 
 
         public UCMainTask()
@@ -26,7 +28,11 @@ namespace Mockup2
 
         private void UCMainTask_Load(object sender, EventArgs e)
         {
-            
+            cbCheck.Left = cbCheck.Left + (18 * byteTaskLevel);
+            lbTitle.Left = lbTitle.Left + (18 * byteTaskLevel);
+
+            this.BackColor = Color.FromArgb(this.BackColor.R, this.BackColor.G, this.BackColor.B + (byte)(20 * byteTaskLevel));
+
         }
 
         private void lbTitle_Click(object sender, EventArgs e)
