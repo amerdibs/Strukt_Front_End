@@ -92,7 +92,7 @@ namespace Mockup2
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            
+            /*
             UCMainTask uMain = new UCMainTask();
             pnCenter.Controls.Add(uMain);
             uMain.Dock = DockStyle.Top;
@@ -119,7 +119,8 @@ namespace Mockup2
             
             uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
             uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-            
+             * 
+             * */
 
         }
 
@@ -213,55 +214,38 @@ namespace Mockup2
 
         private void pnCenter_DragDrop(object sender, DragEventArgs e)
         {
-            /*
+            
             //For test
             //MessageBox.Show((string)e.Data.GetData(typeof(string)));
 
             Object uControl = global.dragTaskControlObject;
-            if (uControl.GetType() == typeof(UCMainTask))
-            {
-                UCMainTask uSelect = (UCMainTask)uControl;
-                pnCenter.Controls.SetChildIndex(uSelect,0);
-            }
-            else if (uControl.GetType() == typeof(UCSubTask))
-            {
-                UCSubTask uSelect = (UCSubTask)uControl;
-                pnCenter.Controls.SetChildIndex(uSelect,0);
-            }
-                
+
+            UCMainTask uSelect = (UCMainTask)uControl;
+            pnCenter.Controls.SetChildIndex(uSelect,0);
+   
             global.dragTaskControlObject = null;
             global.dragTaskControlID = 0;
-            */
+            
         }
 
         private void EventHandlerFromMainTask_DragDrop(object sender, DragEventArgs e)
         {
-            /*
+            
             // --- Mouse clicked event
             clearOtherSelectColor();
-
+            
             // --- Drag drop event
             Object uControl = global.dragTaskControlObject;
             Object receiveControl = global.dropTaskControlObject;
 
             UCMainTask UCMainReceive = (UCMainTask)receiveControl;
             int intReceive = pnCenter.Controls.GetChildIndex(UCMainReceive);
-
-            if (uControl.GetType() == typeof(UCMainTask))
-            {
-                UCMainTask uSelect = (UCMainTask)uControl;
-                pnCenter.Controls.SetChildIndex(uSelect, intReceive);
-            }
-            else if (uControl.GetType() == typeof(UCSubTask))
-            {
-                UCSubTask uSelect = (UCSubTask)uControl;
-                pnCenter.Controls.SetChildIndex(uSelect, intReceive);
-            }
-
+            UCMainTask uSelect = (UCMainTask)uControl;
+            pnCenter.Controls.SetChildIndex(uSelect, intReceive);
             global.dragTaskControlObject = null;
             global.dragTaskControlID = 0;
 
-            */
+            
         }
 
         private void EventHandlerFromSubTask_DragDrop(object sender, DragEventArgs e)
@@ -295,6 +279,14 @@ namespace Mockup2
 
         private void clearOtherSelectColor()
         {
+            foreach (Object uClickControl in pnCenter.Controls)
+            {
+                if (uClickControl.GetHashCode() != global.currentTaskControlID)
+                {
+                    UCMainTask uMain = (UCMainTask)uClickControl;
+                    uMain.BackColor = uMain.colorBackGround;
+                }
+            }
             /*
             foreach (Object uClickControl in pnCenter.Controls)
             {
@@ -318,8 +310,9 @@ namespace Mockup2
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
             Workflow wfMain = Workflow.getWorkflowHierachybyID(global.strWorkflowID);
-            generateTaskControl(wfMain);
-            MessageBox.Show("OK");
+            pnCenter.Controls.Clear();
+            generateTaskControl(wfMain, 0);
+            //MessageBox.Show("OK");
         }
 
         private void btnHide_Click(object sender, EventArgs e)
@@ -339,10 +332,49 @@ namespace Mockup2
             }
         }
 
-        private void generateTaskControl(Workflow wfParam)
+        //Create hierachy of Task Controls
+        private void generateTaskControl(Workflow wfParam, int iLevel)
         {
+            if (wfParam == null)
+            {
+                return;
+            }
+            foreach (Task tEach in wfParam.taskList)
+            {
+                generateTaskControl(tEach.workflowMember, iLevel + 1);
+                UCMainTask uMain = new UCMainTask();
+                uMain.taskMember = tEach;
+                pnCenter.Controls.Add(uMain);
+                uMain.Dock = DockStyle.Top;
+                uMain.BackColor = global.ColorMainTask;
+                uMain.Controls["lbTitle"].Text = tEach.name;
+                uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (12 * iLevel);
+                uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (12 * iLevel);
+                uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(40 * iLevel));
+                uMain.colorBackGround = uMain.BackColor;
+                uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
 
+
+
+                /*
+                    Object uControl = global.currentTaskControlObject;
+                    if (uControl.GetType() == typeof(UCMainTask))
+                    {
+                        UCMainTask uSelect = (UCMainTask)uControl;
+                        int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
+                        pnCenter.Controls.SetChildIndex(uMain, iIndex);
+                    }
+                */
+                
+
+            }
+
+            
+            
 
         }
+
+
     }
 }

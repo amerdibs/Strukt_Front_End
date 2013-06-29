@@ -24,7 +24,7 @@ namespace Mockup2
         public static Object dragTaskControlObject;
         public static Object dropTaskControlObject;
 
-        public static Color ColorMainTask = Color.LightSteelBlue;
+        public static Color ColorMainTask = Color.Azure;
         public static Color ColorHover = Color.Tan;
         public static Color ColorSubTask = Color.Lavender;
         public static Color ColorSelect = Color.SandyBrown;

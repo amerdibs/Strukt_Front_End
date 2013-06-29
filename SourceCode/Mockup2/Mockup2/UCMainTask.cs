@@ -13,26 +13,23 @@ namespace Mockup2
     public partial class UCMainTask : UserControl
     {
         public Color preColor;
+        public Color colorBackGround;
         public event EventHandler MainTaskMouseDown;
         public event EventHandler MainTaskDragDrop;
-        public byte byteTaskLevel = 0;
-        public Task taskMenber;
+        public Task taskMember;
 
 
         public UCMainTask()
         {
+
             InitializeComponent();
-            this.BackColor = global.ColorMainTask;
+
             
         }
 
         private void UCMainTask_Load(object sender, EventArgs e)
         {
-            cbCheck.Left = cbCheck.Left + (18 * byteTaskLevel);
-            lbTitle.Left = lbTitle.Left + (18 * byteTaskLevel);
-
-            this.BackColor = Color.FromArgb(this.BackColor.R, this.BackColor.G, this.BackColor.B + (byte)(20 * byteTaskLevel));
-
+            
         }
 
         private void lbTitle_Click(object sender, EventArgs e)

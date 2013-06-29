@@ -16,9 +16,9 @@ namespace Mockup2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmMain());
+            Application.Run(new frmMain());
             //Application.Run(new TestFunction());
-            Application.Run(new frmTaskEdit());
+            //Application.Run(new frmTaskEdit());
         }
     }
 }
