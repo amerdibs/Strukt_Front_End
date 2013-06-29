@@ -25,8 +25,9 @@ namespace Mockup2
         private void frmTaskEdit_Load(object sender, EventArgs e)
         {
             try
- 
-	        {	
+            {
+                
+
                /* 
                 string work_flow_id = cbTask.SelectedValue.ToString();
                 Task _task[] = Task.getTaskByParentWorkflowID(work_flow_id);*/
@@ -44,8 +45,45 @@ namespace Mockup2
                 cbProject.DataSource = propertie.projectList;
                 cbProject.ValueMember = "id";
                 cbProject.DisplayMember = "name";
+                List<Task> tasklist;
+                tasklist = Task.getTaskByParentWorkflowID(global.strWorkflowID);
+                cbTask.DataSource = tasklist;
+                cbTask.DisplayMember = "name";
+                cbTask.ValueMember="id";
+                try
+                {
+                    DateTime date = new DateTime();
+                    DateTime deadline = new DateTime();
+                    foreach (Task _task in tasklist)
+                    {
+                        if (_task.id ==(string)cbTask.SelectedValue)
+                        {
+                            date = Convert.ToDateTime(_task.date);
+                            deadline = Convert.ToDateTime(_task.deadline);
+                            dateTimePicker_Date.Value = date;
+                            dateTimePicker_Deadline.Value = deadline;
+                        }
 
 
+
+
+                    }
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }
+               
+               
+             
+               
+                
+             //   dateTimePicker_Date.DataBindings=tas
+
+               
+
+               
             //for (int i = 0; i <propertie.locationList.Count; i++)
 			//{
             //    CBX_Location.Items.Add(propertie.locationList[i].name);
