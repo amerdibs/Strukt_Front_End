@@ -21,7 +21,7 @@ namespace Mockup2
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            List<Condition> alternate_set = Condition.getConditionByTaskID ("2031343073");
+            Condition alternate_set = Condition.getConditionByTaskID ("2031343073");
             MessageBox.Show("Ok");
 
             /*List<Properties_Strukt.Status> status = Properties_Strukt.Status.getStatusByID("4");
