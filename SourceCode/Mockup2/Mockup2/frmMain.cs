@@ -310,6 +310,7 @@ namespace Mockup2
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
             Workflow wfMain = Workflow.getWorkflowHierachybyID(global.strWorkflowID);
+            global.wfLoaded = wfMain;
             pnCenter.Controls.Clear();
             generateTaskControl(wfMain, 0);
             //MessageBox.Show("OK");
