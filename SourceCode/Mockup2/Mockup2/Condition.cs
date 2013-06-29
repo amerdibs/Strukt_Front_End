@@ -9,7 +9,7 @@ namespace Mockup2
 {
     public class Condition
     {
-
+   
         public class AlternativeCondition_set
         {
             public string id { get; set; }
@@ -48,6 +48,25 @@ namespace Mockup2
             public string id { get; set; }
             public string task_id { get; set; }
             public string value_id { get; set; }
+
+            public static List<OptionalCondition_set> getOptionalCondition_setByTaskID(string strTaskID)
+            {
+                try
+                {
+                    string strOptionalSet = global.getExtractValueFromRespond(
+                                        global.getRespondFromStruktGet(Strukt.URL_Optionalcondition, "?task_id=" + Strukt.Type_Task + strTaskID));
+
+                    if (strOptionalSet == "")
+                        return null;
+
+                    List<OptionalCondition_set> optionalCondtion_set = JsonConvert.DeserializeObject<List<OptionalCondition_set>>(strOptionalSet);
+                    return optionalCondtion_set;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
 
         public class Precondtion_set
@@ -121,6 +140,25 @@ namespace Mockup2
             public string id { get; set; }
             public string task_id { get; set; }
             public string roleCondition_id { get; set; }
+
+            public static List<RoleCondition_set> getRoleCondition_setByTaskID(string strTaskID)
+            {
+                try
+                {
+                    string strRoleSet = global.getExtractValueFromRespond(
+                                        global.getRespondFromStruktGet(Strukt.URL_Rolecondition, "?task_id=" + Strukt.Type_Task + strTaskID));
+
+                    if (strRoleSet == "")
+                        return null;
+
+                    List<RoleCondition_set> roleCondtion_set = JsonConvert.DeserializeObject<List<RoleCondition_set>>(strRoleSet);
+                    return roleCondtion_set;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
 
         public class Tools_set
