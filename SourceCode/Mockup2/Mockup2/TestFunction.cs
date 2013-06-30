@@ -24,9 +24,9 @@ namespace Mockup2
             Condition alternate_set = Condition.getConditionByTaskID ("2031343073");
             MessageBox.Show("Ok");
 
-            /*List<Properties_Strukt.Status> status = Properties_Strukt.Status.getStatusByID("4");
+            /*List<PropertiesStrukt.Status> status = PropertiesStrukt.Status.getStatusByID("4");
             MessageBox.Show(status[0].id);
-             List<Properties_Strukt.Location> location = Properties_Strukt.Location.getLocationAll();
+             List<PropertiesStrukt.Location> location = PropertiesStrukt.Location.getLocationAll();
              MessageBox.Show("Ok");
             List<Condition.Precondtion_set> precon = Condition.Precondtion_set.getPrecondtion_setsByTaskID("2031343073");
             MessageBox.Show(precon[0].id);*/

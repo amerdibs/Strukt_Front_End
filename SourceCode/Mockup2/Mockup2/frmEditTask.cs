@@ -38,7 +38,7 @@ namespace Mockup2
                  Task _task[] = Task.getTaskByParentWorkflowID(work_flow_id);*/
                 //cbTask.SelectedIndex = 1;
 
-                Properties_Strukt propertie = Properties_Strukt.getProperties_StruktAll();
+                PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
                 cbLocation.DataSource = propertie.locationList;
                 cbLocation.ValueMember = "id";
                 cbLocation.DisplayMember = "name";

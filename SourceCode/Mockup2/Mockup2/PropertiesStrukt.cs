@@ -7,29 +7,29 @@ using Newtonsoft.Json;
 
 namespace Mockup2
 {
-    public class Properties_Strukt
+    public class PropertiesStrukt
     {
-       public List<Properties_Strukt.Location> locationList;
-       public List<Properties_Strukt.Project> projectList;
-       public List<Properties_Strukt.ResourceType> resourceTypeList;
-       public List<Properties_Strukt.Role> roleList;
-       public List<Properties_Strukt.Status> statusList;
-       public List<Properties_Strukt.TaskType> taskTypeList;
-       public List<Properties_Strukt.Tool> toolList;
-       // List<Properties_Strukt.Resource> resourceList;
+       public List<Location> locationList;
+       public List<Project> projectList;
+       public List<ResourceType> resourceTypeList;
+       public List<Role> roleList;
+       public List<Status> statusList;
+       public List<TaskType> taskTypeList;
+       public List<Tool> toolList;
+       // List<Resource> resourceList;
 
-        public static Properties_Strukt getProperties_StruktAll()
+        public static PropertiesStrukt getPropertiesStruktAll()
         {
             try
             {
-                Properties_Strukt properties = new Properties_Strukt();
-                properties.locationList = Properties_Strukt.Location.getLocationAll();
-                properties.projectList = Properties_Strukt.Project.getProjectAll();
-                properties.resourceTypeList = Properties_Strukt.ResourceType.getResourceTypeAll();
-                properties.roleList = Properties_Strukt.Role.getRoleAll();
-                properties.statusList = Properties_Strukt.Status.getStatusAll();
-                properties.taskTypeList = Properties_Strukt.TaskType.getTasktypeAll();
-                properties.toolList = Properties_Strukt.Tool.getToolAll();
+                PropertiesStrukt properties = new PropertiesStrukt();
+                properties.locationList = Location.getLocationAll();
+                properties.projectList = Project.getProjectAll();
+                properties.resourceTypeList = ResourceType.getResourceTypeAll();
+                properties.roleList = Role.getRoleAll();
+                properties.statusList = Status.getStatusAll();
+                properties.taskTypeList = TaskType.getTasktypeAll();
+                properties.toolList = Tool.getToolAll();
                                  
                 return properties;
             }

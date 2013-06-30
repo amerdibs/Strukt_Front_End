@@ -98,7 +98,7 @@
     </Compile>
     <Compile Include="global.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Properties_Strukt.cs" />
+    <Compile Include="PropertiesStrukt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strukt.cs" />
     <Compile Include="Task.cs" />
