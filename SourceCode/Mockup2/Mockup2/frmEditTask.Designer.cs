@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTaskName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbTask = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -54,15 +55,14 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtTaskName = new System.Windows.Forms.TextBox();
+            this.lstPreCondition = new System.Windows.Forms.ListBox();
+            this.lstAlternative = new System.Windows.Forms.ListBox();
+            this.lstRoleCondition = new System.Windows.Forms.ListBox();
+            this.lstResourceCondition = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -80,6 +80,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(355, 41);
             this.panel1.TabIndex = 0;
+            // 
+            // txtTaskName
+            // 
+            this.txtTaskName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTaskName.Enabled = false;
+            this.txtTaskName.Location = new System.Drawing.Point(101, 10);
+            this.txtTaskName.Name = "txtTaskName";
+            this.txtTaskName.Size = new System.Drawing.Size(188, 20);
+            this.txtTaskName.TabIndex = 2;
+            this.txtTaskName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -115,7 +125,7 @@
             this.panel2.Controls.Add(this.btnOK);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 398);
+            this.panel2.Location = new System.Drawing.Point(0, 550);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 40);
             this.panel2.TabIndex = 1;
@@ -389,10 +399,10 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox8);
-            this.groupBox3.Controls.Add(this.comboBox7);
-            this.groupBox3.Controls.Add(this.comboBox6);
-            this.groupBox3.Controls.Add(this.comboBox5);
+            this.groupBox3.Controls.Add(this.lstResourceCondition);
+            this.groupBox3.Controls.Add(this.lstRoleCondition);
+            this.groupBox3.Controls.Add(this.lstAlternative);
+            this.groupBox3.Controls.Add(this.lstPreCondition);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
@@ -400,95 +410,15 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 276);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(355, 122);
+            this.groupBox3.Size = new System.Drawing.Size(355, 274);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Conditions";
             // 
-            // comboBox8
-            // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
-            "Main Task 1",
-            "\tSub Task 1",
-            "\tSub Task 2",
-            "\tSub Task 3",
-            "\tSub Task 4",
-            "Main Task 2",
-            "\tSub Task 2_1",
-            "\tSub Task 2_2",
-            "\tSub Task 2_3",
-            "\tSub Task 2_4",
-            ""});
-            this.comboBox8.Location = new System.Drawing.Point(124, 91);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(145, 21);
-            this.comboBox8.TabIndex = 18;
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
-            "Main Task 1",
-            "\tSub Task 1",
-            "\tSub Task 2",
-            "\tSub Task 3",
-            "\tSub Task 4",
-            "Main Task 2",
-            "\tSub Task 2_1",
-            "\tSub Task 2_2",
-            "\tSub Task 2_3",
-            "\tSub Task 2_4",
-            ""});
-            this.comboBox7.Location = new System.Drawing.Point(124, 69);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(145, 21);
-            this.comboBox7.TabIndex = 17;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
-            "Main Task 1",
-            "\tSub Task 1",
-            "\tSub Task 2",
-            "\tSub Task 3",
-            "\tSub Task 4",
-            "Main Task 2",
-            "\tSub Task 2_1",
-            "\tSub Task 2_2",
-            "\tSub Task 2_3",
-            "\tSub Task 2_4",
-            ""});
-            this.comboBox6.Location = new System.Drawing.Point(124, 47);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(145, 21);
-            this.comboBox6.TabIndex = 16;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "Main Task 1",
-            "\tSub Task 1",
-            "\tSub Task 2",
-            "\tSub Task 3",
-            "\tSub Task 4",
-            "Main Task 2",
-            "\tSub Task 2_1",
-            "\tSub Task 2_2",
-            "\tSub Task 2_3",
-            "\tSub Task 2_4",
-            ""});
-            this.comboBox5.Location = new System.Drawing.Point(124, 24);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(145, 21);
-            this.comboBox5.TabIndex = 15;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(14, 94);
+            this.label12.Location = new System.Drawing.Point(15, 214);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(104, 13);
             this.label12.TabIndex = 10;
@@ -497,7 +427,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(38, 72);
+            this.label11.Location = new System.Drawing.Point(39, 154);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(80, 13);
             this.label11.TabIndex = 9;
@@ -506,7 +436,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(56, 50);
+            this.label10.Location = new System.Drawing.Point(56, 91);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 13);
             this.label10.TabIndex = 8;
@@ -521,21 +451,47 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
-            // txtTaskName
+            // lstPreCondition
             // 
-            this.txtTaskName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTaskName.Enabled = false;
-            this.txtTaskName.Location = new System.Drawing.Point(101, 10);
-            this.txtTaskName.Name = "txtTaskName";
-            this.txtTaskName.Size = new System.Drawing.Size(188, 20);
-            this.txtTaskName.TabIndex = 2;
-            this.txtTaskName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lstPreCondition.FormattingEnabled = true;
+            this.lstPreCondition.Location = new System.Drawing.Point(124, 19);
+            this.lstPreCondition.Name = "lstPreCondition";
+            this.lstPreCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstPreCondition.Size = new System.Drawing.Size(200, 56);
+            this.lstPreCondition.TabIndex = 11;
+            // 
+            // lstAlternative
+            // 
+            this.lstAlternative.FormattingEnabled = true;
+            this.lstAlternative.Location = new System.Drawing.Point(124, 81);
+            this.lstAlternative.Name = "lstAlternative";
+            this.lstAlternative.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstAlternative.Size = new System.Drawing.Size(200, 56);
+            this.lstAlternative.TabIndex = 11;
+            // 
+            // lstRoleCondition
+            // 
+            this.lstRoleCondition.FormattingEnabled = true;
+            this.lstRoleCondition.Location = new System.Drawing.Point(124, 143);
+            this.lstRoleCondition.Name = "lstRoleCondition";
+            this.lstRoleCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstRoleCondition.Size = new System.Drawing.Size(200, 56);
+            this.lstRoleCondition.TabIndex = 11;
+            // 
+            // lstResourceCondition
+            // 
+            this.lstResourceCondition.FormattingEnabled = true;
+            this.lstResourceCondition.Location = new System.Drawing.Point(124, 205);
+            this.lstResourceCondition.Name = "lstResourceCondition";
+            this.lstResourceCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstResourceCondition.Size = new System.Drawing.Size(200, 56);
+            this.lstResourceCondition.TabIndex = 11;
             // 
             // frmTaskEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 438);
+            this.ClientSize = new System.Drawing.Size(355, 590);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -582,10 +538,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -595,5 +547,9 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.TextBox txtTaskName;
+        private System.Windows.Forms.ListBox lstResourceCondition;
+        private System.Windows.Forms.ListBox lstRoleCondition;
+        private System.Windows.Forms.ListBox lstAlternative;
+        private System.Windows.Forms.ListBox lstPreCondition;
     }
 }
