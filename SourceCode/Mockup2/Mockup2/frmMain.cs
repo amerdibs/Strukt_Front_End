@@ -376,6 +376,16 @@ namespace Mockup2
 
         }
 
+        private void btnSaveProcessAs_Click(object sender, EventArgs e)
+        {
+            /*
+            PropertiesStrukt.TaskType ttTest = new PropertiesStrukt.TaskType();
+            ttTest.name = "Manually";
+            PropertiesStrukt.TaskType ttResult = PropertiesStrukt.TaskType.addTaskType(ttTest);
+            MessageBox.Show(ttResult.id);
+            */
+        }
+
 
     }
 }

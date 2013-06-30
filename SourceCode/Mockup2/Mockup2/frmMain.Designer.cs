@@ -120,6 +120,7 @@
             this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 23);
             this.btnSaveProcessAs.TabIndex = 3;
             this.btnSaveProcessAs.UseVisualStyleBackColor = true;
+            this.btnSaveProcessAs.Click += new System.EventHandler(this.btnSaveProcessAs_Click);
             // 
             // btnLoadProcess
             // 

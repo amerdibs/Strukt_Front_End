@@ -45,10 +45,10 @@ namespace Mockup2
         }
 
         //Send Get to Strukt and receive data
-        public static string getRespondFromStruktGet(string strResource , string strParam)
+        public static string getRespondFromStruktGet(string strURLResource , string strParam)
         {
             // still did not define Proxy
-            System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strResource + strParam);
+            System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strURLResource + strParam);
             try
             {
                 System.Net.WebResponse resp = req.GetResponse();
@@ -61,6 +61,26 @@ namespace Mockup2
                 throw;
             }
             
+        }
+
+        //Send Delete to Strukt and receive data
+        public static string getRespondFromStruktDelete(string strURLResource, string strParam)
+        {
+            // still did not define Proxy
+            System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strURLResource + strParam);
+            try
+            {
+                req.Method = "DELETE";
+                System.Net.WebResponse resp = req.GetResponse();
+                System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
+                return sr.ReadToEnd().Trim();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         //Arrange the Strukt's JSON structure into serialized JSON structure after GET
@@ -91,10 +111,38 @@ namespace Mockup2
             return strReturn;
         }
 
-        //Send POST with value to Strukt and receive the result
-        public static string sendJSONintoStruktPost(string strResource, string strJSON)
+        //Arrange the Strukt's JSON structure into serialized JSON structure after GET FOR ONE OBJECT
+        public static string getExtractValueFromRespondSingle(string strParam)
         {
-            System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strResource);
+            string strReturn;
+
+            if (strParam == "{\"values\":[null]}")
+                return "";
+
+            List<string> lStrExtract = new List<string>();
+            string[] aStrFirst = strParam.Split(new string[] { ":{" }, StringSplitOptions.None);
+            for (int i = 1; i < aStrFirst.Length; i++)
+            {
+
+                string[] aStrSecond = aStrFirst[i].Split(new string[] { "}}" }, StringSplitOptions.None);
+                lStrExtract.Add("{" + aStrSecond[0] + "}");
+            }
+
+            strReturn = "";
+            foreach (string str in lStrExtract)
+            {
+                strReturn += str + ',';
+            }
+            strReturn = strReturn.Remove(strReturn.Length - 1);
+
+            return strReturn;
+        }
+
+
+        //Send POST with value to Strukt and receive the object in JSON format, which we desired.
+        public static string postJSONintoStrukt(string strURLResource, string strJSON)
+        {
+            System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strURLResource);
             //req.Proxy = new System.Net.WebProxy(ProxyString, true); // still did not define Proxy
             //Add these, as we're doing a POST
             req.ContentType = "application/json";
@@ -110,7 +158,12 @@ namespace Mockup2
                 System.Net.WebResponse resp = req.GetResponse();
                 if (resp == null) return null;
                 System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
-                return sr.ReadToEnd().Trim();
+                string strResult = sr.ReadToEnd().Trim();
+                if ((strResult == "{\"values\":[null]}") || (strResult == "{\"type\":\"error\"}"))
+                {
+                    return "";
+                }
+                return getExtractValueFromRespondSingle(strResult);
             }
             catch (Exception)
             {
@@ -120,10 +173,10 @@ namespace Mockup2
         }
 
         //Arrange serialized JSON structure into Strukt's JSON structure before POST
-        public static string composeJSONforStrukt(string strJSON, string strTType)
+        public static string composeJSONforStrukt(string strTType, string strJSON)
         {
             string strSect;
-            strSect = "{\"values\":[{\"" + strTType + "\":" + strJSON.Substring(1).Substring(0, strJSON.Length - 2) + "}]}";
+            strSect = "{\"values\":[{\"" + strTType + "\":{" + strJSON.Substring(1).Substring(0, strJSON.Length - 2) + "}}]}";
             return strSect;
         }
 

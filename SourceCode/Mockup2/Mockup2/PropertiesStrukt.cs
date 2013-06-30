@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace Mockup2
 {
@@ -301,6 +302,23 @@ namespace Mockup2
                 {
                     throw;
                 }
+            }
+            public static TaskType addTaskType(TaskType ttParam)
+            {
+                try
+                {
+                    string strReturn  = "";
+                    JsonSerializerSettings jsSetting  = new JsonSerializerSettings();
+                    jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                    string strObj = JsonConvert.SerializeObject(ttParam, jsSetting);
+                    strReturn = global.postJSONintoStrukt(Strukt.URL_Task_type,global.composeJSONforStrukt(Strukt.T_Task_type, strObj));
+                    return JsonConvert.DeserializeObject<TaskType>(strReturn);
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }    
             }
         }
         public class Tool
