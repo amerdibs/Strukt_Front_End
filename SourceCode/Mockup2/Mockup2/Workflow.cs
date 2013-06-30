@@ -18,7 +18,7 @@ namespace Mockup2
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
 
-        public List<Task> taskList;
+        public List<Task> taskList { get; set; }
 
         public static List<Workflow> getWorkflowByID(string strWorkflowID)
         {

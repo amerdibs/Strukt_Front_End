@@ -12,11 +12,12 @@ namespace Mockup2
 {
     public partial class UCMainTask : UserControl
     {
-        public Color preColor;
-        public Color colorBackGround;
         public event EventHandler MainTaskMouseDown;
         public event EventHandler MainTaskDragDrop;
-        public Task taskMember;
+
+        public Color preColor { get; set; }
+        public Color colorBackGround { get; set; }
+        public Task taskMember { get; set; }
 
 
         public UCMainTask()
@@ -104,6 +105,8 @@ namespace Mockup2
         private void btnProp_Click(object sender, EventArgs e)
         {
             frmTaskEdit frmTE = new frmTaskEdit();
+            frmTE.strFormMode = frmTE.formModeEdit;
+            frmTE.taskUse = taskMember;
             frmTE.ShowDialog();
         }
 
@@ -164,12 +167,6 @@ namespace Mockup2
 
                 UCMainTask_MouseUp(sender, new MouseEventArgs(Control.MouseButtons, 0, Control.MousePosition.X, Control.MousePosition.Y, 0));
             }*/
-        }
-
-        private void btnHelp_Click(object sender, EventArgs e)
-        {
-            frmHelpInfo frmHI = new frmHelpInfo();
-            frmHI.ShowDialog();
         }
 
         private void btnLink_Click(object sender, EventArgs e)

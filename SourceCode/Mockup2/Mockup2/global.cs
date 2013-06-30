@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace Mockup2
 {
@@ -126,7 +127,14 @@ namespace Mockup2
             return strSect;
         }
 
-        
+        //Convert date time string from Strukt into .NET datetime
+        public static DateTime convertFromStruktDateTime(string strDate)
+        {
+            DateTimeFormatInfo dtfi = new DateTimeFormatInfo();
+            dtfi.ShortDatePattern = "MM-dd-yyyy";
+            dtfi.DateSeparator = "/";
+            return Convert.ToDateTime(strDate, dtfi);
+        }
 
 
     }

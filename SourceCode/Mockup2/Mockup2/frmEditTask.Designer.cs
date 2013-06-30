@@ -37,8 +37,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.cbProject = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker_Deadline = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker_Date = new System.Windows.Forms.DateTimePicker();
+            this.dtpDeadline = new System.Windows.Forms.DateTimePicker();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.cbLocation = new System.Windows.Forms.ComboBox();
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.cbTaskType = new System.Windows.Forms.ComboBox();
@@ -62,6 +62,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtTaskName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -71,6 +72,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtTaskName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbTask);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -102,10 +104,11 @@
             "________Sub Task 2_2",
             "________Sub Task 2_3",
             "________Sub Task 2_4"});
-            this.cbTask.Location = new System.Drawing.Point(100, 10);
+            this.cbTask.Location = new System.Drawing.Point(305, 10);
             this.cbTask.Name = "cbTask";
-            this.cbTask.Size = new System.Drawing.Size(233, 21);
+            this.cbTask.Size = new System.Drawing.Size(38, 21);
             this.cbTask.TabIndex = 0;
+            this.cbTask.Visible = false;
             // 
             // panel2
             // 
@@ -141,8 +144,8 @@
             // 
             this.groupBox1.Controls.Add(this.cbStatus);
             this.groupBox1.Controls.Add(this.cbProject);
-            this.groupBox1.Controls.Add(this.dateTimePicker_Deadline);
-            this.groupBox1.Controls.Add(this.dateTimePicker_Date);
+            this.groupBox1.Controls.Add(this.dtpDeadline);
+            this.groupBox1.Controls.Add(this.dtpDate);
             this.groupBox1.Controls.Add(this.cbLocation);
             this.groupBox1.Controls.Add(this.cbModel);
             this.groupBox1.Controls.Add(this.cbTaskType);
@@ -176,7 +179,7 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbStatus.Location = new System.Drawing.Point(124, 11);
+            this.cbStatus.Location = new System.Drawing.Point(124, 16);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(145, 21);
             this.cbStatus.TabIndex = 15;
@@ -201,19 +204,19 @@
             this.cbProject.Size = new System.Drawing.Size(145, 21);
             this.cbProject.TabIndex = 14;
             // 
-            // dateTimePicker_Deadline
+            // dtpDeadline
             // 
-            this.dateTimePicker_Deadline.Location = new System.Drawing.Point(124, 125);
-            this.dateTimePicker_Deadline.Name = "dateTimePicker_Deadline";
-            this.dateTimePicker_Deadline.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_Deadline.TabIndex = 13;
+            this.dtpDeadline.Location = new System.Drawing.Point(124, 125);
+            this.dtpDeadline.Name = "dtpDeadline";
+            this.dtpDeadline.Size = new System.Drawing.Size(200, 20);
+            this.dtpDeadline.TabIndex = 13;
             // 
-            // dateTimePicker_Date
+            // dtpDate
             // 
-            this.dateTimePicker_Date.Location = new System.Drawing.Point(124, 104);
-            this.dateTimePicker_Date.Name = "dateTimePicker_Date";
-            this.dateTimePicker_Date.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_Date.TabIndex = 12;
+            this.dtpDate.Location = new System.Drawing.Point(124, 104);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpDate.TabIndex = 12;
             // 
             // cbLocation
             // 
@@ -518,6 +521,16 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
+            // txtTaskName
+            // 
+            this.txtTaskName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTaskName.Enabled = false;
+            this.txtTaskName.Location = new System.Drawing.Point(101, 10);
+            this.txtTaskName.Name = "txtTaskName";
+            this.txtTaskName.Size = new System.Drawing.Size(188, 20);
+            this.txtTaskName.TabIndex = 2;
+            this.txtTaskName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmTaskEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -557,8 +570,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbTask;
         private System.Windows.Forms.ComboBox cbProject;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_Deadline;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_Date;
+        private System.Windows.Forms.DateTimePicker dtpDeadline;
+        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.ComboBox cbLocation;
         private System.Windows.Forms.ComboBox cbModel;
         private System.Windows.Forms.ComboBox cbTaskType;
@@ -581,5 +594,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.TextBox txtTaskName;
     }
 }

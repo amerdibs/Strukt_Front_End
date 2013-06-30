@@ -30,7 +30,6 @@
         {
             this.cbCheck = new System.Windows.Forms.CheckBox();
             this.lbTitle = new System.Windows.Forms.Label();
-            this.btnHelp = new System.Windows.Forms.Button();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -57,22 +56,11 @@
             this.lbTitle.Click += new System.EventHandler(this.lbTitle_Click_1);
             this.lbTitle.DoubleClick += new System.EventHandler(this.lbTitle_DoubleClick);
             // 
-            // btnHelp
-            // 
-            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHelp.Image = global::Mockup2.Properties.Resources.help1;
-            this.btnHelp.Location = new System.Drawing.Point(289, 2);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(28, 23);
-            this.btnHelp.TabIndex = 4;
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
             // btnLink
             // 
             this.btnLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLink.Image = global::Mockup2.Properties.Resources.web;
-            this.btnLink.Location = new System.Drawing.Point(262, 2);
+            this.btnLink.Location = new System.Drawing.Point(260, 1);
             this.btnLink.Name = "btnLink";
             this.btnLink.Size = new System.Drawing.Size(28, 23);
             this.btnLink.TabIndex = 3;
@@ -83,7 +71,7 @@
             // 
             this.btnProp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProp.Image = global::Mockup2.Properties.Resources.edit;
-            this.btnProp.Location = new System.Drawing.Point(235, 2);
+            this.btnProp.Location = new System.Drawing.Point(287, 1);
             this.btnProp.Name = "btnProp";
             this.btnProp.Size = new System.Drawing.Size(28, 23);
             this.btnProp.TabIndex = 2;
@@ -97,7 +85,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnLink);
             this.Controls.Add(this.btnProp);
             this.Controls.Add(this.lbTitle);
@@ -123,6 +110,5 @@
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Button btnProp;
         private System.Windows.Forms.Button btnLink;
-        private System.Windows.Forms.Button btnHelp;
     }
 }
