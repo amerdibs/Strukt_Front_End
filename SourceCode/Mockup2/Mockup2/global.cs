@@ -189,6 +189,25 @@ namespace Mockup2
             return Convert.ToDateTime(strDate, dtfi);
         }
 
+        public static List<Task> sortTaskList(List<Task> ltParam)
+        {
+            List<Task> ltSort = new List<Task>();
+            Task tFirst = ltParam.Find(o => o.follows_id == null);
+            ltSort.Add(tFirst);
+            ltParam.Remove(tFirst);
+            int i = ltParam.Count();
+            string strTaskID = tFirst.id;
+            for (int j = 0; j < i; j++)
+            {
+                Task tEach = ltParam.Find(o => o.follows_id == strTaskID);
+                strTaskID = tEach.id;
+                ltSort.Add(tEach);
+                ltParam.Remove(tEach);
+            }
+            ltSort.Reverse();
+            return ltSort;
+        }
+
 
     }
 }

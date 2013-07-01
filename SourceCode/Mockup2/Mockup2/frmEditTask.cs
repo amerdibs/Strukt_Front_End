@@ -95,6 +95,7 @@ namespace Mockup2
           
             if (strFormMode == formModeNew) // NEW Mode
             {
+                txtTaskName.Text = taskUse.name;
                 dtpDate.Value = DateTime.Now;
                 dtpDeadline.Value = DateTime.Now;
             }

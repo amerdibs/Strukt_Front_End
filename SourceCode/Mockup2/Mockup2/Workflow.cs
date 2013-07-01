@@ -47,9 +47,9 @@ namespace Mockup2
             {
                 return null;
             }
-            wfGet[0].taskList = tkList;
+            wfGet[0].taskList = global.sortTaskList(tkList);
 
-            foreach (Task tkUse in tkList)
+            foreach (Task tkUse in wfGet[0].taskList)
             {
                 List<Workflow> wfSubGet = getWorkflowByID(global.getValueFromStruktValue(tkUse.child_workflow_id));
                 tkUse.workflowMember = wfSubGet[0];

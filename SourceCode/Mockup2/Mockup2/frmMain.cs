@@ -22,7 +22,7 @@ namespace Mockup2
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            ccbProcess.SelectedIndex = 0;
+            cbProcess.SelectedIndex = 0;
 
         }
 
@@ -91,7 +91,42 @@ namespace Mockup2
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            UCMainTask uMain = new UCMainTask();
+            pnCenter.Controls.Add(uMain);
+            uMain.Dock = DockStyle.Top;
+            if (global.currentTaskControlID == 0)
+            {
+                uMain.BringToFront();
+                Task taskNew = new Task();
+                taskNew.follows_id = global.wfLoaded.taskList[0].id;
+                taskNew.name = "New Task";
+                uMain.taskMember = taskNew;
+                frmTaskEdit frmEdit = new frmTaskEdit();
+                frmEdit.strFormMode = frmEdit.formModeNew;
+                frmEdit.taskUse = taskNew;
+                frmEdit.ShowDialog();
 
+
+            }
+            else
+            {
+                Object uControl = global.currentTaskControlObject;
+                //Error checking
+                if (uControl.GetType() == typeof(UCMainTask))
+                {
+                    UCMainTask uSelect = (UCMainTask)uControl;
+                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
+                    pnCenter.Controls.SetChildIndex(uMain, iIndex);
+
+
+
+
+
+                }
+            }
+
+            uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+            uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
             /*
             UCMainTask uMain = new UCMainTask();
             pnCenter.Controls.Add(uMain);
@@ -309,7 +344,7 @@ namespace Mockup2
 
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
-            Workflow wfMain = Workflow.getWorkflowHierachybyID(global.strWorkflowID);
+            Workflow wfMain = Workflow.getWorkflowHierachybyID(cbProcess.Text);
             global.wfLoaded = wfMain;
             pnCenter.Controls.Clear();
             generateTaskControl(wfMain, 0);

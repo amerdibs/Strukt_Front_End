@@ -50,9 +50,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Black;
             this.lbTitle.Location = new System.Drawing.Point(24, 4);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(94, 13);
+            this.lbTitle.Size = new System.Drawing.Size(62, 13);
             this.lbTitle.TabIndex = 1;
-            this.lbTitle.Text = "[Main Task Name]";
+            this.lbTitle.Text = "[New Task]";
             this.lbTitle.Click += new System.EventHandler(this.lbTitle_Click_1);
             this.lbTitle.DoubleClick += new System.EventHandler(this.lbTitle_DoubleClick);
             // 

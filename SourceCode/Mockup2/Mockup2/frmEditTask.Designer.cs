@@ -55,14 +55,14 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lstResourceCondition = new System.Windows.Forms.ListBox();
+            this.lstRoleCondition = new System.Windows.Forms.ListBox();
+            this.lstAlternative = new System.Windows.Forms.ListBox();
+            this.lstPreCondition = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lstPreCondition = new System.Windows.Forms.ListBox();
-            this.lstAlternative = new System.Windows.Forms.ListBox();
-            this.lstRoleCondition = new System.Windows.Forms.ListBox();
-            this.lstResourceCondition = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,7 +84,6 @@
             // txtTaskName
             // 
             this.txtTaskName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTaskName.Enabled = false;
             this.txtTaskName.Location = new System.Drawing.Point(101, 10);
             this.txtTaskName.Name = "txtTaskName";
             this.txtTaskName.Size = new System.Drawing.Size(188, 20);
@@ -415,6 +414,42 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Conditions";
             // 
+            // lstResourceCondition
+            // 
+            this.lstResourceCondition.FormattingEnabled = true;
+            this.lstResourceCondition.Location = new System.Drawing.Point(124, 205);
+            this.lstResourceCondition.Name = "lstResourceCondition";
+            this.lstResourceCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstResourceCondition.Size = new System.Drawing.Size(200, 56);
+            this.lstResourceCondition.TabIndex = 11;
+            // 
+            // lstRoleCondition
+            // 
+            this.lstRoleCondition.FormattingEnabled = true;
+            this.lstRoleCondition.Location = new System.Drawing.Point(124, 143);
+            this.lstRoleCondition.Name = "lstRoleCondition";
+            this.lstRoleCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstRoleCondition.Size = new System.Drawing.Size(200, 56);
+            this.lstRoleCondition.TabIndex = 11;
+            // 
+            // lstAlternative
+            // 
+            this.lstAlternative.FormattingEnabled = true;
+            this.lstAlternative.Location = new System.Drawing.Point(124, 81);
+            this.lstAlternative.Name = "lstAlternative";
+            this.lstAlternative.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstAlternative.Size = new System.Drawing.Size(200, 56);
+            this.lstAlternative.TabIndex = 11;
+            // 
+            // lstPreCondition
+            // 
+            this.lstPreCondition.FormattingEnabled = true;
+            this.lstPreCondition.Location = new System.Drawing.Point(124, 19);
+            this.lstPreCondition.Name = "lstPreCondition";
+            this.lstPreCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstPreCondition.Size = new System.Drawing.Size(200, 56);
+            this.lstPreCondition.TabIndex = 11;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -450,42 +485,6 @@
             this.label9.Size = new System.Drawing.Size(71, 13);
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
-            // 
-            // lstPreCondition
-            // 
-            this.lstPreCondition.FormattingEnabled = true;
-            this.lstPreCondition.Location = new System.Drawing.Point(124, 19);
-            this.lstPreCondition.Name = "lstPreCondition";
-            this.lstPreCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstPreCondition.Size = new System.Drawing.Size(200, 56);
-            this.lstPreCondition.TabIndex = 11;
-            // 
-            // lstAlternative
-            // 
-            this.lstAlternative.FormattingEnabled = true;
-            this.lstAlternative.Location = new System.Drawing.Point(124, 81);
-            this.lstAlternative.Name = "lstAlternative";
-            this.lstAlternative.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstAlternative.Size = new System.Drawing.Size(200, 56);
-            this.lstAlternative.TabIndex = 11;
-            // 
-            // lstRoleCondition
-            // 
-            this.lstRoleCondition.FormattingEnabled = true;
-            this.lstRoleCondition.Location = new System.Drawing.Point(124, 143);
-            this.lstRoleCondition.Name = "lstRoleCondition";
-            this.lstRoleCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstRoleCondition.Size = new System.Drawing.Size(200, 56);
-            this.lstRoleCondition.TabIndex = 11;
-            // 
-            // lstResourceCondition
-            // 
-            this.lstResourceCondition.FormattingEnabled = true;
-            this.lstResourceCondition.Location = new System.Drawing.Point(124, 205);
-            this.lstResourceCondition.Name = "lstResourceCondition";
-            this.lstResourceCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstResourceCondition.Size = new System.Drawing.Size(200, 56);
-            this.lstResourceCondition.TabIndex = 11;
             // 
             // frmTaskEdit
             // 

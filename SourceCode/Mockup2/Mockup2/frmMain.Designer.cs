@@ -35,7 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSaveProcessAs = new System.Windows.Forms.Button();
             this.btnLoadProcess = new System.Windows.Forms.Button();
-            this.ccbProcess = new System.Windows.Forms.ComboBox();
+            this.cbProcess = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnOption = new System.Windows.Forms.Button();
@@ -104,7 +104,7 @@
             // 
             this.panel2.Controls.Add(this.btnSaveProcessAs);
             this.panel2.Controls.Add(this.btnLoadProcess);
-            this.panel2.Controls.Add(this.ccbProcess);
+            this.panel2.Controls.Add(this.cbProcess);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(34, 4);
@@ -132,17 +132,16 @@
             this.btnLoadProcess.UseVisualStyleBackColor = true;
             this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
             // 
-            // ccbProcess
+            // cbProcess
             // 
-            this.ccbProcess.FormattingEnabled = true;
-            this.ccbProcess.Items.AddRange(new object[] {
-            "Structure Process 1",
-            "Structure Process 2",
-            "Structure Process 3"});
-            this.ccbProcess.Location = new System.Drawing.Point(132, 9);
-            this.ccbProcess.Name = "ccbProcess";
-            this.ccbProcess.Size = new System.Drawing.Size(132, 21);
-            this.ccbProcess.TabIndex = 1;
+            this.cbProcess.FormattingEnabled = true;
+            this.cbProcess.Items.AddRange(new object[] {
+            "354249471",
+            "2036565491"});
+            this.cbProcess.Location = new System.Drawing.Point(132, 9);
+            this.cbProcess.Name = "cbProcess";
+            this.cbProcess.Size = new System.Drawing.Size(132, 21);
+            this.cbProcess.TabIndex = 1;
             // 
             // label1
             // 
@@ -289,7 +288,6 @@
             this.Controls.Add(this.statusStrip1);
             this.Name = "frmMain";
             this.Text = "User  Guidance Application";
-            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -310,7 +308,7 @@
         private System.Windows.Forms.Button btnHide;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnLoadProcess;
-        private System.Windows.Forms.ComboBox ccbProcess;
+        private System.Windows.Forms.ComboBox cbProcess;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Panel pnControl;

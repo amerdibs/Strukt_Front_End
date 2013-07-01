@@ -23,6 +23,7 @@ namespace Mockup2
         public string type_id { get; set; }
         public string location_id { get; set; }
         public string project_id { get; set; }
+        public string follows_id { get; set; }
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
 
