@@ -35,6 +35,7 @@ namespace Mockup2
         {
             List<Task> taskslist = new List<Task>();
             List<Task> taskslistAlter = new List<Task>();
+            List<Task> taskslistRoll = new List<Task>();
             try
             {
                 /* 
@@ -44,6 +45,8 @@ namespace Mockup2
                 propertiesFill(global.wfLoaded, taskslist);
                 taskslistAlter = taskslist.ToList();
                 taskslistAlter.Reverse();
+                taskslistRoll = taskslist.ToList();
+                taskslistRoll.Reverse();
 
                 PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
                 cbLocation.DataSource = propertie.locationList;
@@ -65,6 +68,15 @@ namespace Mockup2
                 lstAlternative.DataSource = taskslistAlter;
                 lstAlternative.ValueMember = "id";
                 lstAlternative.DisplayMember = "name";
+                lstRoleCondition.DataSource = taskslistRoll;
+                lstRoleCondition.ValueMember = "id";
+                lstRoleCondition.DisplayMember = "name";
+                lstPreCondition.SelectedIndex = -1;
+                lstResourceCondition.SelectedIndex = -1;
+                lstRoleCondition.SelectedIndex = -1;
+                lstAlternative.SelectedIndex = -1;
+                
+              
                 //List<Task> tasklist;
 
                 /*
