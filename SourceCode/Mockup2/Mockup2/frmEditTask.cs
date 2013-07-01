@@ -16,7 +16,8 @@ namespace Mockup2
         public Task taskUse { get; set; }
         public string formModeEdit = "EDIT";
         public string formModeNew = "NEW";
-
+        List<Task> taskslist = new List<Task>();
+        
 
 
         public frmTaskEdit()
@@ -26,6 +27,7 @@ namespace Mockup2
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
+
 
         }
 
@@ -37,7 +39,7 @@ namespace Mockup2
                  string work_flow_id = cbTask.SelectedValue.ToString();
                  Task _task[] = Task.getTaskByParentWorkflowID(work_flow_id);*/
                 //cbTask.SelectedIndex = 1;
-
+                propertiesFill(global.wfLoaded, taskslist);
                 PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
                 cbLocation.DataSource = propertie.locationList;
                 cbLocation.ValueMember = "id";
@@ -51,6 +53,11 @@ namespace Mockup2
                 cbProject.DataSource = propertie.projectList;
                 cbProject.ValueMember = "id";
                 cbProject.DisplayMember = "name";
+                taskslist.Reverse();
+                lstPreCondition.DataSource = taskslist;
+                lstPreCondition.ValueMember = "id";
+                lstPreCondition.DisplayMember = "name";
+
                 //List<Task> tasklist;
 
                 /*
@@ -75,14 +82,7 @@ namespace Mockup2
                 }
 
                 */
-                //   dateTimePicker_Date.DataBindings=tas
-                //for (int i = 0; i <propertie.locationList.Count; i++)
-                //{
-                //    CBX_Location.Items.Add(propertie.locationList[i].name);
-                //}
-
-                //CBX_Location.DataSource = propertie.locationList;
-
+   
 
             }
             catch (Exception)
@@ -91,7 +91,8 @@ namespace Mockup2
                 throw;
             }
 
-
+            
+          
             if (strFormMode == formModeNew) // NEW Mode
             {
                 dtpDate.Value = DateTime.Now;
@@ -107,8 +108,26 @@ namespace Mockup2
                 dtpDate.Value = global.convertFromStruktDateTime(taskUse.date);
                 dtpDeadline.Value = global.convertFromStruktDateTime(taskUse.deadline);
             }
+          
+         
         }
+        
+        private void propertiesFill(Workflow wfparm,List<Task> taskList)
+        {
+            if (wfparm == null)
+            {
+                return;
+            }
+          
+            foreach (Task tEach in wfparm.taskList)
+            {
+                propertiesFill(tEach.workflowMember,taskList);
+                taskslist.Add(tEach);
 
+                          }
+           
+        }  
+         
         private void btnOK_Click(object sender, EventArgs e)
         {
             this.Close();
