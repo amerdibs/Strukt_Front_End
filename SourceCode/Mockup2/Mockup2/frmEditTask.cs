@@ -16,7 +16,7 @@ namespace Mockup2
         public Task taskUse { get; set; }
         public string formModeEdit = "EDIT";
         public string formModeNew = "NEW";
-        List<Task> taskslist = new List<Task>();
+        
         
 
 
@@ -33,6 +33,8 @@ namespace Mockup2
 
         private void frmTaskEdit_Load(object sender, EventArgs e)
         {
+            List<Task> taskslist = new List<Task>();
+            List<Task> taskslistAlter = new List<Task>();
             try
             {
                 /* 
@@ -40,6 +42,9 @@ namespace Mockup2
                  Task _task[] = Task.getTaskByParentWorkflowID(work_flow_id);*/
                 //cbTask.SelectedIndex = 1;
                 propertiesFill(global.wfLoaded, taskslist);
+                taskslistAlter = taskslist.ToList();
+                taskslistAlter.Reverse();
+
                 PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
                 cbLocation.DataSource = propertie.locationList;
                 cbLocation.ValueMember = "id";
@@ -57,7 +62,9 @@ namespace Mockup2
                 lstPreCondition.DataSource = taskslist;
                 lstPreCondition.ValueMember = "id";
                 lstPreCondition.DisplayMember = "name";
-
+                lstAlternative.DataSource = taskslistAlter;
+                lstAlternative.ValueMember = "id";
+                lstAlternative.DisplayMember = "name";
                 //List<Task> tasklist;
 
                 /*
@@ -123,9 +130,9 @@ namespace Mockup2
             foreach (Task tEach in wfparm.taskList)
             {
                 propertiesFill(tEach.workflowMember,taskList);
-                taskslist.Add(tEach);
+                taskList.Add(tEach);
 
-                          }
+            }
            
         }  
          
