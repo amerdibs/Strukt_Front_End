@@ -47,7 +47,8 @@ namespace Mockup2
                 taskslistAlter.Reverse();
                 taskslistRoll = taskslist.ToList();
                 taskslistRoll.Reverse();
-
+               
+                
                 PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
                 cbLocation.DataSource = propertie.locationList;
                 cbLocation.ValueMember = "id";
@@ -68,7 +69,7 @@ namespace Mockup2
                 lstAlternative.DataSource = taskslistAlter;
                 lstAlternative.ValueMember = "id";
                 lstAlternative.DisplayMember = "name";
-                lstRoleCondition.DataSource = taskslistRoll;
+                lstRoleCondition.DataSource = propertie.roleList;
                 lstRoleCondition.ValueMember = "id";
                 lstRoleCondition.DisplayMember = "name";
                 lstPreCondition.SelectedIndex = -1;
@@ -157,5 +158,7 @@ namespace Mockup2
         {
             this.Close();
         }
+
+      
     }
 }
