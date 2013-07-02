@@ -98,7 +98,7 @@ namespace Mockup2
             {
                 uMain.BringToFront();
                 Task taskNew = new Task();
-                taskNew.follows_id = global.wfLoaded.taskList[0].id;
+                taskNew.follows_id = global.workflowMain.taskList[0].id;
                 taskNew.name = "New Task";
                 uMain.taskMember = taskNew;
                 frmTaskEdit frmEdit = new frmTaskEdit();
@@ -345,7 +345,7 @@ namespace Mockup2
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
             Workflow wfMain = Workflow.getWorkflowHierachybyID(cbProcess.Text);
-            global.wfLoaded = wfMain;
+            global.workflowMain = wfMain;
             pnCenter.Controls.Clear();
             generateTaskControl(wfMain, 0);
             //MessageBox.Show("OK");

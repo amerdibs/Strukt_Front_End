@@ -42,7 +42,7 @@ namespace Mockup2
                  string work_flow_id = cbTask.SelectedValue.ToString();
                  Task _task[] = Task.getTaskByParentWorkflowID(work_flow_id);*/
                 //cbTask.SelectedIndex = 1;
-                propertiesFill(global.wfLoaded, taskslist);
+                propertiesFill(global.workflowMain, taskslist);
                 taskslistAlter = taskslist.ToList();
                 taskslistAlter.Reverse();
                 taskslistRoll = taskslist.ToList();

@@ -34,7 +34,7 @@ namespace Mockup2
         // fix value is used for the first prototype only
         public static string strWorkflowID = "354249471";
         public static string strUserID = "4";
-        public static Workflow wfLoaded;
+        public static Workflow workflowMain;
 
         //Extract the value from type
         public static string getValueFromStruktValue(string strParam)
