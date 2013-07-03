@@ -122,12 +122,18 @@ namespace Mockup2
             else // EDIT Mode
             {
                 txtTaskName.Text = taskUse.name;
-                cbLocation.SelectedValue = taskUse.location_id;
-                cbStatus.SelectedValue = taskUse.status_id;
-                cbTaskType.SelectedValue = taskUse.type_id;
-                cbProject.SelectedValue = taskUse.project_id;
-                dtpDate.Value = global.convertFromStruktDateTime(taskUse.date);
-                dtpDeadline.Value = global.convertFromStruktDateTime(taskUse.deadline);
+                if (taskUse.location_id != null)
+                    cbLocation.SelectedValue = taskUse.location_id;
+                if (taskUse.status_id != null)
+                    cbStatus.SelectedValue = taskUse.status_id;
+                if (taskUse.type_id != null)
+                    cbTaskType.SelectedValue = taskUse.type_id;
+                if (taskUse.project_id != null)
+                    cbProject.SelectedValue = taskUse.project_id;
+                if (taskUse.date != null)
+                    dtpDate.Value = global.convertFromStruktDateTime(taskUse.date);
+                if (taskUse.deadline != null)
+                    dtpDeadline.Value = global.convertFromStruktDateTime(taskUse.deadline);
             }
           
          
@@ -156,7 +162,9 @@ namespace Mockup2
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dResult = MessageBox.Show("Do you want to cancel this action?", "Please confirm", MessageBoxButtons.OKCancel);
+            if (dResult == DialogResult.OK)
+                this.Close();
         }
 
       

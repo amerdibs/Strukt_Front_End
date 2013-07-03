@@ -320,6 +320,24 @@ namespace Mockup2
                     throw;
                 }    
             }
+
+            public static TaskType editTaskType(TaskType ttParam)
+            {
+                try
+                {
+                    string strReturn = "";
+                    JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                    jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                    string strObj = JsonConvert.SerializeObject(ttParam, jsSetting);
+                    strReturn = global.postJSONintoStrukt(Strukt.URL_Task_type, global.composeJSONforStrukt(Strukt.T_Task_type, strObj));
+                    return JsonConvert.DeserializeObject<TaskType>(strReturn);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
         }
         public class Tool
         {

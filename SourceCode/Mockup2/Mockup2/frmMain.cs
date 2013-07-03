@@ -91,20 +91,36 @@ namespace Mockup2
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            UCMainTask uMain = new UCMainTask();
-            pnCenter.Controls.Add(uMain);
-            uMain.Dock = DockStyle.Top;
+
+            //UCMainTask uMain = new UCMainTask();
+            //pnCenter.Controls.Add(uMain);
+            //uMain.Dock = DockStyle.Top;
+            //uMain.BringToFront();
+            //uMain.taskMember = taskNew;
+            if ((global.workflowMain == null) || (global.workflowMain.taskList.Count == 0))
+            {
+                MessageBox.Show("We still don't implement this step right now.");
+                return;
+                //global.workflowMain = new Workflow();
+            }
+            else
             if (global.currentTaskControlID == 0)
             {
-                uMain.BringToFront();
                 Task taskNew = new Task();
+                //get last Task from workflowMain
+                Task taskFollow = global.workflowMain.taskList[0];
+                taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
                 taskNew.follows_id = global.workflowMain.taskList[0].id;
                 taskNew.name = "New Task";
-                uMain.taskMember = taskNew;
                 frmTaskEdit frmEdit = new frmTaskEdit();
                 frmEdit.strFormMode = frmEdit.formModeNew;
                 frmEdit.taskUse = taskNew;
-                frmEdit.ShowDialog();
+                DialogResult dResult = frmEdit.ShowDialog();
+                if (dResult != DialogResult.OK)
+                {
+                    return;
+                }
+
 
 
             }
@@ -116,7 +132,7 @@ namespace Mockup2
                 {
                     UCMainTask uSelect = (UCMainTask)uControl;
                     int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
-                    pnCenter.Controls.SetChildIndex(uMain, iIndex);
+                    //pnCenter.Controls.SetChildIndex(uMain, iIndex);
 
 
 
@@ -125,8 +141,8 @@ namespace Mockup2
                 }
             }
 
-            uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-            uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+            //uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+            //uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
             /*
             UCMainTask uMain = new UCMainTask();
             pnCenter.Controls.Add(uMain);
@@ -413,12 +429,13 @@ namespace Mockup2
 
         private void btnSaveProcessAs_Click(object sender, EventArgs e)
         {
-            /*
+            
             PropertiesStrukt.TaskType ttTest = new PropertiesStrukt.TaskType();
-            ttTest.name = "Manually";
-            PropertiesStrukt.TaskType ttResult = PropertiesStrukt.TaskType.addTaskType(ttTest);
+            ttTest.name = "Creating Email";
+            ttTest.id = Strukt.Type_Task_type + "1087742252";
+            PropertiesStrukt.TaskType ttResult = PropertiesStrukt.TaskType.editTaskType(ttTest);
             MessageBox.Show(ttResult.id);
-            */
+            
         }
 
 
