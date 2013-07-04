@@ -157,6 +157,20 @@ namespace Mockup2
          
         private void btnOK_Click(object sender, EventArgs e)
         {
+            taskUse.name = txtTaskName.Text;
+            if (cbLocation.SelectedValue != null)
+                taskUse.location_id = (string)cbLocation.SelectedValue;
+            if (cbStatus.SelectedValue!= null)
+                taskUse.status_id = (string)cbStatus.SelectedValue;
+            if (cbTaskType.SelectedValue != null)
+                taskUse.type_id = (string)cbTaskType.SelectedValue;
+            if (cbProject.SelectedValue != null)
+                taskUse.project_id = (string)cbProject.SelectedValue;
+            if (dtpDate.Value != null)
+                taskUse.date = global.convertStruktDateTimeToString(dtpDate.Value);
+            if (dtpDeadline.Value != null)
+                taskUse.deadline = global.convertStruktDateTimeToString(dtpDeadline.Value);
+
             this.Close();
         }
 

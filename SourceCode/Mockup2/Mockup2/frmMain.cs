@@ -104,7 +104,7 @@ namespace Mockup2
                 //global.workflowMain = new Workflow();
             }
             else
-            if (global.currentTaskControlID == 0)
+            if (global.currentTaskControlID == 0) //Add new when not select any Task
             {
                 Task taskNew = new Task();
                 //get last Task from workflowMain
@@ -120,13 +120,52 @@ namespace Mockup2
                 {
                     return;
                 }
+                Task returnTask = Task.addTask(taskNew);
+                global.workflowMain.taskList.Insert(0, returnTask);
+                //update the fellow Task
+                global.workflowMain.taskList[1].precedes_id = returnTask.id;
 
+                UCMainTask uMain = new UCMainTask();
+                pnCenter.Controls.Add(uMain);
+                uMain.Dock = DockStyle.Top;
+                uMain.BringToFront();
+                uMain.taskMember = taskNew;
 
 
             }
             else
             {
                 Object uControl = global.currentTaskControlObject;
+                UCMainTask uSelect = (UCMainTask)uControl;
+                //get task from selected control
+                Task taskFollow = uSelect.taskMember;
+                Task taskNew = new Task();
+                taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
+                taskNew.follows_id = global.workflowMain.taskList[0].id;
+                taskNew.name = "New Task";
+                frmTaskEdit frmEdit = new frmTaskEdit();
+                frmEdit.strFormMode = frmEdit.formModeNew;
+                frmEdit.taskUse = taskNew;
+                DialogResult dResult = frmEdit.ShowDialog();
+                if (dResult != DialogResult.OK)
+                {
+                    return;
+                }
+                Task returnTask = Task.addTask(taskNew);
+
+                global.workflowMain.taskList.Insert(0, returnTask);
+                //update the fellow Task
+                taskFollow.precedes_id = returnTask.id;
+
+                UCMainTask uMain = new UCMainTask();
+                pnCenter.Controls.Add(uMain);
+                uMain.Dock = DockStyle.Top;
+                uMain.BringToFront();
+                uMain.taskMember = taskNew;
+
+
+
+
                 //Error checking
                 if (uControl.GetType() == typeof(UCMainTask))
                 {
