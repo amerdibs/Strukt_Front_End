@@ -189,6 +189,16 @@ namespace Mockup2
             return Convert.ToDateTime(strDate, dtfi);
         }
 
+        //Convert date time string from Strukt into .NET datetime
+        public static string convertStruktDateTimeToString(DateTime dtParam)
+        {
+            DateTimeFormatInfo dtfi = new DateTimeFormatInfo();
+            dtfi.ShortDatePattern = "MM-dd-yyyy";
+            dtfi.DateSeparator = "/";
+            return Convert.ToString(dtParam, dtfi);
+        }
+
+        //Sort the Task List
         public static List<Task> sortTaskList(List<Task> ltParam)
         {
             List<Task> ltSort = new List<Task>();
