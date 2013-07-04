@@ -124,6 +124,7 @@ namespace Mockup2
                 global.workflowMain.taskList.Insert(0, returnTask);
                 //update the fellow Task
                 global.workflowMain.taskList[1].precedes_id = returnTask.id;
+                Task.editTask(global.workflowMain.taskList[1]);
 
                 UCMainTask uMain = new UCMainTask();
                 pnCenter.Controls.Add(uMain);

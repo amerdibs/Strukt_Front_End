@@ -24,8 +24,8 @@ namespace Mockup2
         public string location_id { get; set; }
         public string project_id { get; set; }
         public string follows_id { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
+        //public DateTime created_at { get; set; }
+        //public DateTime updated_at { get; set; }
 
         public Workflow workflowMember { get; set; }
 
@@ -38,7 +38,7 @@ namespace Mockup2
                 JsonSerializerSettings jsSetting = new JsonSerializerSettings();
                 jsSetting.NullValueHandling = NullValueHandling.Ignore;
                 string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
-                strReturn = global.postJSONintoStrukt(Strukt.URL_Task_type, global.composeJSONforStrukt(Strukt.T_Task, strObj));
+                strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Task, strObj));
                 return JsonConvert.DeserializeObject<Task>(strReturn);
             }
             catch (Exception)

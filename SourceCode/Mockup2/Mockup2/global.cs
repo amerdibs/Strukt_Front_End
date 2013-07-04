@@ -192,10 +192,10 @@ namespace Mockup2
         //Convert date time string from Strukt into .NET datetime
         public static string convertStruktDateTimeToString(DateTime dtParam)
         {
-            DateTimeFormatInfo dtfi = new DateTimeFormatInfo();
-            dtfi.ShortDatePattern = "MM-dd-yyyy";
-            dtfi.DateSeparator = "/";
-            return Convert.ToString(dtParam, dtfi);
+            //DateTimeFormatInfo dtfi = new DateTimeFormatInfo();
+            //dtfi.ShortDatePattern = "MM-dd-yyyy";
+            //dtfi.DateSeparator = "/";
+            return Convert.ToString(dtParam.Month + "/" + dtParam.Day + "/" + dtParam.Year);
         }
 
         //Sort the Task List
