@@ -47,6 +47,24 @@ namespace Mockup2
                 throw;
             }
         }
+        public static Task editTask(Task tParam)
+        {
+            try
+            {
+                string strReturn = "";
+                JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
+                strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Task, strObj));
+                return JsonConvert.DeserializeObject<Task>(strReturn);
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public static List<Task> getTaskByParentWorkflowID(string strParentWorkflowID)
         {
