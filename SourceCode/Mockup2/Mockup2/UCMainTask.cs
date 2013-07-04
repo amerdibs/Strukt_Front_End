@@ -104,10 +104,16 @@ namespace Mockup2
 
         private void btnProp_Click(object sender, EventArgs e)
         {
-            frmTaskEdit frmTE = new frmTaskEdit();
-            frmTE.strFormMode = frmTE.formModeEdit;
-            frmTE.taskUse = taskMember;
-            frmTE.ShowDialog();
+            frmTaskEdit frTaskEdit = new frmTaskEdit();
+            frTaskEdit.taskUse = taskMember;
+            frTaskEdit.strFormMode = frTaskEdit.formModeEdit;
+            DialogResult dialog= frTaskEdit.ShowDialog();
+            if (dialog != DialogResult.OK)
+            {
+                return;
+            }
+           Task returnTask= Task.editTask(taskMember);
+            
         }
 
         private void UCMainTask_DragDrop(object sender, DragEventArgs e)
