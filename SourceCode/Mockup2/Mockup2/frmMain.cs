@@ -153,31 +153,20 @@ namespace Mockup2
                 }
                 Task returnTask = Task.addTask(taskNew);
 
-                global.workflowMain.taskList.Insert(0, returnTask);
+                //global.workflowMain.taskList.Insert(0, returnTask);
+
+
+
                 //update the fellow Task
                 taskFollow.precedes_id = returnTask.id;
 
                 UCMainTask uMain = new UCMainTask();
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
-                uMain.BringToFront();
+                int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
+                pnCenter.Controls.SetChildIndex(uMain, iIndex);
                 uMain.taskMember = taskNew;
 
-
-
-
-                //Error checking
-                if (uControl.GetType() == typeof(UCMainTask))
-                {
-                    UCMainTask uSelect = (UCMainTask)uControl;
-                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
-                    //pnCenter.Controls.SetChildIndex(uMain, iIndex);
-
-
-
-
-
-                }
             }
 
             //uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
