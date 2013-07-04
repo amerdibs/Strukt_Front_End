@@ -113,6 +113,7 @@ namespace Mockup2
                 return;
             }
            Task returnTask= Task.editTask(taskMember);
+           lbTitle.Text = returnTask.name;
             
         }
 

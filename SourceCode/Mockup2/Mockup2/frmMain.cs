@@ -169,8 +169,8 @@ namespace Mockup2
                 //Error checking
                 if (uControl.GetType() == typeof(UCMainTask))
                 {
-                    UCMainTask uSelect = (UCMainTask)uControl;
-                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
+                   // UCMainTask uSelect = (UCMainTask)uControl;
+                    //int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
                     //pnCenter.Controls.SetChildIndex(uMain, iIndex);
 
 
