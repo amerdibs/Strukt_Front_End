@@ -108,9 +108,6 @@ namespace Mockup2
             frmTE.strFormMode = frmTE.formModeEdit;
             frmTE.taskUse = taskMember;
             frmTE.ShowDialog();
-            Task _testTaskResult = Task.editTask(taskMember);
-            MessageBox.Show(_testTaskResult.id);
-            
         }
 
         private void UCMainTask_DragDrop(object sender, DragEventArgs e)
