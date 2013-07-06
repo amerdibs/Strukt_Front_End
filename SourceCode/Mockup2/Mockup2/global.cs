@@ -30,6 +30,8 @@ namespace Mockup2
         public static Color ColorSubTask = Color.Lavender;
         public static Color ColorSelect = Color.SandyBrown;
 
+        public static int iIndentOfCheckBox = 12;
+        public static int iGradientOfColor = 40;
 
         // fix value is used for the first prototype only
         public static string strWorkflowID = "354249471";

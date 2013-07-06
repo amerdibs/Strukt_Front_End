@@ -328,6 +328,7 @@ namespace Mockup2
                     string strReturn = "";
                     JsonSerializerSettings jsSetting = new JsonSerializerSettings();
                     jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                    jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                     string strObj = JsonConvert.SerializeObject(ttParam, jsSetting);
                     strReturn = global.postJSONintoStrukt(Strukt.URL_Task_type, global.composeJSONforStrukt(Strukt.T_Task_type, strObj));
                     return JsonConvert.DeserializeObject<TaskType>(strReturn);

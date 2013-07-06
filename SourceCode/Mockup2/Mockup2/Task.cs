@@ -24,11 +24,9 @@ namespace Mockup2
         public string location_id { get; set; }
         public string project_id { get; set; }
         public string follows_id { get; set; }
-        //public DateTime created_at { get; set; }
-        //public DateTime updated_at { get; set; }
 
-        public Workflow workflowMember { get; set; }
-
+        public Workflow workflowChild { get; set; }
+        public Workflow workflowParent { get; set; }
 
         public static Task addTask(Task tParam)
         {
@@ -54,6 +52,7 @@ namespace Mockup2
                 string strReturn = "";
                 JsonSerializerSettings jsSetting = new JsonSerializerSettings();
                 jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
                 strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Task, strObj));
                 return JsonConvert.DeserializeObject<Task>(strReturn);

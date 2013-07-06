@@ -18,7 +18,7 @@ namespace Mockup2
         public Color preColor { get; set; }
         public Color colorBackGround { get; set; }
         public Task taskMember { get; set; }
-
+        public int iLevel { get; set; }
 
         public UCMainTask()
         {

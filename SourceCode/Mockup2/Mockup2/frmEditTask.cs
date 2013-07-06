@@ -146,9 +146,9 @@ namespace Mockup2
                 return;
             }
           
-            foreach (Task tEach in wfparm.taskList)
+            foreach (Task tEach in wfparm.taskChildList)
             {
-                propertiesFill(tEach.workflowMember,taskList);
+                propertiesFill(tEach.workflowChild, taskList);
                 taskList.Add(tEach);
 
             }

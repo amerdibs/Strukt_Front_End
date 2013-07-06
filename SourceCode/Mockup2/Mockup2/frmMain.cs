@@ -58,6 +58,10 @@ namespace Mockup2
                 return;
             }
 
+
+
+
+
             /*
             UCSubTask uSub = new UCSubTask();
             pnCenter.Controls.Add(uSub);
@@ -97,20 +101,33 @@ namespace Mockup2
             //uMain.Dock = DockStyle.Top;
             //uMain.BringToFront();
             //uMain.taskMember = taskNew;
-            if ((global.workflowMain == null) || (global.workflowMain.taskList.Count == 0))
+            if ((global.workflowMain == null) || (global.workflowMain.taskChildList.Count == 0))
             {
-                MessageBox.Show("We still don't implement this step right now.");
+                MessageBox.Show("Please load process before.\n We still don't implement this step right now.");
                 return;
-                //global.workflowMain = new Workflow();
             }
             else
-            if (global.currentTaskControlID == 0) //Add new when not select any Task
+            if (global.currentTaskControlID == 0) 
             {
+                //1. Add new when not select any Task
+                //    1.1 get last Task from workflowMain and create new Task object
+                //    1.2 set parent_workflow_id use main parent_workflow_id.id
+                //    1.3 set follow_id,user_id from last task
+                //    1.4 get values from edit form
+                //    1.5 save the new task
+                //        1.5.1 post to Strukt to create new child workflow and get object to update task object
+                //        1.5.2 save in Strukt first
+                //        1.5.3 update child workflow
+                //        1.5.4 save in Object Structure
+                //    1.6 update follow task
+                //        1.6.1 set precedes_id to new task.id
+                //    1.7 create new control and put in main panel
+                
                 Task taskNew = new Task();
-                //get last Task from workflowMain
-                Task taskFollow = global.workflowMain.taskList[0];
+                Task taskFollow = global.workflowMain.taskChildList[0];
                 taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
-                taskNew.follows_id = global.workflowMain.taskList[0].id;
+                taskNew.follows_id = global.workflowMain.taskChildList[0].id;
+                taskNew.user_id = global.workflowMain.user_id;
                 taskNew.name = "New Task";
                 frmTaskEdit frmEdit = new frmTaskEdit();
                 frmEdit.strFormMode = frmEdit.formModeNew;
@@ -120,30 +137,72 @@ namespace Mockup2
                 {
                     return;
                 }
-                Task returnTask = Task.addTask(taskNew);
-                global.workflowMain.taskList.Insert(0, returnTask);
-                //update the fellow Task
-                global.workflowMain.taskList[1].precedes_id = returnTask.id;
-                Task.editTask(global.workflowMain.taskList[1]);
 
+                Workflow wfNew = Workflow.addWorkflow();
+                wfNew.parent_task_id = taskNew.id;
+                taskNew.child_workflow_id = wfNew.id;
+                wfNew.user_id = global.workflowMain.user_id;
+
+                Task returnTaskAdd = Task.addTask(taskNew);
+                Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+                returnTaskAdd.workflowChild = returnChildWorkflow;
+
+                global.workflowMain.taskChildList.Insert(0, returnTaskAdd);
+                global.workflowMain.taskChildList[1].precedes_id = returnTaskAdd.id;
+                Task returnTaskFollow = Task.editTask(global.workflowMain.taskChildList[1]);
+
+                //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
                 uMain.BringToFront();
-                uMain.taskMember = taskNew;
+                uMain.taskMember = returnTaskAdd;
+                uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
 
+                uMain.BackColor = global.ColorMainTask;
+                uMain.colorBackGround = uMain.BackColor;
+
+                uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
 
             }
             else
             {
+                //2. Add new when select a Task
+                //    2.1 get task from selected control and create new Task object
+                //        2.1.1 get task from under the selected control too 
+                //    2.2 set parent_workflow_id use selected task parent_workflow_id.id
+                //    2.3 set follow_id,user_id from selected task
+                //          2.3.1 set precedes_id from task under the selected task
+                //    2.4 get values from edit form
+                //    2.5 save the new task
+                //        2.5.1 post to Strukt to create new child workflow and get object to update task object
+                //        2.5.2 save in Strukt first
+                //        2.5.3 update child workflow
+                //        2.5.4 save in Object Structure
+                //    2.6 update follow task
+                //        2.6.1 set precedes_id to new task.id
+                //    2.7 update the task under follow task
+                //        2.7.1 set follow_id to new task.id
+                //    2.8 create new control and put in main panel
+
                 Object uControl = global.currentTaskControlObject;
                 UCMainTask uSelect = (UCMainTask)uControl;
-                //get task from selected control
                 Task taskFollow = uSelect.taskMember;
+                Task taskUnderFollow = null;
+                if (taskFollow.workflowParent.taskChildList.IndexOf(taskFollow) - 1 >= 0)
+                {
+                    taskUnderFollow = taskFollow.workflowParent.taskChildList[taskFollow.workflowParent.taskChildList.IndexOf(taskFollow) - 1];
+                }
                 Task taskNew = new Task();
                 taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
-                taskNew.follows_id = global.workflowMain.taskList[0].id;
+                taskNew.follows_id = taskFollow.id;
+                taskNew.user_id = global.workflowMain.user_id;
                 taskNew.name = "New Task";
+                if (taskUnderFollow != null)
+                {
+                    taskNew.precedes_id = taskUnderFollow.id;
+                }
                 frmTaskEdit frmEdit = new frmTaskEdit();
                 frmEdit.strFormMode = frmEdit.formModeNew;
                 frmEdit.taskUse = taskNew;
@@ -152,23 +211,44 @@ namespace Mockup2
                 {
                     return;
                 }
-                Task returnTask = Task.addTask(taskNew);
+                Workflow wfNew = Workflow.addWorkflow();
+                wfNew.parent_task_id = taskNew.id;
+                taskNew.child_workflow_id = wfNew.id;
+                wfNew.user_id = global.workflowMain.user_id;
 
-                //global.workflowMain.taskList.Insert(0, returnTask);
+                Task returnTaskAdd = Task.addTask(taskNew);
+                Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+                returnTaskAdd.workflowChild = returnChildWorkflow;
 
+                taskFollow.workflowParent.taskChildList.Insert(taskFollow.workflowParent.taskChildList.IndexOf(taskFollow)
+                                                                , returnTaskAdd);
+                taskFollow.precedes_id = returnTaskAdd.id;
+                Task returnTaskFollow = Task.editTask(taskFollow);
 
+                if (taskUnderFollow != null)
+                {
+                    taskUnderFollow.follows_id = returnTaskAdd.id;
+                    Task returnTaskUnderFollow = Task.editTask(taskUnderFollow);
+                }
 
-                //update the fellow Task
-                taskFollow.precedes_id = returnTask.id;
-
+                //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
                 int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
                 pnCenter.Controls.SetChildIndex(uMain, iIndex);
-                uMain.taskMember = taskNew;
+                uMain.taskMember = returnTaskAdd;
+                uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
 
-                }
+                uMain.BackColor = global.ColorMainTask;
+                uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left;
+                uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left;
+                uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(global.iGradientOfColor * uSelect.iLevel));
+                uMain.colorBackGround = uMain.BackColor;
+
+                uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+            }
 
             //uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
             //uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
@@ -389,7 +469,7 @@ namespace Mockup2
 
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
-            Workflow wfMain = Workflow.getWorkflowHierachybyID(cbProcess.Text);
+            Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.Text);
             global.workflowMain = wfMain;
             pnCenter.Controls.Clear();
             generateTaskControl(wfMain, 0);
@@ -420,18 +500,19 @@ namespace Mockup2
             {
                 return;
             }
-            foreach (Task tEach in wfParam.taskList)
+            foreach (Task tEach in wfParam.taskChildList)
             {
-                generateTaskControl(tEach.workflowMember, iLevel + 1);
+                generateTaskControl(tEach.workflowChild, iLevel + 1);
                 UCMainTask uMain = new UCMainTask();
                 uMain.taskMember = tEach;
+                uMain.iLevel = iLevel;
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
                 uMain.BackColor = global.ColorMainTask;
                 uMain.Controls["lbTitle"].Text = tEach.name;
-                uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (12 * iLevel);
-                uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (12 * iLevel);
-                uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(40 * iLevel));
+                uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (global.iIndentOfCheckBox * iLevel);
+                uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (global.iIndentOfCheckBox * iLevel);
+                uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(global.iGradientOfColor * iLevel));
                 uMain.colorBackGround = uMain.BackColor;
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);

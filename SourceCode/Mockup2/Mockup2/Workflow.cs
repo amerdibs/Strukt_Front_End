@@ -15,10 +15,10 @@ namespace Mockup2
         public string task_id { get; set; }
         public string parent_task_id { get; set; }
         public string type { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
 
-        public List<Task> taskList { get; set; }
+
+        public List<Task> taskChildList { get; set; }
+        public Task taskParent { get; set; }
 
         public static List<Workflow> getWorkflowByID(string strWorkflowID)
         {
@@ -38,8 +38,8 @@ namespace Mockup2
             }
         }
 
-
-        public static Workflow getWorkflowHierachybyID(string strWorkflowID)
+        //Retreive workflows and tasks heirarchy
+        public static Workflow getWorkflowHierarchybyID(string strWorkflowID)
         {
             List<Workflow> wfGet = getWorkflowByID(strWorkflowID);
             List<Task> tkList = Task.getTaskByParentWorkflowID(strWorkflowID);
@@ -47,18 +47,59 @@ namespace Mockup2
             {
                 return null;
             }
-            wfGet[0].taskList = global.sortTaskList(tkList);
+            wfGet[0].taskChildList = global.sortTaskList(tkList);
 
-            foreach (Task tkUse in wfGet[0].taskList)
+            foreach (Task tkUse in wfGet[0].taskChildList)
             {
                 List<Workflow> wfSubGet = getWorkflowByID(global.getValueFromStruktValue(tkUse.child_workflow_id));
-                tkUse.workflowMember = wfSubGet[0];
+                tkUse.workflowParent = wfGet[0];
+                tkUse.workflowChild = wfSubGet[0];
+                wfSubGet[0].taskParent = tkUse;
                 if ( !tkUse.user_id.Contains("null") )
                 {
-                    tkUse.workflowMember = getWorkflowHierachybyID(global.getValueFromStruktValue(tkUse.child_workflow_id));
+                    tkUse.workflowChild = getWorkflowHierarchybyID(global.getValueFromStruktValue(tkUse.child_workflow_id));
                 }
             }
             return wfGet[0];
+        }
+
+        //Before task creating We must create new child workflow of the task
+        public static Workflow addWorkflow()
+        {
+            try
+            {
+                string strReturn = "";
+                JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                string strInitial = "{\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}";
+                strReturn = global.postJSONintoStrukt(Strukt.URL_Workflow, global.composeJSONforStrukt(Strukt.T_Workflow, strInitial));
+                return JsonConvert.DeserializeObject<Workflow>(strReturn);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public static Workflow editWorkflow(Workflow tParam)
+        {
+            try
+            {
+                string strReturn = "";
+                JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
+                strReturn = global.postJSONintoStrukt(Strukt.URL_Workflow, global.composeJSONforStrukt(Strukt.T_Workflow, strObj));
+                return JsonConvert.DeserializeObject<Workflow>(strReturn);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
     }
