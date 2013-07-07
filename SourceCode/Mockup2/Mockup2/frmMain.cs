@@ -25,6 +25,8 @@ namespace Mockup2
             cbProcess.DataSource = global.processTable;
             cbProcess.ValueMember = "p_workflow_id";
             cbProcess.DisplayMember = "p_name";
+            if (global.processTable.Rows[0]["u_name"] != null)
+                this.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
             //cbProcess.SelectedIndex = 0;
            
         }

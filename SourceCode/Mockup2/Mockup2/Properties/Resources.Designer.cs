@@ -103,6 +103,16 @@ namespace Mockup2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_ff {
+            get {
+                object obj = ResourceManager.GetObject("bt_ff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_skip_bk {
             get {
                 object obj = ResourceManager.GetObject("bt_skip_bk", resourceCulture);

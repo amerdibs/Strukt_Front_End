@@ -20,12 +20,21 @@ namespace Mockup2
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-
+            StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
+            global.processTable = wsStrukt.checkLogin(txtUserName.Text, txtPassword.Text);
+            if (global.processTable == null)
+            {
+                MessageBox.Show("Wrong Username or Password", "Please try again");
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void btnPass_Click(object sender, EventArgs e)
@@ -33,6 +42,12 @@ namespace Mockup2
             StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
             global.processTable = wsStrukt.getProcessAll();
             Close();
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            this.Width = 350;
+            txtTest.Text = "User name: \r\n pakorn \r\n amer \r\n tariq \r\n Password: \r\n strukt \r\n (Processes are different.)";
         }
     }
 }

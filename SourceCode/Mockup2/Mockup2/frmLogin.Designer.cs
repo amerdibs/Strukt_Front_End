@@ -33,8 +33,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnPass = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.txtTest = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtUserName
@@ -83,6 +85,18 @@
             this.btnPass.UseVisualStyleBackColor = true;
             this.btnPass.Click += new System.EventHandler(this.btnPass_Click);
             // 
+            // btnTest
+            // 
+            this.btnTest.Image = global::Mockup2.Properties.Resources.bt_ff;
+            this.btnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTest.Location = new System.Drawing.Point(181, 78);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(24, 23);
+            this.btnTest.TabIndex = 7;
+            this.btnTest.Tag = "";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -113,11 +127,21 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // txtTest
+            // 
+            this.txtTest.Location = new System.Drawing.Point(221, 12);
+            this.txtTest.Multiline = true;
+            this.txtTest.Name = "txtTest";
+            this.txtTest.Size = new System.Drawing.Size(100, 118);
+            this.txtTest.TabIndex = 8;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(202, 143);
+            this.ClientSize = new System.Drawing.Size(211, 143);
+            this.Controls.Add(this.txtTest);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnPass);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
@@ -141,5 +165,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnPass;
+        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.TextBox txtTest;
     }
 }
