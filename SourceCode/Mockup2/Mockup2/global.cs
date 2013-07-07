@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using Newtonsoft.Json;
 using System.Globalization;
+using System.Data;
 
 namespace Mockup2
 {
@@ -37,6 +38,8 @@ namespace Mockup2
         public static string strWorkflowID = "354249471";
         public static string strUserID = "4";
         public static Workflow workflowMain;
+
+        public static DataTable processTable;
 
         //Extract the value from type
         public static string getValueFromStruktValue(string strParam)

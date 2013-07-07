@@ -22,8 +22,11 @@ namespace Mockup2
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            cbProcess.SelectedIndex = 0;
-
+            cbProcess.DataSource = global.processTable;
+            cbProcess.ValueMember = "p_workflow_id";
+            cbProcess.DisplayMember = "p_name";
+            //cbProcess.SelectedIndex = 0;
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -452,33 +455,14 @@ namespace Mockup2
                     uMain.BackColor = uMain.colorBackGround;
                 }
             }
-            /*
-            foreach (Object uClickControl in pnCenter.Controls)
-            {
-                if (uClickControl.GetHashCode() != global.currentTaskControlID)
-                {
-                    if (uClickControl.GetType() == typeof(UCMainTask))
-                    {
-                        UCMainTask uMain = (UCMainTask)uClickControl;
-                        uMain.BackColor = global.ColorMainTask;
-                    }
-                    else if (uClickControl.GetType() == typeof(UCSubTask))
-                    {
-                        UCSubTask uSub = (UCSubTask)uClickControl;
-                        uSub.BackColor = global.ColorSubTask;
-                    }
-                }
-            }
-             * */
         }
 
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
-            Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.Text);
+            Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString());
             global.workflowMain = wfMain;
             pnCenter.Controls.Clear();
             generateTaskControl(wfMain, 0);
-            //MessageBox.Show("OK");
         }
 
         private void btnHide_Click(object sender, EventArgs e)
@@ -544,12 +528,12 @@ namespace Mockup2
 
         private void btnSaveProcessAs_Click(object sender, EventArgs e)
         {
-            
-            PropertiesStrukt.TaskType ttTest = new PropertiesStrukt.TaskType();
-            ttTest.name = "Creating Email";
-            ttTest.id = Strukt.Type_Task_type + "1087742252";
-            PropertiesStrukt.TaskType ttResult = PropertiesStrukt.TaskType.editTaskType(ttTest);
-            MessageBox.Show(ttResult.id);
+            MessageBox.Show("Please wait for phase 2");
+            //PropertiesStrukt.TaskType ttTest = new PropertiesStrukt.TaskType();
+            //ttTest.name = "Creating Email";
+            //ttTest.id = Strukt.Type_Task_type + "1087742252";
+            //PropertiesStrukt.TaskType ttResult = PropertiesStrukt.TaskType.editTaskType(ttTest);
+            //MessageBox.Show(ttResult.id);
             
         }
 

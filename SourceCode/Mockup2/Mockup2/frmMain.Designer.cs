@@ -31,17 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnCenter = new System.Windows.Forms.Panel();
-            this.btnHide = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSaveProcessAs = new System.Windows.Forms.Button();
-            this.btnLoadProcess = new System.Windows.Forms.Button();
             this.cbProcess = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnOption = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSubAdd = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pnControl = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -50,6 +43,13 @@
             this.addSubTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnHide = new System.Windows.Forms.Button();
+            this.btnSaveProcessAs = new System.Windows.Forms.Button();
+            this.btnLoadProcess = new System.Windows.Forms.Button();
+            this.btnOption = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSubAdd = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,17 +89,6 @@
             this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
             this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
             // 
-            // btnHide
-            // 
-            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHide.Image = global::Mockup2.Properties.Resources.bt_skip_sw;
-            this.btnHide.Location = new System.Drawing.Point(4, 4);
-            this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(23, 45);
-            this.btnHide.TabIndex = 1;
-            this.btnHide.UseVisualStyleBackColor = true;
-            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnSaveProcessAs);
@@ -112,45 +101,25 @@
             this.panel2.Size = new System.Drawing.Size(326, 45);
             this.panel2.TabIndex = 2;
             // 
-            // btnSaveProcessAs
-            // 
-            this.btnSaveProcessAs.Image = global::Mockup2.Properties.Resources.save;
-            this.btnSaveProcessAs.Location = new System.Drawing.Point(294, 8);
-            this.btnSaveProcessAs.Name = "btnSaveProcessAs";
-            this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 23);
-            this.btnSaveProcessAs.TabIndex = 3;
-            this.btnSaveProcessAs.UseVisualStyleBackColor = true;
-            this.btnSaveProcessAs.Click += new System.EventHandler(this.btnSaveProcessAs_Click);
-            // 
-            // btnLoadProcess
-            // 
-            this.btnLoadProcess.Image = global::Mockup2.Properties.Resources.down1;
-            this.btnLoadProcess.Location = new System.Drawing.Point(266, 8);
-            this.btnLoadProcess.Name = "btnLoadProcess";
-            this.btnLoadProcess.Size = new System.Drawing.Size(28, 23);
-            this.btnLoadProcess.TabIndex = 2;
-            this.btnLoadProcess.UseVisualStyleBackColor = true;
-            this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
-            // 
             // cbProcess
             // 
             this.cbProcess.FormattingEnabled = true;
             this.cbProcess.Items.AddRange(new object[] {
             "910664516",
             "2036565491"});
-            this.cbProcess.Location = new System.Drawing.Point(132, 9);
+            this.cbProcess.Location = new System.Drawing.Point(54, 9);
             this.cbProcess.Name = "cbProcess";
-            this.cbProcess.Size = new System.Drawing.Size(132, 21);
+            this.cbProcess.Size = new System.Drawing.Size(210, 21);
             this.cbProcess.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 13);
+            this.label1.Location = new System.Drawing.Point(3, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Loaded Process";
+            this.label1.Text = "Process";
             // 
             // panel3
             // 
@@ -163,55 +132,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(23, 465);
             this.panel3.TabIndex = 3;
-            // 
-            // btnOption
-            // 
-            this.btnOption.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOption.Image = global::Mockup2.Properties.Resources.applications;
-            this.btnOption.Location = new System.Drawing.Point(0, 66);
-            this.btnOption.Name = "btnOption";
-            this.btnOption.Size = new System.Drawing.Size(23, 22);
-            this.btnOption.TabIndex = 7;
-            this.btnOption.UseVisualStyleBackColor = true;
-            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Image = global::Mockup2.Properties.Resources.trash;
-            this.btnDelete.Location = new System.Drawing.Point(0, 44);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(23, 22);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSubAdd
-            // 
-            this.btnSubAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSubAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubAdd.Image = global::Mockup2.Properties.Resources._new;
-            this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
-            this.btnSubAdd.Name = "btnSubAdd";
-            this.btnSubAdd.Size = new System.Drawing.Size(23, 22);
-            this.btnSubAdd.TabIndex = 6;
-            this.btnSubAdd.UseVisualStyleBackColor = true;
-            this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Image = global::Mockup2.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(0, 0);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(23, 22);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Tag = "";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // statusStrip1
             // 
@@ -277,6 +197,88 @@
             this.editNameToolStripMenuItem.Name = "editNameToolStripMenuItem";
             this.editNameToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.editNameToolStripMenuItem.Text = "Edit Name";
+            // 
+            // btnHide
+            // 
+            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHide.Image = global::Mockup2.Properties.Resources.bt_skip_sw;
+            this.btnHide.Location = new System.Drawing.Point(4, 4);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(23, 45);
+            this.btnHide.TabIndex = 1;
+            this.btnHide.UseVisualStyleBackColor = true;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
+            // 
+            // btnSaveProcessAs
+            // 
+            this.btnSaveProcessAs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveProcessAs.Image = global::Mockup2.Properties.Resources.save;
+            this.btnSaveProcessAs.Location = new System.Drawing.Point(294, 8);
+            this.btnSaveProcessAs.Name = "btnSaveProcessAs";
+            this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 23);
+            this.btnSaveProcessAs.TabIndex = 3;
+            this.btnSaveProcessAs.UseVisualStyleBackColor = true;
+            this.btnSaveProcessAs.Click += new System.EventHandler(this.btnSaveProcessAs_Click);
+            // 
+            // btnLoadProcess
+            // 
+            this.btnLoadProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadProcess.Image = global::Mockup2.Properties.Resources.down1;
+            this.btnLoadProcess.Location = new System.Drawing.Point(266, 8);
+            this.btnLoadProcess.Name = "btnLoadProcess";
+            this.btnLoadProcess.Size = new System.Drawing.Size(28, 23);
+            this.btnLoadProcess.TabIndex = 2;
+            this.btnLoadProcess.UseVisualStyleBackColor = true;
+            this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
+            // 
+            // btnOption
+            // 
+            this.btnOption.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOption.Image = global::Mockup2.Properties.Resources.applications;
+            this.btnOption.Location = new System.Drawing.Point(0, 66);
+            this.btnOption.Name = "btnOption";
+            this.btnOption.Size = new System.Drawing.Size(23, 22);
+            this.btnOption.TabIndex = 7;
+            this.btnOption.UseVisualStyleBackColor = true;
+            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Image = global::Mockup2.Properties.Resources.trash;
+            this.btnDelete.Location = new System.Drawing.Point(0, 44);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(23, 22);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnSubAdd
+            // 
+            this.btnSubAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubAdd.Image = global::Mockup2.Properties.Resources._new;
+            this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
+            this.btnSubAdd.Name = "btnSubAdd";
+            this.btnSubAdd.Size = new System.Drawing.Size(23, 22);
+            this.btnSubAdd.TabIndex = 6;
+            this.btnSubAdd.UseVisualStyleBackColor = true;
+            this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = global::Mockup2.Properties.Resources.add;
+            this.btnAdd.Location = new System.Drawing.Point(0, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(23, 22);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Tag = "";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // frmMain
             // 

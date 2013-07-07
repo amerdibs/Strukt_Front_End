@@ -16,7 +16,16 @@ namespace Mockup2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            frmLogin fLogin = new frmLogin();
+            if (fLogin.ShowDialog() == DialogResult.Cancel) 
+            {
+                Application.Exit(); 
+            }
+            else
+            {
+                Application.Run(new frmMain());
+            }
+            //Application.Run(new frmMain());
             //Application.Run(new TestFunction());
             //Application.Run(new frmTaskEdit());
         }

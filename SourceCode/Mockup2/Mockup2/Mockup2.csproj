@@ -60,6 +60,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +79,12 @@
     </Compile>
     <Compile Include="frmHelpInfo.Designer.cs">
       <DependentUpon>frmHelpInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -100,6 +108,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="PropertiesStrukt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\StruktWebservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Strukt.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TestFunction.cs">
@@ -124,6 +137,9 @@
     <Compile Include="Workflow.cs" />
     <EmbeddedResource Include="frmHelpInfo.resx">
       <DependentUpon>frmHelpInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -154,6 +170,7 @@
       <DependentUpon>UCSubTask.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,6 +180,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\StruktWebservice\StruktUser.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -216,6 +234,15 @@
     <None Include="Resources\screen1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\StruktWebservice\StruktUser.disco" />
+    <None Include="Service References\StruktWebservice\configuration91.svcinfo" />
+    <None Include="Service References\StruktWebservice\configuration.svcinfo" />
+    <None Include="Service References\StruktWebservice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\apply.gif" />
+    <None Include="Resources\delete.gif" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -234,6 +261,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\StruktWebservice\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
