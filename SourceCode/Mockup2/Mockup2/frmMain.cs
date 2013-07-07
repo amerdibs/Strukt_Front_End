@@ -54,53 +54,87 @@ namespace Mockup2
         {
             if (pnCenter.Controls.Count == 0)
             {
-                MessageBox.Show("Please add a main task before.");
+                MessageBox.Show("Please add a task before.");
                 return;
             }
 
-
-
-
-
-            /*
-            UCSubTask uSub = new UCSubTask();
-            pnCenter.Controls.Add(uSub);
-            uSub.Dock = DockStyle.Top;
-            //uSub.BringToFront();
-            if (global.currentTaskControlID == 0)
+            if ((global.workflowMain == null) || (global.workflowMain.taskChildList.Count == 0))
             {
-                uSub.BringToFront();
+                MessageBox.Show("Please load process before.");
+                return;
             }
             else
-            {
-                Object uControl = global.currentTaskControlObject;
-                if (uControl.GetType() == typeof(UCMainTask))
+                if (global.currentTaskControlID == 0)
                 {
-                    UCMainTask uSelect = (UCMainTask)uControl;
-                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
-                    pnCenter.Controls.SetChildIndex(uSub, iIndex);
+                    MessageBox.Show("Please select a task before.");
+                    return;
                 }
-                else if (uControl.GetType() == typeof(UCSubTask))
+                else
                 {
-                    UCSubTask uSelect = (UCSubTask)uControl;
-                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
-                    pnCenter.Controls.SetChildIndex(uSub, iIndex);
-                }
-            }
+                    //2. Add new when select a Task 
+                    //    2.1 get task from selected control and create new Task object
+                    //    2.2 set parent_workflow_id use selected_task.childworkflow_id, user_id
+                    //    2.3 get values from edit form
+                    //    2.4 save the new task
+                    //        - post to create new child workflow and get object to update task object
+                    //        2.4.1 save in Strukt first
+                    //        - update child workflow
+                    //        2.4.2 save in Object Structure
+                    //    2.6 create new control and put in main panel
 
-            uSub.MouseDown += new MouseEventHandler(EventHandlerFromSubTask_MouseDown);
-            uSub.DragDrop += new DragEventHandler(EventHandlerFromSubTask_DragDrop);
-             */
+                    Object uControl = global.currentTaskControlObject;
+                    UCMainTask uSelect = (UCMainTask)uControl;
+                    Task taskFollow = uSelect.taskMember;
+
+                    Task taskNew = new Task();
+                    taskNew.parent_workflow_id = taskFollow.child_workflow_id;
+                    taskNew.user_id = global.workflowMain.user_id;
+                    taskNew.name = "New Task";
+ 
+                    frmTaskEdit frmEdit = new frmTaskEdit();
+                    frmEdit.strFormMode = frmEdit.formModeNew;
+                    frmEdit.taskUse = taskNew;
+                    DialogResult dResult = frmEdit.ShowDialog();
+                    if (dResult != DialogResult.OK)
+                    {
+                        return;
+                    }
+                    Workflow wfNew = Workflow.addWorkflow();
+                    wfNew.parent_task_id = taskNew.id;
+                    taskNew.child_workflow_id = wfNew.id;
+                    wfNew.user_id = global.workflowMain.user_id;
+
+                    Task returnTaskAdd = Task.addTask(taskNew);
+                    Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+                    returnTaskAdd.workflowChild = returnChildWorkflow;
+
+                    //Add Task and config UI
+                    UCMainTask uMain = new UCMainTask();
+                    pnCenter.Controls.Add(uMain);
+                    uMain.Dock = DockStyle.Top;
+                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
+                    pnCenter.Controls.SetChildIndex(uMain, iIndex);
+                    uMain.taskMember = returnTaskAdd;
+                    uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
+
+                    uMain.iLevel = uSelect.iLevel + 1;
+                    uMain.BackColor = global.ColorMainTask;
+                    uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left + global.iIndentOfCheckBox;
+                    uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left + global.iIndentOfCheckBox;
+                    uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(global.iGradientOfColor * uMain.iLevel));
+                    uMain.colorBackGround = uMain.BackColor;
+                  
+
+                    uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                    uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                }
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            //UCMainTask uMain = new UCMainTask();
-            //pnCenter.Controls.Add(uMain);
-            //uMain.Dock = DockStyle.Top;
-            //uMain.BringToFront();
-            //uMain.taskMember = taskNew;
             if ((global.workflowMain == null) || (global.workflowMain.taskChildList.Count == 0))
             {
                 MessageBox.Show("Please load process before.\n We still don't implement this step right now.");
@@ -158,6 +192,7 @@ namespace Mockup2
                 uMain.BringToFront();
                 uMain.taskMember = returnTaskAdd;
                 uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
+                uMain.iLevel = 0;
 
                 uMain.BackColor = global.ColorMainTask;
                 uMain.colorBackGround = uMain.BackColor;
@@ -245,42 +280,12 @@ namespace Mockup2
                 uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left;
                 uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(global.iGradientOfColor * uSelect.iLevel));
                 uMain.colorBackGround = uMain.BackColor;
+                uMain.iLevel = uSelect.iLevel;
 
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
             }
 
-            //uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-            //uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-            /*
-            UCMainTask uMain = new UCMainTask();
-            pnCenter.Controls.Add(uMain);
-            uMain.Dock = DockStyle.Top;
-            if (global.currentTaskControlID == 0)
-            {
-                uMain.BringToFront();
-            }
-            else
-            {
-                Object uControl = global.currentTaskControlObject;
-                if (uControl.GetType() == typeof(UCMainTask))
-                {
-                    UCMainTask uSelect = (UCMainTask)uControl;
-                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
-                    pnCenter.Controls.SetChildIndex(uMain, iIndex);
-                }
-                else if (uControl.GetType() == typeof(UCSubTask))
-                {
-                    UCSubTask uSelect = (UCSubTask)uControl;
-                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
-                    pnCenter.Controls.SetChildIndex(uMain, iIndex);
-                }
-            }
-            
-            uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-            uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-             * 
-             * */
 
         }
 
@@ -496,7 +501,7 @@ namespace Mockup2
         //Create hierachy of Task Controls
         private void generateTaskControl(Workflow wfParam, int iLevel)
         {
-            if (wfParam == null)
+            if ((wfParam == null) || (wfParam.taskChildList == null))
             {
                 return;
             }

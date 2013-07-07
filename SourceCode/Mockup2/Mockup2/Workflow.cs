@@ -45,7 +45,7 @@ namespace Mockup2
             List<Task> tkList = Task.getTaskByParentWorkflowID(strWorkflowID);
             if (tkList == null)
             {
-                return null;
+                return wfGet[0];
             }
             wfGet[0].taskChildList = global.sortTaskList(tkList);
 
@@ -53,7 +53,6 @@ namespace Mockup2
             {
                 List<Workflow> wfSubGet = getWorkflowByID(global.getValueFromStruktValue(tkUse.child_workflow_id));
                 tkUse.workflowParent = wfGet[0];
-                tkUse.workflowChild = wfSubGet[0];
                 wfSubGet[0].taskParent = tkUse;
                 if ( !tkUse.user_id.Contains("null") )
                 {

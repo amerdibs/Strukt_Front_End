@@ -141,7 +141,7 @@ namespace Mockup2
         
         private void propertiesFill(Workflow wfparm,List<Task> taskList)
         {
-            if (wfparm == null)
+            if ((wfparm == null) || (wfparm.taskChildList == null))
             {
                 return;
             }
