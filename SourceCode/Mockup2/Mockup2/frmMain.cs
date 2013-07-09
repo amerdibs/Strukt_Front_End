@@ -27,8 +27,9 @@ namespace Mockup2
             cbProcess.DisplayMember = "p_name";
 
             if (global.processTable.Columns.Contains("u_name") == true)
+            {
                 this.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
-            //cbProcess.SelectedIndex = 0;
+            }
            
         }
 
@@ -462,10 +463,23 @@ namespace Mockup2
 
         private void btnLoadProcess_Click(object sender, EventArgs e)
         {
-            Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString());
-            global.workflowMain = wfMain;
-            pnCenter.Controls.Clear();
-            generateTaskControl(wfMain, 0);
+            Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+                Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString());
+                global.workflowMain = wfMain;
+                pnCenter.Controls.Clear();
+                generateTaskControl(wfMain, 0);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void btnHide_Click(object sender, EventArgs e)
@@ -479,7 +493,7 @@ namespace Mockup2
             }
             else
             {
-                frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 400;
+                frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 420;
                 btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_sw));
                 global.hideWindows = false;
             }
@@ -506,7 +520,7 @@ namespace Mockup2
                 uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (global.iIndentOfCheckBox * iLevel);
                 if (uMain.taskMember.status_id == PropertiesStrukt.Status.statusCompleted)
                 {
-                    CheckBox cbSelect = (CheckBox)uMain.Controls["cbCheck"];
+                    CheckBox cbSelect = (CheckBox)uMain.Controls["cbCheck"];            
                     cbSelect.Checked = true;
                 }
                 uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(global.iGradientOfColor * iLevel));
@@ -536,7 +550,7 @@ namespace Mockup2
 
         private void btnSaveProcessAs_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Please wait for phase 2");
+            MessageBox.Show("Save as... Please wait for phase 2");
             //PropertiesStrukt.TaskType ttTest = new PropertiesStrukt.TaskType();
             //ttTest.name = "Creating Email";
             //ttTest.id = Strukt.Type_Task_type + "1087742252";
@@ -545,6 +559,57 @@ namespace Mockup2
             
         }
 
+        private void btnAddProcess_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add new process... Please wait for phase 2");
+        }
 
+        private void editNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (global.currentTaskControlObject == null)
+            {
+                MessageBox.Show("Please select a task");
+                return;
+            }
+            UCMainTask umSelect = (UCMainTask)global.currentTaskControlObject;
+            TextBox tb = new TextBox();
+            tb.Name = "TBtemp";
+            tb.Text = umSelect.Controls["lbTitle"].Text;
+            umSelect.Controls.Add(tb);
+            tb.Location = umSelect.Controls["lbTitle"].Location;
+            tb.Height = umSelect.Controls["lbTitle"].Size.Height;
+            tb.Width = 120;
+            tb.BringToFront();
+            tb.Leave += new EventHandler(tb_Leave);
+            tb.KeyPress += new KeyPressEventHandler(tb_KeyPress);
+        }
+
+        private void tb_Leave(object sender, EventArgs e)
+        {
+            UCMainTask umSelect = (UCMainTask)global.currentTaskControlObject;
+            TextBox tb = (TextBox)sender;
+            umSelect.taskMember.name = tb.Text;
+            Task.editTask(umSelect.taskMember);
+            umSelect.Controls["lbTitle"].Text = tb.Text;         
+            umSelect.Controls.Remove(tb);
+        }
+
+        private void tb_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                tb_Leave(sender, e);
+            }
+        }
+
+        private void assignTaskToolStrip_Click(object sender, EventArgs e)
+        {
+            btnAssignment_Click(sender, e);
+        }
+
+        private void btnAssignment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

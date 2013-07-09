@@ -68,38 +68,12 @@ namespace Mockup2
 
         private void UCMainTask_Leave(object sender, EventArgs e)
         {
-            /*
-            foreach (Object cControl in this.Controls)
-            {
-                if (cControl.GetType() == typeof(TextBox))
-                {
-                    TextBox tb = (TextBox)cControl;
-                    if (tb.Name == "TBtemp")
-                    {
-                        tb_Leave(sender, e);
-                    }
-                }
-            }
-            */
-        }
 
-        private void lbTitle_DoubleClick(object sender, EventArgs e)
-        {
-            TextBox tb = new TextBox();
-            tb.Name = "TBtemp";
-            tb.Text = lbTitle.Text;
-            this.Controls.Add(tb);
-            tb.Location = lbTitle.Location;
-            tb.Height = lbTitle.Size.Height;
-            tb.Width = 120;
-            tb.BringToFront();
-            tb.Leave += new EventHandler(tb_Leave);
-            tb.KeyPress += new KeyPressEventHandler(tb_KeyPress);
         }
 
         private void lbTitle_Click_1(object sender, EventArgs e)
         {
-            //UCMainTask_MouseDown(this, new MouseEventArgs(Control.MouseButtons, 0, Control.MousePosition.X, Control.MousePosition.Y, 0));
+            UCMainTask_MouseDown(this, new MouseEventArgs(Control.MouseButtons, 0, Control.MousePosition.X, Control.MousePosition.Y, 0));
         }
 
         private void btnProp_Click(object sender, EventArgs e)
@@ -184,23 +158,23 @@ namespace Mockup2
         private void cbCheck_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (cbCheck.Checked)
-            {
-                PropertiesStrukt.Status.updateStatus(taskMember, true);
-               //List <Workflow> parmWorkFowList=Workflow.getWorkflowByID(taskMember.child_workflow_id);
-               // Workflow parmWorkFlow= parmWorkFowList[0];
+            //if (cbCheck.Checked)
+            //{
+            //    PropertiesStrukt.Status.updateStatus(taskMember, true);
+            //   //List <Workflow> parmWorkFowList=Workflow.getWorkflowByID(taskMember.child_workflow_id);
+            //   // Workflow parmWorkFlow= parmWorkFowList[0];
 
 
 
-               // List<Task> childTaskList = Task.getTaskByParentWorkflowID(global.getValueFromStruktValue(taskMember.child_workflow_id));
+            //   // List<Task> childTaskList = Task.getTaskByParentWorkflowID(global.getValueFromStruktValue(taskMember.child_workflow_id));
 
-               // checktask(childTaskList,parmWorkFlow);
+            //   // checktask(childTaskList,parmWorkFlow);
 
 
-            }
-            else
-                PropertiesStrukt.Status.updateStatus(taskMember, false);
-                //unchecktask(taskMember);
+            //}
+            //else
+            //    PropertiesStrukt.Status.updateStatus(taskMember, false);
+            //    //unchecktask(taskMember);
             
         }
         private void checktask(List<Task> taskList,Workflow workflow)
@@ -221,6 +195,27 @@ namespace Mockup2
             PropertiesStrukt p = new PropertiesStrukt();
             //taskparm.status_id = p.statusActive;
 
+        }
+
+        private void cbCheck_Click(object sender, EventArgs e)
+        {
+            if (cbCheck.Checked)
+            {
+                PropertiesStrukt.Status.updateStatus(taskMember, true);
+                //List <Workflow> parmWorkFowList=Workflow.getWorkflowByID(taskMember.child_workflow_id);
+                // Workflow parmWorkFlow= parmWorkFowList[0];
+
+
+
+                // List<Task> childTaskList = Task.getTaskByParentWorkflowID(global.getValueFromStruktValue(taskMember.child_workflow_id));
+
+                // checktask(childTaskList,parmWorkFlow);
+
+
+            }
+            else
+                PropertiesStrukt.Status.updateStatus(taskMember, false);
+            //unchecktask(taskMember);
         }
     }
 }

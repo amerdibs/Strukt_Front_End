@@ -9,6 +9,7 @@ namespace Mockup2
 {
     public class Assignment
     {
+        public string id { get; set; }
         public string source_task_id { get; set; }
         public string target_user_id { get; set; }
         public string target_task_id { get; set; }

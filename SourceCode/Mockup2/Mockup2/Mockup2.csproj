@@ -235,6 +235,8 @@
     <None Include="Resources\apply.gif" />
     <None Include="Resources\delete.gif" />
     <None Include="Resources\bt_ff.gif" />
+    <None Include="Resources\add1.gif" />
+    <None Include="Resources\user.gif" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>

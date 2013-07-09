@@ -77,11 +77,11 @@
             // 
             this.btnPass.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.btnPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPass.Location = new System.Drawing.Point(19, 107);
+            this.btnPass.Location = new System.Drawing.Point(4, 107);
             this.btnPass.Name = "btnPass";
-            this.btnPass.Size = new System.Drawing.Size(156, 23);
+            this.btnPass.Size = new System.Drawing.Size(208, 23);
             this.btnPass.TabIndex = 6;
-            this.btnPass.Text = "Do not want to Log-In (Test)";
+            this.btnPass.Text = "No Log-In But cannot use Assignment (Test Only)";
             this.btnPass.UseVisualStyleBackColor = true;
             this.btnPass.Click += new System.EventHandler(this.btnPass_Click);
             // 
@@ -139,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(211, 143);
+            this.ClientSize = new System.Drawing.Size(215, 143);
             this.Controls.Add(this.txtTest);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnPass);

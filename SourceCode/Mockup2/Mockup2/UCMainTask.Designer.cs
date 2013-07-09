@@ -43,6 +43,7 @@
             this.cbCheck.TabIndex = 0;
             this.cbCheck.UseVisualStyleBackColor = true;
             this.cbCheck.CheckedChanged += new System.EventHandler(this.cbCheck_CheckedChanged);
+            this.cbCheck.Click += new System.EventHandler(this.cbCheck_Click);
             // 
             // lbTitle
             // 
@@ -55,7 +56,6 @@
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "[New Task]";
             this.lbTitle.Click += new System.EventHandler(this.lbTitle_Click_1);
-            this.lbTitle.DoubleClick += new System.EventHandler(this.lbTitle_DoubleClick);
             // 
             // btnLink
             // 
