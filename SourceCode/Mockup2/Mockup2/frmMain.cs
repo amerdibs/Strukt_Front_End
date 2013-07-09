@@ -504,6 +504,11 @@ namespace Mockup2
                 uMain.Controls["lbTitle"].Text = tEach.name;
                 uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (global.iIndentOfCheckBox * iLevel);
+                if (uMain.taskMember.status_id == PropertiesStrukt.Status.statusCompleted)
+                {
+                    CheckBox cbSelect = (CheckBox)uMain.Controls["cbCheck"];
+                    cbSelect.Checked = true;
+                }
                 uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(global.iGradientOfColor * iLevel));
                 uMain.colorBackGround = uMain.BackColor;
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);

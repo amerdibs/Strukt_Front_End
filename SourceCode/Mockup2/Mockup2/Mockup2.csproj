@@ -121,12 +121,6 @@
     <Compile Include="TestFunction.Designer.cs">
       <DependentUpon>TestFunction.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCSubTask.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCSubTask.Designer.cs">
-      <DependentUpon>UCSubTask.cs</DependentUpon>
-    </Compile>
     <Compile Include="UCMainTask.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,9 +159,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCMainTask.resx">
       <DependentUpon>UCMainTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCSubTask.resx">
-      <DependentUpon>UCSubTask.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />

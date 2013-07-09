@@ -223,6 +223,22 @@ namespace Mockup2
             public string id { get; set; }
             public string name { get; set; }
             public string url { get; set; }
+            public static string statusActive = Strukt.Type_Status + "1";
+            public static string statusCompleted = Strukt.Type_Status + "2";
+            public static string statusNoNActive = Strukt.Type_Status + "3";
+            public static string statusBlocked = Strukt.Type_Status + "4";
+            
+            public static void updateStatus(Task parmtask,bool status)
+            {  
+                
+		        if (status)
+                    parmtask.status_id = statusCompleted;
+                else
+                    parmtask.status_id = statusActive;
+                Task.editTask(parmtask);         
+                
+                
+            }
 
             public static List<Status> getStatusAll()
             {

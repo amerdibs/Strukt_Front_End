@@ -24,7 +24,7 @@ namespace Mockup2
         public string location_id { get; set; }
         public string project_id { get; set; }
         public string follows_id { get; set; }
-
+        
         public Workflow workflowChild { get; set; }
         public Workflow workflowParent { get; set; }
 

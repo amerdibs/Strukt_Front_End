@@ -180,5 +180,47 @@ namespace Mockup2
         {
             System.Diagnostics.Process.Start("http://www.uni-mannheim.de");
         }
+
+        private void cbCheck_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (cbCheck.Checked)
+            {
+                PropertiesStrukt.Status.updateStatus(taskMember, true);
+               //List <Workflow> parmWorkFowList=Workflow.getWorkflowByID(taskMember.child_workflow_id);
+               // Workflow parmWorkFlow= parmWorkFowList[0];
+
+
+
+               // List<Task> childTaskList = Task.getTaskByParentWorkflowID(global.getValueFromStruktValue(taskMember.child_workflow_id));
+
+               // checktask(childTaskList,parmWorkFlow);
+
+
+            }
+            else
+                PropertiesStrukt.Status.updateStatus(taskMember, false);
+                //unchecktask(taskMember);
+            
+        }
+        private void checktask(List<Task> taskList,Workflow workflow)
+        {
+            PropertiesStrukt p=new PropertiesStrukt();
+
+            foreach (Task tEach in workflow.taskChildList)
+            {
+                checktask(taskList,tEach.workflowChild);
+                //tEach.status_id = p.statusCompleted;
+                return;
+
+            }
+
+        }
+        private void unchecktask(Task taskparm)
+        {
+            PropertiesStrukt p = new PropertiesStrukt();
+            //taskparm.status_id = p.statusActive;
+
+        }
     }
 }
