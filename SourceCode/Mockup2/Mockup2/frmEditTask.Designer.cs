@@ -33,8 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbTask = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.cbProject = new System.Windows.Forms.ComboBox();
@@ -63,6 +61,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnAssign = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnAssign);
             this.panel1.Controls.Add(this.txtTaskName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbTask);
@@ -84,9 +86,9 @@
             // txtTaskName
             // 
             this.txtTaskName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTaskName.Location = new System.Drawing.Point(101, 10);
+            this.txtTaskName.Location = new System.Drawing.Point(42, 10);
             this.txtTaskName.Name = "txtTaskName";
-            this.txtTaskName.Size = new System.Drawing.Size(188, 20);
+            this.txtTaskName.Size = new System.Drawing.Size(227, 20);
             this.txtTaskName.TabIndex = 2;
             this.txtTaskName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -95,9 +97,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Task/ SubTask";
+            this.label1.Text = "Task";
             // 
             // cbTask
             // 
@@ -113,9 +115,9 @@
             "________Sub Task 2_2",
             "________Sub Task 2_3",
             "________Sub Task 2_4"});
-            this.cbTask.Location = new System.Drawing.Point(305, 10);
+            this.cbTask.Location = new System.Drawing.Point(12, 10);
             this.cbTask.Name = "cbTask";
-            this.cbTask.Size = new System.Drawing.Size(38, 21);
+            this.cbTask.Size = new System.Drawing.Size(18, 21);
             this.cbTask.TabIndex = 0;
             this.cbTask.Visible = false;
             // 
@@ -128,28 +130,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 40);
             this.panel2.TabIndex = 1;
-            // 
-            // btnOK
-            // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(188, 6);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(269, 6);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // groupBox1
             // 
@@ -488,6 +468,47 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
+            // btnAssign
+            // 
+            this.btnAssign.Image = global::Mockup2.Properties.Resources.export;
+            this.btnAssign.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAssign.Location = new System.Drawing.Point(275, 8);
+            this.btnAssign.Name = "btnAssign";
+            this.btnAssign.Size = new System.Drawing.Size(69, 23);
+            this.btnAssign.TabIndex = 3;
+            this.btnAssign.Text = "Assign";
+            this.btnAssign.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAssign.UseVisualStyleBackColor = true;
+            this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
+            // 
+            // btnOK
+            // 
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.Image = global::Mockup2.Properties.Resources.ball_green;
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOK.Location = new System.Drawing.Point(188, 6);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 1;
+            this.btnOK.Text = "OK";
+            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::Mockup2.Properties.Resources.ball_red;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(269, 6);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // frmTaskEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,5 +573,6 @@
         private System.Windows.Forms.ListBox lstRoleCondition;
         private System.Windows.Forms.ListBox lstAlternative;
         private System.Windows.Forms.ListBox lstPreCondition;
+        private System.Windows.Forms.Button btnAssign;
     }
 }

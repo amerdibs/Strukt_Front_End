@@ -181,6 +181,14 @@ namespace Mockup2
                 this.Close();
         }
 
+        private void btnAssign_Click(object sender, EventArgs e)
+        {
+            frmAssign frmAs = new frmAssign();
+            DialogResult dResult = frmAs.ShowDialog();
+
+
+        }
+
       
     }
 }

@@ -30,12 +30,26 @@ namespace Mockup2.StruktWebservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/checkLogin", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> checkLoginAsync(string strName, string strPassword);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getProcessByUserID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable getProcessByUserID(string strID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getProcessByUserID", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getProcessByUserIDAsync(string strID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getProcessAll", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable getProcessAll();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getProcessAll", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> getProcessAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getUserAll", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable getUserAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getUserAll", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getUserAllAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -81,12 +95,28 @@ namespace Mockup2.StruktWebservice {
             return base.Channel.checkLoginAsync(strName, strPassword);
         }
         
+        public System.Data.DataTable getProcessByUserID(string strID) {
+            return base.Channel.getProcessByUserID(strID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> getProcessByUserIDAsync(string strID) {
+            return base.Channel.getProcessByUserIDAsync(strID);
+        }
+        
         public System.Data.DataTable getProcessAll() {
             return base.Channel.getProcessAll();
         }
         
         public System.Threading.Tasks.Task<System.Data.DataTable> getProcessAllAsync() {
             return base.Channel.getProcessAllAsync();
+        }
+        
+        public System.Data.DataTable getUserAll() {
+            return base.Channel.getUserAll();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> getUserAllAsync() {
+            return base.Channel.getUserAllAsync();
         }
     }
 }

@@ -74,6 +74,12 @@
   <ItemGroup>
     <Compile Include="Assignment.cs" />
     <Compile Include="Condition.cs" />
+    <Compile Include="frmAssign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAssign.Designer.cs">
+      <DependentUpon>frmAssign.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHelpInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Workflow.cs" />
+    <EmbeddedResource Include="frmAssign.resx">
+      <DependentUpon>frmAssign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHelpInfo.resx">
       <DependentUpon>frmHelpInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +246,9 @@
     <None Include="Resources\bt_ff.gif" />
     <None Include="Resources\add1.gif" />
     <None Include="Resources\user.gif" />
+    <None Include="Resources\export.gif" />
+    <None Include="Resources\ball_green.gif" />
+    <None Include="Resources\ball_red.gif" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>

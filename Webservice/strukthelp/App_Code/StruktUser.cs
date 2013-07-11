@@ -59,11 +59,65 @@ public class StruktUser : System.Web.Services.WebService {
     }
 
     [WebMethod]
+    public DataTable getProcessByUserID(string strID)
+    {
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        dbConnection.Open();
+        string strQ = "select distinct struktUser.*, struktProcess.* from struktUser"
+                        + " join struktUserProcess"
+                        + " on u_id = up_user_id"
+                        + " join struktProcess"
+                        + " on up_process_id = p_id"
+                        + " where u_id=@u_id";
+
+        SqlParameter spUserID = new SqlParameter("@u_id", strID);
+        SqlCommand qCommand = new SqlCommand(strQ, dbConnection);
+        qCommand.Parameters.Add(spUserID);
+        SqlDataReader qReader = qCommand.ExecuteReader();
+        DataTable dtTable = new DataTable();
+        dtTable.Load(qReader);
+        dtTable.TableName = "StruktUserProcess";
+        dbConnection.Close();
+        if (dtTable.Rows.Count > 0)
+        {
+            return dtTable;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+
+    [WebMethod]
     public DataTable getProcessAll()
     {
         SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
         dbConnection.Open();
         string strQ = "select * from struktProcess";
+
+        SqlCommand qCommand = new SqlCommand(strQ, dbConnection);
+        SqlDataReader qReader = qCommand.ExecuteReader();
+        DataTable dtTable = new DataTable();
+        dtTable.Load(qReader);
+        dtTable.TableName = "StruktProcess";
+        dbConnection.Close();
+        if (dtTable.Rows.Count > 0)
+        {
+            return dtTable;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    [WebMethod]
+    public DataTable getUserAll()
+    {
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        dbConnection.Open();
+        string strQ = "select * from struktUser";
 
         SqlCommand qCommand = new SqlCommand(strQ, dbConnection);
         SqlDataReader qReader = qCommand.ExecuteReader();
