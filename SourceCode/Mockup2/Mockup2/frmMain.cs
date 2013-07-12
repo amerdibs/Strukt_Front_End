@@ -131,8 +131,7 @@ namespace Mockup2
                     uMain.BackColor = global.ColorMainTask;
                     uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left + global.iIndentOfCheckBox;
                     uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left + global.iIndentOfCheckBox;
-                    uMain.BackColor = getColorTaskControlBackground(uMain.BackColor, uMain.iLevel);
-                    //uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G - (byte)(global.iGradientOfColor * uMain.iLevel), uMain.BackColor.B);
+                    uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uMain.iLevel);
                     uMain.colorBackGround = uMain.BackColor;
                   
 
@@ -291,8 +290,7 @@ namespace Mockup2
                 uMain.BackColor = global.ColorMainTask;
                 uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left;
                 uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left;
-                uMain.BackColor = getColorTaskControlBackground(uMain.BackColor, uSelect.iLevel);
-                //uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G - (byte)(global.iGradientOfColor * uSelect.iLevel), uMain.BackColor.B);
+                uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uSelect.iLevel);
                 uMain.colorBackGround = uMain.BackColor;
                 uMain.iLevel = uSelect.iLevel;
 
@@ -519,8 +517,8 @@ namespace Mockup2
             {
                 generateTaskControl(tEach.workflowChild, iLevel + 1);
                 UCMainTask uMain = new UCMainTask();
-                uMain.Height = global.heightControlTaskNormal;
                 uMain.taskMember = tEach;
+                uMain.Height = global.getHeightTaskControl(tEach);
                 uMain.iLevel = iLevel;
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
@@ -533,8 +531,7 @@ namespace Mockup2
                     CheckBox cbSelect = (CheckBox)uMain.Controls["cbCheck"];            
                     cbSelect.Checked = true;
                 }
-                uMain.BackColor = getColorTaskControlBackground(uMain.BackColor, iLevel);
-                //uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G - (byte)(global.iGradientOfColor * iLevel), uMain.BackColor.B);
+                uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, iLevel);
                 uMain.colorBackGround = uMain.BackColor;
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
@@ -623,26 +620,6 @@ namespace Mockup2
 
         }
 
-        private Color getColorTaskControlBackground(Color cColor, int iLevel)
-        {
-            int red = cColor.R + (global.iGradientOfColor * iLevel);
-            int green = cColor.G + (global.iGradientOfColor * iLevel);
-            int blue = cColor.B - (global.iGradientOfColor * iLevel);
-
-            if (red > 255)
-                red = 255;
-            if (red < 0)
-                red = 0;
-            if (green > 255)
-                green = 255;
-            if (green < 0)
-                green = 0;
-            if (blue > 255)
-                blue = 255;
-            if (blue < 0)
-                blue = 0;
-            return Color.FromArgb(red, green, blue);
-        }
 
     }
 }

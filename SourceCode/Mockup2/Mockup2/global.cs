@@ -43,6 +43,53 @@ namespace Mockup2
         public static int heightControlTaskNormal = 27;
         public static int heightControlTaskReceive = heightControlTaskNormal + 50;
         public static int heightControlTaskAssign = heightControlTaskNormal + 80;
+
+        //calculate height of Task control
+        public static int getHeightTaskControl(Task tTask)
+        {
+            if (!tTask.hasAssignment && !tTask.hasReceivedTask)
+            {
+                return heightControlTaskNormal;
+            }
+            else if (tTask.hasAssignment && tTask.hasReceivedTask)
+            {
+                return heightControlTaskNormal + 130;
+            }
+            else if (tTask.hasAssignment && !tTask.hasReceivedTask)
+            {
+                return heightControlTaskAssign;
+            }
+            else if (!tTask.hasAssignment && tTask.hasReceivedTask)
+            {
+                return heightControlTaskReceive;
+            }
+            else
+                return heightControlTaskNormal;
+        }
+
+        //calculate color for Task control background
+        public static Color getColorTaskControlBackground(Color cColor, int iLevel)
+        {
+            int red = cColor.R + (global.iGradientOfColor * iLevel);
+            int green = cColor.G + (global.iGradientOfColor * iLevel);
+            int blue = cColor.B - (global.iGradientOfColor * iLevel);
+
+            if (red > 255)
+                red = 255;
+            if (red < 0)
+                red = 0;
+            if (green > 255)
+                green = 255;
+            if (green < 0)
+                green = 0;
+            if (blue > 255)
+                blue = 255;
+            if (blue < 0)
+                blue = 0;
+            return Color.FromArgb(red, green, blue);
+        }
+
+
         //Extract the value from type
         public static string getValueFromStruktValue(string strParam)
         {
