@@ -50,6 +50,13 @@ namespace Mockup2.StruktWebservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getUserAll", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> getUserAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getUserByStruktID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable getUserByStruktID(string strID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getUserByStruktID", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getUserByStruktIDAsync(string strID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -117,6 +124,14 @@ namespace Mockup2.StruktWebservice {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> getUserAllAsync() {
             return base.Channel.getUserAllAsync();
+        }
+        
+        public System.Data.DataTable getUserByStruktID(string strID) {
+            return base.Channel.getUserByStruktID(strID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> getUserByStruktIDAsync(string strID) {
+            return base.Channel.getUserByStruktIDAsync(strID);
         }
     }
 }

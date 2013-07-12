@@ -34,12 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbAssigned = new System.Windows.Forms.ListBox();
             this.pnAssign = new System.Windows.Forms.Panel();
+            this.btnSendtoReceiver = new System.Windows.Forms.Button();
             this.txtReceive = new System.Windows.Forms.TextBox();
             this.pnReceive = new System.Windows.Forms.Panel();
+            this.btnSendtoAssigner = new System.Windows.Forms.Button();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
-            this.btnSendtoAssigner = new System.Windows.Forms.Button();
-            this.btnSendtoReceiver = new System.Windows.Forms.Button();
             this.pnAssign.SuspendLayout();
             this.pnReceive.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Purple;
             this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
@@ -79,6 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Purple;
             this.label2.Location = new System.Drawing.Point(3, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 13);
@@ -105,6 +107,19 @@
             this.pnAssign.TabIndex = 7;
             this.pnAssign.Visible = false;
             // 
+            // btnSendtoReceiver
+            // 
+            this.btnSendtoReceiver.Image = global::Mockup2.Properties.Resources.mail;
+            this.btnSendtoReceiver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSendtoReceiver.Location = new System.Drawing.Point(227, 24);
+            this.btnSendtoReceiver.Name = "btnSendtoReceiver";
+            this.btnSendtoReceiver.Size = new System.Drawing.Size(77, 23);
+            this.btnSendtoReceiver.TabIndex = 9;
+            this.btnSendtoReceiver.Text = "Message";
+            this.btnSendtoReceiver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSendtoReceiver.UseVisualStyleBackColor = true;
+            this.btnSendtoReceiver.Click += new System.EventHandler(this.btnSendtoReceiver_Click);
+            // 
             // txtReceive
             // 
             this.txtReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -126,6 +141,19 @@
             this.pnReceive.Size = new System.Drawing.Size(318, 50);
             this.pnReceive.TabIndex = 8;
             this.pnReceive.Visible = false;
+            // 
+            // btnSendtoAssigner
+            // 
+            this.btnSendtoAssigner.Image = global::Mockup2.Properties.Resources.mail;
+            this.btnSendtoAssigner.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSendtoAssigner.Location = new System.Drawing.Point(227, 22);
+            this.btnSendtoAssigner.Name = "btnSendtoAssigner";
+            this.btnSendtoAssigner.Size = new System.Drawing.Size(77, 23);
+            this.btnSendtoAssigner.TabIndex = 8;
+            this.btnSendtoAssigner.Text = "Message";
+            this.btnSendtoAssigner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSendtoAssigner.UseVisualStyleBackColor = true;
+            this.btnSendtoAssigner.Click += new System.EventHandler(this.btnSendtoAssigner_Click);
             // 
             // btnLink
             // 
@@ -149,32 +177,6 @@
             this.btnProp.TabIndex = 2;
             this.btnProp.UseVisualStyleBackColor = true;
             this.btnProp.Click += new System.EventHandler(this.btnProp_Click);
-            // 
-            // btnSendtoAssigner
-            // 
-            this.btnSendtoAssigner.Image = global::Mockup2.Properties.Resources.mail;
-            this.btnSendtoAssigner.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendtoAssigner.Location = new System.Drawing.Point(227, 22);
-            this.btnSendtoAssigner.Name = "btnSendtoAssigner";
-            this.btnSendtoAssigner.Size = new System.Drawing.Size(77, 23);
-            this.btnSendtoAssigner.TabIndex = 8;
-            this.btnSendtoAssigner.Text = "Message";
-            this.btnSendtoAssigner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSendtoAssigner.UseVisualStyleBackColor = true;
-            this.btnSendtoAssigner.Click += new System.EventHandler(this.btnSendtoAssigner_Click);
-            // 
-            // btnSendtoReceiver
-            // 
-            this.btnSendtoReceiver.Image = global::Mockup2.Properties.Resources.mail;
-            this.btnSendtoReceiver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendtoReceiver.Location = new System.Drawing.Point(227, 24);
-            this.btnSendtoReceiver.Name = "btnSendtoReceiver";
-            this.btnSendtoReceiver.Size = new System.Drawing.Size(77, 23);
-            this.btnSendtoReceiver.TabIndex = 9;
-            this.btnSendtoReceiver.Text = "Message";
-            this.btnSendtoReceiver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSendtoReceiver.UseVisualStyleBackColor = true;
-            this.btnSendtoReceiver.Click += new System.EventHandler(this.btnSendtoReceiver_Click);
             // 
             // UCMainTask
             // 

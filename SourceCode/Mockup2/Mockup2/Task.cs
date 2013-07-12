@@ -27,8 +27,10 @@ namespace Mockup2
         
         public Workflow workflowChild { get; set; }
         public Workflow workflowParent { get; set; }
-        public bool hasAssignment { get; set; }
-        public bool hasReceivedTask { get; set; }
+        public bool hasAssignmentSent { get; set; }
+        public bool hasAssignmentReceived { get; set; }
+
+
         public static Task addTask(Task tParam)
         {
             try
@@ -104,6 +106,24 @@ namespace Mockup2
             }
         }
 
+        public static List<Task> getTaskByID(string strID)
+        {
+            try
+            {
+                string strUser = global.getExtractValueFromRespond(
+                                    global.getRespondFromStruktGet(Strukt.URL_Task, "/" + strID));
+
+                if (strUser == "")
+                    return null;
+
+                List<Task> UserList = JsonConvert.DeserializeObject<List<Task>>(strUser);
+                return UserList;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
     }
 }

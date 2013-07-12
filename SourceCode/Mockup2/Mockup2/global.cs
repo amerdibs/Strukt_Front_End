@@ -32,34 +32,40 @@ namespace Mockup2
         public static Color ColorSelect = Color.SandyBrown;
 
         public static int iIndentOfCheckBox = 12;
-        public static int iGradientOfColor = 40;
+        public static int iGradientOfColor = 20;
 
-        // fix value is used for the first prototype only
-        public static string strWorkflowID = "354249471";
-        public static string strUserID = "4";
-        public static Workflow workflowMain;
-
-        public static DataTable processTable;
         public static int heightControlTaskNormal = 27;
         public static int heightControlTaskReceive = heightControlTaskNormal + 50;
         public static int heightControlTaskAssign = heightControlTaskNormal + 80;
 
+
+        // fix value is used for the first prototype only
+        //public static string strWorkflowID = "354249471";
+        //public static string strUserID = "4";
+        public static Workflow workflowMain;
+        public static List<Assignment> assignmentSentList;
+        public static List<Assignment> assignmentReceivedList;
+
+
+        public static DataTable processTable;
+
+
         //calculate height of Task control
         public static int getHeightTaskControl(Task tTask)
         {
-            if (!tTask.hasAssignment && !tTask.hasReceivedTask)
+            if (!tTask.hasAssignmentSent && !tTask.hasAssignmentReceived)
             {
                 return heightControlTaskNormal;
             }
-            else if (tTask.hasAssignment && tTask.hasReceivedTask)
+            else if (tTask.hasAssignmentSent && tTask.hasAssignmentReceived)
             {
                 return heightControlTaskNormal + 130;
             }
-            else if (tTask.hasAssignment && !tTask.hasReceivedTask)
+            else if (tTask.hasAssignmentSent && !tTask.hasAssignmentReceived)
             {
                 return heightControlTaskAssign;
             }
-            else if (!tTask.hasAssignment && tTask.hasReceivedTask)
+            else if (!tTask.hasAssignmentSent && tTask.hasAssignmentReceived)
             {
                 return heightControlTaskReceive;
             }

@@ -56,5 +56,62 @@ namespace Mockup2
                 throw;
             }
         }
+
+        //set both sent and received assignment and return true If has new assignment
+        public static bool checkGetAssignmentByUserID(string strTargetUserID)
+        {
+            bool bResult = false;
+            global.assignmentReceivedList = getAssignmentByTargetUserID(strTargetUserID);
+            global.assignmentSentList = getAssignmentBySourceUserID(strTargetUserID);
+            foreach (Assignment asEach in global.assignmentReceivedList)
+            {
+                if (asEach.acknowledged == "false")
+                    bResult = true;
+            }
+            foreach (Assignment asEach in global.assignmentSentList)
+            {
+                if (asEach.acknowledged == "false")
+                    bResult = true;
+            }
+            return bResult;
+        }
+
+        public static Assignment editAssignment(Assignment asParam)
+        {
+            try
+            {
+                string strReturn = "";
+                JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                string strObj = JsonConvert.SerializeObject(asParam, jsSetting);
+                strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Assignment, strObj));
+                return JsonConvert.DeserializeObject<Assignment>(strReturn);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static Assignment updateAssignmentAcknowledge(Assignment asParam)
+        {
+            try
+            {
+                string strReturn = "";
+                asParam.acknowledged = "true";
+                JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                string strObj = JsonConvert.SerializeObject(asParam, jsSetting);
+                strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Assignment, strObj));
+                return JsonConvert.DeserializeObject<Assignment>(strReturn);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

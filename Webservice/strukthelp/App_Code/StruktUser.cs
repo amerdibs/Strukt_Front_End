@@ -134,5 +134,31 @@ public class StruktUser : System.Web.Services.WebService {
             return null;
         }
     }
+
+    [WebMethod]
+    public DataTable getUserByStruktID(string strID)
+    {
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        dbConnection.Open();
+        string strQ = "select struktUser.* from struktUser"
+                        + " where u_strukt_user_id = @u_id";
+
+        SqlParameter spUserID = new SqlParameter("@u_id", strID);
+        SqlCommand qCommand = new SqlCommand(strQ, dbConnection);
+        qCommand.Parameters.Add(spUserID);
+        SqlDataReader qReader = qCommand.ExecuteReader();
+        DataTable dtTable = new DataTable();
+        dtTable.Load(qReader);
+        dtTable.TableName = "StruktUser";
+        dbConnection.Close();
+        if (dtTable.Rows.Count > 0)
+        {
+            return dtTable;
+        }
+        else
+        {
+            return null;
+        }
+    }
     
 }

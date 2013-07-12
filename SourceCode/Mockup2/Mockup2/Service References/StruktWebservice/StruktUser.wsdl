@@ -89,6 +89,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getUserByStruktID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserByStruktIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserByStruktIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -121,6 +142,12 @@
   <wsdl:message name="getUserAllSoapOut">
     <wsdl:part name="parameters" element="tns:getUserAllResponse" />
   </wsdl:message>
+  <wsdl:message name="getUserByStruktIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserByStruktID" />
+  </wsdl:message>
+  <wsdl:message name="getUserByStruktIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserByStruktIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="StruktUserSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -141,6 +168,10 @@
     <wsdl:operation name="getUserAll">
       <wsdl:input message="tns:getUserAllSoapIn" />
       <wsdl:output message="tns:getUserAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserByStruktID">
+      <wsdl:input message="tns:getUserByStruktIDSoapIn" />
+      <wsdl:output message="tns:getUserByStruktIDSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StruktUserSoap" type="tns:StruktUserSoap">
@@ -190,6 +221,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getUserByStruktID">
+      <soap:operation soapAction="http://tempuri.org/getUserByStruktID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="StruktUserSoap12" type="tns:StruktUserSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -231,6 +271,15 @@
     </wsdl:operation>
     <wsdl:operation name="getUserAll">
       <soap12:operation soapAction="http://tempuri.org/getUserAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserByStruktID">
+      <soap12:operation soapAction="http://tempuri.org/getUserByStruktID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

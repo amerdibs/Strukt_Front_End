@@ -30,7 +30,52 @@ namespace Mockup2
             {
                 this.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
                 tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString();
+
+                //Assignment Checking
+                bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
+                if (bResult)
+                {
+                    //We are interested only the assignments which we received for acknowledgement
+                    foreach (Assignment asEach in global.assignmentReceivedList)
+                    {
+                        if (asEach.acknowledged == "false")
+                        {
+                            frmAcknowledge fAck = new frmAcknowledge();
+                            Task tGet = Task.getTaskByID(global.getValueFromStruktValue(asEach.source_task_id))[0];
+                            if (tGet != null)
+                            {
+                                StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
+                                DataTable dtUser = wsStrukt.getUserByStruktID(global.getValueFromStruktValue(tGet.user_id));
+                                if (dtUser != null)
+                                {
+                                    fAck.Controls["txtUser"].Text = dtUser.Rows[0]["u_name"].ToString();
+                                }
+                                else
+                                {
+                                    fAck.Controls["txtUser"].Text = "not exists in Log-In: " + global.getValueFromStruktValue(tGet.user_id);
+                                }
+                            }
+
+                            fAck.Controls["txtMsg"].Text = asEach.message;
+
+                            DialogResult dResult = fAck.ShowDialog();
+                            if (dResult == DialogResult.OK) //Update acknowledgement
+                            {
+                                Assignment asAckResult = Assignment.updateAssignmentAcknowledge(asEach);
+                                if (asAckResult != null)
+                                    asEach.acknowledged = "true";
+                                else
+                                {
+                                    MessageBox.Show("Update assignment error");
+                                    throw new System.Exception("Update assignment error");
+                                }
+                            }
+                        }
+                    }
+                }
+
                 btnLoadProcess_Click(sender, e);
+
             }
            
         }
@@ -477,6 +522,7 @@ namespace Mockup2
                 generateTaskControl(wfMain, 0);
                 if (global.getValueFromStruktValue(wfMain.id) == "2120706644")
                     MessageBox.Show("Please load the other process (Procument). Do not use this process to test! Please read only.");
+
             }
             catch (Exception)
             {
