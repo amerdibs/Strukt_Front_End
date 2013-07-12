@@ -1,6 +1,6 @@
 ﻿namespace Mockup2
 {
-    partial class frmAssign
+    partial class frmMessage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,44 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnControl = new System.Windows.Forms.Panel();
             this.pnBody = new System.Windows.Forms.Panel();
-            this.lbAssigned = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMsg = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbUser = new System.Windows.Forms.ComboBox();
-            this.pnControl = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.pnBody.SuspendLayout();
+            this.txtUser = new System.Windows.Forms.TextBox();
             this.pnControl.SuspendLayout();
+            this.pnBody.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnControl
+            // 
+            this.pnControl.Controls.Add(this.btnCancel);
+            this.pnControl.Controls.Add(this.btnOK);
+            this.pnControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnControl.Location = new System.Drawing.Point(0, 187);
+            this.pnControl.Name = "pnControl";
+            this.pnControl.Size = new System.Drawing.Size(289, 39);
+            this.pnControl.TabIndex = 3;
             // 
             // pnBody
             // 
-            this.pnBody.Controls.Add(this.lbAssigned);
+            this.pnBody.Controls.Add(this.txtUser);
             this.pnBody.Controls.Add(this.label2);
             this.pnBody.Controls.Add(this.txtMsg);
             this.pnBody.Controls.Add(this.label1);
-            this.pnBody.Controls.Add(this.cbUser);
             this.pnBody.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBody.Location = new System.Drawing.Point(0, 0);
             this.pnBody.Name = "pnBody";
-            this.pnBody.Size = new System.Drawing.Size(286, 255);
-            this.pnBody.TabIndex = 0;
-            // 
-            // lbAssigned
-            // 
-            this.lbAssigned.FormattingEnabled = true;
-            this.lbAssigned.Location = new System.Drawing.Point(79, 35);
-            this.lbAssigned.Name = "lbAssigned";
-            this.lbAssigned.Size = new System.Drawing.Size(193, 69);
-            this.lbAssigned.TabIndex = 4;
+            this.pnBody.Size = new System.Drawing.Size(289, 187);
+            this.pnBody.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 106);
+            this.label2.Location = new System.Drawing.Point(23, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 3;
@@ -73,7 +73,7 @@
             // 
             // txtMsg
             // 
-            this.txtMsg.Location = new System.Drawing.Point(79, 106);
+            this.txtMsg.Location = new System.Drawing.Point(79, 34);
             this.txtMsg.Multiline = true;
             this.txtMsg.Name = "txtMsg";
             this.txtMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -88,24 +88,6 @@
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "User";
-            // 
-            // cbUser
-            // 
-            this.cbUser.FormattingEnabled = true;
-            this.cbUser.Location = new System.Drawing.Point(79, 7);
-            this.cbUser.Name = "cbUser";
-            this.cbUser.Size = new System.Drawing.Size(193, 21);
-            this.cbUser.TabIndex = 0;
-            // 
-            // pnControl
-            // 
-            this.pnControl.Controls.Add(this.btnCancel);
-            this.pnControl.Controls.Add(this.btnOK);
-            this.pnControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnControl.Location = new System.Drawing.Point(0, 255);
-            this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(286, 38);
-            this.pnControl.TabIndex = 1;
             // 
             // btnCancel
             // 
@@ -124,44 +106,52 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Image = global::Mockup2.Properties.Resources.export;
+            this.btnOK.Image = global::Mockup2.Properties.Resources.mail;
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOK.Location = new System.Drawing.Point(116, 6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "Assign";
+            this.btnOK.Text = "Send";
             this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // frmAssign
+            // txtUser
+            // 
+            this.txtUser.Enabled = false;
+            this.txtUser.Location = new System.Drawing.Point(80, 10);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(192, 20);
+            this.txtUser.TabIndex = 4;
+            this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // frmMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 293);
+            this.ClientSize = new System.Drawing.Size(289, 226);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnBody);
-            this.Name = "frmAssign";
-            this.Text = "Assign Task to";
-            this.Load += new System.EventHandler(this.frmAssign_Load);
+            this.Name = "frmMessage";
+            this.Text = "Message sending";
+            this.Load += new System.EventHandler(this.frmMessage_Load);
+            this.pnControl.ResumeLayout(false);
             this.pnBody.ResumeLayout(false);
             this.pnBody.PerformLayout();
-            this.pnControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnBody;
         private System.Windows.Forms.Panel pnControl;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Panel pnBody;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMsg;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbUser;
-        private System.Windows.Forms.ListBox lbAssigned;
+        private System.Windows.Forms.TextBox txtUser;
     }
 }

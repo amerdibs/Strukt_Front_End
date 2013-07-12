@@ -26,7 +26,7 @@ namespace Mockup2
         public static Object dragTaskControlObject;
         public static Object dropTaskControlObject;
 
-        public static Color ColorMainTask = Color.Azure;
+        public static Color ColorMainTask = Color.SkyBlue;
         public static Color ColorHover = Color.Tan;
         public static Color ColorSubTask = Color.Lavender;
         public static Color ColorSelect = Color.SandyBrown;
@@ -40,7 +40,9 @@ namespace Mockup2
         public static Workflow workflowMain;
 
         public static DataTable processTable;
-
+        public static int heightControlTaskNormal = 27;
+        public static int heightControlTaskReceive = heightControlTaskNormal + 50;
+        public static int heightControlTaskAssign = heightControlTaskNormal + 80;
         //Extract the value from type
         public static string getValueFromStruktValue(string strParam)
         {

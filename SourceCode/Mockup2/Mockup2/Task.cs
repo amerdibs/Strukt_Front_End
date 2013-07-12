@@ -28,7 +28,7 @@ namespace Mockup2
         public Workflow workflowChild { get; set; }
         public Workflow workflowParent { get; set; }
         public bool hasAssignment { get; set; }
-
+        public bool hasReceive { get; set; }
         public static Task addTask(Task tParam)
         {
             try

@@ -26,9 +26,11 @@ namespace Mockup2
             cbProcess.ValueMember = "p_workflow_id";
             cbProcess.DisplayMember = "p_name";
 
-            if (global.processTable.Columns.Contains("u_name") == true)
+            if (global.processTable.Columns.Contains("u_name"))
             {
                 this.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
+                tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString();
+                btnLoadProcess_Click(sender, e);
             }
            
         }
@@ -117,6 +119,7 @@ namespace Mockup2
 
                     //Add Task and config UI
                     UCMainTask uMain = new UCMainTask();
+                    uMain.Height = global.heightControlTaskNormal;
                     pnCenter.Controls.Add(uMain);
                     uMain.Dock = DockStyle.Top;
                     int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
@@ -128,7 +131,8 @@ namespace Mockup2
                     uMain.BackColor = global.ColorMainTask;
                     uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left + global.iIndentOfCheckBox;
                     uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left + global.iIndentOfCheckBox;
-                    uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(global.iGradientOfColor * uMain.iLevel));
+                    uMain.BackColor = getColorTaskControlBackground(uMain.BackColor, uMain.iLevel);
+                    //uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G - (byte)(global.iGradientOfColor * uMain.iLevel), uMain.BackColor.B);
                     uMain.colorBackGround = uMain.BackColor;
                   
 
@@ -194,6 +198,7 @@ namespace Mockup2
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
+                uMain.Height = global.heightControlTaskNormal;
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
                 uMain.BringToFront();
@@ -275,6 +280,7 @@ namespace Mockup2
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
+                uMain.Height = global.heightControlTaskNormal;
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
                 int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
@@ -285,7 +291,8 @@ namespace Mockup2
                 uMain.BackColor = global.ColorMainTask;
                 uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left;
                 uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left;
-                uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(global.iGradientOfColor * uSelect.iLevel));
+                uMain.BackColor = getColorTaskControlBackground(uMain.BackColor, uSelect.iLevel);
+                //uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G - (byte)(global.iGradientOfColor * uSelect.iLevel), uMain.BackColor.B);
                 uMain.colorBackGround = uMain.BackColor;
                 uMain.iLevel = uSelect.iLevel;
 
@@ -470,6 +477,8 @@ namespace Mockup2
                 global.workflowMain = wfMain;
                 pnCenter.Controls.Clear();
                 generateTaskControl(wfMain, 0);
+                if (global.getValueFromStruktValue(wfMain.id) == "2120706644")
+                    MessageBox.Show("Please load the other process (Procument). Do not use this process to test! Please read only.");
             }
             catch (Exception)
             {
@@ -510,6 +519,7 @@ namespace Mockup2
             {
                 generateTaskControl(tEach.workflowChild, iLevel + 1);
                 UCMainTask uMain = new UCMainTask();
+                uMain.Height = global.heightControlTaskNormal;
                 uMain.taskMember = tEach;
                 uMain.iLevel = iLevel;
                 pnCenter.Controls.Add(uMain);
@@ -523,7 +533,8 @@ namespace Mockup2
                     CheckBox cbSelect = (CheckBox)uMain.Controls["cbCheck"];            
                     cbSelect.Checked = true;
                 }
-                uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G, uMain.BackColor.B - (byte)(global.iGradientOfColor * iLevel));
+                uMain.BackColor = getColorTaskControlBackground(uMain.BackColor, iLevel);
+                //uMain.BackColor = Color.FromArgb(uMain.BackColor.R, uMain.BackColor.G - (byte)(global.iGradientOfColor * iLevel), uMain.BackColor.B);
                 uMain.colorBackGround = uMain.BackColor;
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
@@ -611,5 +622,27 @@ namespace Mockup2
         {
 
         }
+
+        private Color getColorTaskControlBackground(Color cColor, int iLevel)
+        {
+            int red = cColor.R + (global.iGradientOfColor * iLevel);
+            int green = cColor.G + (global.iGradientOfColor * iLevel);
+            int blue = cColor.B - (global.iGradientOfColor * iLevel);
+
+            if (red > 255)
+                red = 255;
+            if (red < 0)
+                red = 0;
+            if (green > 255)
+                green = 255;
+            if (green < 0)
+                green = 0;
+            if (blue > 255)
+                blue = 255;
+            if (blue < 0)
+                blue = 0;
+            return Color.FromArgb(red, green, blue);
+        }
+
     }
 }

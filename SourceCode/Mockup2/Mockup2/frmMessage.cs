@@ -10,21 +10,14 @@ using System.Windows.Forms;
 
 namespace Mockup2
 {
-    public partial class frmAssign : Form
+    public partial class frmMessage : Form
     {
-        public frmAssign()
+        public string userID { get; set; }
+        public string userName { get; set; }
+
+        public frmMessage()
         {
             InitializeComponent();
-        }
-
-        private void frmAssign_Load(object sender, EventArgs e)
-        {
-            StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
-            DataTable dtUser  = wsStrukt.getUserAll();
-            cbUser.DataSource = dtUser;
-            cbUser.DisplayMember = "u_name";
-            cbUser.ValueMember = "u_id";
-            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -35,6 +28,11 @@ namespace Mockup2
         private void btnOK_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void frmMessage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

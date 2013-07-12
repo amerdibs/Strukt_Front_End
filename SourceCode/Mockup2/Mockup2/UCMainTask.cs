@@ -217,5 +217,19 @@ namespace Mockup2
                 PropertiesStrukt.Status.updateStatus(taskMember, false);
             //unchecktask(taskMember);
         }
+
+        private void btnSendtoAssigner_Click(object sender, EventArgs e)
+        {
+            frmMessage fMsg = new frmMessage();
+            fMsg.Controls["txtUser"].Text = txtReceive.Text;
+            fMsg.ShowDialog();
+        }
+
+        private void btnSendtoReceiver_Click(object sender, EventArgs e)
+        {
+            frmMessage fMsg = new frmMessage();
+            fMsg.Controls["txtUser"].Text = lbAssigned.SelectedItem.ToString();
+            fMsg.ShowDialog();
+        }
     }
 }
