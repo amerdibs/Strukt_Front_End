@@ -26,6 +26,9 @@ namespace Mockup2
             cbProcess.ValueMember = "p_workflow_id";
             cbProcess.DisplayMember = "p_name";
 
+            StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
+            global.userTable = wsStrukt.getUserAll();
+
             if (global.processTable.Columns.Contains("u_name"))
             {
                 this.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
@@ -44,7 +47,6 @@ namespace Mockup2
                             Task tGet = Task.getTaskByID(global.getValueFromStruktValue(asEach.source_task_id))[0];
                             if (tGet != null)
                             {
-                                StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
                                 DataTable dtUser = wsStrukt.getUserByStruktID(global.getValueFromStruktValue(tGet.user_id));
                                 if (dtUser != null)
                                 {
@@ -327,8 +329,25 @@ namespace Mockup2
                 uMain.Height = global.heightControlTaskNormal;
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
-                int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
-                pnCenter.Controls.SetChildIndex(uMain, iIndex);
+                Task taskDeepestChild = Task.getDeepestChild(uSelect.taskMember);
+                if (taskDeepestChild == uSelect.taskMember)
+                {
+                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
+                    pnCenter.Controls.SetChildIndex(uMain, iIndex);
+                }
+                else
+                {
+                    foreach (UCMainTask ucmEach in pnCenter.Controls)
+                    {
+                        if (ucmEach.taskMember.id == taskDeepestChild.id)
+                        {
+                            int iIndex = pnCenter.Controls.GetChildIndex(ucmEach, true);
+                            pnCenter.Controls.SetChildIndex(uMain, iIndex);
+                            break;
+                        }
+                    }
+                }
+
                 uMain.taskMember = returnTaskAdd;
                 uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
 
@@ -572,6 +591,53 @@ namespace Mockup2
                 uMain.Controls["lbTitle"].Text = tEach.name;
                 uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (global.iIndentOfCheckBox * iLevel);
+                if (tEach.hasAssignmentReceived)
+                {
+                    Panel pnRec = (Panel)uMain.Controls["pnReceived"];
+                    pnRec.Visible = true;
+                    pnRec.Controls["lReceive"].Left = pnRec.Controls["lReceive"].Left + (global.iIndentOfCheckBox * iLevel);
+                    pnRec.Controls["txtReceive"].Left = pnRec.Controls["txtReceive"].Left + (global.iIndentOfCheckBox * iLevel);
+                    pnRec.Controls["btnSendtoAssigner"].Left = pnRec.Controls["btnSendtoAssigner"].Left + (global.iIndentOfCheckBox * iLevel);
+                    Assignment asReceived = global.assignmentReceivedList.Find(o => o.target_task_id == tEach.id);
+                    DataRow dtRow = User.getUserNameByStruktID(global.getValueFromStruktValue(asReceived.source_user_id));
+                    pnRec.Controls["txtReceive"].Text = dtRow["u_name"].ToString();
+                    pnRec.Controls["txtReceive"].Tag = dtRow["u_strukt_user_id"].ToString();
+                }
+                if (tEach.hasAssignmentSent)
+                {
+                    Panel pnAs = (Panel)uMain.Controls["pnAssigned"];
+                    pnAs.Visible = true;
+                    pnAs.Controls["lAssign"].Left = pnAs.Controls["lAssign"].Left + (global.iIndentOfCheckBox * iLevel);
+                    pnAs.Controls["lbAssigned"].Left = pnAs.Controls["lbAssigned"].Left + (global.iIndentOfCheckBox * iLevel);
+                    pnAs.Controls["btnSendtoReceiver"].Left = pnAs.Controls["btnSendtoReceiver"].Left + (global.iIndentOfCheckBox * iLevel);
+
+                    DataTable dtSelectUser = new DataTable();
+                    dtSelectUser.TableName = "user";
+                    //very bad performance but I'll correct in next step.
+                    dtSelectUser = global.userTable.Copy();
+                    dtSelectUser.Rows.Clear();
+                    List<Assignment> asSentList = global.assignmentSentList.FindAll(o => o.source_task_id == tEach.id);
+                    foreach (Assignment asEach in asSentList)
+                    {
+                        DataRow dtRow = User.getUserNameByStruktID(global.getValueFromStruktValue(asEach.target_user_id));
+                        if (dtRow != null)
+                        {
+                            dtSelectUser.Rows.Add(dtRow.ItemArray);
+                        }
+                    }
+                    ListBox lbAssigned = (ListBox)pnAs.Controls["lbAssigned"];
+                    lbAssigned.DataSource = dtSelectUser;
+                    lbAssigned.DisplayMember = "u_name";
+                    lbAssigned.ValueMember = "u_strukt_user_id";
+
+                    //List<Assignment> asSentList = global.assignmentSentList.FindAll(o => o.source_task_id == tEach.id);
+                    //ListBox lbAssigned = (ListBox)pnAs.Controls["lbAssigned"];
+                    //lbAssigned.DataSource = asSentList;
+                    //lbAssigned.DisplayMember = "target_task_id";
+                    //lbAssigned.ValueMember = "target_task_id";
+
+                }
+        
                 if (uMain.taskMember.status_id == PropertiesStrukt.Status.statusCompleted)
                 {
                     CheckBox cbSelect = (CheckBox)uMain.Controls["cbCheck"];            
@@ -604,7 +670,15 @@ namespace Mockup2
 
         private void btnSaveProcessAs_Click(object sender, EventArgs e)
         {
+
             MessageBox.Show("Save as... Please wait for phase 2");
+
+
+            //UCMainTask uSelect = (UCMainTask)global.currentTaskControlObject;
+            //Task tTask = Task.getDeepestChild(uSelect.taskMember);
+            //MessageBox.Show(tTask.name);
+
+
             //PropertiesStrukt.TaskType ttTest = new PropertiesStrukt.TaskType();
             //ttTest.name = "Creating Email";
             //ttTest.id = Strukt.Type_Task_type + "1087742252";
@@ -663,6 +737,17 @@ namespace Mockup2
 
         private void btnAssignment_Click(object sender, EventArgs e)
         {
+            if (!global.processTable.Columns.Contains("u_name"))
+            {
+                MessageBox.Show("Please log-in before assign the task!");
+                return;
+            }
+
+            frmAssign frmAs = new frmAssign();
+            DialogResult dResult = frmAs.ShowDialog();
+            if (DialogResult == DialogResult.OK)
+            {
+            }
 
         }
 

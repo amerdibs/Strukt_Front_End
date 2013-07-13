@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Data;
 
 namespace Mockup2
 {
@@ -26,5 +27,20 @@ namespace Mockup2
         public string role_id { get; set; } 
         public string username { get; set; }
         public string last_action_at { get; set; }
+
+        public static DataRow getUserNameByStruktID(string strUserID)
+        {
+            if (global.userTable == null)
+                return null;
+            DataRow[] dtRow = global.userTable.Select("u_strukt_user_id = '" + strUserID + "'");
+            if (dtRow.Length > 0)
+            {
+                return dtRow[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

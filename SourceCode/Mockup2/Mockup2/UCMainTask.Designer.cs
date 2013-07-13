@@ -30,18 +30,18 @@
         {
             this.cbCheck = new System.Windows.Forms.CheckBox();
             this.lbTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lAssign = new System.Windows.Forms.Label();
+            this.lReceive = new System.Windows.Forms.Label();
             this.lbAssigned = new System.Windows.Forms.ListBox();
-            this.pnAssign = new System.Windows.Forms.Panel();
+            this.pnAssigned = new System.Windows.Forms.Panel();
             this.btnSendtoReceiver = new System.Windows.Forms.Button();
             this.txtReceive = new System.Windows.Forms.TextBox();
-            this.pnReceive = new System.Windows.Forms.Panel();
+            this.pnReceived = new System.Windows.Forms.Panel();
             this.btnSendtoAssigner = new System.Windows.Forms.Button();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
-            this.pnAssign.SuspendLayout();
-            this.pnReceive.SuspendLayout();
+            this.pnAssigned.SuspendLayout();
+            this.pnReceived.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbCheck
@@ -67,55 +67,56 @@
             this.lbTitle.Text = "[New Task]";
             this.lbTitle.Click += new System.EventHandler(this.lbTitle_Click_1);
             // 
-            // label1
+            // lAssign
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Purple;
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Assigned to";
+            this.lAssign.AutoSize = true;
+            this.lAssign.ForeColor = System.Drawing.Color.Purple;
+            this.lAssign.Location = new System.Drawing.Point(3, 3);
+            this.lAssign.Name = "lAssign";
+            this.lAssign.Size = new System.Drawing.Size(62, 13);
+            this.lAssign.TabIndex = 4;
+            this.lAssign.Text = "Assigned to";
             // 
-            // label2
+            // lReceive
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Purple;
-            this.label2.Location = new System.Drawing.Point(3, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Received from";
+            this.lReceive.AutoSize = true;
+            this.lReceive.ForeColor = System.Drawing.Color.Purple;
+            this.lReceive.Location = new System.Drawing.Point(3, 3);
+            this.lReceive.Name = "lReceive";
+            this.lReceive.Size = new System.Drawing.Size(76, 13);
+            this.lReceive.TabIndex = 5;
+            this.lReceive.Text = "Received from";
             // 
             // lbAssigned
             // 
             this.lbAssigned.FormattingEnabled = true;
-            this.lbAssigned.Location = new System.Drawing.Point(6, 24);
+            this.lbAssigned.Location = new System.Drawing.Point(3, 20);
             this.lbAssigned.Name = "lbAssigned";
-            this.lbAssigned.Size = new System.Drawing.Size(191, 43);
+            this.lbAssigned.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbAssigned.Size = new System.Drawing.Size(144, 56);
             this.lbAssigned.TabIndex = 6;
             // 
-            // pnAssign
+            // pnAssigned
             // 
-            this.pnAssign.Controls.Add(this.btnSendtoReceiver);
-            this.pnAssign.Controls.Add(this.lbAssigned);
-            this.pnAssign.Controls.Add(this.label1);
-            this.pnAssign.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnAssign.Location = new System.Drawing.Point(0, 80);
-            this.pnAssign.Name = "pnAssign";
-            this.pnAssign.Size = new System.Drawing.Size(318, 80);
-            this.pnAssign.TabIndex = 7;
-            this.pnAssign.Visible = false;
+            this.pnAssigned.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnAssigned.Controls.Add(this.btnSendtoReceiver);
+            this.pnAssigned.Controls.Add(this.lbAssigned);
+            this.pnAssigned.Controls.Add(this.lAssign);
+            this.pnAssigned.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnAssigned.Location = new System.Drawing.Point(0, 80);
+            this.pnAssigned.Name = "pnAssigned";
+            this.pnAssigned.Size = new System.Drawing.Size(318, 80);
+            this.pnAssigned.TabIndex = 7;
+            this.pnAssigned.Visible = false;
             // 
             // btnSendtoReceiver
             // 
             this.btnSendtoReceiver.Image = global::Mockup2.Properties.Resources.mail;
             this.btnSendtoReceiver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendtoReceiver.Location = new System.Drawing.Point(227, 24);
+            this.btnSendtoReceiver.Location = new System.Drawing.Point(147, 19);
             this.btnSendtoReceiver.Name = "btnSendtoReceiver";
-            this.btnSendtoReceiver.Size = new System.Drawing.Size(77, 23);
+            this.btnSendtoReceiver.Size = new System.Drawing.Size(25, 23);
             this.btnSendtoReceiver.TabIndex = 9;
-            this.btnSendtoReceiver.Text = "Message";
             this.btnSendtoReceiver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSendtoReceiver.UseVisualStyleBackColor = true;
             this.btnSendtoReceiver.Click += new System.EventHandler(this.btnSendtoReceiver_Click);
@@ -124,33 +125,32 @@
             // 
             this.txtReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtReceive.Enabled = false;
-            this.txtReceive.Location = new System.Drawing.Point(6, 22);
+            this.txtReceive.Location = new System.Drawing.Point(3, 19);
             this.txtReceive.Name = "txtReceive";
-            this.txtReceive.Size = new System.Drawing.Size(191, 20);
+            this.txtReceive.Size = new System.Drawing.Size(144, 20);
             this.txtReceive.TabIndex = 7;
-            this.txtReceive.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pnReceive
+            // pnReceived
             // 
-            this.pnReceive.Controls.Add(this.btnSendtoAssigner);
-            this.pnReceive.Controls.Add(this.txtReceive);
-            this.pnReceive.Controls.Add(this.label2);
-            this.pnReceive.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnReceive.Location = new System.Drawing.Point(0, 30);
-            this.pnReceive.Name = "pnReceive";
-            this.pnReceive.Size = new System.Drawing.Size(318, 50);
-            this.pnReceive.TabIndex = 8;
-            this.pnReceive.Visible = false;
+            this.pnReceived.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnReceived.Controls.Add(this.btnSendtoAssigner);
+            this.pnReceived.Controls.Add(this.txtReceive);
+            this.pnReceived.Controls.Add(this.lReceive);
+            this.pnReceived.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnReceived.Location = new System.Drawing.Point(0, 30);
+            this.pnReceived.Name = "pnReceived";
+            this.pnReceived.Size = new System.Drawing.Size(318, 50);
+            this.pnReceived.TabIndex = 8;
+            this.pnReceived.Visible = false;
             // 
             // btnSendtoAssigner
             // 
             this.btnSendtoAssigner.Image = global::Mockup2.Properties.Resources.mail;
             this.btnSendtoAssigner.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendtoAssigner.Location = new System.Drawing.Point(227, 22);
+            this.btnSendtoAssigner.Location = new System.Drawing.Point(146, 18);
             this.btnSendtoAssigner.Name = "btnSendtoAssigner";
-            this.btnSendtoAssigner.Size = new System.Drawing.Size(77, 23);
+            this.btnSendtoAssigner.Size = new System.Drawing.Size(25, 23);
             this.btnSendtoAssigner.TabIndex = 8;
-            this.btnSendtoAssigner.Text = "Message";
             this.btnSendtoAssigner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSendtoAssigner.UseVisualStyleBackColor = true;
             this.btnSendtoAssigner.Click += new System.EventHandler(this.btnSendtoAssigner_Click);
@@ -189,8 +189,8 @@
             this.Controls.Add(this.btnProp);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.cbCheck);
-            this.Controls.Add(this.pnReceive);
-            this.Controls.Add(this.pnAssign);
+            this.Controls.Add(this.pnReceived);
+            this.Controls.Add(this.pnAssigned);
             this.Name = "UCMainTask";
             this.Size = new System.Drawing.Size(318, 160);
             this.Load += new System.EventHandler(this.UCMainTask_Load);
@@ -201,10 +201,10 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UCMainTask_MouseDown);
             this.MouseEnter += new System.EventHandler(this.UCMainTask_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.UCMainTask_MouseLeave);
-            this.pnAssign.ResumeLayout(false);
-            this.pnAssign.PerformLayout();
-            this.pnReceive.ResumeLayout(false);
-            this.pnReceive.PerformLayout();
+            this.pnAssigned.ResumeLayout(false);
+            this.pnAssigned.PerformLayout();
+            this.pnReceived.ResumeLayout(false);
+            this.pnReceived.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,12 +216,12 @@
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Button btnProp;
         private System.Windows.Forms.Button btnLink;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lAssign;
+        private System.Windows.Forms.Label lReceive;
         private System.Windows.Forms.ListBox lbAssigned;
-        private System.Windows.Forms.Panel pnAssign;
+        private System.Windows.Forms.Panel pnAssigned;
         private System.Windows.Forms.TextBox txtReceive;
-        private System.Windows.Forms.Panel pnReceive;
+        private System.Windows.Forms.Panel pnReceived;
         private System.Windows.Forms.Button btnSendtoAssigner;
         private System.Windows.Forms.Button btnSendtoReceiver;
     }

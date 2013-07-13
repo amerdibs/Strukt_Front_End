@@ -47,7 +47,13 @@ namespace Mockup2
         private void btnTest_Click(object sender, EventArgs e)
         {
             this.Width = 350;
-            txtTest.Text = "User name: \r\n pakorn \r\n amer \r\n tariq \r\n Password: \r\n strukt \r\n (Processes are different.)";
+            txtTest.Text = "User name: \r\n pakorn \r\n amer \r\n tariq \r\n ranir \r\n <no password> \r\n (Processes are different.)";
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                btnOK.Focus();
         }
     }
 }

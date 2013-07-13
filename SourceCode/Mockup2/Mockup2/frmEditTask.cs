@@ -181,21 +181,7 @@ namespace Mockup2
                 this.Close();
         }
 
-        private void btnAssign_Click(object sender, EventArgs e)
-        {
-            if (!global.processTable.Columns.Contains("u_name"))
-            {
-                MessageBox.Show("Please log-in before assign the task!");
-                return;
-            }
 
-            frmAssign frmAs = new frmAssign();
-            DialogResult dResult = frmAs.ShowDialog();
-            if (DialogResult == DialogResult.OK)
-            {
-            }
-
-        }
 
       
     }

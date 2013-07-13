@@ -48,6 +48,7 @@ namespace Mockup2
 
 
         public static DataTable processTable;
+        public static DataTable userTable;
 
 
         //calculate height of Task control
@@ -252,31 +253,10 @@ namespace Mockup2
         //Convert date time string from Strukt into .NET datetime
         public static string convertStruktDateTimeToString(DateTime dtParam)
         {
-            //DateTimeFormatInfo dtfi = new DateTimeFormatInfo();
-            //dtfi.ShortDatePattern = "MM-dd-yyyy";
-            //dtfi.DateSeparator = "/";
             return Convert.ToString(dtParam.Month + "/" + dtParam.Day + "/" + dtParam.Year);
         }
 
-        //Sort the Task List
-        public static List<Task> sortTaskList(List<Task> ltParam)
-        {
-            List<Task> ltSort = new List<Task>();
-            Task tFirst = ltParam.Find(o => o.follows_id == null);
-            ltSort.Add(tFirst);
-            ltParam.Remove(tFirst);
-            int i = ltParam.Count();
-            string strTaskID = tFirst.id;
-            for (int j = 0; j < i; j++)
-            {
-                Task tEach = ltParam.Find(o => o.follows_id == strTaskID);
-                strTaskID = tEach.id;
-                ltSort.Add(tEach);
-                ltParam.Remove(tEach);
-            }
-            ltSort.Reverse();
-            return ltSort;
-        }
+        
 
 
     }

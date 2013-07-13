@@ -47,12 +47,27 @@ namespace Mockup2
             {
                 return wfGet[0];
             }
-            wfGet[0].taskChildList = global.sortTaskList(tkList);
+            wfGet[0].taskChildList = Task.sortTaskList(tkList);
 
             foreach (Task tkUse in wfGet[0].taskChildList)
             {
                 List<Workflow> wfSubGet = getWorkflowByID(global.getValueFromStruktValue(tkUse.child_workflow_id));
                 tkUse.workflowParent = wfGet[0];
+                //Check for assignment
+                if (global.assignmentSentList != null)
+                {
+                    Assignment asSent = global.assignmentSentList.Find(o => o.source_task_id == tkUse.id);
+                    if (asSent != null)
+                        tkUse.hasAssignmentSent = true;
+                }
+
+                if (global.assignmentReceivedList != null)
+                {
+                    Assignment asReceived = global.assignmentReceivedList.Find(o => o.target_task_id == tkUse.id);
+                    if (asReceived != null)
+                        tkUse.hasAssignmentReceived = true;
+                }
+
                 wfSubGet[0].taskParent = tkUse;
                 if ( !tkUse.user_id.Contains("null") )
                 {

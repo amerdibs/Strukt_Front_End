@@ -10,8 +10,9 @@ namespace Mockup2
     public class Assignment
     {
         public string id { get; set; }
-        public string source_task_id { get; set; }
         public string target_user_id { get; set; }
+        public string source_user_id { get; set; }
+        public string source_task_id { get; set; }
         public string target_task_id { get; set; }
         public string acknowledged { get; set; }
         public string date { get; set; }
@@ -63,16 +64,19 @@ namespace Mockup2
             bool bResult = false;
             global.assignmentReceivedList = getAssignmentByTargetUserID(strTargetUserID);
             global.assignmentSentList = getAssignmentBySourceUserID(strTargetUserID);
-            foreach (Assignment asEach in global.assignmentReceivedList)
-            {
-                if (asEach.acknowledged == "false")
-                    bResult = true;
-            }
-            foreach (Assignment asEach in global.assignmentSentList)
-            {
-                if (asEach.acknowledged == "false")
-                    bResult = true;
-            }
+            if (global.assignmentReceivedList != null)
+                foreach (Assignment asEach in global.assignmentReceivedList)
+                {
+                    if (asEach.acknowledged == "false")
+                        bResult = true;
+                }
+
+            if (global.assignmentSentList != null)
+                foreach (Assignment asEach in global.assignmentSentList)
+                {
+                    if (asEach.acknowledged == "false")
+                        bResult = true;
+                }
             return bResult;
         }
 

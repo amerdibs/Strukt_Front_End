@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbTask = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.cbProject = new System.Windows.Forms.ComboBox();
@@ -61,9 +63,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnAssign = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.txtDetail = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -73,7 +74,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnAssign);
             this.panel1.Controls.Add(this.txtTaskName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbTask);
@@ -88,7 +88,7 @@
             this.txtTaskName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTaskName.Location = new System.Drawing.Point(42, 10);
             this.txtTaskName.Name = "txtTaskName";
-            this.txtTaskName.Size = new System.Drawing.Size(227, 20);
+            this.txtTaskName.Size = new System.Drawing.Size(307, 20);
             this.txtTaskName.TabIndex = 2;
             this.txtTaskName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -131,8 +131,38 @@
             this.panel2.Size = new System.Drawing.Size(355, 40);
             this.panel2.TabIndex = 1;
             // 
+            // btnOK
+            // 
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.Image = global::Mockup2.Properties.Resources.ball_green;
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOK.Location = new System.Drawing.Point(188, 6);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 1;
+            this.btnOK.Text = "OK";
+            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::Mockup2.Properties.Resources.ball_red;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(269, 6);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.txtDetail);
             this.groupBox1.Controls.Add(this.cbStatus);
             this.groupBox1.Controls.Add(this.cbProject);
             this.groupBox1.Controls.Add(this.dtpDeadline);
@@ -157,6 +187,7 @@
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownWidth = 100;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "Main Task 1",
@@ -170,9 +201,9 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbStatus.Location = new System.Drawing.Point(124, 16);
+            this.cbStatus.Location = new System.Drawing.Point(50, 17);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(145, 21);
+            this.cbStatus.Size = new System.Drawing.Size(118, 21);
             this.cbStatus.TabIndex = 15;
             // 
             // cbProject
@@ -190,23 +221,25 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbProject.Location = new System.Drawing.Point(124, 149);
+            this.cbProject.Location = new System.Drawing.Point(49, 100);
             this.cbProject.Name = "cbProject";
-            this.cbProject.Size = new System.Drawing.Size(145, 21);
+            this.cbProject.Size = new System.Drawing.Size(118, 21);
             this.cbProject.TabIndex = 14;
             // 
             // dtpDeadline
             // 
-            this.dtpDeadline.Location = new System.Drawing.Point(124, 125);
+            this.dtpDeadline.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDeadline.Location = new System.Drawing.Point(239, 74);
             this.dtpDeadline.Name = "dtpDeadline";
-            this.dtpDeadline.Size = new System.Drawing.Size(200, 20);
+            this.dtpDeadline.Size = new System.Drawing.Size(110, 20);
             this.dtpDeadline.TabIndex = 13;
             // 
             // dtpDate
             // 
-            this.dtpDate.Location = new System.Drawing.Point(124, 104);
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(50, 74);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpDate.Size = new System.Drawing.Size(118, 20);
             this.dtpDate.TabIndex = 12;
             // 
             // cbLocation
@@ -224,9 +257,9 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbLocation.Location = new System.Drawing.Point(124, 82);
+            this.cbLocation.Location = new System.Drawing.Point(239, 44);
             this.cbLocation.Name = "cbLocation";
-            this.cbLocation.Size = new System.Drawing.Size(145, 21);
+            this.cbLocation.Size = new System.Drawing.Size(110, 21);
             this.cbLocation.TabIndex = 10;
             // 
             // cbModel
@@ -244,13 +277,14 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbModel.Location = new System.Drawing.Point(124, 60);
+            this.cbModel.Location = new System.Drawing.Point(50, 44);
             this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(145, 21);
+            this.cbModel.Size = new System.Drawing.Size(118, 21);
             this.cbModel.TabIndex = 9;
             // 
             // cbTaskType
             // 
+            this.cbTaskType.DropDownWidth = 100;
             this.cbTaskType.FormattingEnabled = true;
             this.cbTaskType.Items.AddRange(new object[] {
             "Main Task 1",
@@ -264,15 +298,15 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbTaskType.Location = new System.Drawing.Point(124, 38);
+            this.cbTaskType.Location = new System.Drawing.Point(239, 17);
             this.cbTaskType.Name = "cbTaskType";
-            this.cbTaskType.Size = new System.Drawing.Size(145, 21);
+            this.cbTaskType.Size = new System.Drawing.Size(110, 21);
             this.cbTaskType.TabIndex = 8;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(78, 152);
+            this.label8.Location = new System.Drawing.Point(6, 103);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 6;
@@ -281,7 +315,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(70, 131);
+            this.label7.Location = new System.Drawing.Point(186, 81);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 5;
@@ -290,7 +324,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(88, 108);
+            this.label6.Location = new System.Drawing.Point(16, 78);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 4;
@@ -299,7 +333,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(70, 85);
+            this.label5.Location = new System.Drawing.Point(187, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 3;
@@ -308,7 +342,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 63);
+            this.label4.Location = new System.Drawing.Point(10, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 2;
@@ -317,7 +351,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 41);
+            this.label3.Location = new System.Drawing.Point(177, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 1;
@@ -326,7 +360,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 19);
+            this.label2.Location = new System.Drawing.Point(12, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 0;
@@ -468,46 +502,26 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
-            // btnAssign
+            // txtDetail
             // 
-            this.btnAssign.Image = global::Mockup2.Properties.Resources.export;
-            this.btnAssign.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAssign.Location = new System.Drawing.Point(275, 8);
-            this.btnAssign.Name = "btnAssign";
-            this.btnAssign.Size = new System.Drawing.Size(69, 23);
-            this.btnAssign.TabIndex = 3;
-            this.btnAssign.Text = "Assign";
-            this.btnAssign.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAssign.UseVisualStyleBackColor = true;
-            this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
+            this.txtDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDetail.ForeColor = System.Drawing.Color.Blue;
+            this.txtDetail.Location = new System.Drawing.Point(49, 128);
+            this.txtDetail.Multiline = true;
+            this.txtDetail.Name = "txtDetail";
+            this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDetail.Size = new System.Drawing.Size(300, 48);
+            this.txtDetail.TabIndex = 16;
             // 
-            // btnOK
+            // label13
             // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Image = global::Mockup2.Properties.Resources.ball_green;
-            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOK.Location = new System.Drawing.Point(188, 6);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
-            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::Mockup2.Properties.Resources.ball_red;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(269, 6);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Blue;
+            this.label13.Location = new System.Drawing.Point(12, 131);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(34, 13);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "Detail";
             // 
             // frmTaskEdit
             // 
@@ -520,7 +534,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "frmTaskEdit";
-            this.Text = "Edit Task/ Sub Task";
+            this.Text = "Edit Task";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmTaskEdit_Load);
             this.panel1.ResumeLayout(false);
@@ -573,6 +587,7 @@
         private System.Windows.Forms.ListBox lstRoleCondition;
         private System.Windows.Forms.ListBox lstAlternative;
         private System.Windows.Forms.ListBox lstPreCondition;
-        private System.Windows.Forms.Button btnAssign;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtDetail;
     }
 }

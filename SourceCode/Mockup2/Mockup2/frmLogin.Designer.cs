@@ -52,8 +52,10 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Location = new System.Drawing.Point(75, 38);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // label1
             // 
@@ -80,7 +82,7 @@
             this.btnPass.Location = new System.Drawing.Point(4, 107);
             this.btnPass.Name = "btnPass";
             this.btnPass.Size = new System.Drawing.Size(208, 23);
-            this.btnPass.TabIndex = 6;
+            this.btnPass.TabIndex = 4;
             this.btnPass.Text = "No Log-In But cannot use Assignment (Test Only)";
             this.btnPass.UseVisualStyleBackColor = true;
             this.btnPass.Click += new System.EventHandler(this.btnPass_Click);
@@ -92,7 +94,7 @@
             this.btnTest.Location = new System.Drawing.Point(181, 78);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(24, 23);
-            this.btnTest.TabIndex = 7;
+            this.btnTest.TabIndex = 5;
             this.btnTest.Tag = "";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
@@ -106,7 +108,7 @@
             this.btnOK.Location = new System.Drawing.Point(19, 78);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 5;
+            this.btnOK.TabIndex = 2;
             this.btnOK.Text = "Log In";
             this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOK.UseVisualStyleBackColor = true;
@@ -121,7 +123,7 @@
             this.btnCancel.Location = new System.Drawing.Point(100, 78);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
