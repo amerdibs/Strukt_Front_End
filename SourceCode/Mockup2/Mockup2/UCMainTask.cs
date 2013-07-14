@@ -201,7 +201,8 @@ namespace Mockup2
         {
             if (cbCheck.Checked)
             {
-                PropertiesStrukt.Status.updateStatus(taskMember, true);
+                //  PropertiesStrukt.Status.updateStatus(taskMember, true);
+                PropertiesStrukt.Status.updateTaskChildStatusFromActiveToComplete(taskMember);
                 //List <Workflow> parmWorkFowList=Workflow.getWorkflowByID(taskMember.child_workflow_id);
                 // Workflow parmWorkFlow= parmWorkFowList[0];
 
@@ -214,8 +215,19 @@ namespace Mockup2
 
             }
             else
-                PropertiesStrukt.Status.updateStatus(taskMember, false);
-            //unchecktask(taskMember);
+            {
+                //DialogResult dialogResult = MessageBox.Show("yes", "no", MessageBoxButtons.YesNo);
+                //if (dialogResult == DialogResult.Yes)
+                //{
+                  PropertiesStrukt.Status.updateTaskChildStatusFromCompleteToActive(taskMember);
+                //    PropertiesStrukt.Status.updateTaskParentStatusFromCompleteToActive(taskMember);
+                //}
+                //else if (dialogResult == DialogResult.No)
+                //{
+                //    return;
+
+                //}
+            }      
         }
 
         private void btnSendtoAssigner_Click(object sender, EventArgs e)

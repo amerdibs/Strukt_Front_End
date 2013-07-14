@@ -240,6 +240,63 @@ namespace Mockup2
                 
             }
 
+            public static void updateTaskChildStatusFromActiveToComplete(Task parmtask)
+            {
+                PropertiesStrukt.Status.updateStatus(parmtask, true);
+                Workflow work = parmtask.workflowChild;
+                List<Task> child = work.taskChildList;
+                if (child== null)
+                    PropertiesStrukt.Status.updateStatus(parmtask, true);
+                else
+                    foreach (Task eachTask in child)
+                        updateTaskChildStatusFromActiveToComplete(eachTask);
+
+
+            }
+            public static void updateTaskChildStatusFromCompleteToActive(Task parmtask)
+            {
+                PropertiesStrukt.Status.updateStatus(parmtask, false);
+                Workflow work = parmtask.workflowChild;
+                List<Task> child = work.taskChildList;
+                if (child == null)
+                    PropertiesStrukt.Status.updateStatus(parmtask, false);
+                else
+                    foreach (Task eachTask in child)
+                        updateTaskChildStatusFromCompleteToActive(eachTask);
+
+
+            }
+            public static void updateTaskParentStatusFromCompleteToActive(Task parmtask)
+            {
+                PropertiesStrukt.Status.updateStatus(parmtask, false);
+                Workflow work = parmtask.workflowParent;
+                Task parent = work.taskParent;
+                if (parent == null)
+                    PropertiesStrukt.Status.updateStatus(parmtask, false);
+                else
+                    updateTaskParentStatusFromCompleteToActive(parent);
+
+
+            }
+            //Error 
+            //public static bool CheckParentStatus(Task parmtask)
+            //{
+            //    Workflow wfparent = parmtask.workflowParent;
+            //    Task parent = wfparent.taskParent;
+            //    if (parent == null)
+            //        return true;
+            //    Workflow wfclid = parent.workflowChild;
+            //    List<Task> child = wfclid.taskChildList;
+
+            //    foreach (Task eachTask in child)
+            //    {  if (eachTask.status_id!=PropertiesStrukt.Status.statusCompleted)
+            //        return false;
+            //       CheckParentStatus(eachTask);
+            //       return true;
+
+            //    }
+           // }
+
             public static List<Status> getStatusAll()
             {
                 try
