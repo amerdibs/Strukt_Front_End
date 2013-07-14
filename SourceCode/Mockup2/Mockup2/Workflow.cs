@@ -116,6 +116,32 @@ namespace Mockup2
             }
         }
 
+        public static string deleteWorkflow(string strParam)
+        {
+            try
+            {
+                try
+                {
+                    string strSect = global.getRespondFromStruktDelete(Strukt.URL_Workflow, "/" + strParam);
+
+                    if (strSect == "")
+                        return null;
+
+                    return strSect;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 
     

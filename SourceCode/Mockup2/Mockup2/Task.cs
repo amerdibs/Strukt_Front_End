@@ -155,5 +155,31 @@ namespace Mockup2
             Task tLast = tParam.workflowChild.taskChildList[0];
             return getDeepestChild(tLast);
         }
+
+        public static string deleteTask(string strParam)
+        {
+            try
+            {
+                try
+                {
+                    string strSect = global.getRespondFromStruktDelete(Strukt.URL_Task, "/" + strParam);
+
+                    if (strSect == "")
+                        return null;
+
+                    return strSect;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -143,7 +143,19 @@ namespace Mockup2
                     Task taskFollow = uSelect.taskMember;
 
                     Task taskNew = new Task();
-                    taskNew.parent_workflow_id = taskFollow.child_workflow_id;
+                    if ((uSelect.taskMember.workflowChild.taskChildList == null) || (uSelect.taskMember.workflowChild.taskChildList.Count == 0))
+                    {
+                        taskNew.parent_workflow_id = taskFollow.child_workflow_id;
+
+                    }
+                    else
+                    { 
+
+                    }
+
+
+
+
                     taskNew.user_id = global.workflowMain.user_id;
                     taskNew.name = "New Task";
  
@@ -237,6 +249,7 @@ namespace Mockup2
                 Task returnTaskAdd = Task.addTask(taskNew);
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
                 returnTaskAdd.workflowChild = returnChildWorkflow;
+                returnTaskAdd.workflowParent = global.workflowMain;
 
                 global.workflowMain.taskChildList.Insert(0, returnTaskAdd);
                 global.workflowMain.taskChildList[1].precedes_id = returnTaskAdd.id;
@@ -312,6 +325,7 @@ namespace Mockup2
                 Task returnTaskAdd = Task.addTask(taskNew);
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
                 returnTaskAdd.workflowChild = returnChildWorkflow;
+                returnTaskAdd.workflowParent = taskFollow.workflowParent;
 
                 taskFollow.workflowParent.taskChildList.Insert(taskFollow.workflowParent.taskChildList.IndexOf(taskFollow)
                                                                 , returnTaskAdd);
@@ -367,6 +381,117 @@ namespace Mockup2
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (pnCenter.Controls.Count == 0)
+            {
+                MessageBox.Show("There are no any tasks.");
+                return;
+            }
+
+            if (global.currentTaskControlID == 0)
+            {
+                MessageBox.Show("Please select a task to delete.");
+                return;
+            }
+
+            DialogResult result1 = MessageBox.Show("Do you want to delete this task?",
+                                        "Please confirm",
+                                        MessageBoxButtons.OKCancel);
+            if (result1 == System.Windows.Forms.DialogResult.OK)
+            {
+                UCMainTask uSelect = (UCMainTask)global.currentTaskControlObject;
+                //1. We cannot delete the task which has child tasks under.
+                //  check number of child tasks in its child workflow
+                if ((uSelect.taskMember.workflowChild.taskChildList != null) && (uSelect.taskMember.workflowChild.taskChildList.Count > 0))
+                {
+                    MessageBox.Show("Please delete child tasks of this task before.");
+                    return;
+                }
+
+                //If task in the only one task in workflow
+                //delete select task, delete its child workflow
+                //update into Strukt
+                if ((uSelect.taskMember.follows_id == null) && (uSelect.taskMember.precedes_id == null))
+                {
+                    string strResult;
+                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Workflow cannot be deleted.");
+                        return;
+                    }
+                    strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Task cannot be deleted.");
+                        return;
+                    }
+                    Workflow wfPre = uSelect.taskMember.workflowParent;
+                    wfPre.taskChildList.Remove(uSelect.taskMember);
+                    uSelect.taskMember.workflowChild = null;
+                    uSelect.taskMember = null;
+                    pnCenter.Controls.Remove(uSelect);
+                }
+                //If task is at the first position of workflow
+                //get the followed task
+                //update followed task.follow_id = null
+                //delete select task, delete its child workflow
+                //update into Strukt
+                else if (uSelect.taskMember.follows_id == null)
+                {
+                    Task taskFollow = uSelect.taskMember.workflowParent.taskChildList[uSelect.taskMember.workflowParent.taskChildList.IndexOf(uSelect.taskMember) - 1];
+                    taskFollow.follows_id = null;
+
+                    Task taskResult = Task.editTask(taskFollow);
+                    string strResult;
+                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Workflow cannot be deleted.");
+                        return;
+                    }
+                    strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Task cannot be deleted.");
+                        return;
+                    }
+                    Workflow wfPre = uSelect.taskMember.workflowParent;
+                    wfPre.taskChildList.Remove(uSelect.taskMember);
+                    uSelect.taskMember.workflowChild = null;
+                    uSelect.taskMember = null;
+                    pnCenter.Controls.Remove(uSelect);
+
+                }
+                //If task is at the last position of workflow
+                //get the precedes task
+                //update precedes task.precedes id = null
+                //delete select task, delete its child workflow
+                //update into Strukt
+                else if (uSelect.taskMember.precedes_id == null)
+                {
+                }
+                //If task is in between 2 tasks
+                //get the followed task
+                //get the precedes task
+                //update followed task.follow_id = precedes task.id
+                //update precedes task.precedes id = followed task.id
+                //delete select task, delete its child workflow
+                //update into Strukt
+                else
+                {
+                }
+
+                global.currentTaskControlObject = null;
+                global.currentTaskControlID = 0;
+
+            }
+
+
+
+
+
+
+
             /*
             if (pnCenter.Controls.Count == 0)
             {

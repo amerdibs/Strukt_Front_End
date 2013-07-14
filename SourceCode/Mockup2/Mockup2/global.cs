@@ -38,6 +38,8 @@ namespace Mockup2
         public static int heightControlTaskReceive = heightControlTaskNormal + 50;
         public static int heightControlTaskAssign = heightControlTaskNormal + 80;
 
+        public static string resultSuccessStrukt = "{\"type\":\"success\"}";
+
 
         // fix value is used for the first prototype only
         //public static string strWorkflowID = "354249471";
