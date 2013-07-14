@@ -131,6 +131,7 @@ namespace Mockup2
                     //    2.1 get task from selected control and create new Task object
                     //    2.2 set parent_workflow_id use selected_task.childworkflow_id, user_id
                     //    2.3 get values from edit form
+                    //       (If there are child tasks, new task must be added follow in the last task in this workflow)
                     //    2.4 save the new task
                     //        - post to create new child workflow and get object to update task object
                     //        2.4.1 save in Strukt first
@@ -140,25 +141,12 @@ namespace Mockup2
 
                     Object uControl = global.currentTaskControlObject;
                     UCMainTask uSelect = (UCMainTask)uControl;
-                    Task taskFollow = uSelect.taskMember;
-
+                    Task taskParent = uSelect.taskMember;
                     Task taskNew = new Task();
-                    if ((uSelect.taskMember.workflowChild.taskChildList == null) || (uSelect.taskMember.workflowChild.taskChildList.Count == 0))
-                    {
-                        taskNew.parent_workflow_id = taskFollow.child_workflow_id;
-
-                    }
-                    else
-                    { 
-
-                    }
-
-
-
-
+                    taskNew.parent_workflow_id = taskParent.child_workflow_id;
                     taskNew.user_id = global.workflowMain.user_id;
                     taskNew.name = "New Task";
- 
+
                     frmTaskEdit frmEdit = new frmTaskEdit();
                     frmEdit.strFormMode = frmEdit.formModeNew;
                     frmEdit.taskUse = taskNew;
@@ -172,17 +160,58 @@ namespace Mockup2
                     taskNew.child_workflow_id = wfNew.id;
                     wfNew.user_id = global.workflowMain.user_id;
 
-                    Task returnTaskAdd = Task.addTask(taskNew);
+                    Task returnTaskAdd;
+                    if ((uSelect.taskMember.workflowChild.taskChildList != null) && (uSelect.taskMember.workflowChild.taskChildList.Count > 0))
+                    {
+                        returnTaskAdd = Task.addTask(taskNew);
+                        Task taskFollow = taskParent.workflowChild.taskChildList[0];
+                        returnTaskAdd.follows_id = taskFollow.id;
+                        taskFollow.precedes_id = returnTaskAdd.id;
+                        Task taskReturn = Task.editTask(taskFollow);
+                        returnTaskAdd = Task.editTask(returnTaskAdd);
+                    }
+                    else
+                    {
+                        returnTaskAdd = Task.addTask(taskNew);
+                    }
+
+
                     Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
                     returnTaskAdd.workflowChild = returnChildWorkflow;
+                    returnTaskAdd.workflowParent = taskParent.workflowChild;
+
+
 
                     //Add Task and config UI
                     UCMainTask uMain = new UCMainTask();
                     uMain.Height = global.heightControlTaskNormal;
                     pnCenter.Controls.Add(uMain);
                     uMain.Dock = DockStyle.Top;
-                    int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
+                    int iIndex = 0;
+                    if ((uSelect.taskMember.workflowChild.taskChildList != null) && (uSelect.taskMember.workflowChild.taskChildList.Count > 0))
+                    {
+                        Task taskFollow = taskParent.workflowChild.taskChildList[0];
+                        taskParent.workflowChild.taskChildList.Insert(0, returnTaskAdd);
+                        foreach (UCMainTask ucmEach in pnCenter.Controls)
+                        {
+                            if (ucmEach.taskMember.id == taskFollow.id)
+                            {
+                                iIndex = pnCenter.Controls.GetChildIndex(ucmEach, true);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
+                        taskParent.workflowChild.taskChildList = new List<Task>();
+                        taskParent.workflowChild.taskChildList.Add(returnTaskAdd);
+                    }
+
                     pnCenter.Controls.SetChildIndex(uMain, iIndex);
+
+
+
                     uMain.taskMember = returnTaskAdd;
                     uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
 
@@ -443,16 +472,16 @@ namespace Mockup2
 
                     Task taskResult = Task.editTask(taskFollow);
                     string strResult;
-                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
-                    if (strResult != global.resultSuccessStrukt)
-                    {
-                        MessageBox.Show("There is error. Workflow cannot be deleted.");
-                        return;
-                    }
                     strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
                     if (strResult != global.resultSuccessStrukt)
                     {
                         MessageBox.Show("There is error. Task cannot be deleted.");
+                        return;
+                    }
+                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Workflow cannot be deleted.");
                         return;
                     }
                     Workflow wfPre = uSelect.taskMember.workflowParent;
@@ -469,6 +498,29 @@ namespace Mockup2
                 //update into Strukt
                 else if (uSelect.taskMember.precedes_id == null)
                 {
+                    Task taskPrecedes = uSelect.taskMember.workflowParent.taskChildList[uSelect.taskMember.workflowParent.taskChildList.IndexOf(uSelect.taskMember) + 1];
+                    taskPrecedes.precedes_id = null;
+
+                    Task taskResult = Task.editTask(taskPrecedes);
+                    string strResult;
+                    strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Task cannot be deleted.");
+                        return;
+                    }
+                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Workflow cannot be deleted.");
+                        return;
+                    }
+                    Workflow wfPre = uSelect.taskMember.workflowParent;
+                    wfPre.taskChildList.Remove(uSelect.taskMember);
+                    uSelect.taskMember.workflowChild = null;
+                    uSelect.taskMember = null;
+                    pnCenter.Controls.Remove(uSelect);
+
                 }
                 //If task is in between 2 tasks
                 //get the followed task
@@ -479,6 +531,33 @@ namespace Mockup2
                 //update into Strukt
                 else
                 {
+                    Task taskPrecedes = uSelect.taskMember.workflowParent.taskChildList[uSelect.taskMember.workflowParent.taskChildList.IndexOf(uSelect.taskMember) + 1];
+                    Task taskFollow = uSelect.taskMember.workflowParent.taskChildList[uSelect.taskMember.workflowParent.taskChildList.IndexOf(uSelect.taskMember) - 1];
+                    taskPrecedes.precedes_id = taskFollow.id;
+                    taskFollow.follows_id = taskPrecedes.id;
+
+
+                    Task taskPResult = Task.editTask(taskPrecedes);
+                    Task taskFResult = Task.editTask(taskFollow);
+                    string strResult;
+                    strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Task cannot be deleted.");
+                        return;
+                    }
+                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Workflow cannot be deleted.");
+                        return;
+                    }
+
+                    Workflow wfPre = uSelect.taskMember.workflowParent;
+                    wfPre.taskChildList.Remove(uSelect.taskMember);
+                    uSelect.taskMember.workflowChild = null;
+                    uSelect.taskMember = null;
+                    pnCenter.Controls.Remove(uSelect);
                 }
 
                 global.currentTaskControlObject = null;
