@@ -204,14 +204,19 @@ namespace Mockup2
         private void btnSendtoAssigner_Click(object sender, EventArgs e)
         {
             frmMessage fMsg = new frmMessage();
-            fMsg.Controls["pnBody"].Controls["txtUser"].Text = txtReceive.Text;
+            ListBox lbUse = (ListBox)fMsg.Controls["pnBody"].Controls["lbUser"];
+            lbUse.Items.Add(txtReceive.Text);
             fMsg.ShowDialog();
         }
 
         private void btnSendtoReceiver_Click(object sender, EventArgs e)
         {
             frmMessage fMsg = new frmMessage();
-            fMsg.Controls["pnBody"].Controls["txtUser"].Text = lbAssigned.SelectedItem.ToString();
+            ListBox lbUse = (ListBox)fMsg.Controls["pnBody"].Controls["lbUser"];
+            foreach(DataRowView v in lbAssigned.SelectedItems)
+            {
+                lbUse.Items.Add(v.Row["u_name"]);
+            }
             fMsg.ShowDialog();
         }
     }
