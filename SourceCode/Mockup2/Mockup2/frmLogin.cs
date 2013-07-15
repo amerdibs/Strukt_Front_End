@@ -47,7 +47,7 @@ namespace Mockup2
         private void btnTest_Click(object sender, EventArgs e)
         {
             this.Width = 350;
-            txtTest.Text = "User name: \r\n pakorn \r\n amer \r\n tariq \r\n ranir \r\n <no password> \r\n (Processes are different.)";
+            txtTest.Text = "User name:  \r\n robot1  \r\n robot2  \r\n robot3 \r\n pakorn \r\n amer \r\n tariq \r\n ranir \r\n robot1 \r\n (Processes are different.)";
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)

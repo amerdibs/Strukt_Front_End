@@ -12,6 +12,8 @@ namespace Mockup2
 {
     public partial class frmAssign : Form
     {
+        public Task taskAssign { get; set; }
+
         public frmAssign()
         {
             InitializeComponent();
@@ -29,12 +31,20 @@ namespace Mockup2
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult result1 = MessageBox.Show("Do you want to cancel?",
+                                       "Please confirm",
+                                       MessageBoxButtons.OKCancel);
+            if (result1 == System.Windows.Forms.DialogResult.OK)
+                Close();
+            else
+                return;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Close();
+
+
+
         }
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pnBody = new System.Windows.Forms.Panel();
-            this.lbAssigned = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMsg = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@
             // 
             // pnBody
             // 
-            this.pnBody.Controls.Add(this.lbAssigned);
             this.pnBody.Controls.Add(this.label2);
             this.pnBody.Controls.Add(this.txtMsg);
             this.pnBody.Controls.Add(this.label1);
@@ -51,21 +49,13 @@
             this.pnBody.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBody.Location = new System.Drawing.Point(0, 0);
             this.pnBody.Name = "pnBody";
-            this.pnBody.Size = new System.Drawing.Size(286, 255);
+            this.pnBody.Size = new System.Drawing.Size(280, 192);
             this.pnBody.TabIndex = 0;
-            // 
-            // lbAssigned
-            // 
-            this.lbAssigned.FormattingEnabled = true;
-            this.lbAssigned.Location = new System.Drawing.Point(79, 35);
-            this.lbAssigned.Name = "lbAssigned";
-            this.lbAssigned.Size = new System.Drawing.Size(193, 69);
-            this.lbAssigned.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 106);
+            this.label2.Location = new System.Drawing.Point(23, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 3;
@@ -73,7 +63,7 @@
             // 
             // txtMsg
             // 
-            this.txtMsg.Location = new System.Drawing.Point(79, 106);
+            this.txtMsg.Location = new System.Drawing.Point(79, 34);
             this.txtMsg.Multiline = true;
             this.txtMsg.Name = "txtMsg";
             this.txtMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -102,14 +92,13 @@
             this.pnControl.Controls.Add(this.btnCancel);
             this.pnControl.Controls.Add(this.btnOK);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnControl.Location = new System.Drawing.Point(0, 255);
+            this.pnControl.Location = new System.Drawing.Point(0, 192);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(286, 38);
+            this.pnControl.Size = new System.Drawing.Size(280, 36);
             this.pnControl.TabIndex = 1;
             // 
             // btnCancel
             // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::Mockup2.Properties.Resources.ball_red;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(197, 6);
@@ -139,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 293);
+            this.ClientSize = new System.Drawing.Size(280, 228);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnBody);
             this.Name = "frmAssign";
@@ -162,6 +151,5 @@
         private System.Windows.Forms.TextBox txtMsg;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbUser;
-        private System.Windows.Forms.ListBox lbAssigned;
     }
 }

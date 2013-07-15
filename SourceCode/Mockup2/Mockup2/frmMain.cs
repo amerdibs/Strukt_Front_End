@@ -739,7 +739,7 @@ namespace Mockup2
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString());
+                Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString(),null);
                 global.workflowMain = wfMain;
                 pnCenter.Controls.Clear();
                 generateTaskControl(wfMain, 0);
@@ -946,11 +946,21 @@ namespace Mockup2
                 MessageBox.Show("Please log-in before assign the task!");
                 return;
             }
+            if (global.currentTaskControlObject == null)
+            {
+                MessageBox.Show("Please select the assigning task");
+                return;
+            }
 
             frmAssign frmAs = new frmAssign();
+            UCMainTask ucSelect = (UCMainTask)global.currentTaskControlObject;
+            frmAs.taskAssign = ucSelect.taskMember;
             DialogResult dResult = frmAs.ShowDialog();
+            //If Task was assigned, update the Task control.
             if (DialogResult == DialogResult.OK)
             {
+
+
             }
 
         }

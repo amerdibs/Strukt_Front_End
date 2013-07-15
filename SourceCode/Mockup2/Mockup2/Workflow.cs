@@ -39,10 +39,11 @@ namespace Mockup2
         }
 
         //Retreive workflows and tasks heirarchy
-        public static Workflow getWorkflowHierarchybyID(string strWorkflowID)
+        public static Workflow getWorkflowHierarchybyID(string strWorkflowID, Task taskParent)
         {
             List<Workflow> wfGet = getWorkflowByID(strWorkflowID);
             List<Task> tkList = Task.getTaskByParentWorkflowID(strWorkflowID);
+            wfGet[0].taskParent = taskParent;
             if (tkList == null)
             {
                 return wfGet[0];
@@ -51,7 +52,6 @@ namespace Mockup2
 
             foreach (Task tkUse in wfGet[0].taskChildList)
             {
-                List<Workflow> wfSubGet = getWorkflowByID(global.getValueFromStruktValue(tkUse.child_workflow_id));
                 tkUse.workflowParent = wfGet[0];
                 //Check for assignment
                 if (global.assignmentSentList != null)
@@ -68,10 +68,10 @@ namespace Mockup2
                         tkUse.hasAssignmentReceived = true;
                 }
 
-                wfSubGet[0].taskParent = tkUse;
+
                 if ( !tkUse.user_id.Contains("null") )
                 {
-                    tkUse.workflowChild = getWorkflowHierarchybyID(global.getValueFromStruktValue(tkUse.child_workflow_id));
+                    tkUse.workflowChild = getWorkflowHierarchybyID(global.getValueFromStruktValue(tkUse.child_workflow_id), tkUse);
                 }
             }
             return wfGet[0];

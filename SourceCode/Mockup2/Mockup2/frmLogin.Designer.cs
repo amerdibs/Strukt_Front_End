@@ -134,6 +134,7 @@
             this.txtTest.Location = new System.Drawing.Point(221, 12);
             this.txtTest.Multiline = true;
             this.txtTest.Name = "txtTest";
+            this.txtTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtTest.Size = new System.Drawing.Size(100, 118);
             this.txtTest.TabIndex = 8;
             // 
@@ -141,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(215, 143);
+            this.ClientSize = new System.Drawing.Size(217, 143);
             this.Controls.Add(this.txtTest);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnPass);
