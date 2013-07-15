@@ -259,12 +259,11 @@ namespace Mockup2
                 PropertiesStrukt.Status.updateStatus(parmtask, false);
                 Workflow work = parmtask.workflowChild;
                 List<Task> child = work.taskChildList;
-                if (child == null)
-                    PropertiesStrukt.Status.updateStatus(parmtask, false);
-                else
+                if (child != null)
                     foreach (Task eachTask in child)
                         updateTaskChildStatusFromCompleteToActive(eachTask);
-
+                else
+                    return;
 
             }
             public static void updateTaskParentStatusFromCompleteToActive(Task parmtask)
@@ -272,31 +271,39 @@ namespace Mockup2
                 PropertiesStrukt.Status.updateStatus(parmtask, false);
                 Workflow work = parmtask.workflowParent;
                 Task parent = work.taskParent;
-                if (parent == null)
-                    PropertiesStrukt.Status.updateStatus(parmtask, false);
-                else
+                if (parent != null)
                     updateTaskParentStatusFromCompleteToActive(parent);
+                else
+                    return;
 
 
             }
             //Error 
-            //public static bool CheckParentStatus(Task parmtask)
-            //{
-            //    Workflow wfparent = parmtask.workflowParent;
-            //    Task parent = wfparent.taskParent;
-            //    if (parent == null)
-            //        return true;
-            //    Workflow wfclid = parent.workflowChild;
-            //    List<Task> child = wfclid.taskChildList;
+            public static void updateTaskParentStatusFromActiveToComplete(Task parmtask, List<Task> taskList)
+            {
+                Workflow wfparent = parmtask.workflowParent;
+                Task parent = wfparent.taskParent;
+                if (parent != null)
+                {
+                    Workflow wfclid = parent.workflowChild;
+                    List<Task> child = wfclid.taskChildList;
+                    bool boolAllCheck = true;
+                    foreach (Task eachTask in child)
+                    {
+                        if (eachTask.status_id != PropertiesStrukt.Status.statusCompleted)
+                            boolAllCheck=false;
+                  
+                    }
 
-            //    foreach (Task eachTask in child)
-            //    {  if (eachTask.status_id!=PropertiesStrukt.Status.statusCompleted)
-            //        return false;
-            //       CheckParentStatus(eachTask);
-            //       return true;
+                    if (boolAllCheck)
+                    {
+                        updateStatus(parent, true);
+                        updateTaskParentStatusFromActiveToComplete(parent, taskList);
 
-            //    }
-           // }
+                    }
+
+                }
+            }
 
             public static List<Status> getStatusAll()
             {

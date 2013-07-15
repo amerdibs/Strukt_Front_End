@@ -163,6 +163,7 @@ namespace Mockup2
                 //  PropertiesStrukt.Status.updateStatus(taskMember, true);
                 List<Task> taskList = new List<Task>();
                 PropertiesStrukt.Status.updateTaskChildStatusFromActiveToComplete(taskMember, taskList);
+                PropertiesStrukt.Status.updateTaskParentStatusFromActiveToComplete(taskMember, taskList);
                 foreach (Object oEach in this.Parent.Controls)
                 {
                     UCMainTask ucEach = (UCMainTask)oEach;
@@ -191,6 +192,7 @@ namespace Mockup2
                 //if (dialogResult == DialogResult.Yes)
                 //{
                   PropertiesStrukt.Status.updateTaskChildStatusFromCompleteToActive(taskMember);
+
                 //    PropertiesStrukt.Status.updateTaskParentStatusFromCompleteToActive(taskMember);
                 //}
                 //else if (dialogResult == DialogResult.No)
