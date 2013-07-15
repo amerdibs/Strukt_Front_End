@@ -160,5 +160,74 @@ public class StruktUser : System.Web.Services.WebService {
             return null;
         }
     }
+
+    [WebMethod]
+    public DataTable LoadDescriptionDetail(string strID)
+    {
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        dbConnection.Open();
+        string strD = "SELECT isnull(tk_description,'') tk_description FROM struckTaskExtend" + "WHERE  tk_task_id= @tk_task_id ";
+        SqlParameter spTaskID = new SqlParameter("@tk_task_id", strD);
+        SqlCommand qCommand= new SqlCommand(strD, dbConnection);
+        qCommand.Parameters.Add(spTaskID);
+        SqlDataReader qReader = qCommand.ExecuteReader();
+        DataTable dtTable = new DataTable();
+        dtTable.Load(qReader);
+        dtTable.TableName = "struktTaskExtend";
+        dbConnection.Close();
+        if (dtTable.Rows.Count > 0)
+        {
+            return dtTable;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    [WebMethod]
+    public void AddUptadeTaskDescription(string strID)
+    {
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        try
+        {
+            dbConnection.Open();
+            string strD = "SELECT tk_description FROM struckTaskExtend" + "WHERE  tk_task_id= @tk_task_id ";
+            SqlParameter spTaskID = new SqlParameter("@tk_task_id", strD);
+            SqlCommand qCommand = new SqlCommand(strD, dbConnection);
+            qCommand.Parameters.Add(spTaskID);
+            SqlDataReader qReader = qCommand.ExecuteReader();
+            DataTable dtTable = new DataTable();
+            dtTable.Load(qReader);
+            dtTable.TableName = "struktTaskExtend";
+
+            if (dtTable.Rows.Count > 0 )
+            {
+                //Update
+                strD = "update struckTaskExtend tk_description = @tk_description " + "WHERE  tk_task_id= @tk_task_id ";
+                SqlParameter spTaskDesc = new SqlParameter("@tk_description", strD);
+                qCommand.CommandText = strD;
+                qCommand.ExecuteNonQuery();
+
+
+                //return dtTable;
+            }
+            else
+            {
+                //Add
+                //return dtTable;
+            }
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        finally
+        {
+            dbConnection.Close();
+        }
+        
+    }
     
 }
