@@ -28,10 +28,7 @@ namespace Mockup2
             
         }
 
-        private void UCMainTask_Load(object sender, EventArgs e)
-        {
-            
-        }
+
 
         private void lbTitle_Click(object sender, EventArgs e)
         {
@@ -66,10 +63,6 @@ namespace Mockup2
             this.BackColor = preColor;
         }
 
-        private void UCMainTask_Leave(object sender, EventArgs e)
-        {
-
-        }
 
         private void lbTitle_Click_1(object sender, EventArgs e)
         {
@@ -135,48 +128,14 @@ namespace Mockup2
             }
         }
 
-        private void UCMainTask_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
-        {
-            /*
-            //If the left mouse button is up and the mouse is currently over LabelDrop
-            if (Control.MouseButtons != MouseButtons.Left)
-            {
-                //Cancel the DragDrop Action
-                e.Action = DragAction.Cancel;
-                //Manually fire the MouseUp event
-                
 
-                UCMainTask_MouseUp(sender, new MouseEventArgs(Control.MouseButtons, 0, Control.MousePosition.X, Control.MousePosition.Y, 0));
-            }*/
-        }
 
         private void btnLink_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.uni-mannheim.de");
         }
 
-        private void cbCheck_CheckedChanged(object sender, EventArgs e)
-        {
-
-            //if (cbCheck.Checked)
-            //{
-            //    PropertiesStrukt.Status.updateStatus(taskMember, true);
-            //   //List <Workflow> parmWorkFowList=Workflow.getWorkflowByID(taskMember.child_workflow_id);
-            //   // Workflow parmWorkFlow= parmWorkFowList[0];
-
-
-
-            //   // List<Task> childTaskList = Task.getTaskByParentWorkflowID(global.getValueFromStruktValue(taskMember.child_workflow_id));
-
-            //   // checktask(childTaskList,parmWorkFlow);
-
-
-            //}
-            //else
-            //    PropertiesStrukt.Status.updateStatus(taskMember, false);
-            //    //unchecktask(taskMember);
-            
-        }
+       
         private void checktask(List<Task> taskList,Workflow workflow)
         {
             PropertiesStrukt p=new PropertiesStrukt();
@@ -202,7 +161,19 @@ namespace Mockup2
             if (cbCheck.Checked)
             {
                 //  PropertiesStrukt.Status.updateStatus(taskMember, true);
-                PropertiesStrukt.Status.updateTaskChildStatusFromActiveToComplete(taskMember);
+                List<Task> taskList = new List<Task>();
+                PropertiesStrukt.Status.updateTaskChildStatusFromActiveToComplete(taskMember, taskList);
+                foreach (Object oEach in this.Parent.Controls)
+                {
+                    UCMainTask ucEach = (UCMainTask)oEach;
+                    foreach (Task taskEach in taskList)
+                    {
+                        if (taskEach.id == ucEach.taskMember.id)
+                        {
+                            ucEach.cbCheck.Checked = true;
+                        }
+                    }
+                }
                 //List <Workflow> parmWorkFowList=Workflow.getWorkflowByID(taskMember.child_workflow_id);
                 // Workflow parmWorkFlow= parmWorkFowList[0];
 

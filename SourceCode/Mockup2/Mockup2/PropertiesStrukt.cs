@@ -240,18 +240,19 @@ namespace Mockup2
                 
             }
 
-            public static void updateTaskChildStatusFromActiveToComplete(Task parmtask)
+            public static void updateTaskChildStatusFromActiveToComplete(Task parmtask, List<Task> taskList)
             {
                 PropertiesStrukt.Status.updateStatus(parmtask, true);
+                taskList.Add(parmtask);
                 Workflow work = parmtask.workflowChild;
                 List<Task> child = work.taskChildList;
-                if (child== null)
-                    PropertiesStrukt.Status.updateStatus(parmtask, true);
-                else
+                //if (child== null)
+                //    PropertiesStrukt.Status.updateStatus(parmtask, true);
+                if (child != null)
                     foreach (Task eachTask in child)
-                        updateTaskChildStatusFromActiveToComplete(eachTask);
-
-
+                        updateTaskChildStatusFromActiveToComplete(eachTask, taskList);
+                else
+                    return;
             }
             public static void updateTaskChildStatusFromCompleteToActive(Task parmtask)
             {

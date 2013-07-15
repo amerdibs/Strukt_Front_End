@@ -52,7 +52,6 @@
             this.cbCheck.Size = new System.Drawing.Size(15, 14);
             this.cbCheck.TabIndex = 0;
             this.cbCheck.UseVisualStyleBackColor = true;
-            this.cbCheck.CheckedChanged += new System.EventHandler(this.cbCheck_CheckedChanged);
             this.cbCheck.Click += new System.EventHandler(this.cbCheck_Click);
             // 
             // lbTitle
@@ -193,11 +192,8 @@
             this.Controls.Add(this.pnAssigned);
             this.Name = "UCMainTask";
             this.Size = new System.Drawing.Size(318, 160);
-            this.Load += new System.EventHandler(this.UCMainTask_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragEnter);
-            this.QueryContinueDrag += new System.Windows.Forms.QueryContinueDragEventHandler(this.UCMainTask_QueryContinueDrag);
-            this.Leave += new System.EventHandler(this.UCMainTask_Leave);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UCMainTask_MouseDown);
             this.MouseEnter += new System.EventHandler(this.UCMainTask_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.UCMainTask_MouseLeave);
