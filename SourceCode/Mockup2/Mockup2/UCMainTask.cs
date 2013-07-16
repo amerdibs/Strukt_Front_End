@@ -184,22 +184,50 @@ namespace Mockup2
             {
                 Cursor.Current = Cursors.WaitCursor;
                 List<Task> taskList = new List<Task>();
-                PropertiesStrukt.Status.updateTaskParentStatusFromCompleteToActive(taskMember, taskList);
-                PropertiesStrukt.Status.updateTaskChildStatusFromCompleteToActive(taskMember, taskList);
-                
-                foreach (Object oEach in this.Parent.Controls)
+                if (this.taskMember.workflowChild.taskChildList != null && this.taskMember.workflowChild.taskChildList.Count > 0)
                 {
-                    UCMainTask ucEach = (UCMainTask)oEach;
-                    foreach (Task taskEach in taskList)
+                    DialogResult result = MessageBox.Show("if you unchecked this task all of it's subtasks will be unchecked", "Are you Sure", MessageBoxButtons.OKCancel);
+                    if (result == System.Windows.Forms.DialogResult.OK)
                     {
-                        if (taskEach.id == ucEach.taskMember.id)
+                        PropertiesStrukt.Status.updateTaskParentStatusFromCompleteToActive(taskMember, taskList);
+                        PropertiesStrukt.Status.updateTaskChildStatusFromCompleteToActive(taskMember, taskList);
+
+                        foreach (Object oEach in this.Parent.Controls)
                         {
-                            ucEach.cbCheck.Checked = false;
+                            UCMainTask ucEach = (UCMainTask)oEach;
+                            foreach (Task taskEach in taskList)
+                            {
+                                if (taskEach.id == ucEach.taskMember.id)
+                                {
+                                    ucEach.cbCheck.Checked = false;
+                                }
+                            }
+                        }
+                    }
+                    if (result == System.Windows.Forms.DialogResult.Cancel)
+                        this.cbCheck.Checked = true;
+
+                }
+                else
+                {
+
+                    PropertiesStrukt.Status.updateTaskParentStatusFromCompleteToActive(taskMember, taskList);
+                    PropertiesStrukt.Status.updateTaskChildStatusFromCompleteToActive(taskMember, taskList);
+
+                    foreach (Object oEach in this.Parent.Controls)
+                    {
+                        UCMainTask ucEach = (UCMainTask)oEach;
+                        foreach (Task taskEach in taskList)
+                        {
+                            if (taskEach.id == ucEach.taskMember.id)
+                            {
+                                ucEach.cbCheck.Checked = false;
+                            }
                         }
                     }
                 }
-               
-            }      
+            }
+   
         }
 
         private void btnSendtoAssigner_Click(object sender, EventArgs e)
