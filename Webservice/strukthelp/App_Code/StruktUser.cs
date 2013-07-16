@@ -166,7 +166,7 @@ public class StruktUser : System.Web.Services.WebService {
     {
         SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
         dbConnection.Open();
-        string strD = "SELECT isnull(tk_description,'') tk_description FROM struckTaskExtend" + "WHERE  tk_task_id= @tk_task_id ";
+        string strD = "SELECT isnull(tk_description,'') tk_description FROM struktTaskExtend" + "WHERE  tk_task_id= @tk_task_id ";
         SqlParameter spTaskID = new SqlParameter("@tk_task_id", strD);
         SqlCommand qCommand= new SqlCommand(strD, dbConnection);
         qCommand.Parameters.Add(spTaskID);
@@ -192,7 +192,7 @@ public class StruktUser : System.Web.Services.WebService {
         try
         {
             dbConnection.Open();
-            string strD = "SELECT tk_description FROM struckTaskExtend WHERE tk_task_id= @tk_task_id ";
+            string strD = "SELECT tk_description FROM struktTaskExtend WHERE tk_task_id= @tk_task_id ";
             SqlParameter spTaskID = new SqlParameter("@tk_task_id", strD);
             SqlCommand qCommand = new SqlCommand(strD, dbConnection);
             qCommand.Parameters.Add(spTaskID);
@@ -204,7 +204,7 @@ public class StruktUser : System.Web.Services.WebService {
             if (dtTable.Rows.Count > 0 )
             {
                 //Update
-                strD = "update struckTaskExtend tk_description = @tk_description WHERE tk_task_id= @tk_task_id ";
+                strD = "update struktTaskExtend tk_description = @tk_description WHERE tk_task_id= @tk_task_id ";
                 SqlParameter spTaskDesc = new SqlParameter("@tk_description", strD);
                 qCommand.Parameters.Clear();
                 qCommand.Parameters.Add(spTaskDesc);
@@ -217,6 +217,15 @@ public class StruktUser : System.Web.Services.WebService {
             else
             {
                 //Add
+                strD = "insert into struktTaskExtend tk_description = @tk_description, tk_task_id = @tk_task_id  WHERE tk_task_id= @tk_task_id";
+                SqlParameter spTaskDesc1 = new SqlParameter("@tk_task_id", strD);
+                SqlParameter spTaskDesc = new SqlParameter("@tk_description",strD);
+                qCommand.Parameters.Clear();
+                qCommand.Parameters.Add(spTaskDesc1);
+                qCommand.Parameters.Add(spTaskDesc);
+                qCommand.CommandText = strD;
+                qCommand.ExecuteNonQuery();
+
                 //return dtTable;
             }
         }

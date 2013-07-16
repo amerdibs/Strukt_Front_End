@@ -156,7 +156,7 @@ namespace Mockup2
         }  
          
         private void btnOK_Click(object sender, EventArgs e)
-        {
+        {        
             taskUse.name = txtTaskName.Text;
             if (cbLocation.SelectedValue != null)
                 taskUse.location_id = (string)cbLocation.SelectedValue;
