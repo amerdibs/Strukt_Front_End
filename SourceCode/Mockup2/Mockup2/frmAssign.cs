@@ -72,27 +72,34 @@ namespace Mockup2
             taskNew.user_id = taskFollow.user_id;
             taskNew.id = null;
 
-            
-
             Task taskNewReturn = Task.addTask(taskNew);
             taskFollow.precedes_id = taskNewReturn.id;
             Task taskFollowReturn = Task.editTask(taskFollow);
 
-
-            //create new child workflow for new task
             Workflow wfNew = Workflow.addWorkflow();
-            wfNew.parent_task_id = taskNew.id;
-            taskNew.child_workflow_id = wfNew.id;
+            wfNew.parent_task_id = taskNewReturn.id;
+            taskNewReturn.child_workflow_id = wfNew.id;
             wfNew.user_id = global.workflowMain.user_id;
 
-            Task returnTaskAdd = Task.addTask(taskNew);
             Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
-            returnTaskAdd.workflowChild = returnChildWorkflow;
-            returnTaskAdd.workflowParent = global.workflowMain;
+            Task returnTaskAdd = Task.editTask(taskNewReturn);
 
-            global.workflowMain.taskChildList.Insert(0, returnTaskAdd);
-            global.workflowMain.taskChildList[1].precedes_id = returnTaskAdd.id;
-            Task returnTaskFollow = Task.editTask(global.workflowMain.taskChildList[1]);
+            Assignment assignNew = new Assignment();
+            assignNew.acknowledged = "false";
+            assignNew.date = global.convertStruktDateTimeToString(DateTime.Now);
+            assignNew.message = txtMsg.Text;
+            assignNew.source_task_id = taskAssign.id;
+            assignNew.source_user_id = taskAssign.user_id;
+            assignNew.target_task_id = returnTaskAdd.id;
+            assignNew.target_user_id = returnTaskAdd.user_id;
+            //Assignment asReturn = Assignment.
+
+            //returnTaskAdd.workflowChild = returnChildWorkflow;
+            //returnTaskAdd.workflowParent = global.workflowMain;
+
+            //global.workflowMain.taskChildList.Insert(0, returnTaskAdd);
+            //global.workflowMain.taskChildList[1].precedes_id = returnTaskAdd.id;
+            //Task returnTaskFollow = Task.editTask(global.workflowMain.taskChildList[1]);
 
         }
     }
