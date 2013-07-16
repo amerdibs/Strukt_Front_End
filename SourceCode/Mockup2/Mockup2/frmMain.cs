@@ -155,15 +155,16 @@ namespace Mockup2
                     {
                         return;
                     }
+                    Task returnTaskAdd = Task.addTask(taskNew);
                     Workflow wfNew = Workflow.addWorkflow();
-                    wfNew.parent_task_id = taskNew.id;
-                    taskNew.child_workflow_id = wfNew.id;
+                    wfNew.parent_task_id = returnTaskAdd.id;
+                    returnTaskAdd.child_workflow_id = wfNew.id;
                     wfNew.user_id = global.workflowMain.user_id;
-
-                    Task returnTaskAdd;
+                    Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+                    
                     if ((uSelect.taskMember.workflowChild.taskChildList != null) && (uSelect.taskMember.workflowChild.taskChildList.Count > 0))
                     {
-                        returnTaskAdd = Task.addTask(taskNew);
+                        //returnTaskAdd = Task.editTask(taskNew);
                         Task taskFollow = taskParent.workflowChild.taskChildList[0];
                         returnTaskAdd.follows_id = taskFollow.id;
                         taskFollow.precedes_id = returnTaskAdd.id;
@@ -172,11 +173,11 @@ namespace Mockup2
                     }
                     else
                     {
-                        returnTaskAdd = Task.addTask(taskNew);
+                        returnTaskAdd = Task.editTask(taskNew);
                     }
 
 
-                    Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+
                     returnTaskAdd.workflowChild = returnChildWorkflow;
                     returnTaskAdd.workflowParent = taskParent.workflowChild;
 
@@ -270,19 +271,23 @@ namespace Mockup2
                     return;
                 }
 
-                Workflow wfNew = Workflow.addWorkflow();
-                wfNew.parent_task_id = taskNew.id;
-                taskNew.child_workflow_id = wfNew.id;
-                wfNew.user_id = global.workflowMain.user_id;
-
                 Task returnTaskAdd = Task.addTask(taskNew);
+
+                Workflow wfNew = Workflow.addWorkflow();
+                wfNew.parent_task_id = returnTaskAdd.id;
+                returnTaskAdd.child_workflow_id = wfNew.id;
+                wfNew.user_id = global.workflowMain.user_id;
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+                returnTaskAdd = Task.editTask(returnTaskAdd);
+
+
                 returnTaskAdd.workflowChild = returnChildWorkflow;
                 returnTaskAdd.workflowParent = global.workflowMain;
 
                 global.workflowMain.taskChildList.Insert(0, returnTaskAdd);
                 global.workflowMain.taskChildList[1].precedes_id = returnTaskAdd.id;
                 Task returnTaskFollow = Task.editTask(global.workflowMain.taskChildList[1]);
+
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
@@ -346,13 +351,15 @@ namespace Mockup2
                 {
                     return;
                 }
-                Workflow wfNew = Workflow.addWorkflow();
-                wfNew.parent_task_id = taskNew.id;
-                taskNew.child_workflow_id = wfNew.id;
-                wfNew.user_id = global.workflowMain.user_id;
-
                 Task returnTaskAdd = Task.addTask(taskNew);
+                Workflow wfNew = Workflow.addWorkflow();
+                wfNew.parent_task_id = returnTaskAdd.id;
+                returnTaskAdd.child_workflow_id = wfNew.id;
+                wfNew.user_id = global.workflowMain.user_id;
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+                returnTaskAdd = Task.editTask(taskNew);
+                
+
                 returnTaskAdd.workflowChild = returnChildWorkflow;
                 returnTaskAdd.workflowParent = taskFollow.workflowParent;
 
