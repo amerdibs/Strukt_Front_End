@@ -136,25 +136,7 @@ namespace Mockup2
         }
 
        
-        private void checktask(List<Task> taskList,Workflow workflow)
-        {
-            PropertiesStrukt p=new PropertiesStrukt();
-
-            foreach (Task tEach in workflow.taskChildList)
-            {
-                checktask(taskList,tEach.workflowChild);
-                //tEach.status_id = p.statusCompleted;
-                return;
-
-            }
-
-        }
-        private void unchecktask(Task taskparm)
-        {
-            PropertiesStrukt p = new PropertiesStrukt();
-            //taskparm.status_id = p.statusActive;
-
-        }
+       
 
         private void cbCheck_Click(object sender, EventArgs e)
         {
