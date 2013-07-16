@@ -160,6 +160,7 @@ namespace Mockup2
         {
             if (cbCheck.Checked)
             {
+                Cursor.Current = Cursors.WaitCursor;
                 //  PropertiesStrukt.Status.updateStatus(taskMember, true);
                 List<Task> taskList = new List<Task>();
                 PropertiesStrukt.Status.updateTaskChildStatusFromActiveToComplete(taskMember, taskList);
@@ -175,31 +176,29 @@ namespace Mockup2
                         }
                     }
                 }
-                //List <Workflow> parmWorkFowList=Workflow.getWorkflowByID(taskMember.child_workflow_id);
-                // Workflow parmWorkFlow= parmWorkFowList[0];
 
-
-
-                // List<Task> childTaskList = Task.getTaskByParentWorkflowID(global.getValueFromStruktValue(taskMember.child_workflow_id));
-
-                // checktask(childTaskList,parmWorkFlow);
-
+                Cursor.Current = Cursors.Default;
 
             }
             else
             {
-                //DialogResult dialogResult = MessageBox.Show("yes", "no", MessageBoxButtons.YesNo);
-                //if (dialogResult == DialogResult.Yes)
-                //{
-                  PropertiesStrukt.Status.updateTaskChildStatusFromCompleteToActive(taskMember);
-
-                //    PropertiesStrukt.Status.updateTaskParentStatusFromCompleteToActive(taskMember);
-                //}
-                //else if (dialogResult == DialogResult.No)
-                //{
-                //    return;
-
-                //}
+                Cursor.Current = Cursors.WaitCursor;
+                List<Task> taskList = new List<Task>();
+                PropertiesStrukt.Status.updateTaskParentStatusFromCompleteToActive(taskMember, taskList);
+                PropertiesStrukt.Status.updateTaskChildStatusFromCompleteToActive(taskMember, taskList);
+                
+                foreach (Object oEach in this.Parent.Controls)
+                {
+                    UCMainTask ucEach = (UCMainTask)oEach;
+                    foreach (Task taskEach in taskList)
+                    {
+                        if (taskEach.id == ucEach.taskMember.id)
+                        {
+                            ucEach.cbCheck.Checked = false;
+                        }
+                    }
+                }
+               
             }      
         }
 
