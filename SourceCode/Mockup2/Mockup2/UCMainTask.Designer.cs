@@ -52,6 +52,7 @@
             this.cbCheck.Size = new System.Drawing.Size(15, 14);
             this.cbCheck.TabIndex = 0;
             this.cbCheck.UseVisualStyleBackColor = true;
+            this.cbCheck.CheckStateChanged += new System.EventHandler(this.cbCheck_CheckStateChanged);
             this.cbCheck.Click += new System.EventHandler(this.cbCheck_Click);
             // 
             // lbTitle

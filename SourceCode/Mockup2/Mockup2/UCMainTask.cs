@@ -230,5 +230,23 @@ namespace Mockup2
             }
             fMsg.ShowDialog();
         }
+
+        private void cbCheck_CheckStateChanged(object sender, EventArgs e)
+        {
+            //this is only for the first prototype since the cbCheck_Click is called once again after the this if finish
+            //the actuall state is back to active afterwords 
+            if (this.taskMember.status_id == PropertiesStrukt.Status.statusNoNActive)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                cbCheck.Checked = false;
+                cbCheck.Enabled = false;
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show("Sorry this task is not active");
+                
+                
+            }
+        }
+
+      
     }
 }
