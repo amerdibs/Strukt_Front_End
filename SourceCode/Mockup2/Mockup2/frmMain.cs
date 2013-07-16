@@ -50,15 +50,15 @@ namespace Mockup2
                                 DataTable dtUser = wsStrukt.getUserByStruktID(global.getValueFromStruktValue(tGet.user_id));
                                 if (dtUser != null)
                                 {
-                                    fAck.Controls["txtUser"].Text = dtUser.Rows[0]["u_name"].ToString();
+                                    fAck.Controls["pnBody"].Controls["txtUser"].Text = dtUser.Rows[0]["u_name"].ToString();
                                 }
                                 else
                                 {
-                                    fAck.Controls["txtUser"].Text = "not exists in Log-In: " + global.getValueFromStruktValue(tGet.user_id);
+                                    fAck.Controls["pnBody"].Text = "not exists in Log-In: " + global.getValueFromStruktValue(tGet.user_id);
                                 }
                             }
 
-                            fAck.Controls["txtMsg"].Text = asEach.message;
+                            fAck.Controls["pnBody"].Controls["txtMsg"].Text = asEach.message;
 
                             DialogResult dResult = fAck.ShowDialog();
                             if (dResult == DialogResult.OK) //Update acknowledgement

@@ -61,8 +61,8 @@ namespace Mockup2
             jsSetting.NullValueHandling = NullValueHandling.Ignore;
             jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             string strObj = JsonConvert.SerializeObject(taskAssign, jsSetting);
-            List<Task> taskTempList = JsonConvert.DeserializeObject<List<Task>>(strObj);
-            Task taskNew = taskTempList[0];
+            Task taskNew = JsonConvert.DeserializeObject<Task>(strObj);
+            //Task taskNew = taskTempList[0];
 
             //Task taskNew = new Task();
             //Task taskFollow = global.workflowMain.taskChildList[0];
@@ -92,8 +92,11 @@ namespace Mockup2
             assignNew.source_user_id = taskAssign.user_id;
             assignNew.target_task_id = returnTaskAdd.id;
             assignNew.target_user_id = returnTaskAdd.user_id;
-            //Assignment asReturn = Assignment.
 
+
+            Assignment asReturn = Assignment.addAssignment(assignNew);
+
+            MessageBox.Show("Assign Complete");
             //returnTaskAdd.workflowChild = returnChildWorkflow;
             //returnTaskAdd.workflowParent = global.workflowMain;
 

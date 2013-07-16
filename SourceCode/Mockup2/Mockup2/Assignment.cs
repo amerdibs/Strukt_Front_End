@@ -20,6 +20,24 @@ namespace Mockup2
         public DateTime created_at { set; get; }
         public DateTime updated_at { set; get; }
 
+        public static Assignment addAssignment(Assignment asParam)
+        {
+            try
+            {
+                string strReturn = "";
+                JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                string strObj = JsonConvert.SerializeObject(asParam, jsSetting);
+                strReturn = global.postJSONintoStrukt(Strukt.URL_Assignment, global.composeJSONforStrukt(Strukt.T_Assignment, strObj));
+                return JsonConvert.DeserializeObject<Assignment>(strReturn);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static List<Assignment> getAssignmentByTargetUserID(string strTargetUserID)
         {
             try
@@ -71,12 +89,12 @@ namespace Mockup2
                         bResult = true;
                 }
 
-            if (global.assignmentSentList != null)
-                foreach (Assignment asEach in global.assignmentSentList)
-                {
-                    if (asEach.acknowledged == "false")
-                        bResult = true;
-                }
+            //if (global.assignmentSentList != null)
+            //    foreach (Assignment asEach in global.assignmentSentList)
+            //    {
+            //        if (asEach.acknowledged == "false")
+            //            bResult = true;
+            //    }
             return bResult;
         }
 
@@ -109,7 +127,7 @@ namespace Mockup2
                 jsSetting.NullValueHandling = NullValueHandling.Ignore;
                 jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 string strObj = JsonConvert.SerializeObject(asParam, jsSetting);
-                strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Assignment, strObj));
+                strReturn = global.postJSONintoStrukt(Strukt.URL_Assignment, global.composeJSONforStrukt(Strukt.T_Assignment, strObj));
                 return JsonConvert.DeserializeObject<Assignment>(strReturn);
             }
             catch (Exception)
