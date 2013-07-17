@@ -70,7 +70,7 @@
             // lAssign
             // 
             this.lAssign.AutoSize = true;
-            this.lAssign.ForeColor = System.Drawing.Color.Purple;
+            this.lAssign.ForeColor = System.Drawing.Color.Crimson;
             this.lAssign.Location = new System.Drawing.Point(3, 3);
             this.lAssign.Name = "lAssign";
             this.lAssign.Size = new System.Drawing.Size(62, 13);
@@ -89,11 +89,13 @@
             // 
             // lbAssigned
             // 
+            this.lbAssigned.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbAssigned.FormattingEnabled = true;
             this.lbAssigned.Location = new System.Drawing.Point(3, 20);
             this.lbAssigned.Name = "lbAssigned";
+            this.lbAssigned.ScrollAlwaysVisible = true;
             this.lbAssigned.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbAssigned.Size = new System.Drawing.Size(144, 56);
+            this.lbAssigned.Size = new System.Drawing.Size(144, 26);
             this.lbAssigned.TabIndex = 6;
             // 
             // pnAssigned
@@ -102,9 +104,9 @@
             this.pnAssigned.Controls.Add(this.lbAssigned);
             this.pnAssigned.Controls.Add(this.lAssign);
             this.pnAssigned.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnAssigned.Location = new System.Drawing.Point(0, 80);
+            this.pnAssigned.Location = new System.Drawing.Point(0, 66);
             this.pnAssigned.Name = "pnAssigned";
-            this.pnAssigned.Size = new System.Drawing.Size(318, 80);
+            this.pnAssigned.Size = new System.Drawing.Size(318, 47);
             this.pnAssigned.TabIndex = 7;
             this.pnAssigned.Visible = false;
             // 
@@ -122,11 +124,11 @@
             // 
             // txtReceive
             // 
-            this.txtReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtReceive.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtReceive.Enabled = false;
             this.txtReceive.Location = new System.Drawing.Point(3, 19);
             this.txtReceive.Name = "txtReceive";
-            this.txtReceive.Size = new System.Drawing.Size(144, 20);
+            this.txtReceive.Size = new System.Drawing.Size(144, 13);
             this.txtReceive.TabIndex = 7;
             // 
             // pnReceived
@@ -135,9 +137,9 @@
             this.pnReceived.Controls.Add(this.txtReceive);
             this.pnReceived.Controls.Add(this.lReceive);
             this.pnReceived.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnReceived.Location = new System.Drawing.Point(0, 30);
+            this.pnReceived.Location = new System.Drawing.Point(0, 27);
             this.pnReceived.Name = "pnReceived";
-            this.pnReceived.Size = new System.Drawing.Size(318, 50);
+            this.pnReceived.Size = new System.Drawing.Size(318, 39);
             this.pnReceived.TabIndex = 8;
             this.pnReceived.Visible = false;
             // 
@@ -145,7 +147,7 @@
             // 
             this.btnSendtoAssigner.Image = global::Mockup2.Properties.Resources.mail;
             this.btnSendtoAssigner.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendtoAssigner.Location = new System.Drawing.Point(146, 18);
+            this.btnSendtoAssigner.Location = new System.Drawing.Point(147, 14);
             this.btnSendtoAssigner.Name = "btnSendtoAssigner";
             this.btnSendtoAssigner.Size = new System.Drawing.Size(25, 23);
             this.btnSendtoAssigner.TabIndex = 8;
@@ -190,7 +192,7 @@
             this.Controls.Add(this.pnReceived);
             this.Controls.Add(this.pnAssigned);
             this.Name = "UCMainTask";
-            this.Size = new System.Drawing.Size(318, 160);
+            this.Size = new System.Drawing.Size(318, 113);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragEnter);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UCMainTask_MouseDown);

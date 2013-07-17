@@ -117,7 +117,54 @@ namespace Mockup2
          
         }
 
-       
+        private void checkAssignmentUpdateControl(object sender, EventArgs e)
+        {
+            //Assignment Checking
+                bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
+                if (bResult)
+                {
+                    MessageBox.Show("There is a new assigned task to you.");
+                    //We are interested only the assignments which we received for acknowledgement
+                    foreach (Assignment asEach in global.assignmentReceivedList)
+                    {
+                        if (asEach.acknowledged == "false")
+                        {
+                            frmAcknowledge fAck = new frmAcknowledge();
+                            Task tGet = Task.getTaskByID(global.getValueFromStruktValue(asEach.source_task_id))[0];
+                            if (tGet != null)
+                            {
+                                StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
+
+                                DataTable dtUser = wsStrukt.getUserByStruktID(global.getValueFromStruktValue(tGet.user_id));
+                                if (dtUser != null)
+                                {
+                                    fAck.Controls["pnBody"].Controls["txtUser"].Text = dtUser.Rows[0]["u_name"].ToString();
+                                }
+                                else
+                                {
+                                    fAck.Controls["pnBody"].Text = "not exists in Log-In: " + global.getValueFromStruktValue(tGet.user_id);
+                                }
+                            }
+
+                            fAck.Controls["pnBody"].Controls["txtMsg"].Text = asEach.message;
+
+                            DialogResult dResult = fAck.ShowDialog();
+                            if (dResult == DialogResult.OK) //Update acknowledgement
+                            {
+                                Assignment asAckResult = Assignment.updateAssignmentAcknowledge(asEach);
+                                if (asAckResult != null)
+                                    asEach.acknowledged = "true";
+                                else
+                                {
+                                    MessageBox.Show("Update assignment error");
+                                    throw new System.Exception("Update assignment error");
+                                }
+                            }
+                        }
+                    }
+                    btnLoadProcess_Click(sender, e);
+                }
+        }
 
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -327,12 +374,15 @@ namespace Mockup2
                     uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                     uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
 
+                    checkAssignmentUpdateControl(sender, e);
                 }
 
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+            
 
             if ((global.workflowMain == null) || (global.workflowMain.taskChildList.Count == 0))
             {
@@ -512,7 +562,7 @@ namespace Mockup2
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
             }
 
-
+            checkAssignmentUpdateControl(sender, e);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -528,6 +578,8 @@ namespace Mockup2
                 MessageBox.Show("Please select a task to delete.");
                 return;
             }
+
+            
 
             DialogResult result1 = MessageBox.Show("Do you want to delete this task?",
                                         "Please confirm",
@@ -672,7 +724,7 @@ namespace Mockup2
 
             }
 
-
+            checkAssignmentUpdateControl(sender, e);
 
 
 
