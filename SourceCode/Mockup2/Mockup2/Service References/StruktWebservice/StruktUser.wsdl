@@ -110,6 +110,37 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="LoadDescriptionDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDescriptionDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadDescriptionDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUptadeTaskDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUptadeTaskDescriptionResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -148,6 +179,18 @@
   <wsdl:message name="getUserByStruktIDSoapOut">
     <wsdl:part name="parameters" element="tns:getUserByStruktIDResponse" />
   </wsdl:message>
+  <wsdl:message name="LoadDescriptionDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadDescriptionDetail" />
+  </wsdl:message>
+  <wsdl:message name="LoadDescriptionDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadDescriptionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUptadeTaskDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUptadeTaskDescription" />
+  </wsdl:message>
+  <wsdl:message name="AddUptadeTaskDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUptadeTaskDescriptionResponse" />
+  </wsdl:message>
   <wsdl:portType name="StruktUserSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -172,6 +215,14 @@
     <wsdl:operation name="getUserByStruktID">
       <wsdl:input message="tns:getUserByStruktIDSoapIn" />
       <wsdl:output message="tns:getUserByStruktIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDescriptionDetail">
+      <wsdl:input message="tns:LoadDescriptionDetailSoapIn" />
+      <wsdl:output message="tns:LoadDescriptionDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUptadeTaskDescription">
+      <wsdl:input message="tns:AddUptadeTaskDescriptionSoapIn" />
+      <wsdl:output message="tns:AddUptadeTaskDescriptionSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StruktUserSoap" type="tns:StruktUserSoap">
@@ -230,6 +281,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LoadDescriptionDetail">
+      <soap:operation soapAction="http://tempuri.org/LoadDescriptionDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUptadeTaskDescription">
+      <soap:operation soapAction="http://tempuri.org/AddUptadeTaskDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="StruktUserSoap12" type="tns:StruktUserSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -280,6 +349,24 @@
     </wsdl:operation>
     <wsdl:operation name="getUserByStruktID">
       <soap12:operation soapAction="http://tempuri.org/getUserByStruktID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDescriptionDetail">
+      <soap12:operation soapAction="http://tempuri.org/LoadDescriptionDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUptadeTaskDescription">
+      <soap12:operation soapAction="http://tempuri.org/AddUptadeTaskDescription" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

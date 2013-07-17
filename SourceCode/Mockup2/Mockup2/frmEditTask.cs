@@ -157,7 +157,10 @@ namespace Mockup2
         }  
          
         private void btnOK_Click(object sender, EventArgs e)
-        {        
+        {
+            StruktWebservice.StruktUserSoapClient tdStrukt = new StruktWebservice.StruktUserSoapClient();
+            DataTable dtDesc = tdStrukt.AddUptadeTaskDescription(taskUse);
+            
             taskUse.name = txtTaskName.Text;
             if (cbLocation.SelectedValue != null)
                 taskUse.location_id = (string)cbLocation.SelectedValue;
