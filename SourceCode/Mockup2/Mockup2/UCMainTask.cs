@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace Mockup2
 {
@@ -244,6 +245,17 @@ namespace Mockup2
                 MessageBox.Show("Sorry this task is not active");
                 
                 
+            }
+        }
+
+        private void UCMainTask_Paint(object sender, PaintEventArgs e)
+        {
+            Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
+            using (LinearGradientBrush brush = new LinearGradientBrush(rc,this.BackColor , Color.White, LinearGradientMode.Horizontal))
+            {
+
+                e.Graphics.FillRectangle(brush, rc);
+
             }
         }
 

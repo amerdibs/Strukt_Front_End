@@ -32,7 +32,7 @@ namespace Mockup2
         public static Color ColorSelect = Color.SandyBrown;
 
         public static int iIndentOfCheckBox = 12;
-        public static int iGradientOfColor = 20;
+        public static int iGradientOfColor = 30;
 
         public static int heightControlTaskNormal = 27;
         public static int heightControlTaskReceive = heightControlTaskNormal + 39;

@@ -58,6 +58,7 @@
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
+            this.lbTitle.BackColor = System.Drawing.Color.Transparent;
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lbTitle.ForeColor = System.Drawing.Color.Black;
             this.lbTitle.Location = new System.Drawing.Point(24, 4);
@@ -89,6 +90,7 @@
             // 
             // lbAssigned
             // 
+            this.lbAssigned.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lbAssigned.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbAssigned.FormattingEnabled = true;
             this.lbAssigned.Location = new System.Drawing.Point(3, 20);
@@ -100,13 +102,14 @@
             // 
             // pnAssigned
             // 
+            this.pnAssigned.BackColor = System.Drawing.Color.Transparent;
             this.pnAssigned.Controls.Add(this.btnSendtoReceiver);
             this.pnAssigned.Controls.Add(this.lbAssigned);
             this.pnAssigned.Controls.Add(this.lAssign);
             this.pnAssigned.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnAssigned.Location = new System.Drawing.Point(0, 66);
+            this.pnAssigned.Location = new System.Drawing.Point(0, 68);
             this.pnAssigned.Name = "pnAssigned";
-            this.pnAssigned.Size = new System.Drawing.Size(318, 47);
+            this.pnAssigned.Size = new System.Drawing.Size(320, 47);
             this.pnAssigned.TabIndex = 7;
             this.pnAssigned.Visible = false;
             // 
@@ -124,6 +127,7 @@
             // 
             // txtReceive
             // 
+            this.txtReceive.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtReceive.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtReceive.Enabled = false;
             this.txtReceive.Location = new System.Drawing.Point(3, 19);
@@ -133,13 +137,14 @@
             // 
             // pnReceived
             // 
+            this.pnReceived.BackColor = System.Drawing.Color.Transparent;
             this.pnReceived.Controls.Add(this.btnSendtoAssigner);
             this.pnReceived.Controls.Add(this.txtReceive);
             this.pnReceived.Controls.Add(this.lReceive);
             this.pnReceived.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnReceived.Location = new System.Drawing.Point(0, 27);
+            this.pnReceived.Location = new System.Drawing.Point(0, 29);
             this.pnReceived.Name = "pnReceived";
-            this.pnReceived.Size = new System.Drawing.Size(318, 39);
+            this.pnReceived.Size = new System.Drawing.Size(320, 39);
             this.pnReceived.TabIndex = 8;
             this.pnReceived.Visible = false;
             // 
@@ -160,7 +165,7 @@
             this.btnLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLink.Enabled = false;
             this.btnLink.Image = global::Mockup2.Properties.Resources.web;
-            this.btnLink.Location = new System.Drawing.Point(260, 1);
+            this.btnLink.Location = new System.Drawing.Point(262, 1);
             this.btnLink.Name = "btnLink";
             this.btnLink.Size = new System.Drawing.Size(28, 23);
             this.btnLink.TabIndex = 3;
@@ -171,7 +176,7 @@
             // 
             this.btnProp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProp.Image = global::Mockup2.Properties.Resources.edit;
-            this.btnProp.Location = new System.Drawing.Point(287, 1);
+            this.btnProp.Location = new System.Drawing.Point(289, 1);
             this.btnProp.Name = "btnProp";
             this.btnProp.Size = new System.Drawing.Size(28, 23);
             this.btnProp.TabIndex = 2;
@@ -184,7 +189,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnLink);
             this.Controls.Add(this.btnProp);
             this.Controls.Add(this.lbTitle);
@@ -192,9 +196,10 @@
             this.Controls.Add(this.pnReceived);
             this.Controls.Add(this.pnAssigned);
             this.Name = "UCMainTask";
-            this.Size = new System.Drawing.Size(318, 113);
+            this.Size = new System.Drawing.Size(320, 115);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragEnter);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCMainTask_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UCMainTask_MouseDown);
             this.MouseEnter += new System.EventHandler(this.UCMainTask_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.UCMainTask_MouseLeave);
