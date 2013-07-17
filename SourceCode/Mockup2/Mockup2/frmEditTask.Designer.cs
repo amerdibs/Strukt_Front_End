@@ -36,6 +36,8 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtDetail = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.cbProject = new System.Windows.Forms.ComboBox();
             this.dtpDeadline = new System.Windows.Forms.DateTimePicker();
@@ -63,8 +65,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtDetail = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,6 +74,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.txtTaskName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbTask);
@@ -123,6 +124,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.btnOK);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -161,6 +163,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtDetail);
             this.groupBox1.Controls.Add(this.cbStatus);
@@ -178,12 +181,34 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(0, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(355, 182);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Properties";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Blue;
+            this.label13.Location = new System.Drawing.Point(12, 131);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(34, 13);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "Detail";
+            // 
+            // txtDetail
+            // 
+            this.txtDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDetail.ForeColor = System.Drawing.Color.Blue;
+            this.txtDetail.Location = new System.Drawing.Point(49, 128);
+            this.txtDetail.Multiline = true;
+            this.txtDetail.Name = "txtDetail";
+            this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDetail.Size = new System.Drawing.Size(300, 48);
+            this.txtDetail.TabIndex = 16;
             // 
             // cbStatus
             // 
@@ -368,10 +393,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(0, 223);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(355, 53);
@@ -414,6 +441,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.lstResourceCondition);
             this.groupBox3.Controls.Add(this.lstRoleCondition);
             this.groupBox3.Controls.Add(this.lstAlternative);
@@ -423,6 +451,7 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.Location = new System.Drawing.Point(0, 276);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(355, 274);
@@ -502,27 +531,6 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
-            // txtDetail
-            // 
-            this.txtDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDetail.ForeColor = System.Drawing.Color.Blue;
-            this.txtDetail.Location = new System.Drawing.Point(49, 128);
-            this.txtDetail.Multiline = true;
-            this.txtDetail.Name = "txtDetail";
-            this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDetail.Size = new System.Drawing.Size(300, 48);
-            this.txtDetail.TabIndex = 16;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.Blue;
-            this.label13.Location = new System.Drawing.Point(12, 131);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(34, 13);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "Detail";
-            // 
             // frmTaskEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,6 +545,7 @@
             this.Text = "Edit Task";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmTaskEdit_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmTaskEdit_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

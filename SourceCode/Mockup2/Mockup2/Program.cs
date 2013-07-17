@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Mockup2
 {
@@ -23,7 +24,8 @@ namespace Mockup2
             }
             else
             {
-                Application.Run(new frmMain());
+                frmMain frM = new frmMain();
+                Application.Run(frM);
             }
             //Application.Run(new frmMain());
             //Application.Run(new TestFunction());

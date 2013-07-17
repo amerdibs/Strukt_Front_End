@@ -65,7 +65,7 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.264462F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.73553F));
@@ -87,10 +87,11 @@
             // 
             this.pnCenter.AllowDrop = true;
             this.pnCenter.AutoScroll = true;
+            this.pnCenter.BackColor = System.Drawing.Color.Transparent;
             this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnCenter.Location = new System.Drawing.Point(37, 58);
+            this.pnCenter.Location = new System.Drawing.Point(35, 57);
             this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(354, 483);
+            this.pnCenter.Size = new System.Drawing.Size(357, 485);
             this.pnCenter.TabIndex = 0;
             this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
             this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
@@ -99,7 +100,7 @@
             // 
             this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHide.Image = global::Mockup2.Properties.Resources.bt_skip_sw;
-            this.btnHide.Location = new System.Drawing.Point(4, 4);
+            this.btnHide.Location = new System.Drawing.Point(3, 3);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(23, 45);
             this.btnHide.TabIndex = 1;
@@ -108,15 +109,16 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.btnAddProcess);
             this.panel2.Controls.Add(this.btnSaveProcessAs);
             this.panel2.Controls.Add(this.btnLoadProcess);
             this.panel2.Controls.Add(this.cbProcess);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(37, 4);
+            this.panel2.Location = new System.Drawing.Point(35, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(354, 47);
+            this.panel2.Size = new System.Drawing.Size(357, 48);
             this.panel2.TabIndex = 2;
             // 
             // btnAddProcess
@@ -180,9 +182,9 @@
             this.panel3.Controls.Add(this.btnSubAdd);
             this.panel3.Controls.Add(this.btnAdd);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(4, 58);
+            this.panel3.Location = new System.Drawing.Point(3, 57);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(26, 483);
+            this.panel3.Size = new System.Drawing.Size(26, 485);
             this.panel3.TabIndex = 3;
             // 
             // btnOption
@@ -248,6 +250,7 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Transparent;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsUserName});
             this.statusStrip1.Location = new System.Drawing.Point(0, 579);
@@ -348,6 +351,7 @@
             this.Text = "User  Guidance Application";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

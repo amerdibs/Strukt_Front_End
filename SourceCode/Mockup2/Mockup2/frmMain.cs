@@ -7,11 +7,108 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
+
 
 namespace Mockup2
 {
     public partial class frmMain : Form
     {
+
+    // Win32 API calls, often based on those from pinvoke.net
+    //[DllImport("gdi32.dll")] static extern bool DeleteObject(int hObject);
+    //[DllImport("user32.dll")] static extern int SetSysColorsTemp(int[] lpaElements, int [] lpaRgbValues, int cElements);
+    //[DllImport("gdi32.dll")] static extern int CreateSolidBrush(int crColor);
+    //[DllImport("user32.dll")] static extern int GetSysColorBrush(int nIndex);
+    //[DllImport("user32.dll")] static extern int GetSysColor(int nIndex);
+    //[DllImport("user32.dll")] private static extern IntPtr GetForegroundWindow();
+    //[DllImport("User32.dll")] private static extern IntPtr GetWindowDC(IntPtr hWnd);
+    //[DllImport("user32.dll")] static extern int ReleaseDC(IntPtr hWnd, IntPtr hDc);
+    //// Magic constants
+    //const int SlotLeft = 2;
+    //const int SlotRight = 27;
+    //const int SlotCount = 28; // Math.Max(SlotLeft, SlotRight) + 1;
+
+    //// The colors/brushes to use
+    //int[] Colors = new int[SlotCount];
+    //int[] Brushes = new int[SlotCount];
+
+    //// The colors the user wants to use
+    //Color titleBarLeft, titleBarRight;
+    //public Color TitleBarLeft{get{return titleBarLeft;} set{titleBarLeft=value; UpdateBrush(SlotLeft, value);}}
+    //public Color TitleBarRight{get{return titleBarRight;} set{titleBarRight=value; UpdateBrush(SlotRight, value);}}
+
+    //void CreateBrushes()
+    //{
+    //    for (int i = 0; i < SlotCount; i++)
+    //    {
+    //        Colors[i] = GetSysColor(i);
+    //        Brushes[i] = GetSysColorBrush(i);
+    //    }
+    //    titleBarLeft = ColorTranslator.FromWin32(Colors[SlotLeft]);
+    //    titleBarRight = ColorTranslator.FromWin32(Colors[SlotRight]);
+    //}
+
+    //void UpdateBrush(int Slot, Color c)
+    //{
+    //    DeleteObject(Brushes[Slot]);
+    //    Colors[Slot] = ColorTranslator.ToWin32(c);
+    //    Brushes[Slot] = CreateSolidBrush(Colors[Slot]);
+    //}
+
+    //void DestroyBrushes()
+    //{
+    //    DeleteObject(Brushes[SlotLeft]);
+    //    DeleteObject(Brushes[SlotRight]);           
+    //}
+
+    //// Hook up to the Window
+
+
+
+    //protected override void Dispose(bool disposing)
+    //{
+    //    if (disposing) DestroyBrushes();
+    //    base.Dispose(disposing);
+    //}
+
+    //protected override void WndProc(ref System.Windows.Forms.Message m) 
+    //{
+    //    //const int WM_NCPAINT = 0x85; 
+    //    //const int WM_NCACTIVATE = 0x86;
+
+    //    //if ((m.Msg == WM_NCACTIVATE && m.WParam.ToInt32() != 0) ||
+    //    //    (m.Msg == WM_NCPAINT && GetForegroundWindow() == this.Handle))
+    //    //{
+
+    //    //    int k = SetSysColorsTemp(Colors, Brushes, Colors.Length);
+    //    //    base.WndProc(ref m); 
+    //    //    SetSysColorsTemp(null, null, k);
+    //    //}
+    //    //else
+    //    //    base.WndProc(ref m); 
+    //    base.WndProc(ref m);
+    //    const int WM_NCPAINT = 0x85;
+    //    if (m.Msg == WM_NCPAINT)
+    //    {
+    //        IntPtr hdc = GetWindowDC(m.HWnd);
+    //        if ((int)hdc != 0)
+    //        {
+    //            Graphics g = Graphics.FromHdc(hdc);
+    //            Rectangle rc = new Rectangle(0, 0, 300,22);
+    //            using (LinearGradientBrush brush = new LinearGradientBrush(rc, Color.WhiteSmoke, Color.BurlyWood, LinearGradientMode.Vertical))
+    //            {
+
+    //                g.FillRectangle(brush, rc);
+
+    //            }
+    //            //g.FillRectangle(Colors, Brushes, new Rectangle(0, 0, 300, 22));
+    //            g.Flush();
+    //            ReleaseDC(m.HWnd, hdc);
+    //        }
+    //    }
+    //}
 
         public frmMain()
         {
@@ -19,6 +116,9 @@ namespace Mockup2
             //this.BackColor = global.ColorSubTask;
          
         }
+
+       
+
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -750,8 +850,8 @@ namespace Mockup2
                 global.workflowMain = wfMain;
                 pnCenter.Controls.Clear();
                 generateTaskControl(wfMain, 0);
-                if (global.getValueFromStruktValue(wfMain.id) == "2120706644")
-                    MessageBox.Show("Please load the other process (Procument). Do not use this process to test! Please read only.");
+                //if (global.getValueFromStruktValue(wfMain.id) == "2120706644")
+                //    MessageBox.Show("Please load the other process (Procument). Do not use this process to test! Please read only.");
 
             }
             catch (Exception)
@@ -964,9 +1064,52 @@ namespace Mockup2
             frmAs.taskAssign = ucSelect.taskMember;
             DialogResult dResult = frmAs.ShowDialog();
             //If Task was assigned, update the Task control.
-            if (DialogResult == DialogResult.OK)
+            if (dResult == DialogResult.OK)
+            {  
+
+                UCMainTask ucM = (UCMainTask)global.currentTaskControlObject;
+                ucM.taskMember.hasAssignmentSent = true;
+                ucM.Height = global.getHeightTaskControl(ucM.taskMember);
+                Panel pnAs = (Panel)ucM.Controls["pnAssigned"];
+                pnAs.Visible = true;
+                pnAs.Controls["lAssign"].Left = pnAs.Controls["lAssign"].Left + (global.iIndentOfCheckBox * ucM.iLevel);
+                pnAs.Controls["lbAssigned"].Left = pnAs.Controls["lbAssigned"].Left + (global.iIndentOfCheckBox * ucM.iLevel);
+                pnAs.Controls["btnSendtoReceiver"].Left = pnAs.Controls["btnSendtoReceiver"].Left + (global.iIndentOfCheckBox * ucM.iLevel);
+
+                DataTable dtSelectUser = new DataTable();
+                dtSelectUser.TableName = "user";
+                //very bad performance but I'll correct in next step.
+                dtSelectUser = global.userTable.Copy();
+                dtSelectUser.Rows.Clear();
+                //////////////////
+                ////////////////////////
+                List<Assignment> asSentList = global.assignmentSentList.FindAll(o => o.source_task_id == ucM.taskMember.id);
+                foreach (Assignment asEach in asSentList)
+                {
+                    DataRow dtRow = User.getUserNameByStruktID(global.getValueFromStruktValue(asEach.target_user_id));
+                    if (dtRow != null)
+                    {
+                        dtSelectUser.Rows.Add(dtRow.ItemArray);
+                    }
+                }
+                ListBox lbAssigned = (ListBox)pnAs.Controls["lbAssigned"];
+                lbAssigned.DataSource = dtSelectUser;
+                lbAssigned.DisplayMember = "u_name";
+                lbAssigned.ValueMember = "u_strukt_user_id";
+
+
+
+            }
+
+        }
+
+        private void frmMain_Paint(object sender, PaintEventArgs e)
+        {
+            Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
+            using (LinearGradientBrush brush = new LinearGradientBrush(rc, Color.WhiteSmoke, Color.BurlyWood, LinearGradientMode.Vertical))
             {
 
+                e.Graphics.FillRectangle(brush, rc);
 
             }
 

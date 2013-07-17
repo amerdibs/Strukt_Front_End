@@ -98,7 +98,6 @@
             // 
             // pnAssigned
             // 
-            this.pnAssigned.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnAssigned.Controls.Add(this.btnSendtoReceiver);
             this.pnAssigned.Controls.Add(this.lbAssigned);
             this.pnAssigned.Controls.Add(this.lAssign);
@@ -132,7 +131,6 @@
             // 
             // pnReceived
             // 
-            this.pnReceived.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnReceived.Controls.Add(this.btnSendtoAssigner);
             this.pnReceived.Controls.Add(this.txtReceive);
             this.pnReceived.Controls.Add(this.lReceive);

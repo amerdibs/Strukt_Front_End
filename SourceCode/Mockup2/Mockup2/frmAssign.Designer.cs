@@ -42,6 +42,7 @@
             // 
             // pnBody
             // 
+            this.pnBody.BackColor = System.Drawing.Color.Transparent;
             this.pnBody.Controls.Add(this.label2);
             this.pnBody.Controls.Add(this.txtMsg);
             this.pnBody.Controls.Add(this.label1);
@@ -89,6 +90,7 @@
             // 
             // pnControl
             // 
+            this.pnControl.BackColor = System.Drawing.Color.Transparent;
             this.pnControl.Controls.Add(this.btnCancel);
             this.pnControl.Controls.Add(this.btnOK);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,6 +136,7 @@
             this.Name = "frmAssign";
             this.Text = "Assign Task to";
             this.Load += new System.EventHandler(this.frmAssign_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmAssign_Paint);
             this.pnBody.ResumeLayout(false);
             this.pnBody.PerformLayout();
             this.pnControl.ResumeLayout(false);

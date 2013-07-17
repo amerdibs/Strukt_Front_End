@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Drawing.Drawing2D;
 
 namespace Mockup2
 {
@@ -95,6 +96,7 @@ namespace Mockup2
 
 
             Assignment asReturn = Assignment.addAssignment(assignNew);
+            global.assignmentSentList.Add(asReturn);
 
             MessageBox.Show("Assign Complete");
             //returnTaskAdd.workflowChild = returnChildWorkflow;
@@ -103,6 +105,18 @@ namespace Mockup2
             //global.workflowMain.taskChildList.Insert(0, returnTaskAdd);
             //global.workflowMain.taskChildList[1].precedes_id = returnTaskAdd.id;
             //Task returnTaskFollow = Task.editTask(global.workflowMain.taskChildList[1]);
+
+        }
+
+        private void frmAssign_Paint(object sender, PaintEventArgs e)
+        {
+            Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
+            using (LinearGradientBrush brush = new LinearGradientBrush(rc, Color.WhiteSmoke, Color.PeachPuff, LinearGradientMode.Vertical))
+            {
+
+                e.Graphics.FillRectangle(brush, rc);
+
+            }
 
         }
     }
