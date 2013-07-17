@@ -119,7 +119,9 @@ namespace Mockup2
 
         private void checkAssignmentUpdateControl(object sender, EventArgs e)
         {
-            //Assignment Checking
+            if (global.processTable.Columns.Contains("u_name"))
+            {
+                //Assignment Checking
                 bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
                 if (bResult)
                 {
@@ -164,6 +166,7 @@ namespace Mockup2
                     }
                     btnLoadProcess_Click(sender, e);
                 }
+            }
         }
 
 
