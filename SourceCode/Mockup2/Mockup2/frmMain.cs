@@ -15,100 +15,15 @@ namespace Mockup2
 {
     public partial class frmMain : Form
     {
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
 
-    // Win32 API calls, often based on those from pinvoke.net
-    //[DllImport("gdi32.dll")] static extern bool DeleteObject(int hObject);
-    //[DllImport("user32.dll")] static extern int SetSysColorsTemp(int[] lpaElements, int [] lpaRgbValues, int cElements);
-    //[DllImport("gdi32.dll")] static extern int CreateSolidBrush(int crColor);
-    //[DllImport("user32.dll")] static extern int GetSysColorBrush(int nIndex);
-    //[DllImport("user32.dll")] static extern int GetSysColor(int nIndex);
-    //[DllImport("user32.dll")] private static extern IntPtr GetForegroundWindow();
-    //[DllImport("User32.dll")] private static extern IntPtr GetWindowDC(IntPtr hWnd);
-    //[DllImport("user32.dll")] static extern int ReleaseDC(IntPtr hWnd, IntPtr hDc);
-    //// Magic constants
-    //const int SlotLeft = 2;
-    //const int SlotRight = 27;
-    //const int SlotCount = 28; // Math.Max(SlotLeft, SlotRight) + 1;
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd,
+                         int Msg, int wParam, int lParam);
 
-    //// The colors/brushes to use
-    //int[] Colors = new int[SlotCount];
-    //int[] Brushes = new int[SlotCount];
-
-    //// The colors the user wants to use
-    //Color titleBarLeft, titleBarRight;
-    //public Color TitleBarLeft{get{return titleBarLeft;} set{titleBarLeft=value; UpdateBrush(SlotLeft, value);}}
-    //public Color TitleBarRight{get{return titleBarRight;} set{titleBarRight=value; UpdateBrush(SlotRight, value);}}
-
-    //void CreateBrushes()
-    //{
-    //    for (int i = 0; i < SlotCount; i++)
-    //    {
-    //        Colors[i] = GetSysColor(i);
-    //        Brushes[i] = GetSysColorBrush(i);
-    //    }
-    //    titleBarLeft = ColorTranslator.FromWin32(Colors[SlotLeft]);
-    //    titleBarRight = ColorTranslator.FromWin32(Colors[SlotRight]);
-    //}
-
-    //void UpdateBrush(int Slot, Color c)
-    //{
-    //    DeleteObject(Brushes[Slot]);
-    //    Colors[Slot] = ColorTranslator.ToWin32(c);
-    //    Brushes[Slot] = CreateSolidBrush(Colors[Slot]);
-    //}
-
-    //void DestroyBrushes()
-    //{
-    //    DeleteObject(Brushes[SlotLeft]);
-    //    DeleteObject(Brushes[SlotRight]);           
-    //}
-
-    //// Hook up to the Window
-
-
-
-    //protected override void Dispose(bool disposing)
-    //{
-    //    if (disposing) DestroyBrushes();
-    //    base.Dispose(disposing);
-    //}
-
-    //protected override void WndProc(ref System.Windows.Forms.Message m) 
-    //{
-    //    //const int WM_NCPAINT = 0x85; 
-    //    //const int WM_NCACTIVATE = 0x86;
-
-    //    //if ((m.Msg == WM_NCACTIVATE && m.WParam.ToInt32() != 0) ||
-    //    //    (m.Msg == WM_NCPAINT && GetForegroundWindow() == this.Handle))
-    //    //{
-
-    //    //    int k = SetSysColorsTemp(Colors, Brushes, Colors.Length);
-    //    //    base.WndProc(ref m); 
-    //    //    SetSysColorsTemp(null, null, k);
-    //    //}
-    //    //else
-    //    //    base.WndProc(ref m); 
-    //    base.WndProc(ref m);
-    //    const int WM_NCPAINT = 0x85;
-    //    if (m.Msg == WM_NCPAINT)
-    //    {
-    //        IntPtr hdc = GetWindowDC(m.HWnd);
-    //        if ((int)hdc != 0)
-    //        {
-    //            Graphics g = Graphics.FromHdc(hdc);
-    //            Rectangle rc = new Rectangle(0, 0, 300,22);
-    //            using (LinearGradientBrush brush = new LinearGradientBrush(rc, Color.WhiteSmoke, Color.BurlyWood, LinearGradientMode.Vertical))
-    //            {
-
-    //                g.FillRectangle(brush, rc);
-
-    //            }
-    //            //g.FillRectangle(Colors, Brushes, new Rectangle(0, 0, 300, 22));
-    //            g.Flush();
-    //            ReleaseDC(m.HWnd, hdc);
-    //        }
-    //    }
-    //}
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
 
         public frmMain()
         {
@@ -182,6 +97,7 @@ namespace Mockup2
             if (global.processTable.Columns.Contains("u_name"))
             {
                 this.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
+                lbTitle.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
                 tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString();
 
                 //Assignment Checking
@@ -232,16 +148,7 @@ namespace Mockup2
            
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            DialogResult result1 = MessageBox.Show("Do you want to exit?",
-        "Please confirm",
-        MessageBoxButtons.OKCancel);
-            if (result1 == System.Windows.Forms.DialogResult.OK)
-            {
-                Application.Exit();
-            }
-        }
+
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -1169,6 +1076,47 @@ namespace Mockup2
             }
 
         }
+
+
+
+        private void pnControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void lbTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void pbClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pbMaximize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+                this.WindowState = FormWindowState.Normal;
+            else
+                this.WindowState = FormWindowState.Maximized;     
+        }
+
+        private void pnMimimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+
+
 
 
     }

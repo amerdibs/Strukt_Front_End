@@ -271,6 +271,11 @@
     <None Include="Resources\ball_red.gif" />
     <None Include="Resources\mail.gif" />
     <None Include="Resources\info.gif" />
+    <None Include="Resources\stop.gif" />
+    <None Include="Resources\app.gif" />
+    <None Include="Resources\remove1.gif" />
+    <None Include="Resources\adim.gif" />
+    <None Include="Resources\adim1.gif" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>
