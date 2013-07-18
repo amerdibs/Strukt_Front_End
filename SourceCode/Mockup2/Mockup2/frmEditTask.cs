@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using Newtonsoft.Json;
 
 namespace Mockup2
 {
@@ -158,8 +159,18 @@ namespace Mockup2
          
         private void btnOK_Click(object sender, EventArgs e)
         {
-            //StruktWebservice.StruktUserSoapClient tdStrukt = new StruktWebservice.StruktUserSoapClient();
-            //DataTable dtDesc = tdStrukt.AddUptadeTaskDescription(taskUse);
+            try
+            {
+                StruktWebservice.StruktUserSoapClient tdStrukt = new StruktWebservice.StruktUserSoapClient();
+                DataTable dtDesc = tdStrukt.AddUptadeTaskDescription(taskUse);
+
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
             
             taskUse.name = txtTaskName.Text;
             if (cbLocation.SelectedValue != null)

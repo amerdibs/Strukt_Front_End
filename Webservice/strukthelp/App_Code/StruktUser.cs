@@ -186,7 +186,7 @@ public class StruktUser : System.Web.Services.WebService {
     }
 
     [WebMethod]
-    public void AddUptadeTaskDescription(string strID)
+    public void AddUptadeTaskDescription(string strID, string Desc)
     {
         SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
         try
@@ -205,6 +205,7 @@ public class StruktUser : System.Web.Services.WebService {
             {
                 //Update
                 strD = "update struktTaskExtend tk_description = @tk_description WHERE tk_task_id= @tk_task_id ";
+                SqlParameter spTaskDesc1 = new SqlParameter("@tk_task_id", strD);
                 SqlParameter spTaskDesc = new SqlParameter("@tk_description", strD);
                 qCommand.Parameters.Clear();
                 qCommand.Parameters.Add(spTaskDesc);
