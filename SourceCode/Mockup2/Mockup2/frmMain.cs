@@ -279,10 +279,11 @@ namespace Mockup2
                     uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left + global.iIndentOfCheckBox;
                     uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left + global.iIndentOfCheckBox;
                     uMain.setExistenceCollapeButton();
+                    UCMainTask ucParent = getUCMainTaskByTask(taskParent);
+                    ucParent.setExistenceCollapeButton();
                     uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uMain.iLevel);
                     uMain.colorBackGround = uMain.BackColor;
                   
-
                     uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                     uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
                     PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
@@ -537,6 +538,9 @@ namespace Mockup2
                     uSelect.taskMember.workflowChild = null;
                     uSelect.taskMember = null;
                     pnCenter.Controls.Remove(uSelect);
+
+                    UCMainTask ucParent = getUCMainTaskByTask(wfPre.taskParent);
+                    ucParent.setExistenceCollapeButton();
                 }
                 //If task is at the first position of workflow
                 //get the followed task
@@ -1210,6 +1214,21 @@ namespace Mockup2
         {
             if (!pnCenter.Focused)
                 pnCenter.Focus();
+        }
+
+        private UCMainTask getUCMainTaskByTask(Task taskParam)
+        {
+            UCMainTask ucRet = null;
+
+            foreach(Object obj in pnCenter.Controls)
+            {
+                UCMainTask ucMain = (UCMainTask)obj;
+                if (ucMain.taskMember.id == taskParam.id)
+                {
+                    ucRet = ucMain;
+                }
+            }
+            return ucRet;
         }
 
 

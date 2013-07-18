@@ -88,7 +88,6 @@ namespace Mockup2
            Task returnTask= Task.editTask(taskMember);
            lbTitle.Text = returnTask.name;
 
-           
         }
 
         private void UCMainTask_DragDrop(object sender, DragEventArgs e)
