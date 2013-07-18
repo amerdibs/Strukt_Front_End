@@ -35,7 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbProp = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDetail = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -67,7 +67,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbProp.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -161,33 +161,33 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // groupBox1
+            // gbProp
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.txtDetail);
-            this.groupBox1.Controls.Add(this.cbStatus);
-            this.groupBox1.Controls.Add(this.cbProject);
-            this.groupBox1.Controls.Add(this.dtpDeadline);
-            this.groupBox1.Controls.Add(this.dtpDate);
-            this.groupBox1.Controls.Add(this.cbLocation);
-            this.groupBox1.Controls.Add(this.cbModel);
-            this.groupBox1.Controls.Add(this.cbTaskType);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(0, 41);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(355, 182);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Properties";
+            this.gbProp.BackColor = System.Drawing.Color.Transparent;
+            this.gbProp.Controls.Add(this.label13);
+            this.gbProp.Controls.Add(this.txtDetail);
+            this.gbProp.Controls.Add(this.cbStatus);
+            this.gbProp.Controls.Add(this.cbProject);
+            this.gbProp.Controls.Add(this.dtpDeadline);
+            this.gbProp.Controls.Add(this.dtpDate);
+            this.gbProp.Controls.Add(this.cbLocation);
+            this.gbProp.Controls.Add(this.cbModel);
+            this.gbProp.Controls.Add(this.cbTaskType);
+            this.gbProp.Controls.Add(this.label8);
+            this.gbProp.Controls.Add(this.label7);
+            this.gbProp.Controls.Add(this.label6);
+            this.gbProp.Controls.Add(this.label5);
+            this.gbProp.Controls.Add(this.label4);
+            this.gbProp.Controls.Add(this.label3);
+            this.gbProp.Controls.Add(this.label2);
+            this.gbProp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbProp.Location = new System.Drawing.Point(0, 41);
+            this.gbProp.Name = "gbProp";
+            this.gbProp.Size = new System.Drawing.Size(355, 182);
+            this.gbProp.TabIndex = 2;
+            this.gbProp.TabStop = false;
+            this.gbProp.Text = "Properties";
             // 
             // label13
             // 
@@ -538,7 +538,7 @@
             this.ClientSize = new System.Drawing.Size(355, 590);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbProp);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "frmTaskEdit";
@@ -549,8 +549,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbProp.ResumeLayout(false);
+            this.gbProp.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -565,7 +565,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbProp;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;

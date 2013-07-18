@@ -161,9 +161,9 @@ namespace Mockup2
         {
             try
             {
+                
                 StruktWebservice.StruktUserSoapClient tdStrukt = new StruktWebservice.StruktUserSoapClient();
-                DataTable dtDesc = tdStrukt.AddUptadeTaskDescription(taskUse);
-
+                tdStrukt.AddUptadeTaskDescription(global.getValueFromStruktValue(taskUse.id),txtDetail.Text);
 
             }
             catch (Exception)

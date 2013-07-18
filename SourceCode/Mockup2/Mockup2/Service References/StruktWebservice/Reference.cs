@@ -67,10 +67,10 @@ namespace Mockup2.StruktWebservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddUptadeTaskDescription", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void AddUptadeTaskDescription(string strID);
+        void AddUptadeTaskDescription(string strID, string Desc);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddUptadeTaskDescription", ReplyAction="*")]
-        System.Threading.Tasks.Task AddUptadeTaskDescriptionAsync(string strID);
+        System.Threading.Tasks.Task AddUptadeTaskDescriptionAsync(string strID, string Desc);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -156,17 +156,12 @@ namespace Mockup2.StruktWebservice {
             return base.Channel.LoadDescriptionDetailAsync(strID);
         }
         
-        public void AddUptadeTaskDescription(string strID) {
-            base.Channel.AddUptadeTaskDescription(strID);
+        public void AddUptadeTaskDescription(string strID, string Desc) {
+            base.Channel.AddUptadeTaskDescription(strID, Desc);
         }
         
-        public System.Threading.Tasks.Task AddUptadeTaskDescriptionAsync(string strID) {
-            return base.Channel.AddUptadeTaskDescriptionAsync(strID);
-        }
-
-        internal DataTable AddUptadeTaskDescription(Task taskUse)
-        {
-            throw new System.NotImplementedException();
+        public System.Threading.Tasks.Task AddUptadeTaskDescriptionAsync(string strID, string Desc) {
+            return base.Channel.AddUptadeTaskDescriptionAsync(strID, Desc);
         }
     }
 }

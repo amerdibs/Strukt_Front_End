@@ -20,6 +20,7 @@ namespace Mockup2
         public Color colorBackGround { get; set; }
         public Task taskMember { get; set; }
         public int iLevel { get; set; }
+        public Task taskUse { get; set; }
 
         public UCMainTask()
         {
@@ -75,6 +76,12 @@ namespace Mockup2
             frmTaskEdit frTaskEdit = new frmTaskEdit();
             frTaskEdit.taskUse = taskMember;
             frTaskEdit.strFormMode = frTaskEdit.formModeEdit;
+            //Load the task detail from the database
+            StruktWebservice.StruktUserSoapClient tdStrukt = new StruktWebservice.StruktUserSoapClient();
+            DataTable dtDescLoad = tdStrukt.LoadDescriptionDetail(global.getValueFromStruktValue(taskMember.id));
+            if (dtDescLoad != null)
+                frTaskEdit.Controls["gbProp"].Controls["txtDetail"].Text = dtDescLoad.Rows[0]["tk_description"].ToString();
+
             DialogResult dialog= frTaskEdit.ShowDialog();
             if (dialog != DialogResult.OK)
             {
@@ -82,6 +89,9 @@ namespace Mockup2
             }
            Task returnTask= Task.editTask(taskMember);
            lbTitle.Text = returnTask.name;
+
+
+
             
         }
 
