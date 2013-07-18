@@ -277,12 +277,16 @@ namespace Mockup2
                     uMain.BackColor = global.ColorMainTask;
                     uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left + global.iIndentOfCheckBox;
                     uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left + global.iIndentOfCheckBox;
+                    uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left + global.iIndentOfCheckBox;
+                    uMain.setExistenceCollapeButton();
                     uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uMain.iLevel);
                     uMain.colorBackGround = uMain.BackColor;
                   
 
                     uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                     uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+                    PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
+                    pbCollapse.MouseClick += pbCollapse_MouseClick;
 
                     checkAssignmentUpdateControl(sender, e);
                 }
@@ -364,7 +368,8 @@ namespace Mockup2
 
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
+                PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
+                pbCollapse.MouseClick += pbCollapse_MouseClick;
             }
             else
             {
@@ -464,12 +469,16 @@ namespace Mockup2
                 uMain.BackColor = global.ColorMainTask;
                 uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left;
                 uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left;
+                uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left;
+                uMain.setExistenceCollapeButton();
                 uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uSelect.iLevel);
                 uMain.colorBackGround = uMain.BackColor;
                 uMain.iLevel = uSelect.iLevel;
 
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+                PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
+                pbCollapse.MouseClick += pbCollapse_MouseClick;
             }
 
             checkAssignmentUpdateControl(sender, e);
@@ -762,6 +771,13 @@ namespace Mockup2
             
         }
 
+        private void EventHandlerFromMainTask_CollapseClick(object sender, EventArgs e)
+        {
+
+
+
+        }
+
         private void EventHandlerFromSubTask_DragDrop(object sender, DragEventArgs e)
         {
             /*
@@ -812,6 +828,7 @@ namespace Mockup2
                 global.workflowMain = wfMain;
                 pnCenter.Controls.Clear();
                 generateTaskControl(wfMain, 0);
+                setCollapeControlsAfterProcessLoad();
                 //if (global.getValueFromStruktValue(wfMain.id) == "2120706644")
                 //    MessageBox.Show("Please load the other process (Procument). Do not use this process to test! Please read only.");
 
@@ -856,7 +873,8 @@ namespace Mockup2
                 generateTaskControl(tEach.workflowChild, iLevel + 1);
                 UCMainTask uMain = new UCMainTask();
                 uMain.taskMember = tEach;
-                uMain.Height = global.getHeightTaskControl(tEach);
+                //comment after collapse implementation
+                //uMain.Height = global.getHeightTaskControl(tEach);
                 uMain.iLevel = iLevel;
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
@@ -864,6 +882,8 @@ namespace Mockup2
                 uMain.Controls["lbTitle"].Text = tEach.name;
                 uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (global.iIndentOfCheckBox * iLevel);
+                uMain.Controls["pbCollape"].Left = uMain.Controls["pbCollape"].Left + (global.iIndentOfCheckBox * iLevel);
+                uMain.setExistenceCollapeButton();
                 if (tEach.hasAssignmentReceived)
                 {
                     Panel pnRec = (Panel)uMain.Controls["pnReceived"];
@@ -920,7 +940,8 @@ namespace Mockup2
                 uMain.colorBackGround = uMain.BackColor;
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
+                PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
+                pbCollapse.MouseClick += pbCollapse_MouseClick;
 
 
                 /*
@@ -940,6 +961,8 @@ namespace Mockup2
             
 
         }
+
+        
 
         private void btnSaveProcessAs_Click(object sender, EventArgs e)
         {
@@ -1040,7 +1063,7 @@ namespace Mockup2
 
                 DataTable dtSelectUser = new DataTable();
                 dtSelectUser.TableName = "user";
-                //very bad performance but I'll correct in next step.
+                //bad performance but I'll correct in next step.
                 dtSelectUser = global.userTable.Copy();
                 dtSelectUser.Rows.Clear();
                 //////////////////
@@ -1115,8 +1138,79 @@ namespace Mockup2
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void setCollapeControlsAfterProcessLoad()
+        {
+            //set all controls to collapse 
+            foreach (Object objEach in pnCenter.Controls)
+            {
+                UCMainTask ucTask = (UCMainTask)objEach;
+                ucTask.Height = global.heightControlTaskCollape;
+            }
 
+            //set child of main workflow to normal 
+            foreach (Object objEach in pnCenter.Controls)
+            {
+                UCMainTask ucTask = (UCMainTask)objEach;
+                Task tFind = global.workflowMain.taskChildList.Find(o => o.id == ucTask.taskMember.id);
+                if (tFind != null)
+                {
+                    ucTask.Height = global.getHeightTaskControl(tFind);
+                }
+            }
 
+        }
+
+        private void setCollapeControls(Workflow wfParam, bool bCollapse)
+        {
+            if ((wfParam.taskChildList == null) || (wfParam.taskChildList.Count == 0))
+            {
+                return;
+            }
+
+            foreach (Object objEach in pnCenter.Controls)
+            {
+                UCMainTask ucTask = (UCMainTask)objEach;
+                Task tFind = wfParam.taskChildList.Find(o => o.id == ucTask.taskMember.id);
+                if (tFind != null)
+                {
+                    if (bCollapse)
+                    {
+                        ucTask.Height = global.heightControlTaskCollape;
+                    }
+                    else
+                    {
+                        ucTask.Height = global.getHeightTaskControl(ucTask.taskMember);
+                    }
+                }
+                
+            }
+           
+        }
+
+        void pbCollapse_MouseClick(object sender, MouseEventArgs e)
+        {
+            PictureBox pbCollapse = (PictureBox)sender;
+            UCMainTask ucMain = (UCMainTask)pbCollapse.Parent;
+            if (ucMain.collapseType == UCMainTask.collapseType_collapse)
+            {
+                setCollapeControls(ucMain.taskMember.workflowChild, false);
+                pbCollapse.Image = Properties.Resources.uncollapes;
+                ucMain.collapseType = UCMainTask.collapseType_uncollapse;
+            }
+            else if (ucMain.collapseType == UCMainTask.collapseType_uncollapse)
+            {
+                setCollapeControls(ucMain.taskMember.workflowChild, true);
+                pbCollapse.Image = Properties.Resources.collapes;
+                ucMain.collapseType = UCMainTask.collapseType_collapse;
+            }
+        }
+
+        //set  focus at panel for scrollable panel
+        private void pnCenter_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!pnCenter.Focused)
+                pnCenter.Focus();
+        }
 
 
     }

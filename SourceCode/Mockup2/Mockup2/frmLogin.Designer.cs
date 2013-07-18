@@ -101,7 +101,6 @@
             // 
             // btnOK
             // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Image = global::Mockup2.Properties.Resources.apply;
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

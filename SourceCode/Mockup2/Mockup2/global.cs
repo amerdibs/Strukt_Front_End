@@ -37,6 +37,7 @@ namespace Mockup2
         public static int heightControlTaskNormal = 27;
         public static int heightControlTaskReceive = heightControlTaskNormal + 39;
         public static int heightControlTaskAssign = heightControlTaskNormal + 47;
+        public static int heightControlTaskCollape = 0;
 
         public static string resultSuccessStrukt = "{\"type\":\"success\"}";
 

@@ -33,7 +33,7 @@ namespace Mockup2
             }
             else
             {
-                Close();
+                DialogResult = DialogResult.OK;
             }
         }
 

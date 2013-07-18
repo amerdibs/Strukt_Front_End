@@ -103,6 +103,7 @@
             this.pnCenter.TabIndex = 0;
             this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
             this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
+            this.pnCenter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCenter_MouseDown);
             // 
             // btnHide
             // 
@@ -235,7 +236,7 @@
             // 
             this.btnSubAdd.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSubAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubAdd.Image = global::Mockup2.Properties.Resources._new;
+            this.btnSubAdd.Image = global::Mockup2.Properties.Resources.new_child;
             this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
             this.btnSubAdd.Name = "btnSubAdd";
             this.btnSubAdd.Size = new System.Drawing.Size(26, 22);

@@ -16,11 +16,16 @@ namespace Mockup2
         public event EventHandler MainTaskMouseDown;
         public event EventHandler MainTaskDragDrop;
 
+
         public Color preColor { get; set; }
         public Color colorBackGround { get; set; }
         public Task taskMember { get; set; }
         public int iLevel { get; set; }
         public Task taskUse { get; set; }
+        public byte collapseType { get; set; }
+        public const byte collapseType_nochild = 0;
+        public const byte collapseType_collapse = 1;
+        public const byte collapseType_uncollapse = 2;
 
         public UCMainTask()
         {
@@ -31,13 +36,6 @@ namespace Mockup2
         }
 
 
-
-        private void lbTitle_Click(object sender, EventArgs e)
-        {
-
-
-            
-        }
 
         private void tb_Leave(object sender, EventArgs e)
         {
@@ -90,9 +88,7 @@ namespace Mockup2
            Task returnTask= Task.editTask(taskMember);
            lbTitle.Text = returnTask.name;
 
-
-
-            
+           
         }
 
         private void UCMainTask_DragDrop(object sender, DragEventArgs e)
@@ -260,14 +256,32 @@ namespace Mockup2
 
         private void UCMainTask_Paint(object sender, PaintEventArgs e)
         {
-            Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
-            using (LinearGradientBrush brush = new LinearGradientBrush(rc,this.BackColor , Color.White, LinearGradientMode.Horizontal))
+            if (this.Height > 0)
             {
+                Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
+                using (LinearGradientBrush brush = new LinearGradientBrush(rc, this.BackColor, Color.White, LinearGradientMode.Horizontal))
+                {
 
-                e.Graphics.FillRectangle(brush, rc);
+                    e.Graphics.FillRectangle(brush, rc);
 
+                }
             }
         }
+
+        public void setExistenceCollapeButton()
+        {
+            if ((taskMember.workflowChild.taskChildList != null) && (taskMember.workflowChild.taskChildList.Count > 0))
+            {
+                pbCollape.Visible = true;
+                collapseType = collapseType_collapse;
+            }
+            else
+            {
+                pbCollape.Visible = false;
+                collapseType = collapseType_nochild;
+            }
+        }
+
 
       
     }

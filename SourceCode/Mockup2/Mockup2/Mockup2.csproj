@@ -276,6 +276,11 @@
     <None Include="Resources\remove1.gif" />
     <None Include="Resources\adim.gif" />
     <None Include="Resources\adim1.gif" />
+    <None Include="Resources\collapes.png" />
+    <None Include="Resources\uncollapes.png" />
+    <None Include="Resources\collapes1.png" />
+    <None Include="Resources\collapes2.png" />
+    <None Include="Resources\uncollapes1.png" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>
