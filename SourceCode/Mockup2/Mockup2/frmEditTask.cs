@@ -159,18 +159,18 @@ namespace Mockup2
          
         private void btnOK_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 
-                StruktWebservice.StruktUserSoapClient tdStrukt = new StruktWebservice.StruktUserSoapClient();
-                tdStrukt.AddUptadeTaskDescription(global.getValueFromStruktValue(taskUse.id),txtDetail.Text);
+            //    StruktWebservice.StruktUserSoapClient tdStrukt = new StruktWebservice.StruktUserSoapClient();
+            //    tdStrukt.AddUptadeTaskDescription(global.getValueFromStruktValue(taskUse.id),txtDetail.Text);
 
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
                 
-                throw;
-            }
+            //    throw;
+            //}
             
             taskUse.name = txtTaskName.Text;
             if (cbLocation.SelectedValue != null)

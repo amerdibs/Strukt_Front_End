@@ -281,6 +281,66 @@ namespace Mockup2
             }
         }
 
+        private void lbTitle_DragDrop(object sender, DragEventArgs e)
+        {
+            //Raise event to the parent control
+            //Null check makes sure the parent control is attached to the event 
+            //Pakorn 16062013
+            global.dropTaskControlObject = this;
+            if (this.MainTaskDragDrop != null)
+            {
+                this.MainTaskDragDrop(sender, e);
+            }
+        }
+
+        private void lbTitle_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((e.AllowedEffect & DragDropEffects.Link) != 0 && e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = DragDropEffects.Link;
+            }
+        }
+
+        private void pnReceived_DragDrop(object sender, DragEventArgs e)
+        {
+            //Raise event to the parent control
+            //Null check makes sure the parent control is attached to the event 
+            //Pakorn 16062013
+            global.dropTaskControlObject = this;
+            if (this.MainTaskDragDrop != null)
+            {
+                this.MainTaskDragDrop(sender, e);
+            }
+        }
+
+        private void pnReceived_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((e.AllowedEffect & DragDropEffects.Link) != 0 && e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = DragDropEffects.Link;
+            }
+        }
+
+        private void pnAssigned_DragDrop(object sender, DragEventArgs e)
+        {
+            //Raise event to the parent control
+            //Null check makes sure the parent control is attached to the event 
+            //Pakorn 16062013
+            global.dropTaskControlObject = this;
+            if (this.MainTaskDragDrop != null)
+            {
+                this.MainTaskDragDrop(sender, e);
+            }
+        }
+
+        private void pnAssigned_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((e.AllowedEffect & DragDropEffects.Link) != 0 && e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = DragDropEffects.Link;
+            }
+        }
+
 
       
     }

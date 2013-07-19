@@ -253,6 +253,16 @@ namespace Mockup2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap folder_find {
+            get {
+                object obj = ResourceManager.GetObject("folder_find", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap go {
             get {
                 object obj = ResourceManager.GetObject("go", resourceCulture);
@@ -346,6 +356,16 @@ namespace Mockup2.Properties {
         internal static System.Drawing.Bitmap screen1 {
             get {
                 object obj = ResourceManager.GetObject("screen1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shop_cart {
+            get {
+                object obj = ResourceManager.GetObject("shop_cart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -33,8 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbTask = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.gbProp = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDetail = new System.Windows.Forms.TextBox();
@@ -65,6 +63,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbProp.SuspendLayout();
@@ -91,7 +93,6 @@
             this.txtTaskName.Name = "txtTaskName";
             this.txtTaskName.Size = new System.Drawing.Size(307, 20);
             this.txtTaskName.TabIndex = 2;
-            this.txtTaskName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -128,38 +129,10 @@
             this.panel2.Controls.Add(this.btnOK);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 550);
+            this.panel2.Location = new System.Drawing.Point(0, 519);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 40);
             this.panel2.TabIndex = 1;
-            // 
-            // btnOK
-            // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Image = global::Mockup2.Properties.Resources.ball_green;
-            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOK.Location = new System.Drawing.Point(188, 6);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
-            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::Mockup2.Properties.Resources.ball_red;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(269, 6);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // gbProp
             // 
@@ -171,20 +144,18 @@
             this.gbProp.Controls.Add(this.dtpDeadline);
             this.gbProp.Controls.Add(this.dtpDate);
             this.gbProp.Controls.Add(this.cbLocation);
-            this.gbProp.Controls.Add(this.cbModel);
             this.gbProp.Controls.Add(this.cbTaskType);
             this.gbProp.Controls.Add(this.label8);
             this.gbProp.Controls.Add(this.label7);
             this.gbProp.Controls.Add(this.label6);
             this.gbProp.Controls.Add(this.label5);
-            this.gbProp.Controls.Add(this.label4);
             this.gbProp.Controls.Add(this.label3);
             this.gbProp.Controls.Add(this.label2);
             this.gbProp.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbProp.Location = new System.Drawing.Point(0, 41);
             this.gbProp.Name = "gbProp";
-            this.gbProp.Size = new System.Drawing.Size(355, 182);
+            this.gbProp.Size = new System.Drawing.Size(355, 160);
             this.gbProp.TabIndex = 2;
             this.gbProp.TabStop = false;
             this.gbProp.Text = "Properties";
@@ -193,7 +164,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Blue;
-            this.label13.Location = new System.Drawing.Point(12, 131);
+            this.label13.Location = new System.Drawing.Point(12, 104);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 13);
             this.label13.TabIndex = 17;
@@ -203,7 +174,7 @@
             // 
             this.txtDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDetail.ForeColor = System.Drawing.Color.Blue;
-            this.txtDetail.Location = new System.Drawing.Point(49, 128);
+            this.txtDetail.Location = new System.Drawing.Point(49, 101);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -246,7 +217,7 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbProject.Location = new System.Drawing.Point(49, 100);
+            this.cbProject.Location = new System.Drawing.Point(50, 74);
             this.cbProject.Name = "cbProject";
             this.cbProject.Size = new System.Drawing.Size(118, 21);
             this.cbProject.TabIndex = 14;
@@ -262,7 +233,7 @@
             // dtpDate
             // 
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(50, 74);
+            this.dtpDate.Location = new System.Drawing.Point(50, 47);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(118, 20);
             this.dtpDate.TabIndex = 12;
@@ -302,10 +273,11 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbModel.Location = new System.Drawing.Point(50, 44);
+            this.cbModel.Location = new System.Drawing.Point(50, 41);
             this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(118, 21);
+            this.cbModel.Size = new System.Drawing.Size(35, 21);
             this.cbModel.TabIndex = 9;
+            this.cbModel.Visible = false;
             // 
             // cbTaskType
             // 
@@ -331,7 +303,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 103);
+            this.label8.Location = new System.Drawing.Point(7, 77);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 6;
@@ -349,7 +321,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 78);
+            this.label6.Location = new System.Drawing.Point(16, 51);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 4;
@@ -367,11 +339,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 47);
+            this.label4.Location = new System.Drawing.Point(9, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Model";
+            this.label4.Visible = false;
             // 
             // label3
             // 
@@ -394,14 +367,16 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.btnBrowse);
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(0, 223);
+            this.groupBox2.Location = new System.Drawing.Point(0, 201);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(355, 53);
+            this.groupBox2.Size = new System.Drawing.Size(355, 102);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tools";
@@ -449,12 +424,15 @@
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.cbModel);
             this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Enabled = false;
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(0, 276);
+            this.groupBox3.Location = new System.Drawing.Point(0, 303);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(355, 274);
+            this.groupBox3.Size = new System.Drawing.Size(355, 216);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Conditions";
@@ -462,43 +440,43 @@
             // lstResourceCondition
             // 
             this.lstResourceCondition.FormattingEnabled = true;
-            this.lstResourceCondition.Location = new System.Drawing.Point(124, 205);
+            this.lstResourceCondition.Location = new System.Drawing.Point(144, 166);
             this.lstResourceCondition.Name = "lstResourceCondition";
             this.lstResourceCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstResourceCondition.Size = new System.Drawing.Size(200, 56);
+            this.lstResourceCondition.Size = new System.Drawing.Size(200, 43);
             this.lstResourceCondition.TabIndex = 11;
             // 
             // lstRoleCondition
             // 
             this.lstRoleCondition.FormattingEnabled = true;
-            this.lstRoleCondition.Location = new System.Drawing.Point(124, 143);
+            this.lstRoleCondition.Location = new System.Drawing.Point(145, 117);
             this.lstRoleCondition.Name = "lstRoleCondition";
             this.lstRoleCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstRoleCondition.Size = new System.Drawing.Size(200, 56);
+            this.lstRoleCondition.Size = new System.Drawing.Size(200, 43);
             this.lstRoleCondition.TabIndex = 11;
             // 
             // lstAlternative
             // 
             this.lstAlternative.FormattingEnabled = true;
-            this.lstAlternative.Location = new System.Drawing.Point(124, 81);
+            this.lstAlternative.Location = new System.Drawing.Point(144, 68);
             this.lstAlternative.Name = "lstAlternative";
             this.lstAlternative.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstAlternative.Size = new System.Drawing.Size(200, 56);
+            this.lstAlternative.Size = new System.Drawing.Size(200, 43);
             this.lstAlternative.TabIndex = 11;
             // 
             // lstPreCondition
             // 
             this.lstPreCondition.FormattingEnabled = true;
-            this.lstPreCondition.Location = new System.Drawing.Point(124, 19);
+            this.lstPreCondition.Location = new System.Drawing.Point(144, 19);
             this.lstPreCondition.Name = "lstPreCondition";
             this.lstPreCondition.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstPreCondition.Size = new System.Drawing.Size(200, 56);
+            this.lstPreCondition.Size = new System.Drawing.Size(200, 43);
             this.lstPreCondition.TabIndex = 11;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 214);
+            this.label12.Location = new System.Drawing.Point(35, 162);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(104, 13);
             this.label12.TabIndex = 10;
@@ -507,7 +485,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(39, 154);
+            this.label11.Location = new System.Drawing.Point(59, 117);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(80, 13);
             this.label11.TabIndex = 9;
@@ -516,7 +494,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(56, 91);
+            this.label10.Location = new System.Drawing.Point(76, 68);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 13);
             this.label10.TabIndex = 8;
@@ -525,17 +503,67 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(47, 30);
+            this.label9.Location = new System.Drawing.Point(66, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 13);
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(19, 43);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(324, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowse.Image = global::Mockup2.Properties.Resources.folder_find;
+            this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBrowse.Location = new System.Drawing.Point(268, 69);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 4;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            // 
+            // btnOK
+            // 
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOK.Image = global::Mockup2.Properties.Resources.ball_green;
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOK.Location = new System.Drawing.Point(188, 6);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 1;
+            this.btnOK.Text = "Save";
+            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Image = global::Mockup2.Properties.Resources.ball_red;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(269, 6);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // frmTaskEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 590);
+            this.ClientSize = new System.Drawing.Size(355, 559);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbProp);
@@ -598,5 +626,7 @@
         private System.Windows.Forms.ListBox lstPreCondition;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtDetail;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

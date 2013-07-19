@@ -124,6 +124,12 @@
     <Compile Include="frmEditTask.Designer.cs">
       <DependentUpon>frmEditTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSelectApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectApplication.Designer.cs">
+      <DependentUpon>frmSelectApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="global.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PropertiesStrukt.cs" />
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditTask.resx">
       <DependentUpon>frmEditTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectApplication.resx">
+      <DependentUpon>frmSelectApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -281,6 +290,8 @@
     <None Include="Resources\collapes1.png" />
     <None Include="Resources\collapes2.png" />
     <None Include="Resources\uncollapes1.png" />
+    <None Include="Resources\folder_find.gif" />
+    <None Include="Resources\shop_cart.gif" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>

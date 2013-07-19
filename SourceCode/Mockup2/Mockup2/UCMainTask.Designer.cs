@@ -34,13 +34,13 @@
             this.lReceive = new System.Windows.Forms.Label();
             this.lbAssigned = new System.Windows.Forms.ListBox();
             this.pnAssigned = new System.Windows.Forms.Panel();
+            this.btnSendtoReceiver = new System.Windows.Forms.Button();
             this.txtReceive = new System.Windows.Forms.TextBox();
             this.pnReceived = new System.Windows.Forms.Panel();
+            this.btnSendtoAssigner = new System.Windows.Forms.Button();
             this.pbCollape = new System.Windows.Forms.PictureBox();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
-            this.btnSendtoAssigner = new System.Windows.Forms.Button();
-            this.btnSendtoReceiver = new System.Windows.Forms.Button();
             this.pnAssigned.SuspendLayout();
             this.pnReceived.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCollape)).BeginInit();
@@ -59,6 +59,7 @@
             // 
             // lbTitle
             // 
+            this.lbTitle.AllowDrop = true;
             this.lbTitle.AutoSize = true;
             this.lbTitle.BackColor = System.Drawing.Color.Transparent;
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -69,6 +70,8 @@
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "[New Task]";
             this.lbTitle.Click += new System.EventHandler(this.lbTitle_Click_1);
+            this.lbTitle.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragDrop);
+            this.lbTitle.DragEnter += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragEnter);
             // 
             // lAssign
             // 
@@ -104,6 +107,7 @@
             // 
             // pnAssigned
             // 
+            this.pnAssigned.AllowDrop = true;
             this.pnAssigned.BackColor = System.Drawing.Color.Transparent;
             this.pnAssigned.Controls.Add(this.btnSendtoReceiver);
             this.pnAssigned.Controls.Add(this.lbAssigned);
@@ -114,6 +118,20 @@
             this.pnAssigned.Size = new System.Drawing.Size(320, 47);
             this.pnAssigned.TabIndex = 7;
             this.pnAssigned.Visible = false;
+            this.pnAssigned.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnAssigned_DragDrop);
+            this.pnAssigned.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnAssigned_DragEnter);
+            // 
+            // btnSendtoReceiver
+            // 
+            this.btnSendtoReceiver.Image = global::Mockup2.Properties.Resources.mail;
+            this.btnSendtoReceiver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSendtoReceiver.Location = new System.Drawing.Point(161, 20);
+            this.btnSendtoReceiver.Name = "btnSendtoReceiver";
+            this.btnSendtoReceiver.Size = new System.Drawing.Size(25, 23);
+            this.btnSendtoReceiver.TabIndex = 9;
+            this.btnSendtoReceiver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSendtoReceiver.UseVisualStyleBackColor = true;
+            this.btnSendtoReceiver.Click += new System.EventHandler(this.btnSendtoReceiver_Click);
             // 
             // txtReceive
             // 
@@ -127,6 +145,7 @@
             // 
             // pnReceived
             // 
+            this.pnReceived.AllowDrop = true;
             this.pnReceived.BackColor = System.Drawing.Color.Transparent;
             this.pnReceived.Controls.Add(this.btnSendtoAssigner);
             this.pnReceived.Controls.Add(this.txtReceive);
@@ -137,6 +156,20 @@
             this.pnReceived.Size = new System.Drawing.Size(320, 39);
             this.pnReceived.TabIndex = 8;
             this.pnReceived.Visible = false;
+            this.pnReceived.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnReceived_DragDrop);
+            this.pnReceived.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnReceived_DragEnter);
+            // 
+            // btnSendtoAssigner
+            // 
+            this.btnSendtoAssigner.Image = global::Mockup2.Properties.Resources.mail;
+            this.btnSendtoAssigner.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSendtoAssigner.Location = new System.Drawing.Point(161, 13);
+            this.btnSendtoAssigner.Name = "btnSendtoAssigner";
+            this.btnSendtoAssigner.Size = new System.Drawing.Size(25, 23);
+            this.btnSendtoAssigner.TabIndex = 8;
+            this.btnSendtoAssigner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSendtoAssigner.UseVisualStyleBackColor = true;
+            this.btnSendtoAssigner.Click += new System.EventHandler(this.btnSendtoAssigner_Click);
             // 
             // pbCollape
             // 
@@ -170,30 +203,6 @@
             this.btnProp.TabIndex = 2;
             this.btnProp.UseVisualStyleBackColor = true;
             this.btnProp.Click += new System.EventHandler(this.btnProp_Click);
-            // 
-            // btnSendtoAssigner
-            // 
-            this.btnSendtoAssigner.Image = global::Mockup2.Properties.Resources.mail;
-            this.btnSendtoAssigner.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendtoAssigner.Location = new System.Drawing.Point(161, 13);
-            this.btnSendtoAssigner.Name = "btnSendtoAssigner";
-            this.btnSendtoAssigner.Size = new System.Drawing.Size(25, 23);
-            this.btnSendtoAssigner.TabIndex = 8;
-            this.btnSendtoAssigner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSendtoAssigner.UseVisualStyleBackColor = true;
-            this.btnSendtoAssigner.Click += new System.EventHandler(this.btnSendtoAssigner_Click);
-            // 
-            // btnSendtoReceiver
-            // 
-            this.btnSendtoReceiver.Image = global::Mockup2.Properties.Resources.mail;
-            this.btnSendtoReceiver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendtoReceiver.Location = new System.Drawing.Point(161, 20);
-            this.btnSendtoReceiver.Name = "btnSendtoReceiver";
-            this.btnSendtoReceiver.Size = new System.Drawing.Size(25, 23);
-            this.btnSendtoReceiver.TabIndex = 9;
-            this.btnSendtoReceiver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSendtoReceiver.UseVisualStyleBackColor = true;
-            this.btnSendtoReceiver.Click += new System.EventHandler(this.btnSendtoReceiver_Click);
             // 
             // UCMainTask
             // 
