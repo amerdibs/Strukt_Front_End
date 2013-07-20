@@ -27,6 +27,8 @@ namespace Mockup2
 
         //outside Strukt system
         public string description { get; set; }
+        public string attachmentType { get; set; }
+        public string attachmentDetail { get; set; }
         
         public Workflow workflowChild { get; set; }
         public Workflow workflowParent { get; set; }

@@ -833,6 +833,21 @@ namespace Mockup2
                 pnCenter.Controls.Clear();
                 generateTaskControl(wfMain, 0);
                 setCollapeControlsAfterProcessLoad();
+                List<Task> taskList = new List<Task>();
+                global.getTaskListFromAllWorkflow(global.workflowMain, taskList);
+                List<string> listStrTaskID = new List<string>();
+                foreach (Task tEach in taskList)
+                {
+                    listStrTaskID.Add(global.getValueFromStruktValue(tEach.id));
+                }
+                string[] arStr = new string[listStrTaskID.Count];
+                listStrTaskID.CopyTo(arStr);
+                StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
+                DataTable dtDesc = struktWS.getDescriptionDetailByList(arStr);
+                
+
+
+
                 //if (global.getValueFromStruktValue(wfMain.id) == "2120706644")
                 //    MessageBox.Show("Please load the other process (Procument). Do not use this process to test! Please read only.");
 
@@ -1230,6 +1245,7 @@ namespace Mockup2
             }
             return ucRet;
         }
+
 
 
     }

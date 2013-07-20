@@ -58,19 +58,26 @@ namespace Mockup2.StruktWebservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getUserByStruktID", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> getUserByStruktIDAsync(string strID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadDescriptionDetail", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDescriptionDetail", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable LoadDescriptionDetail(string strID);
+        System.Data.DataTable getDescriptionDetail(string strID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadDescriptionDetail", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> LoadDescriptionDetailAsync(string strID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDescriptionDetail", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getDescriptionDetailAsync(string strID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddUptadeTaskDescription", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDescriptionDetailByList", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void AddUptadeTaskDescription(string strID, string Desc);
+        System.Data.DataTable getDescriptionDetailByList(string[] listStrTaskID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddUptadeTaskDescription", ReplyAction="*")]
-        System.Threading.Tasks.Task AddUptadeTaskDescriptionAsync(string strID, string Desc);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDescriptionDetailByList", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getDescriptionDetailByListAsync(string[] listStrTaskID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUptadeTaskDescription", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void setUptadeTaskDescription(string strID, string Desc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUptadeTaskDescription", ReplyAction="*")]
+        System.Threading.Tasks.Task setUptadeTaskDescriptionAsync(string strID, string Desc);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -148,20 +155,28 @@ namespace Mockup2.StruktWebservice {
             return base.Channel.getUserByStruktIDAsync(strID);
         }
         
-        public System.Data.DataTable LoadDescriptionDetail(string strID) {
-            return base.Channel.LoadDescriptionDetail(strID);
+        public System.Data.DataTable getDescriptionDetail(string strID) {
+            return base.Channel.getDescriptionDetail(strID);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> LoadDescriptionDetailAsync(string strID) {
-            return base.Channel.LoadDescriptionDetailAsync(strID);
+        public System.Threading.Tasks.Task<System.Data.DataTable> getDescriptionDetailAsync(string strID) {
+            return base.Channel.getDescriptionDetailAsync(strID);
         }
         
-        public void AddUptadeTaskDescription(string strID, string Desc) {
-            base.Channel.AddUptadeTaskDescription(strID, Desc);
+        public System.Data.DataTable getDescriptionDetailByList(string[] listStrTaskID) {
+            return base.Channel.getDescriptionDetailByList(listStrTaskID);
         }
         
-        public System.Threading.Tasks.Task AddUptadeTaskDescriptionAsync(string strID, string Desc) {
-            return base.Channel.AddUptadeTaskDescriptionAsync(strID, Desc);
+        public System.Threading.Tasks.Task<System.Data.DataTable> getDescriptionDetailByListAsync(string[] listStrTaskID) {
+            return base.Channel.getDescriptionDetailByListAsync(listStrTaskID);
+        }
+        
+        public void setUptadeTaskDescription(string strID, string Desc) {
+            base.Channel.setUptadeTaskDescription(strID, Desc);
+        }
+        
+        public System.Threading.Tasks.Task setUptadeTaskDescriptionAsync(string strID, string Desc) {
+            return base.Channel.setUptadeTaskDescriptionAsync(strID, Desc);
         }
     }
 }

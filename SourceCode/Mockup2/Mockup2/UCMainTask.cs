@@ -74,12 +74,6 @@ namespace Mockup2
             frmTaskEdit frTaskEdit = new frmTaskEdit();
             frTaskEdit.taskUse = taskMember;
             frTaskEdit.strFormMode = frTaskEdit.formModeEdit;
-            //Load the task detail from the database
-            StruktWebservice.StruktUserSoapClient tdStrukt = new StruktWebservice.StruktUserSoapClient();
-            DataTable dtDescLoad = tdStrukt.LoadDescriptionDetail(global.getValueFromStruktValue(taskMember.id));
-            if (dtDescLoad != null)
-                frTaskEdit.Controls["gbProp"].Controls["txtDetail"].Text = dtDescLoad.Rows[0]["tk_description"].ToString();
-
             DialogResult dialog= frTaskEdit.ShowDialog();
             if (dialog != DialogResult.OK)
             {

@@ -259,7 +259,21 @@ namespace Mockup2
             return Convert.ToString(dtParam.Month + "/" + dtParam.Day + "/" + dtParam.Year);
         }
 
-        
+        public static void getTaskListFromAllWorkflow(Workflow wfparm, List<Task> taskList)
+        {
+            if ((wfparm == null) || (wfparm.taskChildList == null))
+            {
+                return;
+            }
+
+            foreach (Task tEach in wfparm.taskChildList)
+            {
+                getTaskListFromAllWorkflow(tEach.workflowChild, taskList);
+                taskList.Add(tEach);
+
+            }
+
+        }
 
 
     }

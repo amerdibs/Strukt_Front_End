@@ -162,7 +162,7 @@ public class StruktUser : System.Web.Services.WebService {
     }
 
     [WebMethod]
-    public DataTable LoadDescriptionDetail(string strID)
+    public DataTable getDescriptionDetail(string strID)
     {
         SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
         dbConnection.Open();
@@ -186,7 +186,40 @@ public class StruktUser : System.Web.Services.WebService {
     }
 
     [WebMethod]
-    public void AddUptadeTaskDescription(string strID, string Desc)
+    public DataTable getDescriptionDetailByList(List<string> listStrTaskID)
+    {
+        if ((listStrTaskID == null) || (listStrTaskID.Count == 0))
+            return null;
+
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        dbConnection.Open();
+        string strTask = "(";
+        foreach (string str in listStrTaskID)
+        {
+            strTask += "'" + str + "',";
+        }
+        strTask = strTask.Substring(0, strTask.Length - 1) + ")";
+
+
+        string strSQL = "SELECT tk_task_id,isnull(tk_description,'') tk_description FROM struktTaskExtend  WHERE  tk_task_id in " + strTask;
+        SqlCommand qCommand = new SqlCommand(strSQL, dbConnection);
+        SqlDataReader qReader = qCommand.ExecuteReader();
+        DataTable dtTable = new DataTable();
+        dtTable.Load(qReader);
+        dtTable.TableName = "struktTaskExtend";
+        dbConnection.Close();
+        if (dtTable.Rows.Count > 0)
+        {
+            return dtTable;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    [WebMethod]
+    public void setUptadeTaskDescription(string strID, string Desc)
     {
         SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
         try

@@ -40,11 +40,7 @@ namespace Mockup2
             List<Task> taskslistRoll = new List<Task>();
             try
             {
-                /* 
-                 string work_flow_id = cbTask.SelectedValue.ToString();
-                 Task _task[] = Task.getTaskByParentWorkflowID(work_flow_id);*/
-                //cbTask.SelectedIndex = 1;
-                propertiesFill(global.workflowMain, taskslist);
+                global.getTaskListFromAllWorkflow(global.workflowMain, taskslist);
                 taskslistAlter = taskslist.ToList();
                 taskslistAlter.Reverse();
                 taskslistRoll = taskslist.ToList();
@@ -78,34 +74,7 @@ namespace Mockup2
                 lstResourceCondition.SelectedIndex = -1;
                 lstRoleCondition.SelectedIndex = -1;
                 lstAlternative.SelectedIndex = -1;
-                
-              
-                //List<Task> tasklist;
-
-                /*
-                tasklist = Task.getTaskByParentWorkflowID(global.strWorkflowID);
-                cbTask.DataSource = tasklist;
-                cbTask.DisplayMember = "name";
-                cbTask.ValueMember="id";
-                DateTime date = new DateTime();
-                DateTime deadline = new DateTime();
-                foreach (Task _task in tasklist)
-                {
-                    if (_task.id ==(string)cbTask.SelectedValue)
-                    {
-                        date = Convert.ToDateTime(_task.date);
-                        deadline = Convert.ToDateTime(_task.deadline);
-                        dateTimePicker_Date.Value = date;
-                        dateTimePicker_Deadline.Value = deadline;
-                    }
-
-
-
-                }
-
-                */
    
-
             }
             catch (Exception)
             {
@@ -113,7 +82,6 @@ namespace Mockup2
                 throw;
             }
 
-            
           
             if (strFormMode == formModeNew) // NEW Mode
             {
@@ -136,42 +104,17 @@ namespace Mockup2
                     dtpDate.Value = global.convertFromStruktDateTime(taskUse.date);
                 if (taskUse.deadline != null)
                     dtpDeadline.Value = global.convertFromStruktDateTime(taskUse.deadline);
+                if (taskUse.description != null)
+                    txtDetail.Text = taskUse.description;
             }
           
          
         }
         
-        private void propertiesFill(Workflow wfparm,List<Task> taskList)
-        {
-            if ((wfparm == null) || (wfparm.taskChildList == null))
-            {
-                return;
-            }
-          
-            foreach (Task tEach in wfparm.taskChildList)
-            {
-                propertiesFill(tEach.workflowChild, taskList);
-                taskList.Add(tEach);
-
-            }
-           
-        }  
+  
          
         private void btnOK_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-                
-            //    StruktWebservice.StruktUserSoapClient tdStrukt = new StruktWebservice.StruktUserSoapClient();
-            //    tdStrukt.AddUptadeTaskDescription(global.getValueFromStruktValue(taskUse.id),txtDetail.Text);
-
-            //}
-            //catch (Exception)
-            //{
-                
-            //    throw;
-            //}
-            
+        {            
             taskUse.name = txtTaskName.Text;
             if (cbLocation.SelectedValue != null)
                 taskUse.location_id = (string)cbLocation.SelectedValue;
@@ -185,8 +128,8 @@ namespace Mockup2
                 taskUse.date = global.convertStruktDateTimeToString(dtpDate.Value);
             if (dtpDeadline.Value != null)
                 taskUse.deadline = global.convertStruktDateTimeToString(dtpDeadline.Value);
-
-            this.Close();
+            taskUse.description = txtDetail.Text;
+  
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
