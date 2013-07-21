@@ -55,5 +55,11 @@ namespace Mockup2
             if (e.KeyChar == (char)Keys.Enter)
                 btnOK.Focus();
         }
+
+        private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                txtPassword.Focus();
+        }
     }
 }

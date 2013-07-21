@@ -28,6 +28,10 @@ namespace Mockup2
         public string username { get; set; }
         public string last_action_at { get; set; }
 
+        //User roles
+        public static string roleDesigner = "D";
+        public static string roleExecutor = "E";
+
         public static DataRow getUserNameByStruktID(string strUserID)
         {
             if (global.userTable == null)

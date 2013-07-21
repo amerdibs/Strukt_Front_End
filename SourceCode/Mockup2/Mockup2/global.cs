@@ -53,6 +53,7 @@ namespace Mockup2
         public static DataTable processTable;
         public static DataTable userTable;
         public static DataTable appTable;
+        public static string roleUser = "D";
 
 
         //calculate height of Task control
@@ -298,9 +299,9 @@ namespace Mockup2
                         System.Diagnostics.Process.Start(startInfo);
                         startInfo = null;
                     }
-                    catch (Exception exc2)
+                    catch (Exception)
                     {
-                        
+                        throw;
                     }
                 }
             }

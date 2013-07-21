@@ -28,7 +28,6 @@ namespace Mockup2
         public frmMain()
         {
             InitializeComponent();
-            //this.BackColor = global.ColorSubTask;
          
         }
 
@@ -99,7 +98,19 @@ namespace Mockup2
             {
                 this.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
                 lbTitle.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
-                tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString();
+
+                //Set user role
+                if (global.processTable.Rows[0]["u_role"] != null)
+                    global.roleUser = global.processTable.Rows[0]["u_role"].ToString();
+
+                if (global.roleUser == User.roleExecutor)
+                    pnDesigner.Visible = false;
+
+                if (global.roleUser == User.roleExecutor)
+                    tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Executor" ;
+                else
+                    if (global.roleUser == User.roleDesigner)
+                        tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Process Designer";
 
                 //Assignment Checking
                 bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
@@ -281,9 +292,9 @@ namespace Mockup2
                     uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left + global.iIndentOfCheckBox;
                     uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left + global.iIndentOfCheckBox;
                     uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left + global.iIndentOfCheckBox;
-                    uMain.setExistenceCollapeButton();
+                    uMain.setExistenceCollapeButtonRole();
                     UCMainTask ucParent = getUCMainTaskByTask(taskParent);
-                    ucParent.setExistenceCollapeButton();
+                    ucParent.setExistenceCollapeButtonRole();
                     uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uMain.iLevel);
                     uMain.colorBackGround = uMain.BackColor;
                   
@@ -378,7 +389,7 @@ namespace Mockup2
                 uMain.BringToFront();
                 uMain.taskMember = returnTaskAdd;
                 uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
-                uMain.setExistenceCollapeButton();
+                uMain.setExistenceCollapeButtonRole();
                 uMain.iLevel = 0;
 
                 uMain.BackColor = global.ColorMainTask;
@@ -501,7 +512,7 @@ namespace Mockup2
                 uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left;
                 uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left;
                 uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left;
-                uMain.setExistenceCollapeButton();
+                uMain.setExistenceCollapeButtonRole();
                 uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uSelect.iLevel);
                 uMain.colorBackGround = uMain.BackColor;
                 uMain.iLevel = uSelect.iLevel;
@@ -579,7 +590,7 @@ namespace Mockup2
                     pnCenter.Controls.Remove(uSelect);
 
                     UCMainTask ucParent = getUCMainTaskByTask(wfPre.taskParent);
-                    ucParent.setExistenceCollapeButton();
+                    ucParent.setExistenceCollapeButtonRole();
                 }
                 //If task is at the first position of workflow
                 //get the followed task
@@ -755,7 +766,8 @@ namespace Mockup2
 
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                ctmTask.Show(Cursor.Position);
+                if (global.roleUser == User.roleDesigner)
+                    ctmTask.Show(Cursor.Position);
             }
             
         }
@@ -766,7 +778,8 @@ namespace Mockup2
 
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                ctmTask.Show(Cursor.Position);
+                if (global.roleUser == User.roleDesigner)
+                    ctmTask.Show(Cursor.Position);
             }
         }
 
@@ -779,10 +792,13 @@ namespace Mockup2
         }
 
         private void pnCenter_DragDrop(object sender, DragEventArgs e)
-        {
-            
+        {   
             //For test
             //MessageBox.Show((string)e.Data.GetData(typeof(string)));
+
+            //Check user role
+            if (global.roleUser == User.roleExecutor)
+                return;
 
             Object uControl = global.dragTaskControlObject;
 
@@ -799,7 +815,11 @@ namespace Mockup2
             
             // --- Mouse clicked event
             clearOtherSelectColor();
-            
+
+            //Check user role
+            if (global.roleUser == User.roleExecutor)
+                return;
+
             // --- Drag drop event
             Object uControl = global.dragTaskControlObject;
             Object receiveControl = global.dropTaskControlObject;
@@ -969,7 +989,7 @@ namespace Mockup2
                 uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["pbCollape"].Left = uMain.Controls["pbCollape"].Left + (global.iIndentOfCheckBox * iLevel);
-                uMain.setExistenceCollapeButton();
+                uMain.setExistenceCollapeButtonRole();
                 if (tEach.hasAssignmentReceived)
                 {
                     Panel pnRec = (Panel)uMain.Controls["pnReceived"];

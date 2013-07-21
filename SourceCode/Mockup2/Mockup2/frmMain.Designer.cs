@@ -38,7 +38,7 @@
             this.btnLoadProcess = new System.Windows.Forms.Button();
             this.cbProcess = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnDesigner = new System.Windows.Forms.Panel();
             this.btnOption = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAssignment = new System.Windows.Forms.Button();
@@ -62,7 +62,7 @@
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnDesigner.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.pnControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnLogo)).BeginInit();
@@ -81,7 +81,7 @@
             this.tableLayoutPanel1.Controls.Add(this.pnCenter, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnHide, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pnDesigner, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -140,6 +140,7 @@
             this.btnAddProcess.Size = new System.Drawing.Size(28, 23);
             this.btnAddProcess.TabIndex = 4;
             this.btnAddProcess.UseVisualStyleBackColor = true;
+            this.btnAddProcess.Visible = false;
             this.btnAddProcess.Click += new System.EventHandler(this.btnAddProcess_Click);
             // 
             // btnSaveProcessAs
@@ -151,6 +152,7 @@
             this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 23);
             this.btnSaveProcessAs.TabIndex = 3;
             this.btnSaveProcessAs.UseVisualStyleBackColor = true;
+            this.btnSaveProcessAs.Visible = false;
             this.btnSaveProcessAs.Click += new System.EventHandler(this.btnSaveProcessAs_Click);
             // 
             // btnLoadProcess
@@ -184,18 +186,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Process";
             // 
-            // panel3
+            // pnDesigner
             // 
-            this.panel3.Controls.Add(this.btnOption);
-            this.panel3.Controls.Add(this.btnDelete);
-            this.panel3.Controls.Add(this.btnAssignment);
-            this.panel3.Controls.Add(this.btnSubAdd);
-            this.panel3.Controls.Add(this.btnAdd);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 57);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(26, 491);
-            this.panel3.TabIndex = 3;
+            this.pnDesigner.Controls.Add(this.btnOption);
+            this.pnDesigner.Controls.Add(this.btnDelete);
+            this.pnDesigner.Controls.Add(this.btnAssignment);
+            this.pnDesigner.Controls.Add(this.btnSubAdd);
+            this.pnDesigner.Controls.Add(this.btnAdd);
+            this.pnDesigner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnDesigner.Location = new System.Drawing.Point(3, 57);
+            this.pnDesigner.Name = "pnDesigner";
+            this.pnDesigner.Size = new System.Drawing.Size(26, 491);
+            this.pnDesigner.TabIndex = 3;
             // 
             // btnOption
             // 
@@ -415,7 +417,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
+            this.pnDesigner.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.pnControl.ResumeLayout(false);
@@ -442,7 +444,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Panel pnControl;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnDesigner;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSubAdd;
         private System.Windows.Forms.Button btnOption;

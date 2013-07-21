@@ -282,8 +282,9 @@ namespace Mockup2
             }
         }
 
-        public void setExistenceCollapeButton()
-        {
+        public void setExistenceCollapeButtonRole()
+        {   
+            //Check children under this task
             if ((taskMember.workflowChild.taskChildList != null) && (taskMember.workflowChild.taskChildList.Count > 0))
             {
                 pbCollape.Visible = true;
@@ -294,6 +295,11 @@ namespace Mockup2
                 pbCollape.Visible = false;
                 collapseType = collapseType_nochild;
             }
+
+            //User's role control
+            if (global.roleUser == User.roleExecutor)
+                btnProp.Visible = false;
+
         }
 
         private void lbTitle_DragDrop(object sender, DragEventArgs e)
