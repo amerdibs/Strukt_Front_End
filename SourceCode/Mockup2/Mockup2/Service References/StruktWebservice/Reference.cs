@@ -65,12 +65,12 @@ namespace Mockup2.StruktWebservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDescriptionDetail", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> getDescriptionDetailAsync(string strID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDescriptionDetailByList", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getTaskExtendByList", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable getDescriptionDetailByList(string[] listStrTaskID);
+        System.Data.DataTable getTaskExtendByList(string[] listStrTaskID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDescriptionDetailByList", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> getDescriptionDetailByListAsync(string[] listStrTaskID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getTaskExtendByList", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getTaskExtendByListAsync(string[] listStrTaskID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUptadeTaskDescription", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -78,6 +78,20 @@ namespace Mockup2.StruktWebservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUptadeTaskDescription", ReplyAction="*")]
         System.Threading.Tasks.Task setUptadeTaskDescriptionAsync(string strID, string Desc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUpdateTaskExtend", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void setUpdateTaskExtend(string strID, string strDesc, string strLinkType, string strAddress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUpdateTaskExtend", ReplyAction="*")]
+        System.Threading.Tasks.Task setUpdateTaskExtendAsync(string strID, string strDesc, string strLinkType, string strAddress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getAppListAll", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable getAppListAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getAppListAll", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getAppListAllAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -163,12 +177,12 @@ namespace Mockup2.StruktWebservice {
             return base.Channel.getDescriptionDetailAsync(strID);
         }
         
-        public System.Data.DataTable getDescriptionDetailByList(string[] listStrTaskID) {
-            return base.Channel.getDescriptionDetailByList(listStrTaskID);
+        public System.Data.DataTable getTaskExtendByList(string[] listStrTaskID) {
+            return base.Channel.getTaskExtendByList(listStrTaskID);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> getDescriptionDetailByListAsync(string[] listStrTaskID) {
-            return base.Channel.getDescriptionDetailByListAsync(listStrTaskID);
+        public System.Threading.Tasks.Task<System.Data.DataTable> getTaskExtendByListAsync(string[] listStrTaskID) {
+            return base.Channel.getTaskExtendByListAsync(listStrTaskID);
         }
         
         public void setUptadeTaskDescription(string strID, string Desc) {
@@ -177,6 +191,22 @@ namespace Mockup2.StruktWebservice {
         
         public System.Threading.Tasks.Task setUptadeTaskDescriptionAsync(string strID, string Desc) {
             return base.Channel.setUptadeTaskDescriptionAsync(strID, Desc);
+        }
+        
+        public void setUpdateTaskExtend(string strID, string strDesc, string strLinkType, string strAddress) {
+            base.Channel.setUpdateTaskExtend(strID, strDesc, strLinkType, strAddress);
+        }
+        
+        public System.Threading.Tasks.Task setUpdateTaskExtendAsync(string strID, string strDesc, string strLinkType, string strAddress) {
+            return base.Channel.setUpdateTaskExtendAsync(strID, strDesc, strLinkType, strAddress);
+        }
+        
+        public System.Data.DataTable getAppListAll() {
+            return base.Channel.getAppListAll();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> getAppListAllAsync() {
+            return base.Channel.getAppListAllAsync();
         }
     }
 }

@@ -52,6 +52,7 @@ namespace Mockup2
 
         public static DataTable processTable;
         public static DataTable userTable;
+        public static DataTable appTable;
 
 
         //calculate height of Task control

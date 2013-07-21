@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbTask = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.gbProp = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDetail = new System.Windows.Forms.TextBox();
@@ -41,19 +43,21 @@
             this.dtpDeadline = new System.Windows.Forms.DateTimePicker();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.cbLocation = new System.Windows.Forms.ComboBox();
-            this.cbModel = new System.Windows.Forms.ComboBox();
             this.cbTaskType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbModel = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.rbFile = new System.Windows.Forms.RadioButton();
+            this.rbApp = new System.Windows.Forms.RadioButton();
+            this.rbLink = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lstResourceCondition = new System.Windows.Forms.ListBox();
             this.lstRoleCondition = new System.Windows.Forms.ListBox();
@@ -63,10 +67,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.rbNone = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbProp.SuspendLayout();
@@ -133,6 +134,36 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 40);
             this.panel2.TabIndex = 1;
+            // 
+            // btnOK
+            // 
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOK.Image = global::Mockup2.Properties.Resources.ball_green;
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOK.Location = new System.Drawing.Point(188, 6);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 1;
+            this.btnOK.Text = "Save";
+            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Image = global::Mockup2.Properties.Resources.ball_red;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(269, 6);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // gbProp
             // 
@@ -258,27 +289,6 @@
             this.cbLocation.Size = new System.Drawing.Size(110, 21);
             this.cbLocation.TabIndex = 10;
             // 
-            // cbModel
-            // 
-            this.cbModel.FormattingEnabled = true;
-            this.cbModel.Items.AddRange(new object[] {
-            "Main Task 1",
-            "\tSub Task 1",
-            "\tSub Task 2",
-            "\tSub Task 3",
-            "\tSub Task 4",
-            "Main Task 2",
-            "\tSub Task 2_1",
-            "\tSub Task 2_2",
-            "\tSub Task 2_3",
-            "\tSub Task 2_4",
-            ""});
-            this.cbModel.Location = new System.Drawing.Point(50, 41);
-            this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(35, 21);
-            this.cbModel.TabIndex = 9;
-            this.cbModel.Visible = false;
-            // 
             // cbTaskType
             // 
             this.cbTaskType.DropDownWidth = 100;
@@ -336,16 +346,6 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Location";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Model";
-            this.label4.Visible = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -364,14 +364,46 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Staus";
             // 
+            // cbModel
+            // 
+            this.cbModel.FormattingEnabled = true;
+            this.cbModel.Items.AddRange(new object[] {
+            "Main Task 1",
+            "\tSub Task 1",
+            "\tSub Task 2",
+            "\tSub Task 3",
+            "\tSub Task 4",
+            "Main Task 2",
+            "\tSub Task 2_1",
+            "\tSub Task 2_2",
+            "\tSub Task 2_3",
+            "\tSub Task 2_4",
+            ""});
+            this.cbModel.Location = new System.Drawing.Point(50, 41);
+            this.cbModel.Name = "cbModel";
+            this.cbModel.Size = new System.Drawing.Size(35, 21);
+            this.cbModel.TabIndex = 9;
+            this.cbModel.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Model";
+            this.label4.Visible = false;
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.rbNone);
             this.groupBox2.Controls.Add(this.btnBrowse);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.txtAddress);
+            this.groupBox2.Controls.Add(this.rbFile);
+            this.groupBox2.Controls.Add(this.rbApp);
+            this.groupBox2.Controls.Add(this.rbLink);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(0, 201);
@@ -382,37 +414,56 @@
             this.groupBox2.Text = "Tools";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // radioButton3
+            // btnBrowse
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(223, 20);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(79, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.Text = "Attachment";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowse.Image = global::Mockup2.Properties.Resources.folder_find;
+            this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBrowse.Location = new System.Drawing.Point(268, 69);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 4;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
-            // radioButton2
+            // txtAddress
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(115, 20);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Application";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.txtAddress.Location = new System.Drawing.Point(19, 43);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(324, 20);
+            this.txtAddress.TabIndex = 3;
             // 
-            // radioButton1
+            // rbFile
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(28, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(45, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Link";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbFile.AutoSize = true;
+            this.rbFile.Location = new System.Drawing.Point(268, 20);
+            this.rbFile.Name = "rbFile";
+            this.rbFile.Size = new System.Drawing.Size(41, 17);
+            this.rbFile.TabIndex = 2;
+            this.rbFile.Text = "File";
+            this.rbFile.UseVisualStyleBackColor = true;
+            // 
+            // rbApp
+            // 
+            this.rbApp.AutoSize = true;
+            this.rbApp.Location = new System.Drawing.Point(169, 20);
+            this.rbApp.Name = "rbApp";
+            this.rbApp.Size = new System.Drawing.Size(77, 17);
+            this.rbApp.TabIndex = 1;
+            this.rbApp.Text = "Application";
+            this.rbApp.UseVisualStyleBackColor = true;
+            // 
+            // rbLink
+            // 
+            this.rbLink.AutoSize = true;
+            this.rbLink.Location = new System.Drawing.Point(94, 20);
+            this.rbLink.Name = "rbLink";
+            this.rbLink.Size = new System.Drawing.Size(45, 17);
+            this.rbLink.TabIndex = 0;
+            this.rbLink.Text = "Link";
+            this.rbLink.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -509,55 +560,16 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
-            // textBox1
+            // rbNone
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(324, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrowse.Image = global::Mockup2.Properties.Resources.folder_find;
-            this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrowse.Location = new System.Drawing.Point(268, 69);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 4;
-            this.btnBrowse.Text = "Browse";
-            this.btnBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            // 
-            // btnOK
-            // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.Image = global::Mockup2.Properties.Resources.ball_green;
-            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOK.Location = new System.Drawing.Point(188, 6);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "Save";
-            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Image = global::Mockup2.Properties.Resources.ball_red;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(269, 6);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.rbNone.AutoSize = true;
+            this.rbNone.Checked = true;
+            this.rbNone.Location = new System.Drawing.Point(19, 20);
+            this.rbNone.Name = "rbNone";
+            this.rbNone.Size = new System.Drawing.Size(51, 17);
+            this.rbNone.TabIndex = 5;
+            this.rbNone.Text = "None";
+            this.rbNone.UseVisualStyleBackColor = true;
             // 
             // frmTaskEdit
             // 
@@ -615,9 +627,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbFile;
+        private System.Windows.Forms.RadioButton rbApp;
+        private System.Windows.Forms.RadioButton rbLink;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.TextBox txtTaskName;
         private System.Windows.Forms.ListBox lstResourceCondition;
@@ -627,6 +639,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtDetail;
         private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.RadioButton rbNone;
     }
 }

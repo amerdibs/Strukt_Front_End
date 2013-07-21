@@ -186,7 +186,7 @@ public class StruktUser : System.Web.Services.WebService {
     }
 
     [WebMethod]
-    public DataTable getDescriptionDetailByList(List<string> listStrTaskID)
+    public DataTable getTaskExtendByList(List<string> listStrTaskID)
     {
         if ((listStrTaskID == null) || (listStrTaskID.Count == 0))
             return null;
@@ -201,7 +201,7 @@ public class StruktUser : System.Web.Services.WebService {
         strTask = strTask.Substring(0, strTask.Length - 1) + ")";
 
 
-        string strSQL = "SELECT tk_task_id,isnull(tk_description,'') tk_description FROM struktTaskExtend  WHERE  tk_task_id in " + strTask;
+        string strSQL = "SELECT tk_task_id,isnull(tk_description,'') tk_description,isnull(tk_link_type,'') tk_link_type ,isnull(tk_address,'') tk_address  FROM struktTaskExtend  WHERE  tk_task_id in " + strTask;
         SqlCommand qCommand = new SqlCommand(strSQL, dbConnection);
         SqlDataReader qReader = qCommand.ExecuteReader();
         DataTable dtTable = new DataTable();
@@ -271,5 +271,80 @@ public class StruktUser : System.Web.Services.WebService {
         }
         
     }
+
+    [WebMethod]
+    public void setUpdateTaskExtend(string strID, string strDesc, string strLinkType, string strAddress)
+    {
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        try
+        {
+            dbConnection.Open();
+            string strQuery = "SELECT * FROM struktTaskExtend  WHERE tk_task_id= @tk_task_id ";
+            SqlParameter spTaskID = new SqlParameter("@tk_task_id", strID);
+            SqlCommand qCommand = new SqlCommand(strQuery, dbConnection);
+            qCommand.Parameters.Add(spTaskID);
+            SqlDataReader qReader = qCommand.ExecuteReader();
+            DataTable dtTable = new DataTable();
+            dtTable.Load(qReader);
+            dtTable.TableName = "struktTaskExtend";
+
+            if (dtTable.Rows.Count > 0)
+            {
+                //Update
+                strQuery = "update struktTaskExtend set tk_description = @tk_description,tk_link_type = @tk_link_type,tk_address = @tk_address  WHERE tk_task_id= @tk_task_id ";
+            }
+            else
+            {
+                //Insert
+                strQuery = "insert into struktTaskExtend  (tk_task_id, tk_description, tk_link_type, tk_address ) values (@tk_task_id,@tk_description,@tk_link_type,@tk_address)  ";
+            }
+
+            SqlParameter spDesc = new SqlParameter("@tk_description", strDesc);
+            SqlParameter spLinkType = new SqlParameter("@tk_link_type", strLinkType);
+            SqlParameter spAddress = new SqlParameter("@tk_address", strAddress);
+            qCommand.Parameters.Clear();
+            qCommand.Parameters.Add(spTaskID);
+            qCommand.Parameters.Add(spDesc);
+            qCommand.Parameters.Add(spLinkType);
+            qCommand.Parameters.Add(spAddress);
+            qCommand.CommandText = strQuery;
+            qCommand.ExecuteNonQuery();
+
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        finally
+        {
+            dbConnection.Close();
+        }
+
+    }
+
+    [WebMethod]
+    public DataTable getAppListAll()
+    {
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        dbConnection.Open();
+        string strQ = "select * from struktAppList";
+
+        SqlCommand qCommand = new SqlCommand(strQ, dbConnection);
+        SqlDataReader qReader = qCommand.ExecuteReader();
+        DataTable dtTable = new DataTable();
+        dtTable.Load(qReader);
+        dtTable.TableName = "struktAppList";
+        dbConnection.Close();
+        if (dtTable.Rows.Count > 0)
+        {
+            return dtTable;
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
     
 }

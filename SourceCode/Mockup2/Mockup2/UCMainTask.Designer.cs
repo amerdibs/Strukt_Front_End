@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbCheck = new System.Windows.Forms.CheckBox();
             this.lbTitle = new System.Windows.Forms.Label();
             this.lAssign = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.pbCollape = new System.Windows.Forms.PictureBox();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
+            this.ttTaskControl = new System.Windows.Forms.ToolTip(this.components);
             this.pnAssigned.SuspendLayout();
             this.pnReceived.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCollape)).BeginInit();
@@ -250,5 +252,6 @@
         private System.Windows.Forms.Button btnSendtoAssigner;
         private System.Windows.Forms.Button btnSendtoReceiver;
         private System.Windows.Forms.PictureBox pbCollape;
+        private System.Windows.Forms.ToolTip ttTaskControl;
     }
 }

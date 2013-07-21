@@ -80,6 +80,11 @@ namespace Mockup2
                 return;
             }
            Task returnTask= Task.editTask(taskMember);
+           //Update Task Extend in Webservice
+           ttTaskControl.SetToolTip(lbTitle, taskMember.description);
+           StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
+           struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(taskMember.id), taskMember.description, taskMember.attachmentType, taskMember.attachmentDetail);
+
            lbTitle.Text = returnTask.name;
 
         }

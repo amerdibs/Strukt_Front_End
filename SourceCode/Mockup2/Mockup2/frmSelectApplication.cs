@@ -16,5 +16,22 @@ namespace Mockup2
         {
             InitializeComponent();
         }
+
+        private void frmSelectApplication_Load(object sender, EventArgs e)
+        {
+            lbApplist.DataSource = global.appTable;
+            lbApplist.ValueMember = "app_address";
+            lbApplist.DisplayMember = "app_name";
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

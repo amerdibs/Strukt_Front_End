@@ -59,6 +59,7 @@
             this.deleteTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -461,6 +462,7 @@
         private System.Windows.Forms.PictureBox pbMaximize;
         private System.Windows.Forms.PictureBox pnMimimize;
         private System.Windows.Forms.PictureBox pnLogo;
+        private System.Windows.Forms.ToolTip ttMainForm;
     }
 }
 

@@ -131,7 +131,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getDescriptionDetailByList">
+      <s:element name="getTaskExtendByList">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="listStrTaskID" type="tns:ArrayOfString" />
@@ -143,10 +143,10 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:element name="getDescriptionDetailByListResponse">
+      <s:element name="getTaskExtendByListResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getDescriptionDetailByListResult">
+            <s:element minOccurs="0" maxOccurs="1" name="getTaskExtendByListResult">
               <s:complexType>
                 <s:sequence>
                   <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
@@ -167,6 +167,36 @@
       </s:element>
       <s:element name="setUptadeTaskDescriptionResponse">
         <s:complexType />
+      </s:element>
+      <s:element name="setUpdateTaskExtend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLinkType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setUpdateTaskExtendResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAppListAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAppListAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAppListAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
       </s:element>
     </s:schema>
   </wsdl:types>
@@ -212,17 +242,29 @@
   <wsdl:message name="getDescriptionDetailSoapOut">
     <wsdl:part name="parameters" element="tns:getDescriptionDetailResponse" />
   </wsdl:message>
-  <wsdl:message name="getDescriptionDetailByListSoapIn">
-    <wsdl:part name="parameters" element="tns:getDescriptionDetailByList" />
+  <wsdl:message name="getTaskExtendByListSoapIn">
+    <wsdl:part name="parameters" element="tns:getTaskExtendByList" />
   </wsdl:message>
-  <wsdl:message name="getDescriptionDetailByListSoapOut">
-    <wsdl:part name="parameters" element="tns:getDescriptionDetailByListResponse" />
+  <wsdl:message name="getTaskExtendByListSoapOut">
+    <wsdl:part name="parameters" element="tns:getTaskExtendByListResponse" />
   </wsdl:message>
   <wsdl:message name="setUptadeTaskDescriptionSoapIn">
     <wsdl:part name="parameters" element="tns:setUptadeTaskDescription" />
   </wsdl:message>
   <wsdl:message name="setUptadeTaskDescriptionSoapOut">
     <wsdl:part name="parameters" element="tns:setUptadeTaskDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="setUpdateTaskExtendSoapIn">
+    <wsdl:part name="parameters" element="tns:setUpdateTaskExtend" />
+  </wsdl:message>
+  <wsdl:message name="setUpdateTaskExtendSoapOut">
+    <wsdl:part name="parameters" element="tns:setUpdateTaskExtendResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAppListAllSoapIn">
+    <wsdl:part name="parameters" element="tns:getAppListAll" />
+  </wsdl:message>
+  <wsdl:message name="getAppListAllSoapOut">
+    <wsdl:part name="parameters" element="tns:getAppListAllResponse" />
   </wsdl:message>
   <wsdl:portType name="StruktUserSoap">
     <wsdl:operation name="HelloWorld">
@@ -253,13 +295,21 @@
       <wsdl:input message="tns:getDescriptionDetailSoapIn" />
       <wsdl:output message="tns:getDescriptionDetailSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="getDescriptionDetailByList">
-      <wsdl:input message="tns:getDescriptionDetailByListSoapIn" />
-      <wsdl:output message="tns:getDescriptionDetailByListSoapOut" />
+    <wsdl:operation name="getTaskExtendByList">
+      <wsdl:input message="tns:getTaskExtendByListSoapIn" />
+      <wsdl:output message="tns:getTaskExtendByListSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="setUptadeTaskDescription">
       <wsdl:input message="tns:setUptadeTaskDescriptionSoapIn" />
       <wsdl:output message="tns:setUptadeTaskDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setUpdateTaskExtend">
+      <wsdl:input message="tns:setUpdateTaskExtendSoapIn" />
+      <wsdl:output message="tns:setUpdateTaskExtendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAppListAll">
+      <wsdl:input message="tns:getAppListAllSoapIn" />
+      <wsdl:output message="tns:getAppListAllSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StruktUserSoap" type="tns:StruktUserSoap">
@@ -327,8 +377,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getDescriptionDetailByList">
-      <soap:operation soapAction="http://tempuri.org/getDescriptionDetailByList" style="document" />
+    <wsdl:operation name="getTaskExtendByList">
+      <soap:operation soapAction="http://tempuri.org/getTaskExtendByList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -338,6 +388,24 @@
     </wsdl:operation>
     <wsdl:operation name="setUptadeTaskDescription">
       <soap:operation soapAction="http://tempuri.org/setUptadeTaskDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUpdateTaskExtend">
+      <soap:operation soapAction="http://tempuri.org/setUpdateTaskExtend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAppListAll">
+      <soap:operation soapAction="http://tempuri.org/getAppListAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -411,8 +479,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getDescriptionDetailByList">
-      <soap12:operation soapAction="http://tempuri.org/getDescriptionDetailByList" style="document" />
+    <wsdl:operation name="getTaskExtendByList">
+      <soap12:operation soapAction="http://tempuri.org/getTaskExtendByList" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -422,6 +490,24 @@
     </wsdl:operation>
     <wsdl:operation name="setUptadeTaskDescription">
       <soap12:operation soapAction="http://tempuri.org/setUptadeTaskDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUpdateTaskExtend">
+      <soap12:operation soapAction="http://tempuri.org/setUpdateTaskExtend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAppListAll">
+      <soap12:operation soapAction="http://tempuri.org/getAppListAll" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

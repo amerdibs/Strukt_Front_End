@@ -128,7 +128,23 @@ namespace Mockup2
                 taskUse.date = global.convertStruktDateTimeToString(dtpDate.Value);
             if (dtpDeadline.Value != null)
                 taskUse.deadline = global.convertStruktDateTimeToString(dtpDeadline.Value);
+
+            string strType = "";
+            if (rbNone.Checked)
+                strType = "NONE";
+            else
+            if (rbLink.Checked)
+                strType = "LINK";
+            else
+            if (rbApp.Checked)
+                strType = "APP";
+            else
+            if (rbFile.Checked)
+                strType = "FILE";
+
             taskUse.description = txtDetail.Text;
+            taskUse.attachmentDetail = txtAddress.Text;
+            taskUse.attachmentType = strType;
   
         }
 
@@ -148,6 +164,32 @@ namespace Mockup2
                 e.Graphics.FillRectangle(brush, rc);
 
             }
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+
+            if (rbNone.Checked)
+                return;
+            else
+                if (rbLink.Checked)
+                    MessageBox.Show("Please input web address in textbox.");
+                else
+                    if (rbApp.Checked)
+                    {
+                        frmSelectApplication frmSelect = new frmSelectApplication();
+                        frmSelect.Show();
+                        //DialogResult = frmSelect.ShowDialog(this);
+                        //if (DialogResult == DialogResult.OK)
+                        //{
+
+                        //}
+                    }
+                    else
+                        if (rbFile.Checked)
+                        {
+                        }
+ 
         }
 
 

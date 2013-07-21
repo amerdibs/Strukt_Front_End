@@ -93,6 +93,7 @@ namespace Mockup2
 
             StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
             global.userTable = wsStrukt.getUserAll();
+            global.appTable = wsStrukt.getAppListAll();
 
             if (global.processTable.Columns.Contains("u_name"))
             {
@@ -289,6 +290,11 @@ namespace Mockup2
                     PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
                     pbCollapse.MouseClick += pbCollapse_MouseClick;
 
+                    //Update Task Extend in Webservice
+                    ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
+                    StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
+                    struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
+
                     checkAssignmentUpdateControl(sender, e);
                 }
 
@@ -371,6 +377,11 @@ namespace Mockup2
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
                 PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
                 pbCollapse.MouseClick += pbCollapse_MouseClick;
+
+                //Update Task Extend in Webservice
+                ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
+                StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
+                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
             }
             else
             {
@@ -480,6 +491,12 @@ namespace Mockup2
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
                 PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
                 pbCollapse.MouseClick += pbCollapse_MouseClick;
+
+                //Update Task Extend in Webservice
+                ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
+                StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
+                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
+
             }
 
             checkAssignmentUpdateControl(sender, e);
@@ -828,11 +845,16 @@ namespace Mockup2
             Cursor.Current = Cursors.WaitCursor;
             try
             {
+                //Create main workflow
                 Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString(),null);
                 global.workflowMain = wfMain;
                 pnCenter.Controls.Clear();
+
+                //Generate task control
                 generateTaskControl(wfMain, 0);
                 setCollapeControlsAfterProcessLoad();
+
+                //Create task extension and tooltips
                 List<Task> taskList = new List<Task>();
                 global.getTaskListFromAllWorkflow(global.workflowMain, taskList);
                 List<string> listStrTaskID = new List<string>();
@@ -843,8 +865,23 @@ namespace Mockup2
                 string[] arStr = new string[listStrTaskID.Count];
                 listStrTaskID.CopyTo(arStr);
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-                DataTable dtDesc = struktWS.getDescriptionDetailByList(arStr);
-                
+                DataTable dtDesc = struktWS.getTaskExtendByList(arStr);
+                foreach (DataRow dtRow in dtDesc.Rows)
+                {
+                    foreach (Object obj in pnCenter.Controls)
+                    {
+                        UCMainTask ucMain = (UCMainTask)obj;
+                        if (global.getValueFromStruktValue(ucMain.taskMember.id) == dtRow["tk_task_id"].ToString())
+                        {
+                            ttMainForm.SetToolTip(ucMain.Controls["lbTitle"], dtRow["tk_description"].ToString());
+                            ucMain.taskMember.description = dtRow["tk_description"].ToString();
+                            ucMain.taskMember.attachmentType = dtRow["tk_link_type"].ToString();
+                            ucMain.taskMember.attachmentDetail = dtRow["tk_address"].ToString();
+                        }
+
+                    }
+
+                }
 
 
 

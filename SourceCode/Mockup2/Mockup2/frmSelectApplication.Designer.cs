@@ -32,11 +32,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.pnBody = new System.Windows.Forms.Panel();
-            this.lbUser = new System.Windows.Forms.ListBox();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtMsg = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbApplist = new System.Windows.Forms.ListBox();
             this.pnControl.SuspendLayout();
             this.pnBody.SuspendLayout();
             this.SuspendLayout();
@@ -48,104 +44,70 @@
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControl.Location = new System.Drawing.Point(0, 263);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(294, 39);
+            this.pnControl.Size = new System.Drawing.Size(283, 39);
             this.pnControl.TabIndex = 5;
             // 
             // btnCancel
             // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.btnCancel.Image = global::Mockup2.Properties.Resources.ball_red;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(211, 6);
+            this.btnCancel.Location = new System.Drawing.Point(196, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.btnOK.Image = global::Mockup2.Properties.Resources.shop_cart;
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOK.Location = new System.Drawing.Point(130, 6);
+            this.btnOK.Location = new System.Drawing.Point(115, 6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "Select";
             this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // pnBody
             // 
-            this.pnBody.Controls.Add(this.lbUser);
-            this.pnBody.Controls.Add(this.txtUser);
-            this.pnBody.Controls.Add(this.label2);
-            this.pnBody.Controls.Add(this.txtMsg);
-            this.pnBody.Controls.Add(this.label1);
+            this.pnBody.Controls.Add(this.lbApplist);
             this.pnBody.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBody.Location = new System.Drawing.Point(0, 0);
             this.pnBody.Name = "pnBody";
-            this.pnBody.Size = new System.Drawing.Size(294, 263);
+            this.pnBody.Size = new System.Drawing.Size(283, 263);
             this.pnBody.TabIndex = 4;
             // 
-            // lbUser
+            // lbApplist
             // 
-            this.lbUser.FormattingEnabled = true;
-            this.lbUser.Location = new System.Drawing.Point(79, 10);
-            this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(193, 69);
-            this.lbUser.TabIndex = 5;
-            // 
-            // txtUser
-            // 
-            this.txtUser.Enabled = false;
-            this.txtUser.Location = new System.Drawing.Point(12, 146);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(42, 20);
-            this.txtUser.TabIndex = 4;
-            this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Message";
-            // 
-            // txtMsg
-            // 
-            this.txtMsg.Location = new System.Drawing.Point(79, 86);
-            this.txtMsg.Multiline = true;
-            this.txtMsg.Name = "txtMsg";
-            this.txtMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMsg.Size = new System.Drawing.Size(193, 143);
-            this.txtMsg.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "User";
+            this.lbApplist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbApplist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbApplist.FormattingEnabled = true;
+            this.lbApplist.Location = new System.Drawing.Point(0, 0);
+            this.lbApplist.Name = "lbApplist";
+            this.lbApplist.ScrollAlwaysVisible = true;
+            this.lbApplist.Size = new System.Drawing.Size(283, 263);
+            this.lbApplist.TabIndex = 0;
             // 
             // frmSelectApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 302);
+            this.ClientSize = new System.Drawing.Size(283, 302);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnBody);
             this.Name = "frmSelectApplication";
             this.Text = "Application";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.frmSelectApplication_Load);
             this.pnControl.ResumeLayout(false);
             this.pnBody.ResumeLayout(false);
-            this.pnBody.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -156,10 +118,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Panel pnBody;
-        private System.Windows.Forms.ListBox lbUser;
-        private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMsg;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox lbApplist;
     }
 }
