@@ -21,7 +21,7 @@ namespace Mockup2
         public Color colorBackGround { get; set; }
         public Task taskMember { get; set; }
         public int iLevel { get; set; }
-        public Task taskUse { get; set; }
+        //public Task taskUse { get; set; }
         public byte collapseType { get; set; }
         public const byte collapseType_nochild = 0;
         public const byte collapseType_collapse = 1;
@@ -137,10 +137,26 @@ namespace Mockup2
 
         private void btnLink_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.uni-mannheim.de");
+
+            if (taskMember.attachmentType == "LINK")
+            {
+                global.openLink(taskMember.attachmentDetail);
+            }
+            else
+                if (taskMember.attachmentType == "APP")
+                {
+                    DataRow[] rResult = global.appTable.Select("app_name = '" + taskMember.attachmentDetail +"'");
+                    if (rResult.Length > 0)
+                        System.Diagnostics.Process.Start(rResult[0]["app_address"].ToString());
+                }
+                else
+                    if (taskMember.attachmentType == "FILE")
+                    {
+                        System.Diagnostics.Process.Start(taskMember.attachmentDetail);
+                    }
         }
 
-       
+
        
 
         private void cbCheck_Click(object sender, EventArgs e)

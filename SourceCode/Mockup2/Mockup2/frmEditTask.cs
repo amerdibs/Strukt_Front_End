@@ -106,6 +106,31 @@ namespace Mockup2
                     dtpDeadline.Value = global.convertFromStruktDateTime(taskUse.deadline);
                 if (taskUse.description != null)
                     txtDetail.Text = taskUse.description;
+                if (taskUse.attachmentDetail != null)
+                    txtAddress.Text = taskUse.attachmentDetail;
+                if (taskUse.attachmentType != null)
+                {
+                    if (taskUse.attachmentType == "NONE")
+                    {
+                        rbNone.Checked = true;
+                    }
+                    else
+                        if (taskUse.attachmentType == "LINK")
+                        {
+                            rbLink.Checked = true;
+                        }
+                        else
+                            if (taskUse.attachmentType == "APP")
+                            {
+                                rbApp.Checked = true;
+                            }
+                            else
+                                if (taskUse.attachmentType == "FILE")
+                                {
+                                    rbFile.Checked = true;
+                                }
+                }
+                   
             }
           
          
@@ -178,16 +203,21 @@ namespace Mockup2
                     if (rbApp.Checked)
                     {
                         frmSelectApplication frmSelect = new frmSelectApplication();
-                        frmSelect.Show();
-                        //DialogResult = frmSelect.ShowDialog(this);
-                        //if (DialogResult == DialogResult.OK)
-                        //{
-
-                        //}
+                        DialogResult diaSelect = frmSelect.ShowDialog();
+                        if (diaSelect == DialogResult.OK)
+                        {
+                            txtAddress.Text = frmSelect.strSelect;
+                        }
                     }
                     else
                         if (rbFile.Checked)
                         {
+                            DialogResult result = ofFileDialog.ShowDialog();
+                            if (result == DialogResult.OK) 
+                            {
+                                txtAddress.Text = ofFileDialog.FileName;
+                            }
+
                         }
  
         }

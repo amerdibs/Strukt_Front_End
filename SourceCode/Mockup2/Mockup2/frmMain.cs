@@ -269,7 +269,9 @@ namespace Mockup2
 
                     pnCenter.Controls.SetChildIndex(uMain, iIndex);
 
-
+                    returnTaskAdd.description = frmEdit.taskUse.description;
+                    returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
+                    returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
 
                     uMain.taskMember = returnTaskAdd;
                     uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
@@ -294,6 +296,11 @@ namespace Mockup2
                     ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
                     StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                     struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
+                    if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
+                    {
+                        uMain.Controls["btnLink"].Enabled = true;
+                    }
+
 
                     checkAssignmentUpdateControl(sender, e);
                 }
@@ -359,6 +366,9 @@ namespace Mockup2
                 global.workflowMain.taskChildList[1].precedes_id = returnTaskAdd.id;
                 Task returnTaskFollow = Task.editTask(global.workflowMain.taskChildList[1]);
 
+                returnTaskAdd.description = frmEdit.taskUse.description;
+                returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
+                returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
@@ -368,6 +378,7 @@ namespace Mockup2
                 uMain.BringToFront();
                 uMain.taskMember = returnTaskAdd;
                 uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
+                uMain.setExistenceCollapeButton();
                 uMain.iLevel = 0;
 
                 uMain.BackColor = global.ColorMainTask;
@@ -382,6 +393,10 @@ namespace Mockup2
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                 struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
+                if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
+                {
+                    uMain.Controls["btnLink"].Enabled = true;
+                }
             }
             else
             {
@@ -451,6 +466,10 @@ namespace Mockup2
                     Task returnTaskUnderFollow = Task.editTask(taskUnderFollow);
                 }
 
+                returnTaskAdd.description = frmEdit.taskUse.description;
+                returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
+                returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
+
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
                 uMain.Height = global.heightControlTaskNormal;
@@ -496,7 +515,10 @@ namespace Mockup2
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                 struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
-
+                if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
+                {
+                    uMain.Controls["btnLink"].Enabled = true;
+                }
             }
 
             checkAssignmentUpdateControl(sender, e);
@@ -866,20 +888,28 @@ namespace Mockup2
                 listStrTaskID.CopyTo(arStr);
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                 DataTable dtDesc = struktWS.getTaskExtendByList(arStr);
-                foreach (DataRow dtRow in dtDesc.Rows)
+                if (dtDesc != null)
                 {
-                    foreach (Object obj in pnCenter.Controls)
+                    foreach (DataRow dtRow in dtDesc.Rows)
                     {
-                        UCMainTask ucMain = (UCMainTask)obj;
-                        if (global.getValueFromStruktValue(ucMain.taskMember.id) == dtRow["tk_task_id"].ToString())
+                        foreach (Object obj in pnCenter.Controls)
                         {
-                            ttMainForm.SetToolTip(ucMain.Controls["lbTitle"], dtRow["tk_description"].ToString());
-                            ucMain.taskMember.description = dtRow["tk_description"].ToString();
-                            ucMain.taskMember.attachmentType = dtRow["tk_link_type"].ToString();
-                            ucMain.taskMember.attachmentDetail = dtRow["tk_address"].ToString();
-                        }
+                            UCMainTask ucMain = (UCMainTask)obj;
+                            if (global.getValueFromStruktValue(ucMain.taskMember.id) == dtRow["tk_task_id"].ToString())
+                            {
+                                ttMainForm.SetToolTip(ucMain.Controls["lbTitle"], dtRow["tk_description"].ToString());
+                                ucMain.taskMember.description = dtRow["tk_description"].ToString();
+                                ucMain.taskMember.attachmentType = dtRow["tk_link_type"].ToString();
+                                ucMain.taskMember.attachmentDetail = dtRow["tk_address"].ToString();
+                                if (ucMain.taskMember.attachmentType != "NONE" && ucMain.taskMember.attachmentType != "" && ucMain.taskMember.attachmentType != null)
+                                {
+                                    ucMain.Controls["btnLink"].Enabled = true;
+                                }
+                            }
 
-                    }
+                        }
+                }
+                
 
                 }
 

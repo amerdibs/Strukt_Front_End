@@ -12,6 +12,8 @@ namespace Mockup2
 {
     public partial class frmSelectApplication : Form
     {
+        public string strSelect { get; set; }
+
         public frmSelectApplication()
         {
             InitializeComponent();
@@ -19,19 +21,22 @@ namespace Mockup2
 
         private void frmSelectApplication_Load(object sender, EventArgs e)
         {
-            lbApplist.DataSource = global.appTable;
-            lbApplist.ValueMember = "app_address";
-            lbApplist.DisplayMember = "app_name";
+
+            foreach (DataRow dtRow in global.appTable.Rows)
+            {
+               lvAppList.Items.Add(new ListViewItem(new string[] { dtRow["app_name"].ToString(), dtRow["app_address"].ToString() }));
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-
+            strSelect = lvAppList.SelectedItems[0].Text;
+            Hide();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            Hide();
         }
     }
 }

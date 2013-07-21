@@ -53,6 +53,7 @@
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbNone = new System.Windows.Forms.RadioButton();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.rbFile = new System.Windows.Forms.RadioButton();
@@ -67,7 +68,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.rbNone = new System.Windows.Forms.RadioButton();
+            this.ofFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbProp.SuspendLayout();
@@ -414,6 +415,18 @@
             this.groupBox2.Text = "Tools";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // rbNone
+            // 
+            this.rbNone.AutoSize = true;
+            this.rbNone.Checked = true;
+            this.rbNone.Location = new System.Drawing.Point(19, 20);
+            this.rbNone.Name = "rbNone";
+            this.rbNone.Size = new System.Drawing.Size(51, 17);
+            this.rbNone.TabIndex = 5;
+            this.rbNone.TabStop = true;
+            this.rbNone.Text = "None";
+            this.rbNone.UseVisualStyleBackColor = true;
+            // 
             // btnBrowse
             // 
             this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -560,16 +573,9 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Preconditions";
             // 
-            // rbNone
+            // ofFileDialog
             // 
-            this.rbNone.AutoSize = true;
-            this.rbNone.Checked = true;
-            this.rbNone.Location = new System.Drawing.Point(19, 20);
-            this.rbNone.Name = "rbNone";
-            this.rbNone.Size = new System.Drawing.Size(51, 17);
-            this.rbNone.TabIndex = 5;
-            this.rbNone.Text = "None";
-            this.rbNone.UseVisualStyleBackColor = true;
+            this.ofFileDialog.FileName = "*.*";
             // 
             // frmTaskEdit
             // 
@@ -641,5 +647,6 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.RadioButton rbNone;
+        private System.Windows.Forms.OpenFileDialog ofFileDialog;
     }
 }
