@@ -800,14 +800,12 @@ namespace Mockup2
             if (global.roleUser == User.roleExecutor)
                 return;
 
-            Object uControl = global.dragTaskControlObject;
+            // --- Drag drop event
+            //The task is dropped on the panel.
+            //We assign the last task of workflow to dropped object;
+            global.dropTaskControlObject = getUCMainTaskByTaskID(global.workflowMain.taskChildList[0].id);
+            EventHandlerFromMainTask_DragDrop(sender, e);
 
-            UCMainTask uSelect = (UCMainTask)uControl;
-            pnCenter.Controls.SetChildIndex(uSelect,0);
-   
-            global.dragTaskControlObject = null;
-            global.dragTaskControlID = 0;
-            
         }
 
         private void EventHandlerFromMainTask_DragDrop(object sender, DragEventArgs e)
@@ -850,8 +848,11 @@ namespace Mockup2
             UCMainTask ucOldUpper = null;
             if (ucDrag.taskMember.follows_id == null)
             {
-                ucOldFollow = getUCMainTaskByTaskID(ucDrag.taskMember.precedes_id);
-                ucOldFollow.taskMember.follows_id = null;
+                if (ucDrag.taskMember.precedes_id != ucReceive.taskMember.id)
+                {
+                    ucOldFollow = getUCMainTaskByTaskID(ucDrag.taskMember.precedes_id);
+                    ucOldFollow.taskMember.follows_id = null;
+                }
             }
             else
                 if (ucDrag.taskMember.precedes_id == null)
@@ -918,12 +919,8 @@ namespace Mockup2
                         ucReceive.taskMember.follows_id = ucDrag.taskMember.id;
                     }
 
-            Task taskReturnReceive = Task.editTask(ucReceive.taskMember);
-            Task taskReturnDrag = Task.editTask(ucDrag.taskMember);
-            if (ucUpper != null)
-            {
-                Task taskReturnUpper = Task.editTask(ucUpper.taskMember);
-            }
+
+
 
             if (ucOldFollow != null)
             {
@@ -935,6 +932,12 @@ namespace Mockup2
                 Task taskReturnOldUpper = Task.editTask(ucOldUpper.taskMember);
             }
 
+            if (ucUpper != null)
+            {
+                Task taskReturnUpper = Task.editTask(ucUpper.taskMember);
+            }
+            Task taskReturnReceive = Task.editTask(ucReceive.taskMember);
+            Task taskReturnDrag = Task.editTask(ucDrag.taskMember);
 
             //Change order of tasks
             if ((ucDrag.taskMember.workflowChild.taskChildList != null) && (ucDrag.taskMember.workflowChild.taskChildList.Count > 0))
