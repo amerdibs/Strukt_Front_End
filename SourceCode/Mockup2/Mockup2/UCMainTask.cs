@@ -84,7 +84,10 @@ namespace Mockup2
            ttTaskControl.SetToolTip(lbTitle, taskMember.description);
            StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
            struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(taskMember.id), taskMember.description, taskMember.attachmentType, taskMember.attachmentDetail);
-
+           if (taskMember.attachmentType != "NONE" && taskMember.attachmentType != "" && taskMember.attachmentType != null)
+           {
+               btnLink.Enabled = true;
+           }
            lbTitle.Text = returnTask.name;
 
         }
