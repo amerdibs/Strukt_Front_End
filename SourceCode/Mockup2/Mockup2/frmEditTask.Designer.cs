@@ -576,6 +576,7 @@
             // ofFileDialog
             // 
             this.ofFileDialog.FileName = "*.*";
+            this.ofFileDialog.InitialDirectory = "W:\\";
             // 
             // frmTaskEdit
             // 
