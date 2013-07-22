@@ -821,13 +821,133 @@ namespace Mockup2
                 return;
 
             // --- Drag drop event
-            Object uControl = global.dragTaskControlObject;
+            //The task is dropped on the UC main task.
+            Object dragControl = global.dragTaskControlObject;
             Object receiveControl = global.dropTaskControlObject;
 
-            UCMainTask UCMainReceive = (UCMainTask)receiveControl;
-            int intReceive = pnCenter.Controls.GetChildIndex(UCMainReceive);
-            UCMainTask uSelect = (UCMainTask)uControl;
-            pnCenter.Controls.SetChildIndex(uSelect, intReceive);
+            UCMainTask ucReceive = (UCMainTask)receiveControl;
+            UCMainTask ucDrag = (UCMainTask)dragControl;
+            UCMainTask ucUpper = null;
+
+            //The dragged task and dropped task must be in the same workflow.
+            if (ucReceive.taskMember.parent_workflow_id != ucDrag.taskMember.parent_workflow_id)
+            {
+                MessageBox.Show("Please change order of tasks which are in the same workflow", "Cannot change the order of tasks");
+                global.dragTaskControlObject = null;
+                global.dragTaskControlID = 0;
+                return;
+            }
+
+            //After move operation, we will clean the footprint of the task
+            //    the dragged task come from first task in list
+            //        change old follow task.follow_task_id to null
+            //    the dragged task come from between two tasks
+            //        change old upper(precedes) task.precedes_id to old follow task.id
+            //        change old follow task.follow_id to old upper(precedes) task.id
+            //    the dragged task come from last task in list
+            //        change old upper(precedes) task.precedes_id to null
+            UCMainTask ucOldFollow = null;
+            UCMainTask ucOldUpper = null;
+            if (ucDrag.taskMember.follows_id == null)
+            {
+                ucOldFollow = getUCMainTaskByTaskID(ucDrag.taskMember.precedes_id);
+                ucOldFollow.taskMember.follows_id = null;
+            }
+            else
+                if (ucDrag.taskMember.precedes_id == null)
+                {
+                    ucOldUpper = getUCMainTaskByTaskID(ucDrag.taskMember.follows_id);
+                    ucOldUpper.taskMember.precedes_id = null;
+                }
+                else
+                    if ((ucDrag.taskMember.follows_id != null) && (ucDrag.taskMember.precedes_id != null))
+                    {
+                        ucOldUpper = getUCMainTaskByTaskID(ucDrag.taskMember.follows_id); 
+                        ucOldFollow = getUCMainTaskByTaskID(ucDrag.taskMember.precedes_id);
+                        ucOldUpper.taskMember.precedes_id = ucOldFollow.taskMember.id;
+                        ucOldFollow.taskMember.follows_id = ucOldUpper.taskMember.id;
+
+                    }
+
+            //There are 3 situations which depend on the dropped destination.
+            //1.Drop task at the top of the list
+            //    load itself, load the first task of the list
+            //        itself
+            //            change precedes id to followed task id
+            //            set follow id to null
+            //        first task of the list
+            //            change follow id to dropped task 
+            if (ucReceive.taskMember.follows_id == null)
+            {
+                ucDrag.taskMember.precedes_id = ucReceive.taskMember.id;
+                ucDrag.taskMember.follows_id = null;
+                ucReceive.taskMember.follows_id = ucDrag.taskMember.id;
+            }
+
+            //2.Drop task at the end of the list
+            //    load itself, load the last task of the list
+            //        itself
+            //            change follow_id to the last task
+            //            change precedes_id to null
+            //        the last task of the list
+            //            change precedes id to dropped task id
+            else
+                if (ucReceive.taskMember.precedes_id == null)
+                {
+                    ucDrag.taskMember.follows_id = ucReceive.taskMember.id;
+                    ucDrag.taskMember.precedes_id = null;
+                    ucReceive.taskMember.precedes_id = ucDrag.taskMember.id;
+                }
+
+            //3.Drop task which is in between the other tasks
+            //    load itself, load the upper(precesdes) task, load the follow task
+            //        itself
+            //            change  follow_id to followed task id
+            //            change precedes_id to upper(precedes) task id
+            //        the upper(precesdes) task
+            //            change follow id to dragged task id
+            //        the follow task
+                //            change precedes id to dragged task id
+                else
+                    if ((ucReceive.taskMember.precedes_id != null) && (ucReceive.taskMember.follows_id != null))
+                    {
+                        ucUpper = getUCMainTaskByTaskID(ucReceive.taskMember.follows_id);
+                        ucDrag.taskMember.follows_id = ucUpper.taskMember.id;
+                        ucDrag.taskMember.precedes_id = ucReceive.taskMember.id;
+                        ucUpper.taskMember.precedes_id = ucDrag.taskMember.id;
+                        ucReceive.taskMember.follows_id = ucDrag.taskMember.id;
+                    }
+
+            Task taskReturnReceive = Task.editTask(ucReceive.taskMember);
+            Task taskReturnDrag = Task.editTask(ucDrag.taskMember);
+            if (ucUpper != null)
+            {
+                Task taskReturnUpper = Task.editTask(ucUpper.taskMember);
+            }
+
+            if (ucOldFollow != null)
+            {
+                Task taskReturnOldFollow = Task.editTask(ucOldFollow.taskMember);
+            }
+
+            if (ucOldUpper != null)
+            {
+                Task taskReturnOldUpper = Task.editTask(ucOldUpper.taskMember);
+            }
+
+
+            //Change order of tasks
+            if ((ucDrag.taskMember.workflowChild.taskChildList != null) && (ucDrag.taskMember.workflowChild.taskChildList.Count > 0))
+            {
+                btnLoadProcess_Click(sender, e);
+            }
+            else
+            {
+                int intReceive = pnCenter.Controls.GetChildIndex(ucReceive);
+                pnCenter.Controls.SetChildIndex(ucDrag, intReceive);
+            }
+
+
             global.dragTaskControlObject = null;
             global.dragTaskControlID = 0;
 
@@ -1326,6 +1446,22 @@ namespace Mockup2
             {
                 UCMainTask ucMain = (UCMainTask)obj;
                 if (ucMain.taskMember.id == taskParam.id)
+                {
+                    ucRet = ucMain;
+                }
+            }
+            return ucRet;
+        }
+
+
+        private UCMainTask getUCMainTaskByTaskID(string strTaskID)
+        {
+            UCMainTask ucRet = null;
+
+            foreach (Object obj in pnCenter.Controls)
+            {
+                UCMainTask ucMain = (UCMainTask)obj;
+                if (ucMain.taskMember.id == strTaskID)
                 {
                     ucRet = ucMain;
                 }
