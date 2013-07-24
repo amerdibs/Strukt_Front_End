@@ -818,6 +818,10 @@ namespace Mockup2
             if (global.roleUser == User.roleExecutor)
                 return;
 
+            //Error checking
+            if (global.dragTaskControlObject == global.dropTaskControlObject)
+                return;
+
             // --- Drag drop event
             //The task is dropped on the UC main task.
             Object dragControl = global.dragTaskControlObject;
