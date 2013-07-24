@@ -321,9 +321,9 @@ namespace Mockup2
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            
 
-            if ((global.workflowMain == null) || (global.workflowMain.taskChildList.Count == 0))
+
+            if ((global.workflowMain == null) || (global.workflowMain.taskChildList == null) || (global.workflowMain.taskChildList.Count == 0))
             {
                 MessageBox.Show("Please load process before.\n We still don't implement this step right now.");
                 return;
