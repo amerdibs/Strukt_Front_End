@@ -66,7 +66,6 @@ namespace Mockup2
 
         private void lbTitle_Click_1(object sender, EventArgs e)
         {
-            UCMainTask_MouseDown(this, new MouseEventArgs(Control.MouseButtons, 0, Control.MousePosition.X, Control.MousePosition.Y, 0));
         }
 
         private void btnProp_Click(object sender, EventArgs e)
@@ -285,6 +284,26 @@ namespace Mockup2
             }
         }
 
+        public void setExistenceCollapeButtonRoleChild()
+        {
+            //Check children under this task
+            if ((taskMember.workflowChild.taskChildList != null) && (taskMember.workflowChild.taskChildList.Count > 0))
+            {
+                pbCollape.Visible = true;
+                collapseType = collapseType_uncollapse;
+                pbCollape.Image = Properties.Resources.uncollapes;
+            }
+            else
+            {
+                pbCollape.Visible = false;
+                collapseType = collapseType_nochild;
+            }
+
+            //User's role control
+            if (global.roleUser == User.roleExecutor)
+                btnProp.Visible = false;
+
+        }
         public void setExistenceCollapeButtonRole()
         {   
             //Check children under this task
@@ -313,7 +332,7 @@ namespace Mockup2
             global.dropTaskControlObject = this;
             if (this.MainTaskDragDrop != null)
             {
-                this.MainTaskDragDrop(sender, e);
+                this.MainTaskDragDrop(this, e);
             }
         }
 
@@ -364,6 +383,80 @@ namespace Mockup2
                 e.Effect = DragDropEffects.Link;
             }
         }
+
+        private void lbTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            //--- Mouse clicked event
+            global.currentTaskControlID = this.GetHashCode();
+            global.currentTaskControlType = global.currentTaskControlTypeMainTask;
+            global.currentTaskControlObject = this;
+            this.BackColor = global.ColorSelect;
+            preColor = global.ColorSelect;
+
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (this.MainTaskMouseDown != null)
+                    this.MainTaskMouseDown(sender, e);
+            }
+            else
+            {
+                //--- Drag drop event
+                global.dragTaskControlID = (this as UserControl).GetHashCode();
+                global.dragTaskControlObject = this;
+                DoDragDrop((this as UserControl).GetHashCode().ToString(), DragDropEffects.Link);
+
+            }
+        }
+
+        private void pnReceived_MouseDown(object sender, MouseEventArgs e)
+        {
+            //--- Mouse clicked event
+            global.currentTaskControlID = this.GetHashCode();
+            global.currentTaskControlType = global.currentTaskControlTypeMainTask;
+            global.currentTaskControlObject = this;
+            this.BackColor = global.ColorSelect;
+            preColor = global.ColorSelect;
+
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (this.MainTaskMouseDown != null)
+                    this.MainTaskMouseDown(sender, e);
+            }
+            else
+            {
+                //--- Drag drop event
+                global.dragTaskControlID = (this as UserControl).GetHashCode();
+                global.dragTaskControlObject = this;
+                DoDragDrop((this as UserControl).GetHashCode().ToString(), DragDropEffects.Link);
+
+            }
+        }
+
+        private void pnAssigned_MouseDown(object sender, MouseEventArgs e)
+        {
+            //--- Mouse clicked event
+            global.currentTaskControlID = this.GetHashCode();
+            global.currentTaskControlType = global.currentTaskControlTypeMainTask;
+            global.currentTaskControlObject = this;
+            this.BackColor = global.ColorSelect;
+            preColor = global.ColorSelect;
+
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (this.MainTaskMouseDown != null)
+                    this.MainTaskMouseDown(sender, e);
+            }
+            else
+            {
+                //--- Drag drop event
+                global.dragTaskControlID = (this as UserControl).GetHashCode();
+                global.dragTaskControlObject = this;
+                DoDragDrop((this as UserControl).GetHashCode().ToString(), DragDropEffects.Link);
+
+            }
+        }
+
+
 
 
       

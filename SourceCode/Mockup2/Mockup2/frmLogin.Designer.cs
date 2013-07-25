@@ -80,9 +80,9 @@
             // 
             this.btnPass.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.btnPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPass.Location = new System.Drawing.Point(4, 107);
+            this.btnPass.Location = new System.Drawing.Point(221, 2);
             this.btnPass.Name = "btnPass";
-            this.btnPass.Size = new System.Drawing.Size(208, 23);
+            this.btnPass.Size = new System.Drawing.Size(130, 23);
             this.btnPass.TabIndex = 4;
             this.btnPass.Text = "No Log-In But cannot use Assignment (Test Only)";
             this.btnPass.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             // 
             this.btnTest.Image = global::Mockup2.Properties.Resources.bt_ff;
             this.btnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTest.Location = new System.Drawing.Point(181, 78);
+            this.btnTest.Location = new System.Drawing.Point(327, 38);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(24, 23);
             this.btnTest.TabIndex = 5;
@@ -131,18 +131,18 @@
             // 
             // txtTest
             // 
-            this.txtTest.Location = new System.Drawing.Point(221, 12);
+            this.txtTest.Location = new System.Drawing.Point(221, 31);
             this.txtTest.Multiline = true;
             this.txtTest.Name = "txtTest";
             this.txtTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTest.Size = new System.Drawing.Size(100, 118);
+            this.txtTest.Size = new System.Drawing.Size(100, 100);
             this.txtTest.TabIndex = 8;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(217, 143);
+            this.ClientSize = new System.Drawing.Size(184, 106);
             this.Controls.Add(this.txtTest);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnPass);

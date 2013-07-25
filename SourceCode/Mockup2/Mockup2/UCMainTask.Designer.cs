@@ -71,9 +71,9 @@
             this.lbTitle.Size = new System.Drawing.Size(62, 13);
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "[New Task]";
-            this.lbTitle.Click += new System.EventHandler(this.lbTitle_Click_1);
             this.lbTitle.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragDrop);
             this.lbTitle.DragEnter += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragEnter);
+            this.lbTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitle_MouseDown);
             // 
             // lAssign
             // 
@@ -122,6 +122,7 @@
             this.pnAssigned.Visible = false;
             this.pnAssigned.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnAssigned_DragDrop);
             this.pnAssigned.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnAssigned_DragEnter);
+            this.pnAssigned.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnAssigned_MouseDown);
             // 
             // btnSendtoReceiver
             // 
@@ -160,6 +161,7 @@
             this.pnReceived.Visible = false;
             this.pnReceived.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnReceived_DragDrop);
             this.pnReceived.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnReceived_DragEnter);
+            this.pnReceived.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnReceived_MouseDown);
             // 
             // btnSendtoAssigner
             // 

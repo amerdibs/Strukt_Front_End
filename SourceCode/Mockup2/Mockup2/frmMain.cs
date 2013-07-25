@@ -224,26 +224,24 @@ namespace Mockup2
                     {
                         return;
                     }
-                    Task returnTaskAdd = Task.addTask(taskNew);
                     Workflow wfNew = Workflow.addWorkflow();
-                    wfNew.parent_task_id = returnTaskAdd.id;
-                    returnTaskAdd.child_workflow_id = wfNew.id;
+                    Task returnTaskAdd0 = Task.addTask(taskNew);
+                    wfNew.parent_task_id = returnTaskAdd0.id;
+                    returnTaskAdd0.child_workflow_id = wfNew.id;
                     wfNew.user_id = global.workflowMain.user_id;
                     Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+                    Task returnTaskAdd = Task.editTask(returnTaskAdd0);
                     
                     if ((uSelect.taskMember.workflowChild.taskChildList != null) && (uSelect.taskMember.workflowChild.taskChildList.Count > 0))
                     {
-                        //returnTaskAdd = Task.editTask(taskNew);
+                        
                         Task taskFollow = taskParent.workflowChild.taskChildList[0];
                         returnTaskAdd.follows_id = taskFollow.id;
                         taskFollow.precedes_id = returnTaskAdd.id;
                         Task taskReturn = Task.editTask(taskFollow);
                         returnTaskAdd = Task.editTask(returnTaskAdd);
                     }
-                    else
-                    {
-                        returnTaskAdd = Task.editTask(taskNew);
-                    }
+
 
 
 
@@ -257,19 +255,31 @@ namespace Mockup2
                     uMain.Height = global.heightControlTaskNormal;
                     pnCenter.Controls.Add(uMain);
                     uMain.Dock = DockStyle.Top;
+                   
+                    returnTaskAdd.description = frmEdit.taskUse.description;
+                    returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
+                    returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
+
+                    uMain.taskMember = returnTaskAdd;
+
                     int iIndex = 0;
                     if ((uSelect.taskMember.workflowChild.taskChildList != null) && (uSelect.taskMember.workflowChild.taskChildList.Count > 0))
                     {
+                        //Task taskFollow = taskParent.workflowChild.taskChildList[0];
+                        //taskParent.workflowChild.taskChildList.Insert(0, returnTaskAdd);
+                        //foreach (UCMainTask ucmEach in pnCenter.Controls)
+                        //{
+                        //    if (ucmEach.taskMember.id == taskFollow.id)
+                        //    {
+                        //        iIndex = pnCenter.Controls.GetChildIndex(ucmEach, true);
+                        //        break;
+                        //    }
+                        //}
                         Task taskFollow = taskParent.workflowChild.taskChildList[0];
                         taskParent.workflowChild.taskChildList.Insert(0, returnTaskAdd);
-                        foreach (UCMainTask ucmEach in pnCenter.Controls)
-                        {
-                            if (ucmEach.taskMember.id == taskFollow.id)
-                            {
-                                iIndex = pnCenter.Controls.GetChildIndex(ucmEach, true);
-                                break;
-                            }
-                        }
+                        Task taskFollowDeepest = Task.getDeepestChild(taskFollow);
+                        UCMainTask ucUse = getUCMainTaskByTask(taskFollowDeepest);
+                        iIndex = pnCenter.Controls.GetChildIndex(ucUse, true);
                     }
                     else
                     {
@@ -280,11 +290,8 @@ namespace Mockup2
 
                     pnCenter.Controls.SetChildIndex(uMain, iIndex);
 
-                    returnTaskAdd.description = frmEdit.taskUse.description;
-                    returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
-                    returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
 
-                    uMain.taskMember = returnTaskAdd;
+
                     uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
 
                     uMain.iLevel = uSelect.iLevel + 1;
@@ -294,7 +301,7 @@ namespace Mockup2
                     uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left + global.iIndentOfCheckBox;
                     uMain.setExistenceCollapeButtonRole();
                     UCMainTask ucParent = getUCMainTaskByTask(taskParent);
-                    ucParent.setExistenceCollapeButtonRole();
+                    ucParent.setExistenceCollapeButtonRoleChild();
                     uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uMain.iLevel);
                     uMain.colorBackGround = uMain.BackColor;
                   
@@ -302,6 +309,17 @@ namespace Mockup2
                     uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
                     PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
                     pbCollapse.MouseClick += pbCollapse_MouseClick;
+                    Label lbTitle = (Label)uMain.Controls["lbTitle"];
+                    lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                    lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                    Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
+                    pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                    pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                    Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
+                    pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                    pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
 
                     //Update Task Extend in Webservice
                     ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
@@ -359,10 +377,10 @@ namespace Mockup2
                 {
                     return;
                 }
-
+                Workflow wfNew = Workflow.addWorkflow();
                 Task returnTaskAdd = Task.addTask(taskNew);
 
-                Workflow wfNew = Workflow.addWorkflow();
+
                 wfNew.parent_task_id = returnTaskAdd.id;
                 returnTaskAdd.child_workflow_id = wfNew.id;
                 wfNew.user_id = global.workflowMain.user_id;
@@ -399,6 +417,18 @@ namespace Mockup2
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
                 PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
                 pbCollapse.MouseClick += pbCollapse_MouseClick;
+                Label lbTitle = (Label)uMain.Controls["lbTitle"];
+                lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
+                pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
+                pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
 
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
@@ -454,8 +484,9 @@ namespace Mockup2
                 {
                     return;
                 }
-                Task returnTaskAdd = Task.addTask(taskNew);
                 Workflow wfNew = Workflow.addWorkflow();
+                Task returnTaskAdd = Task.addTask(taskNew);
+
                 wfNew.parent_task_id = returnTaskAdd.id;
                 returnTaskAdd.child_workflow_id = wfNew.id;
                 wfNew.user_id = global.workflowMain.user_id;
@@ -521,6 +552,17 @@ namespace Mockup2
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
                 PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
                 pbCollapse.MouseClick += pbCollapse_MouseClick;
+                Label lbTitle = (Label)uMain.Controls["lbTitle"];
+                lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
+                pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
+                pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
 
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
@@ -810,16 +852,15 @@ namespace Mockup2
 
         private void EventHandlerFromMainTask_DragDrop(object sender, DragEventArgs e)
         {
-            
             // --- Mouse clicked event
             clearOtherSelectColor();
 
-            //Check user role
-            if (global.roleUser == User.roleExecutor)
-                return;
-
             //Error checking
             if (global.dragTaskControlObject == global.dropTaskControlObject)
+                return;
+
+            //Check user role
+            if (global.roleUser == User.roleExecutor)
                 return;
 
             // --- Drag drop event
@@ -840,108 +881,124 @@ namespace Mockup2
                 return;
             }
 
-            //After move operation, we will clean the footprint of the task
-            //    the dragged task come from first task in list
-            //        change old follow task.follow_task_id to null
-            //    the dragged task come from between two tasks
-            //        change old upper(precedes) task.precedes_id to old follow task.id
-            //        change old follow task.follow_id to old upper(precedes) task.id
-            //    the dragged task come from last task in list
-            //        change old upper(precedes) task.precedes_id to null
-            UCMainTask ucOldFollow = null;
-            UCMainTask ucOldUpper = null;
-            if (ucDrag.taskMember.follows_id == null)
+
+            Cursor.Current = Cursors.WaitCursor;
+
+            try
             {
-                if (ucDrag.taskMember.precedes_id != ucReceive.taskMember.id)
+                //After move operation, we will clean the footprint of the task
+                //    the dragged task come from first task in list
+                //        change old follow task.follow_task_id to null
+                //    the dragged task come from between two tasks
+                //        change old upper(precedes) task.precedes_id to old follow task.id
+                //        change old follow task.follow_id to old upper(precedes) task.id
+                //    the dragged task come from last task in list
+                //        change old upper(precedes) task.precedes_id to null
+                UCMainTask ucOldFollow = null;
+                UCMainTask ucOldUpper = null;
+                if (ucDrag.taskMember.follows_id == null)
                 {
-                    ucOldFollow = getUCMainTaskByTaskID(ucDrag.taskMember.precedes_id);
-                    ucOldFollow.taskMember.follows_id = null;
-                }
-            }
-            else
-                if (ucDrag.taskMember.precedes_id == null)
-                {
-                    ucOldUpper = getUCMainTaskByTaskID(ucDrag.taskMember.follows_id);
-                    ucOldUpper.taskMember.precedes_id = null;
-                }
-                else
-                    if ((ucDrag.taskMember.follows_id != null) && (ucDrag.taskMember.precedes_id != null))
+                    if (ucDrag.taskMember.precedes_id != ucReceive.taskMember.id)
                     {
-                        ucOldUpper = getUCMainTaskByTaskID(ucDrag.taskMember.follows_id); 
                         ucOldFollow = getUCMainTaskByTaskID(ucDrag.taskMember.precedes_id);
-                        ucOldUpper.taskMember.precedes_id = ucOldFollow.taskMember.id;
-                        ucOldFollow.taskMember.follows_id = ucOldUpper.taskMember.id;
-
+                        ucOldFollow.taskMember.follows_id = null;
                     }
+                }
+                else
+                    if (ucDrag.taskMember.precedes_id == null)
+                    {
+                        ucOldUpper = getUCMainTaskByTaskID(ucDrag.taskMember.follows_id);
+                        ucOldUpper.taskMember.precedes_id = null;
+                    }
+                    else
+                        if ((ucDrag.taskMember.follows_id != null) && (ucDrag.taskMember.precedes_id != null))
+                        {
+                            ucOldUpper = getUCMainTaskByTaskID(ucDrag.taskMember.follows_id);
+                            ucOldFollow = getUCMainTaskByTaskID(ucDrag.taskMember.precedes_id);
+                            ucOldUpper.taskMember.precedes_id = ucOldFollow.taskMember.id;
+                            ucOldFollow.taskMember.follows_id = ucOldUpper.taskMember.id;
 
-            //There are 3 situations which depend on the dropped destination.
-            //1.Drop task at the top of the list
-            //    load itself, load the first task of the list
-            //        itself
-            //            change precedes id to followed task id
-            //            set follow id to null
-            //        first task of the list
-            //            change follow id to dropped task 
-            if (ucReceive.taskMember.follows_id == null)
-            {
-                ucDrag.taskMember.precedes_id = ucReceive.taskMember.id;
-                ucDrag.taskMember.follows_id = null;
-                ucReceive.taskMember.follows_id = ucDrag.taskMember.id;
-            }
+                        }
 
-            //2.Drop task at the end of the list
-            //    load itself, load the last task of the list
-            //        itself
-            //            change follow_id to the last task
-            //            change precedes_id to null
-            //        the last task of the list
-            //            change precedes id to dropped task id
-            else
-                if (ucReceive.taskMember.precedes_id == null)
+                //There are 3 situations which depend on the dropped destination.
+                //1.Drop task at the top of the list
+                //    load itself, load the first task of the list
+                //        itself
+                //            change precedes id to followed task id
+                //            set follow id to null
+                //        first task of the list
+                //            change follow id to dropped task 
+                if (ucReceive.taskMember.follows_id == null)
                 {
-                    ucDrag.taskMember.follows_id = ucReceive.taskMember.id;
-                    ucDrag.taskMember.precedes_id = null;
-                    ucReceive.taskMember.precedes_id = ucDrag.taskMember.id;
+                    ucDrag.taskMember.precedes_id = ucReceive.taskMember.id;
+                    ucDrag.taskMember.follows_id = null;
+                    ucReceive.taskMember.follows_id = ucDrag.taskMember.id;
                 }
 
-            //3.Drop task which is in between the other tasks
-            //    load itself, load the upper(precesdes) task, load the follow task
-            //        itself
-            //            change  follow_id to followed task id
-            //            change precedes_id to upper(precedes) task id
-            //        the upper(precesdes) task
-            //            change follow id to dragged task id
-            //        the follow task
-                //            change precedes id to dragged task id
+                //2.Drop task at the end of the list
+                //    load itself, load the last task of the list
+                //        itself
+                //            change follow_id to the last task
+                //            change precedes_id to null
+                //        the last task of the list
+                //            change precedes id to dropped task id
                 else
-                    if ((ucReceive.taskMember.precedes_id != null) && (ucReceive.taskMember.follows_id != null))
+                    if (ucReceive.taskMember.precedes_id == null)
                     {
-                        ucUpper = getUCMainTaskByTaskID(ucReceive.taskMember.follows_id);
-                        ucDrag.taskMember.follows_id = ucUpper.taskMember.id;
-                        ucDrag.taskMember.precedes_id = ucReceive.taskMember.id;
-                        ucUpper.taskMember.precedes_id = ucDrag.taskMember.id;
-                        ucReceive.taskMember.follows_id = ucDrag.taskMember.id;
+                        ucDrag.taskMember.follows_id = ucReceive.taskMember.id;
+                        ucDrag.taskMember.precedes_id = null;
+                        ucReceive.taskMember.precedes_id = ucDrag.taskMember.id;
                     }
 
+                //3.Drop task which is in between the other tasks
+                    //    load itself, load the upper(precesdes) task, load the follow task
+                    //        itself
+                    //            change  follow_id to followed task id
+                    //            change precedes_id to upper(precedes) task id
+                    //        the upper(precesdes) task
+                    //            change follow id to dragged task id
+                    //        the follow task
+                    //            change precedes id to dragged task id
+                    else
+                        if ((ucReceive.taskMember.precedes_id != null) && (ucReceive.taskMember.follows_id != null))
+                        {
+                            ucUpper = getUCMainTaskByTaskID(ucReceive.taskMember.follows_id);
+                            ucDrag.taskMember.follows_id = ucUpper.taskMember.id;
+                            ucDrag.taskMember.precedes_id = ucReceive.taskMember.id;
+                            ucUpper.taskMember.precedes_id = ucDrag.taskMember.id;
+                            ucReceive.taskMember.follows_id = ucDrag.taskMember.id;
+                        }
 
 
 
-            if (ucOldFollow != null)
-            {
-                Task taskReturnOldFollow = Task.editTask(ucOldFollow.taskMember);
+
+                if (ucOldFollow != null)
+                {
+                    Task taskReturnOldFollow = Task.editTask(ucOldFollow.taskMember);
+                }
+
+                if (ucOldUpper != null)
+                {
+                    Task taskReturnOldUpper = Task.editTask(ucOldUpper.taskMember);
+                }
+
+                if (ucUpper != null)
+                {
+                    Task taskReturnUpper = Task.editTask(ucUpper.taskMember);
+                }
+                Task taskReturnReceive = Task.editTask(ucReceive.taskMember);
+                Task taskReturnDrag = Task.editTask(ucDrag.taskMember);
             }
-
-            if (ucOldUpper != null)
+            catch (Exception)
             {
-                Task taskReturnOldUpper = Task.editTask(ucOldUpper.taskMember);
-            }
 
-            if (ucUpper != null)
-            {
-                Task taskReturnUpper = Task.editTask(ucUpper.taskMember);
+                throw;
             }
-            Task taskReturnReceive = Task.editTask(ucReceive.taskMember);
-            Task taskReturnDrag = Task.editTask(ucDrag.taskMember);
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            
 
             //Change order of tasks
             if ((ucDrag.taskMember.workflowChild.taskChildList != null) && (ucDrag.taskMember.workflowChild.taskChildList.Count > 0))
@@ -1175,7 +1232,17 @@ namespace Mockup2
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
                 PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
                 pbCollapse.MouseClick += pbCollapse_MouseClick;
+                Label lbTitle = (Label)uMain.Controls["lbTitle"];
+                lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
 
+                Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
+                pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
+                pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
 
                 /*
                     Object uControl = global.currentTaskControlObject;
