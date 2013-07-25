@@ -690,18 +690,22 @@ namespace Mockup2
                 if ((uSelect.taskMember.follows_id == null) && (uSelect.taskMember.precedes_id == null))
                 {
                     string strResult;
-                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
-                    if (strResult != global.resultSuccessStrukt)
-                    {
-                        MessageBox.Show("There is error. Workflow cannot be deleted.");
-                        return;
-                    }
                     strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
                     if (strResult != global.resultSuccessStrukt)
                     {
                         MessageBox.Show("There is error. Task cannot be deleted.");
                         return;
                     }
+
+                    //When we delete that only one child task, the most of behavior, Strukt will delete its child workflow too.
+                    //If we still insist to delete, we will meet error(500).
+                    //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    //if (strResult != global.resultSuccessStrukt)
+                    //{
+                    //    MessageBox.Show("There is error. Workflow cannot be deleted.");
+                    //    return;
+                    //}
+
                     Workflow wfPre = uSelect.taskMember.workflowParent;
                     wfPre.taskChildList.Remove(uSelect.taskMember);
                     uSelect.taskMember.workflowChild = null;
@@ -709,7 +713,8 @@ namespace Mockup2
                     pnCenter.Controls.Remove(uSelect);
 
                     UCMainTask ucParent = getUCMainTaskByTask(wfPre.taskParent);
-                    ucParent.setExistenceCollapeButtonRole();
+                    if (ucParent != null)
+                        ucParent.setExistenceCollapeButtonRole();
                 }
                 //If task is at the first position of workflow
                 //get the followed task

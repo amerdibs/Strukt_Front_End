@@ -113,21 +113,29 @@ namespace Mockup2
                     if (taskUse.attachmentType == "NONE")
                     {
                         rbNone.Checked = true;
+                        txtAddress.Enabled = false;
+                        txtAddress.ReadOnly = true;
                     }
                     else
                         if (taskUse.attachmentType == "LINK")
                         {
                             rbLink.Checked = true;
+                            txtAddress.Enabled = true;
+                            txtAddress.ReadOnly = false;
                         }
                         else
                             if (taskUse.attachmentType == "APP")
                             {
                                 rbApp.Checked = true;
+                                txtAddress.Enabled = false;
+                                txtAddress.ReadOnly = true;
                             }
                             else
                                 if (taskUse.attachmentType == "FILE")
                                 {
                                     rbFile.Checked = true;
+                                    txtAddress.Enabled = true;
+                                    txtAddress.ReadOnly = true;
                                 }
                 }
                    
@@ -153,6 +161,13 @@ namespace Mockup2
                 taskUse.date = global.convertStruktDateTimeToString(dtpDate.Value);
             if (dtpDeadline.Value != null)
                 taskUse.deadline = global.convertStruktDateTimeToString(dtpDeadline.Value);
+
+            if (!rbNone.Checked && txtAddress.Text.Trim() == "")
+            {
+                DialogResult = DialogResult.None;
+                MessageBox.Show("Please input address in tool textbox or please select tool to None.");
+                return;
+            }
 
             string strType = "";
             if (rbNone.Checked)
@@ -220,6 +235,34 @@ namespace Mockup2
 
                         }
  
+        }
+
+        private void rbNone_Click(object sender, EventArgs e)
+        {
+            txtAddress.Text = "";
+            txtAddress.Enabled = false;
+            txtAddress.ReadOnly = true;
+        }
+
+        private void rbLink_Click(object sender, EventArgs e)
+        {
+            txtAddress.Text = "";
+            txtAddress.Enabled = true;
+            txtAddress.ReadOnly = false;
+        }
+
+        private void rbApp_Click(object sender, EventArgs e)
+        {
+            txtAddress.Text = "";
+            txtAddress.Enabled = true;
+            txtAddress.ReadOnly = true;
+        }
+
+        private void rbFile_Click(object sender, EventArgs e)
+        {
+            txtAddress.Text = "";
+            txtAddress.Enabled = true;
+            txtAddress.ReadOnly = true;
         }
 
 

@@ -36,6 +36,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbProp = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDetail = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -48,7 +49,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -131,7 +131,7 @@
             this.panel2.Controls.Add(this.btnOK);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 301);
+            this.panel2.Location = new System.Drawing.Point(0, 308);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 40);
             this.panel2.TabIndex = 1;
@@ -169,6 +169,7 @@
             // gbProp
             // 
             this.gbProp.BackColor = System.Drawing.Color.Transparent;
+            this.gbProp.Controls.Add(this.label3);
             this.gbProp.Controls.Add(this.label13);
             this.gbProp.Controls.Add(this.txtDetail);
             this.gbProp.Controls.Add(this.cbStatus);
@@ -181,16 +182,24 @@
             this.gbProp.Controls.Add(this.label7);
             this.gbProp.Controls.Add(this.label6);
             this.gbProp.Controls.Add(this.label5);
-            this.gbProp.Controls.Add(this.label3);
             this.gbProp.Controls.Add(this.label2);
             this.gbProp.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbProp.Location = new System.Drawing.Point(0, 41);
             this.gbProp.Name = "gbProp";
-            this.gbProp.Size = new System.Drawing.Size(355, 160);
+            this.gbProp.Size = new System.Drawing.Size(355, 168);
             this.gbProp.TabIndex = 2;
             this.gbProp.TabStop = false;
             this.gbProp.Text = "Properties";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(177, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Task Type";
             // 
             // label13
             // 
@@ -206,11 +215,11 @@
             // 
             this.txtDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDetail.ForeColor = System.Drawing.Color.Blue;
-            this.txtDetail.Location = new System.Drawing.Point(49, 101);
+            this.txtDetail.Location = new System.Drawing.Point(58, 104);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDetail.Size = new System.Drawing.Size(300, 48);
+            this.txtDetail.Size = new System.Drawing.Size(291, 48);
             this.txtDetail.TabIndex = 16;
             // 
             // cbStatus
@@ -229,7 +238,7 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbStatus.Location = new System.Drawing.Point(50, 17);
+            this.cbStatus.Location = new System.Drawing.Point(58, 18);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(118, 21);
             this.cbStatus.TabIndex = 15;
@@ -249,15 +258,16 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbProject.Location = new System.Drawing.Point(50, 74);
+            this.cbProject.Location = new System.Drawing.Point(169, 6);
             this.cbProject.Name = "cbProject";
-            this.cbProject.Size = new System.Drawing.Size(118, 21);
+            this.cbProject.Size = new System.Drawing.Size(36, 21);
             this.cbProject.TabIndex = 14;
+            this.cbProject.Visible = false;
             // 
             // dtpDeadline
             // 
             this.dtpDeadline.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDeadline.Location = new System.Drawing.Point(239, 74);
+            this.dtpDeadline.Location = new System.Drawing.Point(239, 51);
             this.dtpDeadline.Name = "dtpDeadline";
             this.dtpDeadline.Size = new System.Drawing.Size(110, 20);
             this.dtpDeadline.TabIndex = 13;
@@ -265,7 +275,7 @@
             // dtpDate
             // 
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(50, 47);
+            this.dtpDate.Location = new System.Drawing.Point(58, 48);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(118, 20);
             this.dtpDate.TabIndex = 12;
@@ -285,9 +295,9 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbLocation.Location = new System.Drawing.Point(239, 44);
+            this.cbLocation.Location = new System.Drawing.Point(58, 76);
             this.cbLocation.Name = "cbLocation";
-            this.cbLocation.Size = new System.Drawing.Size(110, 21);
+            this.cbLocation.Size = new System.Drawing.Size(118, 21);
             this.cbLocation.TabIndex = 10;
             // 
             // cbTaskType
@@ -314,16 +324,17 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 77);
+            this.label8.Location = new System.Drawing.Point(128, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 6;
             this.label8.Text = "Project";
+            this.label8.Visible = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(186, 81);
+            this.label7.Location = new System.Drawing.Point(185, 51);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 5;
@@ -332,7 +343,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 51);
+            this.label6.Location = new System.Drawing.Point(24, 52);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 4;
@@ -341,25 +352,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(187, 47);
+            this.label5.Location = new System.Drawing.Point(6, 76);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Location";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Task Type";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 20);
+            this.label2.Location = new System.Drawing.Point(20, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 0;
@@ -407,7 +409,7 @@
             this.groupBox2.Controls.Add(this.rbLink);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(0, 201);
+            this.groupBox2.Location = new System.Drawing.Point(0, 209);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(355, 96);
             this.groupBox2.TabIndex = 3;
@@ -426,6 +428,7 @@
             this.rbNone.TabStop = true;
             this.rbNone.Text = "None";
             this.rbNone.UseVisualStyleBackColor = true;
+            this.rbNone.Click += new System.EventHandler(this.rbNone_Click);
             // 
             // btnBrowse
             // 
@@ -443,6 +446,7 @@
             // 
             // txtAddress
             // 
+            this.txtAddress.Enabled = false;
             this.txtAddress.Location = new System.Drawing.Point(19, 43);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(324, 20);
@@ -457,6 +461,7 @@
             this.rbFile.TabIndex = 2;
             this.rbFile.Text = "File";
             this.rbFile.UseVisualStyleBackColor = true;
+            this.rbFile.Click += new System.EventHandler(this.rbFile_Click);
             // 
             // rbApp
             // 
@@ -467,6 +472,7 @@
             this.rbApp.TabIndex = 1;
             this.rbApp.Text = "Application";
             this.rbApp.UseVisualStyleBackColor = true;
+            this.rbApp.Click += new System.EventHandler(this.rbApp_Click);
             // 
             // rbLink
             // 
@@ -477,6 +483,7 @@
             this.rbLink.TabIndex = 0;
             this.rbLink.Text = "Link";
             this.rbLink.UseVisualStyleBackColor = true;
+            this.rbLink.Click += new System.EventHandler(this.rbLink_Click);
             // 
             // groupBox3
             // 
@@ -494,9 +501,9 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Enabled = false;
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(0, 297);
+            this.groupBox3.Location = new System.Drawing.Point(0, 305);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(355, 4);
+            this.groupBox3.Size = new System.Drawing.Size(355, 3);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Conditions";
@@ -583,7 +590,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 341);
+            this.ClientSize = new System.Drawing.Size(355, 348);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbProp);
