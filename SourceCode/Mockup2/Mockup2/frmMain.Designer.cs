@@ -342,9 +342,9 @@
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lbTitle.Location = new System.Drawing.Point(32, 9);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(162, 13);
+            this.lbTitle.Size = new System.Drawing.Size(69, 13);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "User  Guidance Application";
+            this.lbTitle.Text = "ProcScribe";
             this.lbTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitle_MouseDown);
             // 
             // ctmTask

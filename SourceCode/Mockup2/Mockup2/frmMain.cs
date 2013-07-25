@@ -341,10 +341,87 @@ namespace Mockup2
 
 
 
-            if ((global.workflowMain == null) || (global.workflowMain.taskChildList == null) || (global.workflowMain.taskChildList.Count == 0))
+            if ((global.workflowMain == null) && ((global.workflowMain.taskChildList == null) || (global.workflowMain.taskChildList.Count == 0)))
             {
                 MessageBox.Show("Please load process before.\n We still don't implement this step right now.");
                 return;
+            }
+            else
+            if ((global.workflowMain != null) && ((global.workflowMain.taskChildList == null) || (global.workflowMain.taskChildList.Count == 0)))
+            {
+                //0. Add new when there is no any task in main workflow
+                Task taskNew = new Task();
+                taskNew.parent_workflow_id = global.workflowMain.id;
+                taskNew.user_id = global.workflowMain.user_id;
+                taskNew.name = "New Task";
+                frmTaskEdit frmEdit = new frmTaskEdit();
+                frmEdit.strFormMode = frmEdit.formModeNew;
+                frmEdit.taskUse = taskNew;
+                DialogResult dResult = frmEdit.ShowDialog();
+                if (dResult != DialogResult.OK)
+                {
+                    return;
+                }
+                Workflow wfNew = Workflow.addWorkflow();
+                Task returnTaskAdd = Task.addTask(taskNew);
+
+
+                wfNew.parent_task_id = returnTaskAdd.id;
+                returnTaskAdd.child_workflow_id = wfNew.id;
+                wfNew.user_id = global.workflowMain.user_id;
+                Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+                returnTaskAdd = Task.editTask(returnTaskAdd);
+
+
+                returnTaskAdd.workflowChild = returnChildWorkflow;
+                returnTaskAdd.workflowParent = global.workflowMain;
+                global.workflowMain.taskChildList = new List<Task>();
+                global.workflowMain.taskChildList.Add(returnTaskAdd);
+
+                returnTaskAdd.description = frmEdit.taskUse.description;
+                returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
+                returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
+
+                //Add Task and config UI
+                UCMainTask uMain = new UCMainTask();
+                uMain.Height = global.heightControlTaskNormal;
+                pnCenter.Controls.Add(uMain);
+                uMain.Dock = DockStyle.Top;
+                uMain.BringToFront();
+                uMain.taskMember = returnTaskAdd;
+                uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
+                uMain.setExistenceCollapeButtonRole();
+                uMain.iLevel = 0;
+
+                uMain.BackColor = global.ColorMainTask;
+                uMain.colorBackGround = uMain.BackColor;
+
+                uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+                PictureBox pbCollapse = (PictureBox)uMain.Controls["pbCollape"];
+                pbCollapse.MouseClick += pbCollapse_MouseClick;
+                Label lbTitle = (Label)uMain.Controls["lbTitle"];
+                lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
+                pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+                Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
+                pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
+                pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+
+
+                //Update Task Extend in Webservice
+                ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
+                StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
+                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
+                if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
+                {
+                    uMain.Controls["btnLink"].Enabled = true;
+                }
+
             }
             else
             if (global.currentTaskControlID == 0) 

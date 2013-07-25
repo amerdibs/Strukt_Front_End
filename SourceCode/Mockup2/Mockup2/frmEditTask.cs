@@ -35,16 +35,16 @@ namespace Mockup2
 
         private void frmTaskEdit_Load(object sender, EventArgs e)
         {
-            List<Task> taskslist = new List<Task>();
-            List<Task> taskslistAlter = new List<Task>();
-            List<Task> taskslistRoll = new List<Task>();
+            //List<Task> taskslist = new List<Task>();
+            //List<Task> taskslistAlter = new List<Task>();
+            //List<Task> taskslistRoll = new List<Task>();
             try
             {
-                global.getTaskListFromAllWorkflow(global.workflowMain, taskslist);
-                taskslistAlter = taskslist.ToList();
-                taskslistAlter.Reverse();
-                taskslistRoll = taskslist.ToList();
-                taskslistRoll.Reverse();
+                //global.getTaskListFromAllWorkflow(global.workflowMain, taskslist);
+                //taskslistAlter = taskslist.ToList();
+                //taskslistAlter.Reverse();
+                //taskslistRoll = taskslist.ToList();
+                //taskslistRoll.Reverse();
                
                 
                 PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
@@ -60,20 +60,20 @@ namespace Mockup2
                 cbProject.DataSource = propertie.projectList;
                 cbProject.ValueMember = "id";
                 cbProject.DisplayMember = "name";
-                taskslist.Reverse();
-                lstPreCondition.DataSource = taskslist;
-                lstPreCondition.ValueMember = "id";
-                lstPreCondition.DisplayMember = "name";
-                lstAlternative.DataSource = taskslistAlter;
-                lstAlternative.ValueMember = "id";
-                lstAlternative.DisplayMember = "name";
-                lstRoleCondition.DataSource = propertie.roleList;
-                lstRoleCondition.ValueMember = "id";
-                lstRoleCondition.DisplayMember = "name";
-                lstPreCondition.SelectedIndex = -1;
-                lstResourceCondition.SelectedIndex = -1;
-                lstRoleCondition.SelectedIndex = -1;
-                lstAlternative.SelectedIndex = -1;
+                //taskslist.Reverse();
+                //lstPreCondition.DataSource = taskslist;
+                //lstPreCondition.ValueMember = "id";
+                //lstPreCondition.DisplayMember = "name";
+                //lstAlternative.DataSource = taskslistAlter;
+                //lstAlternative.ValueMember = "id";
+                //lstAlternative.DisplayMember = "name";
+                //lstRoleCondition.DataSource = propertie.roleList;
+                //lstRoleCondition.ValueMember = "id";
+                //lstRoleCondition.DisplayMember = "name";
+                //lstPreCondition.SelectedIndex = -1;
+                //lstResourceCondition.SelectedIndex = -1;
+                //lstRoleCondition.SelectedIndex = -1;
+                //lstAlternative.SelectedIndex = -1;
    
             }
             catch (Exception)
