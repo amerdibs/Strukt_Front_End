@@ -734,12 +734,12 @@ namespace Mockup2
                         MessageBox.Show("There is error. Task cannot be deleted.");
                         return;
                     }
-                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
-                    if (strResult != global.resultSuccessStrukt)
-                    {
-                        MessageBox.Show("There is error. Workflow cannot be deleted.");
-                        return;
-                    }
+                    //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    //if (strResult != global.resultSuccessStrukt)
+                    //{
+                    //    MessageBox.Show("There is error. Workflow cannot be deleted.");
+                    //    return;
+                    //}
                     Workflow wfPre = uSelect.taskMember.workflowParent;
                     wfPre.taskChildList.Remove(uSelect.taskMember);
                     uSelect.taskMember.workflowChild = null;
@@ -765,12 +765,12 @@ namespace Mockup2
                         MessageBox.Show("There is error. Task cannot be deleted.");
                         return;
                     }
-                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
-                    if (strResult != global.resultSuccessStrukt)
-                    {
-                        MessageBox.Show("There is error. Workflow cannot be deleted.");
-                        return;
-                    }
+                    //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    //if (strResult != global.resultSuccessStrukt)
+                    //{
+                    //    MessageBox.Show("There is error. Workflow cannot be deleted.");
+                    //    return;
+                    //}
                     Workflow wfPre = uSelect.taskMember.workflowParent;
                     wfPre.taskChildList.Remove(uSelect.taskMember);
                     uSelect.taskMember.workflowChild = null;
