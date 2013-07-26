@@ -363,14 +363,14 @@ namespace Mockup2
                     return;
                 }
                 Workflow wfNew = Workflow.addWorkflow();
-                Task returnTaskAdd = Task.addTask(taskNew);
+                Task returnTaskAdd0 = Task.addTask(taskNew);
 
 
-                wfNew.parent_task_id = returnTaskAdd.id;
-                returnTaskAdd.child_workflow_id = wfNew.id;
+                wfNew.parent_task_id = returnTaskAdd0.id;
+                returnTaskAdd0.child_workflow_id = wfNew.id;
                 wfNew.user_id = global.workflowMain.user_id;
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
-                returnTaskAdd = Task.editTask(returnTaskAdd);
+                Task returnTaskAdd = Task.editTask(returnTaskAdd0);
 
 
                 returnTaskAdd.workflowChild = returnChildWorkflow;
@@ -455,14 +455,14 @@ namespace Mockup2
                     return;
                 }
                 Workflow wfNew = Workflow.addWorkflow();
-                Task returnTaskAdd = Task.addTask(taskNew);
+                Task returnTaskAdd0 = Task.addTask(taskNew);
 
 
-                wfNew.parent_task_id = returnTaskAdd.id;
-                returnTaskAdd.child_workflow_id = wfNew.id;
+                wfNew.parent_task_id = returnTaskAdd0.id;
+                returnTaskAdd0.child_workflow_id = wfNew.id;
                 wfNew.user_id = global.workflowMain.user_id;
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
-                returnTaskAdd = Task.editTask(returnTaskAdd);
+                Task returnTaskAdd = Task.editTask(returnTaskAdd0);
 
 
                 returnTaskAdd.workflowChild = returnChildWorkflow;
@@ -562,13 +562,13 @@ namespace Mockup2
                     return;
                 }
                 Workflow wfNew = Workflow.addWorkflow();
-                Task returnTaskAdd = Task.addTask(taskNew);
+                Task returnTaskAdd0 = Task.addTask(taskNew);
 
-                wfNew.parent_task_id = returnTaskAdd.id;
-                returnTaskAdd.child_workflow_id = wfNew.id;
+                wfNew.parent_task_id = returnTaskAdd0.id;
+                returnTaskAdd0.child_workflow_id = wfNew.id;
                 wfNew.user_id = global.workflowMain.user_id;
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
-                returnTaskAdd = Task.editTask(taskNew);
+                Task returnTaskAdd = Task.editTask(returnTaskAdd0);
                 
 
                 returnTaskAdd.workflowChild = returnChildWorkflow;
@@ -802,12 +802,12 @@ namespace Mockup2
                         MessageBox.Show("There is error. Task cannot be deleted.");
                         return;
                     }
-                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
-                    if (strResult != global.resultSuccessStrukt)
-                    {
-                        MessageBox.Show("There is error. Workflow cannot be deleted.");
-                        return;
-                    }
+                    //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    //if (strResult != global.resultSuccessStrukt)
+                    //{
+                    //    MessageBox.Show("There is error. Workflow cannot be deleted.");
+                    //    return;
+                    //}
 
                     Workflow wfPre = uSelect.taskMember.workflowParent;
                     wfPre.taskChildList.Remove(uSelect.taskMember);
