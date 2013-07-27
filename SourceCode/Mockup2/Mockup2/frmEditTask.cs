@@ -45,7 +45,11 @@ namespace Mockup2
                 //taskslistAlter.Reverse();
                 //taskslistRoll = taskslist.ToList();
                 //taskslistRoll.Reverse();
-               
+
+
+                //User's role control
+                if (global.roleUser == User.roleExecutor)
+                    txtTaskName.ReadOnly = true;
                 
                 PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
                 cbLocation.DataSource = propertie.locationList;

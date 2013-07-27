@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnName = new System.Windows.Forms.Panel();
             this.txtTaskName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbTask = new System.Windows.Forms.ComboBox();
@@ -69,24 +69,24 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.ofFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.panel1.SuspendLayout();
+            this.pnName.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbProp.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnName
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.txtTaskName);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbTask);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(355, 41);
-            this.panel1.TabIndex = 0;
+            this.pnName.BackColor = System.Drawing.Color.Transparent;
+            this.pnName.Controls.Add(this.txtTaskName);
+            this.pnName.Controls.Add(this.label1);
+            this.pnName.Controls.Add(this.cbTask);
+            this.pnName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnName.Location = new System.Drawing.Point(0, 0);
+            this.pnName.Name = "pnName";
+            this.pnName.Size = new System.Drawing.Size(355, 41);
+            this.pnName.TabIndex = 0;
             // 
             // txtTaskName
             // 
@@ -131,7 +131,7 @@
             this.panel2.Controls.Add(this.btnOK);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 308);
+            this.panel2.Location = new System.Drawing.Point(0, 272);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 40);
             this.panel2.TabIndex = 1;
@@ -187,7 +187,7 @@
             this.gbProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbProp.Location = new System.Drawing.Point(0, 41);
             this.gbProp.Name = "gbProp";
-            this.gbProp.Size = new System.Drawing.Size(355, 168);
+            this.gbProp.Size = new System.Drawing.Size(355, 135);
             this.gbProp.TabIndex = 2;
             this.gbProp.TabStop = false;
             this.gbProp.Text = "Properties";
@@ -195,17 +195,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 20);
+            this.label3.Location = new System.Drawing.Point(108, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Task Type";
+            this.label3.Visible = false;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Blue;
-            this.label13.Location = new System.Drawing.Point(12, 104);
+            this.label13.Location = new System.Drawing.Point(12, 79);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 13);
             this.label13.TabIndex = 17;
@@ -215,7 +216,7 @@
             // 
             this.txtDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDetail.ForeColor = System.Drawing.Color.Blue;
-            this.txtDetail.Location = new System.Drawing.Point(58, 104);
+            this.txtDetail.Location = new System.Drawing.Point(58, 77);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -258,7 +259,7 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbProject.Location = new System.Drawing.Point(169, 6);
+            this.cbProject.Location = new System.Drawing.Point(257, 147);
             this.cbProject.Name = "cbProject";
             this.cbProject.Size = new System.Drawing.Size(36, 21);
             this.cbProject.TabIndex = 14;
@@ -295,9 +296,9 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbLocation.Location = new System.Drawing.Point(58, 76);
+            this.cbLocation.Location = new System.Drawing.Point(239, 18);
             this.cbLocation.Name = "cbLocation";
-            this.cbLocation.Size = new System.Drawing.Size(118, 21);
+            this.cbLocation.Size = new System.Drawing.Size(110, 21);
             this.cbLocation.TabIndex = 10;
             // 
             // cbTaskType
@@ -316,15 +317,16 @@
             "\tSub Task 2_3",
             "\tSub Task 2_4",
             ""});
-            this.cbTaskType.Location = new System.Drawing.Point(239, 17);
+            this.cbTaskType.Location = new System.Drawing.Point(78, 147);
             this.cbTaskType.Name = "cbTaskType";
-            this.cbTaskType.Size = new System.Drawing.Size(110, 21);
+            this.cbTaskType.Size = new System.Drawing.Size(24, 21);
             this.cbTaskType.TabIndex = 8;
+            this.cbTaskType.Visible = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(128, 9);
+            this.label8.Location = new System.Drawing.Point(204, 150);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 6;
@@ -352,7 +354,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 76);
+            this.label5.Location = new System.Drawing.Point(186, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 3;
@@ -409,7 +411,7 @@
             this.groupBox2.Controls.Add(this.rbLink);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(0, 209);
+            this.groupBox2.Location = new System.Drawing.Point(0, 176);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(355, 96);
             this.groupBox2.TabIndex = 3;
@@ -501,9 +503,9 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Enabled = false;
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(0, 305);
+            this.groupBox3.Location = new System.Drawing.Point(0, 272);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(355, 3);
+            this.groupBox3.Size = new System.Drawing.Size(355, 0);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Conditions";
@@ -590,19 +592,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 348);
+            this.ClientSize = new System.Drawing.Size(355, 312);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbProp);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnName);
             this.Controls.Add(this.panel2);
             this.Name = "frmTaskEdit";
             this.Text = "Edit Task";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmTaskEdit_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmTaskEdit_Paint);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnName.ResumeLayout(false);
+            this.pnName.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.gbProp.ResumeLayout(false);
             this.gbProp.PerformLayout();
@@ -616,7 +618,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;

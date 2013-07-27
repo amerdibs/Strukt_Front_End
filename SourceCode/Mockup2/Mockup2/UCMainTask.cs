@@ -300,8 +300,8 @@ namespace Mockup2
             }
 
             //User's role control
-            if (global.roleUser == User.roleExecutor)
-                btnProp.Visible = false;
+            //if (global.roleUser == User.roleExecutor)
+            //    btnProp.Visible = false;
 
         }
         public void setExistenceCollapeButtonRole()
@@ -319,8 +319,8 @@ namespace Mockup2
             }
 
             //User's role control
-            if (global.roleUser == User.roleExecutor)
-                btnProp.Visible = false;
+            //if (global.roleUser == User.roleExecutor)
+            //    btnProp.Visible = false;
 
         }
 
