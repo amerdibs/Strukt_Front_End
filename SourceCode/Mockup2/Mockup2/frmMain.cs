@@ -1045,6 +1045,13 @@ namespace Mockup2
                         if ((ucReceive.taskMember.precedes_id != null) && (ucReceive.taskMember.follows_id != null))
                         {
                             ucUpper = getUCMainTaskByTaskID(ucReceive.taskMember.follows_id);
+
+                            if (ucUpper == ucDrag)
+                            {
+                                MessageBox.Show("Please move task from down to top");
+                                return;
+                            }
+
                             ucDrag.taskMember.follows_id = ucUpper.taskMember.id;
                             ucDrag.taskMember.precedes_id = ucReceive.taskMember.id;
                             ucUpper.taskMember.precedes_id = ucDrag.taskMember.id;
