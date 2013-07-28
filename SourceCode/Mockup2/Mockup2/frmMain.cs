@@ -104,7 +104,12 @@ namespace Mockup2
                     global.roleUser = global.processTable.Rows[0]["u_role"].ToString();
 
                 if (global.roleUser == User.roleExecutor)
-                    pnDesigner.Visible = false;
+                {
+                    btnAdd.Visible = false;
+                    btnSubAdd.Visible = false;
+                    btnDelete.Visible = false;
+                }
+
 
                 if (global.roleUser == User.roleExecutor)
                     tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Executor" ;

@@ -96,6 +96,10 @@ namespace Mockup2
 
 
             Assignment asReturn = Assignment.addAssignment(assignNew);
+            if (global.assignmentSentList == null)
+            {
+                global.assignmentSentList = new List<Assignment>();
+            }
             global.assignmentSentList.Add(asReturn);
 
             MessageBox.Show("Assign Complete");
