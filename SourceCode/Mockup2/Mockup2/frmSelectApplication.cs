@@ -24,7 +24,7 @@ namespace Mockup2
 
             foreach (DataRow dtRow in global.appTable.Rows)
             {
-               lvAppList.Items.Add(new ListViewItem(new string[] { dtRow["app_name"].ToString(), dtRow["app_address"].ToString() }));
+               lvAppList.Items.Add(new ListViewItem(new string[] { dtRow["app_name"].ToString()}));
             }
         }
 

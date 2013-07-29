@@ -195,8 +195,8 @@ namespace Mockup2
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult dResult = MessageBox.Show("Do you want to cancel this action?", "Please confirm", MessageBoxButtons.OKCancel);
-            if (dResult == DialogResult.OK)
-                this.Close();
+            if (dResult == DialogResult.Cancel)
+                this.DialogResult = DialogResult.None;
         }
 
         private void frmTaskEdit_Paint(object sender, PaintEventArgs e)

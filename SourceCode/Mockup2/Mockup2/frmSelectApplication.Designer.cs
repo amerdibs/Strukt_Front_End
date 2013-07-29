@@ -34,7 +34,6 @@
             this.pnBody = new System.Windows.Forms.Panel();
             this.lvAppList = new System.Windows.Forms.ListView();
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnControl.SuspendLayout();
             this.pnBody.SuspendLayout();
             this.SuspendLayout();
@@ -92,8 +91,7 @@
             // 
             this.lvAppList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lvAppList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.name,
-            this.path});
+            this.name});
             this.lvAppList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvAppList.FullRowSelect = true;
             this.lvAppList.GridLines = true;
@@ -107,12 +105,7 @@
             // name
             // 
             this.name.Text = "Name";
-            this.name.Width = 200;
-            // 
-            // path
-            // 
-            this.path.Text = "Path";
-            this.path.Width = 350;
+            this.name.Width = 500;
             // 
             // frmSelectApplication
             // 
@@ -139,6 +132,5 @@
         private System.Windows.Forms.Panel pnBody;
         private System.Windows.Forms.ListView lvAppList;
         private System.Windows.Forms.ColumnHeader name;
-        private System.Windows.Forms.ColumnHeader path;
     }
 }
