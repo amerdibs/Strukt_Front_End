@@ -71,6 +71,7 @@ namespace Mockup2
             taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
             taskNew.follows_id = taskFollow.id;
             taskNew.user_id = taskFollow.user_id;
+            taskNew.precedes_id = null;
             taskNew.id = null;
 
             Task taskNewReturn = Task.addTask(taskNew);
