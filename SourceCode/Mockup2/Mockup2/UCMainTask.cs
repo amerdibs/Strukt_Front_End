@@ -87,6 +87,10 @@ namespace Mockup2
            {
                btnLink.Enabled = true;
            }
+           else
+           {
+               btnLink.Enabled = false;
+           }
            lbTitle.Text = returnTask.name;
 
         }
