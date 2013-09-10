@@ -53,21 +53,6 @@ namespace Mockup2
             foreach (Task tkUse in wfGet[0].taskChildList)
             {
                 tkUse.workflowParent = wfGet[0];
-                //Check for assignment
-                if (global.assignmentSentList != null)
-                {
-                    Assignment asSent = global.assignmentSentList.Find(o => o.source_task_id == tkUse.id);
-                    if (asSent != null)
-                        tkUse.hasAssignmentSent = true;
-                }
-
-                if (global.assignmentReceivedList != null)
-                {
-                    Assignment asReceived = global.assignmentReceivedList.Find(o => o.target_task_id == tkUse.id);
-                    if (asReceived != null)
-                        tkUse.hasAssignmentReceived = true;
-                }
-
 
                 if ( !tkUse.user_id.Contains("null") )
                 {

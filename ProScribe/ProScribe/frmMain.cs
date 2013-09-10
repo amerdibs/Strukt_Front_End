@@ -1268,52 +1268,7 @@ namespace Mockup2
                 uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["pbCollape"].Left = uMain.Controls["pbCollape"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.setExistenceCollapeButtonRole();
-                if (tEach.hasAssignmentReceived)
-                {
-                    Panel pnRec = (Panel)uMain.Controls["pnReceived"];
-                    pnRec.Visible = true;
-                    pnRec.Controls["lReceive"].Left = pnRec.Controls["lReceive"].Left + (global.iIndentOfCheckBox * iLevel);
-                    pnRec.Controls["txtReceive"].Left = pnRec.Controls["txtReceive"].Left + (global.iIndentOfCheckBox * iLevel);
-                    pnRec.Controls["btnSendtoAssigner"].Left = pnRec.Controls["btnSendtoAssigner"].Left + (global.iIndentOfCheckBox * iLevel);
-                    Assignment asReceived = global.assignmentReceivedList.Find(o => o.target_task_id == tEach.id);
-                    DataRow dtRow = User.getUserNameByStruktID(global.getValueFromStruktValue(asReceived.source_user_id));
-                    pnRec.Controls["txtReceive"].Text = dtRow["u_name"].ToString();
-                    pnRec.Controls["txtReceive"].Tag = dtRow["u_strukt_user_id"].ToString();
-                }
-                if (tEach.hasAssignmentSent)
-                {
-                    Panel pnAs = (Panel)uMain.Controls["pnAssigned"];
-                    pnAs.Visible = true;
-                    pnAs.Controls["lAssign"].Left = pnAs.Controls["lAssign"].Left + (global.iIndentOfCheckBox * iLevel);
-                    pnAs.Controls["lbAssigned"].Left = pnAs.Controls["lbAssigned"].Left + (global.iIndentOfCheckBox * iLevel);
-                    pnAs.Controls["btnSendtoReceiver"].Left = pnAs.Controls["btnSendtoReceiver"].Left + (global.iIndentOfCheckBox * iLevel);
-
-                    DataTable dtSelectUser = new DataTable();
-                    dtSelectUser.TableName = "user";
-                    //very bad performance but I'll correct in next step.
-                    dtSelectUser = global.userTable.Copy();
-                    dtSelectUser.Rows.Clear();
-                    List<Assignment> asSentList = global.assignmentSentList.FindAll(o => o.source_task_id == tEach.id);
-                    foreach (Assignment asEach in asSentList)
-                    {
-                        DataRow dtRow = User.getUserNameByStruktID(global.getValueFromStruktValue(asEach.target_user_id));
-                        if (dtRow != null)
-                        {
-                            dtSelectUser.Rows.Add(dtRow.ItemArray);
-                        }
-                    }
-                    ListBox lbAssigned = (ListBox)pnAs.Controls["lbAssigned"];
-                    lbAssigned.DataSource = dtSelectUser;
-                    lbAssigned.DisplayMember = "u_name";
-                    lbAssigned.ValueMember = "u_strukt_user_id";
-
-                    //List<Assignment> asSentList = global.assignmentSentList.FindAll(o => o.source_task_id == tEach.id);
-                    //ListBox lbAssigned = (ListBox)pnAs.Controls["lbAssigned"];
-                    //lbAssigned.DataSource = asSentList;
-                    //lbAssigned.DisplayMember = "target_task_id";
-                    //lbAssigned.ValueMember = "target_task_id";
-
-                }
+                
         
                 if (uMain.taskMember.status_id == PropertiesStrukt.Status.statusCompleted)
                 {
@@ -1337,16 +1292,6 @@ namespace Mockup2
                 Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
                 pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                /*
-                    Object uControl = global.currentTaskControlObject;
-                    if (uControl.GetType() == typeof(UCMainTask))
-                    {
-                        UCMainTask uSelect = (UCMainTask)uControl;
-                        int iIndex = pnCenter.Controls.GetChildIndex(uSelect, true);
-                        pnCenter.Controls.SetChildIndex(uMain, iIndex);
-                    }
-                */
                 
 
             }
@@ -1420,67 +1365,7 @@ namespace Mockup2
             }
         }
 
-        private void assignTaskToolStrip_Click(object sender, EventArgs e)
-        {
-            btnAssignment_Click(sender, e);
-        }
 
-        private void btnAssignment_Click(object sender, EventArgs e)
-        {
-            if (!global.processTable.Columns.Contains("u_name"))
-            {
-                MessageBox.Show("Please log-in before assign the task!");
-                return;
-            }
-            if (global.currentTaskControlObject == null)
-            {
-                MessageBox.Show("Please select the assigning task");
-                return;
-            }
-
-            frmAssign frmAs = new frmAssign();
-            UCMainTask ucSelect = (UCMainTask)global.currentTaskControlObject;
-            frmAs.taskAssign = ucSelect.taskMember;
-            DialogResult dResult = frmAs.ShowDialog();
-            //If Task was assigned, update the Task control.
-            if (dResult == DialogResult.OK)
-            {  
-
-                UCMainTask ucM = (UCMainTask)global.currentTaskControlObject;
-                ucM.taskMember.hasAssignmentSent = true;
-                ucM.Height = global.getHeightTaskControl(ucM.taskMember);
-                Panel pnAs = (Panel)ucM.Controls["pnAssigned"];
-                pnAs.Visible = true;
-                pnAs.Controls["lAssign"].Left = pnAs.Controls["lAssign"].Left + (global.iIndentOfCheckBox * ucM.iLevel);
-                pnAs.Controls["lbAssigned"].Left = pnAs.Controls["lbAssigned"].Left + (global.iIndentOfCheckBox * ucM.iLevel);
-                pnAs.Controls["btnSendtoReceiver"].Left = pnAs.Controls["btnSendtoReceiver"].Left + (global.iIndentOfCheckBox * ucM.iLevel);
-
-                DataTable dtSelectUser = new DataTable();
-                dtSelectUser.TableName = "user";
-                //bad performance but I'll correct in next step.
-                dtSelectUser = global.userTable.Copy();
-                dtSelectUser.Rows.Clear();
-                //////////////////
-                ////////////////////////
-                List<Assignment> asSentList = global.assignmentSentList.FindAll(o => o.source_task_id == ucM.taskMember.id);
-                foreach (Assignment asEach in asSentList)
-                {
-                    DataRow dtRow = User.getUserNameByStruktID(global.getValueFromStruktValue(asEach.target_user_id));
-                    if (dtRow != null)
-                    {
-                        dtSelectUser.Rows.Add(dtRow.ItemArray);
-                    }
-                }
-                ListBox lbAssigned = (ListBox)pnAs.Controls["lbAssigned"];
-                lbAssigned.DataSource = dtSelectUser;
-                lbAssigned.DisplayMember = "u_name";
-                lbAssigned.ValueMember = "u_strukt_user_id";
-
-
-
-            }
-
-        }
 
         private void frmMain_Paint(object sender, PaintEventArgs e)
         {

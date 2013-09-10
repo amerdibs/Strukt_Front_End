@@ -41,7 +41,6 @@
             this.pnDesigner = new System.Windows.Forms.Panel();
             this.btnOption = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAssignment = new System.Windows.Forms.Button();
             this.btnSubAdd = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -55,7 +54,6 @@
             this.ctmTask = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addMainTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSubTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.assignTaskToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -190,7 +188,6 @@
             // 
             this.pnDesigner.Controls.Add(this.btnOption);
             this.pnDesigner.Controls.Add(this.btnDelete);
-            this.pnDesigner.Controls.Add(this.btnAssignment);
             this.pnDesigner.Controls.Add(this.btnSubAdd);
             this.pnDesigner.Controls.Add(this.btnAdd);
             this.pnDesigner.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -204,7 +201,7 @@
             this.btnOption.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption.Image = global::Mockup2.Properties.Resources.applications;
-            this.btnOption.Location = new System.Drawing.Point(0, 88);
+            this.btnOption.Location = new System.Drawing.Point(0, 66);
             this.btnOption.Name = "btnOption";
             this.btnOption.Size = new System.Drawing.Size(26, 22);
             this.btnOption.TabIndex = 7;
@@ -216,24 +213,12 @@
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Image = global::Mockup2.Properties.Resources.trash;
-            this.btnDelete.Location = new System.Drawing.Point(0, 66);
+            this.btnDelete.Location = new System.Drawing.Point(0, 44);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(26, 22);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnAssignment
-            // 
-            this.btnAssignment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAssignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAssignment.Image = global::Mockup2.Properties.Resources.user;
-            this.btnAssignment.Location = new System.Drawing.Point(0, 44);
-            this.btnAssignment.Name = "btnAssignment";
-            this.btnAssignment.Size = new System.Drawing.Size(26, 22);
-            this.btnAssignment.TabIndex = 8;
-            this.btnAssignment.UseVisualStyleBackColor = true;
-            this.btnAssignment.Click += new System.EventHandler(this.btnAssignment_Click);
             // 
             // btnSubAdd
             // 
@@ -352,12 +337,11 @@
             this.ctmTask.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addMainTaskToolStripMenuItem,
             this.addSubTaskToolStripMenuItem,
-            this.assignTaskToolStrip,
             this.deleteTaskToolStripMenuItem,
             this.toolStripSeparator1,
             this.editNameToolStripMenuItem});
             this.ctmTask.Name = "ctmTask";
-            this.ctmTask.Size = new System.Drawing.Size(155, 120);
+            this.ctmTask.Size = new System.Drawing.Size(155, 98);
             // 
             // addMainTaskToolStripMenuItem
             // 
@@ -372,13 +356,6 @@
             this.addSubTaskToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.addSubTaskToolStripMenuItem.Text = "Add Child Task";
             this.addSubTaskToolStripMenuItem.Click += new System.EventHandler(this.addSubTaskToolStripMenuItem_Click);
-            // 
-            // assignTaskToolStrip
-            // 
-            this.assignTaskToolStrip.Name = "assignTaskToolStrip";
-            this.assignTaskToolStrip.Size = new System.Drawing.Size(154, 22);
-            this.assignTaskToolStrip.Text = "Assign Task";
-            this.assignTaskToolStrip.Click += new System.EventHandler(this.assignTaskToolStrip_Click);
             // 
             // deleteTaskToolStripMenuItem
             // 
@@ -455,8 +432,6 @@
         private System.Windows.Forms.ToolStripMenuItem deleteTaskToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editNameToolStripMenuItem;
         private System.Windows.Forms.Button btnAddProcess;
-        private System.Windows.Forms.Button btnAssignment;
-        private System.Windows.Forms.ToolStripMenuItem assignTaskToolStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripStatusLabel tsUserName;
         private System.Windows.Forms.Label lbTitle;
