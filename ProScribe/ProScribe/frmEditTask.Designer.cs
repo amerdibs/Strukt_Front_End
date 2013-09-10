@@ -31,24 +31,17 @@
             this.pnName = new System.Windows.Forms.Panel();
             this.txtTaskName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbTask = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbProp = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDetail = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.cbProject = new System.Windows.Forms.ComboBox();
             this.dtpDeadline = new System.Windows.Forms.DateTimePicker();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.cbLocation = new System.Windows.Forms.ComboBox();
-            this.cbTaskType = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -81,7 +74,6 @@
             this.pnName.BackColor = System.Drawing.Color.Transparent;
             this.pnName.Controls.Add(this.txtTaskName);
             this.pnName.Controls.Add(this.label1);
-            this.pnName.Controls.Add(this.cbTask);
             this.pnName.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnName.Location = new System.Drawing.Point(0, 0);
             this.pnName.Name = "pnName";
@@ -104,26 +96,6 @@
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Task";
-            // 
-            // cbTask
-            // 
-            this.cbTask.FormattingEnabled = true;
-            this.cbTask.Items.AddRange(new object[] {
-            "Main Task 1",
-            "________Sub Task 1",
-            "________Sub Task 2",
-            "________Sub Task 3",
-            "________Sub Task 4",
-            "Main Task 2",
-            "________Sub Task 2_1",
-            "________Sub Task 2_2",
-            "________Sub Task 2_3",
-            "________Sub Task 2_4"});
-            this.cbTask.Location = new System.Drawing.Point(12, 10);
-            this.cbTask.Name = "cbTask";
-            this.cbTask.Size = new System.Drawing.Size(18, 21);
-            this.cbTask.TabIndex = 0;
-            this.cbTask.Visible = false;
             // 
             // panel2
             // 
@@ -169,19 +141,13 @@
             // gbProp
             // 
             this.gbProp.BackColor = System.Drawing.Color.Transparent;
-            this.gbProp.Controls.Add(this.label3);
             this.gbProp.Controls.Add(this.label13);
             this.gbProp.Controls.Add(this.txtDetail);
             this.gbProp.Controls.Add(this.cbStatus);
-            this.gbProp.Controls.Add(this.cbProject);
             this.gbProp.Controls.Add(this.dtpDeadline);
             this.gbProp.Controls.Add(this.dtpDate);
-            this.gbProp.Controls.Add(this.cbLocation);
-            this.gbProp.Controls.Add(this.cbTaskType);
-            this.gbProp.Controls.Add(this.label8);
             this.gbProp.Controls.Add(this.label7);
             this.gbProp.Controls.Add(this.label6);
-            this.gbProp.Controls.Add(this.label5);
             this.gbProp.Controls.Add(this.label2);
             this.gbProp.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -191,16 +157,6 @@
             this.gbProp.TabIndex = 2;
             this.gbProp.TabStop = false;
             this.gbProp.Text = "Properties";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(108, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Task Type";
-            this.label3.Visible = false;
             // 
             // label13
             // 
@@ -244,27 +200,6 @@
             this.cbStatus.Size = new System.Drawing.Size(118, 21);
             this.cbStatus.TabIndex = 15;
             // 
-            // cbProject
-            // 
-            this.cbProject.FormattingEnabled = true;
-            this.cbProject.Items.AddRange(new object[] {
-            "Main Task 1",
-            "\tSub Task 1",
-            "\tSub Task 2",
-            "\tSub Task 3",
-            "\tSub Task 4",
-            "Main Task 2",
-            "\tSub Task 2_1",
-            "\tSub Task 2_2",
-            "\tSub Task 2_3",
-            "\tSub Task 2_4",
-            ""});
-            this.cbProject.Location = new System.Drawing.Point(257, 147);
-            this.cbProject.Name = "cbProject";
-            this.cbProject.Size = new System.Drawing.Size(36, 21);
-            this.cbProject.TabIndex = 14;
-            this.cbProject.Visible = false;
-            // 
             // dtpDeadline
             // 
             this.dtpDeadline.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -280,58 +215,6 @@
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(118, 20);
             this.dtpDate.TabIndex = 12;
-            // 
-            // cbLocation
-            // 
-            this.cbLocation.FormattingEnabled = true;
-            this.cbLocation.Items.AddRange(new object[] {
-            "Main Task 1",
-            "\tSub Task 1",
-            "\tSub Task 2",
-            "\tSub Task 3",
-            "\tSub Task 4",
-            "Main Task 2",
-            "\tSub Task 2_1",
-            "\tSub Task 2_2",
-            "\tSub Task 2_3",
-            "\tSub Task 2_4",
-            ""});
-            this.cbLocation.Location = new System.Drawing.Point(239, 18);
-            this.cbLocation.Name = "cbLocation";
-            this.cbLocation.Size = new System.Drawing.Size(110, 21);
-            this.cbLocation.TabIndex = 10;
-            // 
-            // cbTaskType
-            // 
-            this.cbTaskType.DropDownWidth = 100;
-            this.cbTaskType.FormattingEnabled = true;
-            this.cbTaskType.Items.AddRange(new object[] {
-            "Main Task 1",
-            "\tSub Task 1",
-            "\tSub Task 2",
-            "\tSub Task 3",
-            "\tSub Task 4",
-            "Main Task 2",
-            "\tSub Task 2_1",
-            "\tSub Task 2_2",
-            "\tSub Task 2_3",
-            "\tSub Task 2_4",
-            ""});
-            this.cbTaskType.Location = new System.Drawing.Point(78, 147);
-            this.cbTaskType.Name = "cbTaskType";
-            this.cbTaskType.Size = new System.Drawing.Size(24, 21);
-            this.cbTaskType.TabIndex = 8;
-            this.cbTaskType.Visible = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(204, 150);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Project";
-            this.label8.Visible = false;
             // 
             // label7
             // 
@@ -350,15 +233,6 @@
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 4;
             this.label6.Text = "Date";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(186, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Location";
             // 
             // label2
             // 
@@ -626,19 +500,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbTask;
-        private System.Windows.Forms.ComboBox cbProject;
         private System.Windows.Forms.DateTimePicker dtpDeadline;
         private System.Windows.Forms.DateTimePicker dtpDate;
-        private System.Windows.Forms.ComboBox cbLocation;
         private System.Windows.Forms.ComboBox cbModel;
-        private System.Windows.Forms.ComboBox cbTaskType;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;

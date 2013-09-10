@@ -1165,7 +1165,7 @@ namespace Mockup2
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                //Create main workflow
+                //Create main workflow object
                 Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString(),null);
                 global.workflowMain = wfMain;
                 pnCenter.Controls.Clear();
@@ -1636,8 +1636,5 @@ namespace Mockup2
             }
             return ucRet;
         }
-
-
-
     }
 }
