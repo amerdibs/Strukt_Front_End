@@ -242,12 +242,11 @@ namespace Mockup2
 
             public static void updateTaskChildStatusFromActiveToComplete(Task parmtask, List<Task> taskList)
             {
-                PropertiesStrukt.Status.updateStatus(parmtask, true);
+                //Pakorn - We don't need real status update 15.09.13
+                //PropertiesStrukt.Status.updateStatus(parmtask, true);
                 taskList.Add(parmtask);
                 Workflow work = parmtask.workflowChild;
                 List<Task> child = work.taskChildList;
-                //if (child== null)
-                //    PropertiesStrukt.Status.updateStatus(parmtask, true);
                 if (child != null)
                     foreach (Task eachTask in child)
                         updateTaskChildStatusFromActiveToComplete(eachTask, taskList);
@@ -256,7 +255,8 @@ namespace Mockup2
             }
             public static void updateTaskChildStatusFromCompleteToActive(Task parmtask ,List<Task> taskList)
             {
-                PropertiesStrukt.Status.updateStatus(parmtask, false);
+                //Pakorn - We don't need real status update 15.09.13
+                //PropertiesStrukt.Status.updateStatus(parmtask, false);
                 taskList.Add(parmtask);
                 Workflow work = parmtask.workflowChild;
                 List<Task> child = work.taskChildList;
@@ -269,7 +269,8 @@ namespace Mockup2
             }
             public static void updateTaskParentStatusFromCompleteToActive(Task parmtask,List<Task> taskList)
             {
-                PropertiesStrukt.Status.updateStatus(parmtask, false);
+                //Pakorn - We don't need real status update 15.09.13
+                //PropertiesStrukt.Status.updateStatus(parmtask, false);
                 taskList.Add(parmtask);
                 Workflow work = parmtask.workflowParent;
                 Task parent = work.taskParent;
