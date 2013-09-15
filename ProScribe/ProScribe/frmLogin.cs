@@ -41,7 +41,7 @@ namespace Mockup2
         {
             StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
             global.processTable = wsStrukt.getProcessAll();
-            Close();
+            DialogResult = DialogResult.OK;
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -60,6 +60,11 @@ namespace Mockup2
         {
             if (e.KeyChar == (char)Keys.Enter)
                 txtPassword.Focus();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            btnPass_Click(sender, e);
         }
     }
 }

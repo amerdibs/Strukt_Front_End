@@ -239,24 +239,6 @@ namespace Mockup2
    
         }
 
-        private void btnSendtoAssigner_Click(object sender, EventArgs e)
-        {
-            frmMessage fMsg = new frmMessage();
-            ListBox lbUse = (ListBox)fMsg.Controls["pnBody"].Controls["lbUser"];
-            lbUse.Items.Add(txtReceive.Text);
-            fMsg.ShowDialog();
-        }
-
-        private void btnSendtoReceiver_Click(object sender, EventArgs e)
-        {
-            frmMessage fMsg = new frmMessage();
-            ListBox lbUse = (ListBox)fMsg.Controls["pnBody"].Controls["lbUser"];
-            foreach(DataRowView v in lbAssigned.SelectedItems)
-            {
-                lbUse.Items.Add(v.Row["u_name"]);
-            }
-            fMsg.ShowDialog();
-        }
 
         private void cbCheck_CheckStateChanged(object sender, EventArgs e)
         {
@@ -348,46 +330,6 @@ namespace Mockup2
             }
         }
 
-        private void pnReceived_DragDrop(object sender, DragEventArgs e)
-        {
-            //Raise event to the parent control
-            //Null check makes sure the parent control is attached to the event 
-            //Pakorn 16062013
-            global.dropTaskControlObject = this;
-            if (this.MainTaskDragDrop != null)
-            {
-                this.MainTaskDragDrop(sender, e);
-            }
-        }
-
-        private void pnReceived_DragEnter(object sender, DragEventArgs e)
-        {
-            if ((e.AllowedEffect & DragDropEffects.Link) != 0 && e.Data.GetDataPresent(typeof(string)))
-            {
-                e.Effect = DragDropEffects.Link;
-            }
-        }
-
-        private void pnAssigned_DragDrop(object sender, DragEventArgs e)
-        {
-            //Raise event to the parent control
-            //Null check makes sure the parent control is attached to the event 
-            //Pakorn 16062013
-            global.dropTaskControlObject = this;
-            if (this.MainTaskDragDrop != null)
-            {
-                this.MainTaskDragDrop(sender, e);
-            }
-        }
-
-        private void pnAssigned_DragEnter(object sender, DragEventArgs e)
-        {
-            if ((e.AllowedEffect & DragDropEffects.Link) != 0 && e.Data.GetDataPresent(typeof(string)))
-            {
-                e.Effect = DragDropEffects.Link;
-            }
-        }
-
         private void lbTitle_MouseDown(object sender, MouseEventArgs e)
         {
             //--- Mouse clicked event
@@ -412,57 +354,6 @@ namespace Mockup2
             }
         }
 
-        private void pnReceived_MouseDown(object sender, MouseEventArgs e)
-        {
-            //--- Mouse clicked event
-            global.currentTaskControlID = this.GetHashCode();
-            global.currentTaskControlType = global.currentTaskControlTypeMainTask;
-            global.currentTaskControlObject = this;
-            this.BackColor = global.ColorSelect;
-            preColor = global.ColorSelect;
-
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                if (this.MainTaskMouseDown != null)
-                    this.MainTaskMouseDown(sender, e);
-            }
-            else
-            {
-                //--- Drag drop event
-                global.dragTaskControlID = (this as UserControl).GetHashCode();
-                global.dragTaskControlObject = this;
-                DoDragDrop((this as UserControl).GetHashCode().ToString(), DragDropEffects.Link);
-
-            }
-        }
-
-        private void pnAssigned_MouseDown(object sender, MouseEventArgs e)
-        {
-            //--- Mouse clicked event
-            global.currentTaskControlID = this.GetHashCode();
-            global.currentTaskControlType = global.currentTaskControlTypeMainTask;
-            global.currentTaskControlObject = this;
-            this.BackColor = global.ColorSelect;
-            preColor = global.ColorSelect;
-
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                if (this.MainTaskMouseDown != null)
-                    this.MainTaskMouseDown(sender, e);
-            }
-            else
-            {
-                //--- Drag drop event
-                global.dragTaskControlID = (this as UserControl).GetHashCode();
-                global.dragTaskControlObject = this;
-                DoDragDrop((this as UserControl).GetHashCode().ToString(), DragDropEffects.Link);
-
-            }
-        }
-
-
-
-
-      
+        
     }
 }

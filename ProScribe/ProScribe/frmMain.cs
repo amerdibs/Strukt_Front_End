@@ -86,11 +86,13 @@ namespace Mockup2
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
+            global.processTable = wsStrukt.getProcessAll();
+
             cbProcess.DataSource = global.processTable;
             cbProcess.ValueMember = "p_workflow_id";
             cbProcess.DisplayMember = "p_name";
 
-            StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
             global.userTable = wsStrukt.getUserAll();
             global.appTable = wsStrukt.getAppListAll();
 
@@ -318,14 +320,6 @@ namespace Mockup2
                     lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                     lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
 
-                    Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
-                    pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                    pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                    Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
-                    pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                    pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
                     //Update Task Extend in Webservice
                     ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
                     StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
@@ -408,15 +402,6 @@ namespace Mockup2
                 Label lbTitle = (Label)uMain.Controls["lbTitle"];
                 lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
-                pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
-                pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
 
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
@@ -502,15 +487,6 @@ namespace Mockup2
                 Label lbTitle = (Label)uMain.Controls["lbTitle"];
                 lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
-                pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
-                pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
 
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
@@ -637,14 +613,6 @@ namespace Mockup2
                 Label lbTitle = (Label)uMain.Controls["lbTitle"];
                 lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
-                pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
-                pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
 
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
@@ -1284,15 +1252,6 @@ namespace Mockup2
                 Label lbTitle = (Label)uMain.Controls["lbTitle"];
                 lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                Panel pnReceived = (Panel)uMain.Controls["pnReceived"];
-                pnReceived.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                pnReceived.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-
-                Panel pnAssigned = (Panel)uMain.Controls["pnAssigned"];
-                pnAssigned.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
-                pnAssigned.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
-                
 
             }
 

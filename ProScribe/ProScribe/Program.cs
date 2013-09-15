@@ -17,16 +17,20 @@ namespace Mockup2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmLogin fLogin = new frmLogin();
-            if (fLogin.ShowDialog() == DialogResult.Cancel) 
-            {
-                Application.Exit(); 
-            }
-            else
-            {
-                frmMain frM = new frmMain();
-                Application.Run(frM);
-            }
+            Application.Run(new frmMain());
+
+            // Pakorn comments Logi Page at 15.09.13
+            //frmLogin fLogin = new frmLogin();
+            //if (fLogin.ShowDialog() == DialogResult.Cancel) 
+            //{
+            //    Application.Exit(); 
+            //}
+            //else
+            //{
+            //    frmMain frM = new frmMain();
+            //    Application.Run(frM);
+            //}
+
             //Application.Run(new frmMain());
             //Application.Run(new TestFunction());
             //Application.Run(new frmTaskEdit());
