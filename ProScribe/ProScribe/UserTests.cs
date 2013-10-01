@@ -11,7 +11,7 @@ namespace Mockup2
     [TestFixture]
     public class UserTests
     {
-        [TestCase]
+        [Test]
         public void getUserNameByStruktIDTest(string strUserID)
         {
             DataRow dtRow = User.getUserNameByStruktID("");
