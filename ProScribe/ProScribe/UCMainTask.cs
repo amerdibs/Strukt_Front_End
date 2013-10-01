@@ -170,6 +170,7 @@ namespace Mockup2
             if (cbCheck.Checked)
             {
                 Cursor.Current = Cursors.WaitCursor;
+                //  PropertiesStrukt.Status.updateStatus(taskMember, true);
                 List<Task> taskList = new List<Task>();
                 PropertiesStrukt.Status.updateTaskChildStatusFromActiveToComplete(taskMember, taskList);
                 PropertiesStrukt.Status.updateTaskParentStatusFromActiveToComplete(taskMember, taskList);

@@ -43,6 +43,24 @@ namespace Mockup2
                     txtTaskName.ReadOnly = true;
                 
                 PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
+                cbStatus.DataSource = propertie.statusList;
+                cbStatus.ValueMember = "id";
+                cbStatus.DisplayMember = "name";
+
+                //taskslist.Reverse();
+                //lstPreCondition.DataSource = taskslist;
+                //lstPreCondition.ValueMember = "id";
+                //lstPreCondition.DisplayMember = "name";
+                //lstAlternative.DataSource = taskslistAlter;
+                //lstAlternative.ValueMember = "id";
+                //lstAlternative.DisplayMember = "name";
+                //lstRoleCondition.DataSource = propertie.roleList;
+                //lstRoleCondition.ValueMember = "id";
+                //lstRoleCondition.DisplayMember = "name";
+                //lstPreCondition.SelectedIndex = -1;
+                //lstResourceCondition.SelectedIndex = -1;
+                //lstRoleCondition.SelectedIndex = -1;
+                //lstAlternative.SelectedIndex = -1;
    
             }
             catch (Exception)
@@ -55,11 +73,18 @@ namespace Mockup2
             if (strFormMode == formModeNew) // NEW Mode
             {
                 txtTaskName.Text = taskUse.name;
-
+                dtpDate.Value = DateTime.Now;
+                dtpDeadline.Value = DateTime.Now;
             }
             else // EDIT Mode
             {
                 txtTaskName.Text = taskUse.name;
+                if (taskUse.status_id != null)
+                    cbStatus.SelectedValue = taskUse.status_id;
+                if (taskUse.date != null)
+                    dtpDate.Value = global.convertFromStruktDateTime(taskUse.date);
+                if (taskUse.deadline != null)
+                    dtpDeadline.Value = global.convertFromStruktDateTime(taskUse.deadline);
                 if (taskUse.description != null)
                     txtDetail.Text = taskUse.description;
                 if (taskUse.attachmentDetail != null)
@@ -105,6 +130,12 @@ namespace Mockup2
         private void btnOK_Click(object sender, EventArgs e)
         {            
             taskUse.name = txtTaskName.Text;
+            if (cbStatus.SelectedValue!= null)
+                taskUse.status_id = (string)cbStatus.SelectedValue;
+            if (dtpDate.Value != null)
+                taskUse.date = global.convertStruktDateTimeToString(dtpDate.Value);
+            if (dtpDeadline.Value != null)
+                taskUse.deadline = global.convertStruktDateTimeToString(dtpDeadline.Value);
 
             if (!rbNone.Checked && txtAddress.Text.Trim() == "")
             {

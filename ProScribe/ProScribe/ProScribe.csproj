@@ -60,9 +60,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -150,7 +147,6 @@
     <Compile Include="TestFunction.Designer.cs">
       <DependentUpon>TestFunction.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserTests.cs" />
     <Compile Include="UCMainTask.cs">
       <SubType>UserControl</SubType>
     </Compile>
