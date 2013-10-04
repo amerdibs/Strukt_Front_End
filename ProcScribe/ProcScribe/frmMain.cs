@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 
 namespace ProcScribe
@@ -86,6 +87,28 @@ namespace ProcScribe
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            //Set appearance by options from registry
+            RegistryKey readReg;
+            readReg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\MannheimUniversity\\ProcScribe",true);
+            if (readReg == null)
+            {
+                Registry.CurrentUser.CreateSubKey("SOFTWARE\\MannheimUniversity\\ProcScribe");
+                readReg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\MannheimUniversity\\ProcScribe", true);
+                readReg.SetValue("ALLWAYTOP", "FALSE");
+            }
+            String strTop = readReg.GetValue("ALLWAYTOP","FALSE").ToString();
+            if (strTop == "FALSE")
+            {
+                this.TopMost = false;
+            }
+            else
+            {
+                this.TopMost = true;
+            }
+
+
+
+            //Get all processes
             StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
             global.processTable = wsStrukt.getProcessAll();
 
@@ -99,7 +122,6 @@ namespace ProcScribe
             if (global.processTable.Columns.Contains("u_name"))
             {
                 this.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
-                lbTitle.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
 
                 //Set user role
                 if (global.processTable.Rows[0]["u_role"] != null)
@@ -830,7 +852,7 @@ namespace ProcScribe
                     pnCenter.Controls.Remove(uSelect);
                 }
                 
-                global.currentTaskControlObject = null;
+                global.currentTas= null;
                 global.currentTaskControlID = 0;
             }
              */
@@ -838,7 +860,7 @@ namespace ProcScribe
 
         private void btnOption_Click(object sender, EventArgs e)
         {
-            frmOption fOp = new frmOption();
+            frmOption fOp = new frmOption(this);
             fOp.Show();
         }
 
@@ -1358,23 +1380,6 @@ namespace ProcScribe
             }
         }
 
-        private void pbClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void pbMaximize_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;     
-        }
-
-        private void pnMimimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
 
         private void setCollapeControlsAfterProcessLoad()
         {

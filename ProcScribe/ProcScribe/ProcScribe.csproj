@@ -202,6 +202,7 @@
     <EmbeddedResource Include="UCMainTask.resx">
       <DependentUpon>UCMainTask.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">

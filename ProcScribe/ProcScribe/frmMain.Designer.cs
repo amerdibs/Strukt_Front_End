@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnCenter = new System.Windows.Forms.Panel();
             this.btnHide = new System.Windows.Forms.Button();
@@ -45,12 +46,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsUserName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.pnControl = new System.Windows.Forms.Panel();
-            this.pnLogo = new System.Windows.Forms.PictureBox();
-            this.pnMimimize = new System.Windows.Forms.PictureBox();
-            this.pbMaximize = new System.Windows.Forms.PictureBox();
-            this.pbClose = new System.Windows.Forms.PictureBox();
-            this.lbTitle = new System.Windows.Forms.Label();
             this.ctmTask = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addMainTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSubTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,11 +57,6 @@
             this.panel2.SuspendLayout();
             this.pnDesigner.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.pnControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnMimimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMaximize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
             this.ctmTask.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,13 +71,13 @@
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.pnDesigner, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.923664F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.07633F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(395, 551);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(395, 579);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pnCenter
@@ -96,9 +86,9 @@
             this.pnCenter.AutoScroll = true;
             this.pnCenter.BackColor = System.Drawing.Color.Transparent;
             this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnCenter.Location = new System.Drawing.Point(35, 57);
+            this.pnCenter.Location = new System.Drawing.Point(35, 60);
             this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(357, 491);
+            this.pnCenter.Size = new System.Drawing.Size(357, 516);
             this.pnCenter.TabIndex = 0;
             this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
             this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
@@ -126,7 +116,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(35, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(357, 48);
+            this.panel2.Size = new System.Drawing.Size(357, 51);
             this.panel2.TabIndex = 2;
             // 
             // btnAddProcess
@@ -191,9 +181,9 @@
             this.pnDesigner.Controls.Add(this.btnSubAdd);
             this.pnDesigner.Controls.Add(this.btnAdd);
             this.pnDesigner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDesigner.Location = new System.Drawing.Point(3, 57);
+            this.pnDesigner.Location = new System.Drawing.Point(3, 60);
             this.pnDesigner.Name = "pnDesigner";
-            this.pnDesigner.Size = new System.Drawing.Size(26, 491);
+            this.pnDesigner.Size = new System.Drawing.Size(26, 516);
             this.pnDesigner.TabIndex = 3;
             // 
             // btnOption
@@ -264,74 +254,6 @@
             this.tsUserName.Size = new System.Drawing.Size(91, 17);
             this.tsUserName.Text = "No User Log-In";
             // 
-            // pnControl
-            // 
-            this.pnControl.BackColor = System.Drawing.Color.Transparent;
-            this.pnControl.Controls.Add(this.pnLogo);
-            this.pnControl.Controls.Add(this.pnMimimize);
-            this.pnControl.Controls.Add(this.pbMaximize);
-            this.pnControl.Controls.Add(this.pbClose);
-            this.pnControl.Controls.Add(this.lbTitle);
-            this.pnControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnControl.Location = new System.Drawing.Point(0, 0);
-            this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(395, 28);
-            this.pnControl.TabIndex = 2;
-            this.pnControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnControl_MouseDown);
-            // 
-            // pnLogo
-            // 
-            this.pnLogo.Image = global::ProcScribe.Properties.Resources.adim1;
-            this.pnLogo.Location = new System.Drawing.Point(3, 4);
-            this.pnLogo.Name = "pnLogo";
-            this.pnLogo.Size = new System.Drawing.Size(26, 24);
-            this.pnLogo.TabIndex = 6;
-            this.pnLogo.TabStop = false;
-            // 
-            // pnMimimize
-            // 
-            this.pnMimimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnMimimize.Image = global::ProcScribe.Properties.Resources.remove1;
-            this.pnMimimize.Location = new System.Drawing.Point(332, 4);
-            this.pnMimimize.Name = "pnMimimize";
-            this.pnMimimize.Size = new System.Drawing.Size(16, 18);
-            this.pnMimimize.TabIndex = 5;
-            this.pnMimimize.TabStop = false;
-            this.pnMimimize.Click += new System.EventHandler(this.pnMimimize_Click);
-            // 
-            // pbMaximize
-            // 
-            this.pbMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbMaximize.Image = global::ProcScribe.Properties.Resources.app;
-            this.pbMaximize.Location = new System.Drawing.Point(354, 4);
-            this.pbMaximize.Name = "pbMaximize";
-            this.pbMaximize.Size = new System.Drawing.Size(16, 18);
-            this.pbMaximize.TabIndex = 4;
-            this.pbMaximize.TabStop = false;
-            this.pbMaximize.Click += new System.EventHandler(this.pbMaximize_Click);
-            // 
-            // pbClose
-            // 
-            this.pbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbClose.Image = global::ProcScribe.Properties.Resources.delete;
-            this.pbClose.Location = new System.Drawing.Point(376, 4);
-            this.pbClose.Name = "pbClose";
-            this.pbClose.Size = new System.Drawing.Size(16, 18);
-            this.pbClose.TabIndex = 3;
-            this.pbClose.TabStop = false;
-            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
-            // 
-            // lbTitle
-            // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbTitle.Location = new System.Drawing.Point(32, 9);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(69, 13);
-            this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "ProcScribe";
-            this.lbTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitle_MouseDown);
-            // 
             // ctmTask
             // 
             this.ctmTask.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -382,12 +304,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 601);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.pnControl);
             this.Controls.Add(this.statusStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "User  Guidance Application";
+            this.Text = "ProcScribe";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
@@ -397,12 +318,6 @@
             this.pnDesigner.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.pnControl.ResumeLayout(false);
-            this.pnControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnMimimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMaximize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
             this.ctmTask.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -419,7 +334,6 @@
         private System.Windows.Forms.ComboBox cbProcess;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.Panel pnControl;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel pnDesigner;
         private System.Windows.Forms.Button btnDelete;
@@ -434,11 +348,6 @@
         private System.Windows.Forms.Button btnAddProcess;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripStatusLabel tsUserName;
-        private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.PictureBox pbClose;
-        private System.Windows.Forms.PictureBox pbMaximize;
-        private System.Windows.Forms.PictureBox pnMimimize;
-        private System.Windows.Forms.PictureBox pnLogo;
         private System.Windows.Forms.ToolTip ttMainForm;
     }
 }

@@ -45,8 +45,6 @@
             // cbTop
             // 
             this.cbTop.AutoSize = true;
-            this.cbTop.Checked = true;
-            this.cbTop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbTop.Location = new System.Drawing.Point(12, 12);
             this.cbTop.Name = "cbTop";
             this.cbTop.Size = new System.Drawing.Size(96, 17);
@@ -65,6 +63,7 @@
             this.Name = "frmOption";
             this.Text = "Option";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.frmOption_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
