@@ -31,7 +31,7 @@ namespace ProcScribe
         {
             //save configurations into registry
             RegistryKey readReg;
-            readReg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\MannheimUniversity\\ProcScribe", true);
+            readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
             if (cbTop.Checked)
             {
                 readReg.SetValue("ALLWAYTOP", "TRUE");
@@ -49,7 +49,7 @@ namespace ProcScribe
         {
             //load configurations from registry
             RegistryKey readReg;
-            readReg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\MannheimUniversity\\ProcScribe", true);
+            readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
             String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
 
             if (strTop == "FALSE")

@@ -89,11 +89,11 @@ namespace ProcScribe
         {
             //Set appearance by options from registry
             RegistryKey readReg;
-            readReg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\MannheimUniversity\\ProcScribe",true);
+            readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
             if (readReg == null)
             {
-                Registry.CurrentUser.CreateSubKey("SOFTWARE\\MannheimUniversity\\ProcScribe");
-                readReg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\MannheimUniversity\\ProcScribe", true);
+                Registry.CurrentUser.CreateSubKey(global.registryPath);
+                readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
                 readReg.SetValue("ALLWAYTOP", "FALSE");
             }
             String strTop = readReg.GetValue("ALLWAYTOP","FALSE").ToString();
