@@ -51,14 +51,13 @@
             // 
             // lbTitle
             // 
-            this.lbTitle.AllowDrop = true;
-            this.lbTitle.AutoSize = true;
+            this.lbTitle.AutoEllipsis = true;
             this.lbTitle.BackColor = System.Drawing.Color.Transparent;
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lbTitle.ForeColor = System.Drawing.Color.Black;
-            this.lbTitle.Location = new System.Drawing.Point(39, 5);
+            this.lbTitle.Location = new System.Drawing.Point(36, 4);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(62, 13);
+            this.lbTitle.Size = new System.Drawing.Size(222, 14);
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "[New Task]";
             this.lbTitle.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragDrop);
@@ -104,13 +103,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
+            this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.pbCollape);
             this.Controls.Add(this.btnLink);
             this.Controls.Add(this.btnProp);
-            this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.cbCheck);
             this.Name = "UCMainTask";
-            this.Size = new System.Drawing.Size(320, 26);
+            this.Size = new System.Drawing.Size(320, 25);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragEnter);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCMainTask_Paint);

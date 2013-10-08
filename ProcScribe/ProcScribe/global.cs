@@ -40,7 +40,7 @@ namespace ProcScribe
         public static int heightControlTaskCollape = 0;
 
         public static string resultSuccessStrukt = "{\"type\":\"success\"}";
-        public static string registryPath = "SOFTWARE\\MannheimUniversity\\ProcScribe";
+        public static string registryPath = "SOFTWARE\\ProcScribe";
 
 
         // fix value is used for the first prototype only
