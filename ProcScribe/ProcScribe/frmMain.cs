@@ -1485,5 +1485,15 @@ namespace ProcScribe
             }
             return ucRet;
         }
+
+        private void cbProcess_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnCenter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

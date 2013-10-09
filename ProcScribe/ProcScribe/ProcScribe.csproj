@@ -297,6 +297,8 @@
     <None Include="Resources\uncollapes1.png" />
     <None Include="Resources\folder_find.gif" />
     <None Include="Resources\shop_cart.gif" />
+    <None Include="Resources\Load1.jpg" />
+    <None Include="Resources\Save21.jpg" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>
