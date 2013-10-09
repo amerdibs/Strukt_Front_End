@@ -299,6 +299,7 @@
     <None Include="Resources\shop_cart.gif" />
     <None Include="Resources\Load1.jpg" />
     <None Include="Resources\Save21.jpg" />
+    <None Include="Resources\Properties.jpg" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnCenter = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAddProcess = new System.Windows.Forms.Button();
             this.cbProcess = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnDesigner = new System.Windows.Forms.Panel();
@@ -46,7 +47,6 @@
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
             this.btnHide = new System.Windows.Forms.Button();
-            this.btnAddProcess = new System.Windows.Forms.Button();
             this.btnSaveProcessAs = new System.Windows.Forms.Button();
             this.btnLoadProcess = new System.Windows.Forms.Button();
             this.btnOption = new System.Windows.Forms.Button();
@@ -109,6 +109,17 @@
             this.panel2.Size = new System.Drawing.Size(357, 34);
             this.panel2.TabIndex = 2;
             // 
+            // btnAddProcess
+            // 
+            this.btnAddProcess.Location = new System.Drawing.Point(314, 7);
+            this.btnAddProcess.Name = "btnAddProcess";
+            this.btnAddProcess.Size = new System.Drawing.Size(40, 23);
+            this.btnAddProcess.TabIndex = 4;
+            this.btnAddProcess.Text = "New";
+            this.btnAddProcess.UseVisualStyleBackColor = true;
+            this.btnAddProcess.Visible = false;
+            this.btnAddProcess.Click += new System.EventHandler(this.btnAddProcess_Click);
+            // 
             // cbProcess
             // 
             this.cbProcess.AccessibleName = "";
@@ -134,6 +145,7 @@
             // 
             // pnDesigner
             // 
+            this.pnDesigner.AccessibleDescription = "";
             this.pnDesigner.Controls.Add(this.btnOption);
             this.pnDesigner.Controls.Add(this.btnDelete);
             this.pnDesigner.Controls.Add(this.btnSubAdd);
@@ -209,7 +221,6 @@
             // 
             // btnHide
             // 
-            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHide.Image = global::ProcScribe.Properties.Resources.bt_skip_sw;
             this.btnHide.Location = new System.Drawing.Point(3, 3);
             this.btnHide.Name = "btnHide";
@@ -217,17 +228,6 @@
             this.btnHide.TabIndex = 1;
             this.btnHide.UseVisualStyleBackColor = true;
             this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
-            // 
-            // btnAddProcess
-            // 
-            this.btnAddProcess.Location = new System.Drawing.Point(314, 7);
-            this.btnAddProcess.Name = "btnAddProcess";
-            this.btnAddProcess.Size = new System.Drawing.Size(40, 23);
-            this.btnAddProcess.TabIndex = 4;
-            this.btnAddProcess.Text = "New";
-            this.btnAddProcess.UseVisualStyleBackColor = true;
-            this.btnAddProcess.Visible = false;
-            this.btnAddProcess.Click += new System.EventHandler(this.btnAddProcess_Click);
             // 
             // btnSaveProcessAs
             // 
@@ -254,7 +254,7 @@
             // btnOption
             // 
             this.btnOption.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
+            this.btnOption.Image = global::ProcScribe.Properties.Resources.Properties;
             this.btnOption.Location = new System.Drawing.Point(0, 66);
             this.btnOption.Name = "btnOption";
             this.btnOption.Size = new System.Drawing.Size(26, 23);
