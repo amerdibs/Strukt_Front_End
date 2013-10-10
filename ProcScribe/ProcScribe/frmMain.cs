@@ -326,6 +326,7 @@ namespace ProcScribe
                     uMain.iLevel = uSelect.iLevel + 1;
                     uMain.BackColor = global.ColorMainTask;
                     uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left + global.iIndentOfCheckBox;
+                    uMain.Controls["lbTitle"].Width = uMain.Controls["lbTitle"].Width - global.iIndentOfCheckBox;
                     uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left + global.iIndentOfCheckBox;
                     uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left + global.iIndentOfCheckBox;
                     uMain.setExistenceCollapeButtonRole();
@@ -1255,6 +1256,7 @@ namespace ProcScribe
                 uMain.BackColor = global.ColorMainTask;
                 uMain.Controls["lbTitle"].Text = tEach.name;
                 uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (global.iIndentOfCheckBox * iLevel);
+                uMain.Controls["lbTitle"].Width = uMain.Controls["lbTitle"].Width - (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["pbCollape"].Left = uMain.Controls["pbCollape"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.setExistenceCollapeButtonRole();

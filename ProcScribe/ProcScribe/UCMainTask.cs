@@ -257,16 +257,17 @@ namespace ProcScribe
 
         private void UCMainTask_Paint(object sender, PaintEventArgs e)
         {
-            if (this.Height > 0)
-            {
-                Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
-                using (LinearGradientBrush brush = new LinearGradientBrush(rc, this.BackColor, Color.White, LinearGradientMode.Horizontal))
-                {
+            //do not use gradient color
+            //if (this.Height > 0)
+            //{
+            //    Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
+            //    using (LinearGradientBrush brush = new LinearGradientBrush(rc, this.BackColor, Color.White, LinearGradientMode.Horizontal))
+            //    {
 
-                    e.Graphics.FillRectangle(brush, rc);
+            //        e.Graphics.FillRectangle(brush, rc);
 
-                }
-            }
+            //    }
+            //}
         }
 
         public void setExistenceCollapeButtonRoleChild()
