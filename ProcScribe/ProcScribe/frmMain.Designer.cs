@@ -32,11 +32,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnCenter = new System.Windows.Forms.Panel();
+            this.btnHide = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAddProcess = new System.Windows.Forms.Button();
+            this.btnSaveProcessAs = new System.Windows.Forms.Button();
+            this.btnLoadProcess = new System.Windows.Forms.Button();
             this.cbProcess = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnDesigner = new System.Windows.Forms.Panel();
+            this.btnOption = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSubAdd = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsUserName = new System.Windows.Forms.ToolStripStatusLabel();
             this.ctmTask = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -46,13 +53,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
-            this.btnHide = new System.Windows.Forms.Button();
-            this.btnSaveProcessAs = new System.Windows.Forms.Button();
-            this.btnLoadProcess = new System.Windows.Forms.Button();
-            this.btnOption = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSubAdd = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnDesigner.SuspendLayout();
@@ -95,6 +95,16 @@
             this.pnCenter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnCenter_Paint);
             this.pnCenter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCenter_MouseDown);
             // 
+            // btnHide
+            // 
+            this.btnHide.Image = global::ProcScribe.Properties.Resources.bt_skip_sw;
+            this.btnHide.Location = new System.Drawing.Point(3, 3);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(23, 34);
+            this.btnHide.TabIndex = 1;
+            this.btnHide.UseVisualStyleBackColor = true;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -119,6 +129,28 @@
             this.btnAddProcess.UseVisualStyleBackColor = true;
             this.btnAddProcess.Visible = false;
             this.btnAddProcess.Click += new System.EventHandler(this.btnAddProcess_Click);
+            // 
+            // btnSaveProcessAs
+            // 
+            this.btnSaveProcessAs.Image = global::ProcScribe.Properties.Resources.Save2;
+            this.btnSaveProcessAs.Location = new System.Drawing.Point(280, 7);
+            this.btnSaveProcessAs.Name = "btnSaveProcessAs";
+            this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 23);
+            this.btnSaveProcessAs.TabIndex = 3;
+            this.btnSaveProcessAs.UseVisualStyleBackColor = true;
+            this.btnSaveProcessAs.Visible = false;
+            this.btnSaveProcessAs.Click += new System.EventHandler(this.btnSaveProcessAs_Click);
+            // 
+            // btnLoadProcess
+            // 
+            this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
+            this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.Load;
+            this.btnLoadProcess.Location = new System.Drawing.Point(246, 7);
+            this.btnLoadProcess.Name = "btnLoadProcess";
+            this.btnLoadProcess.Size = new System.Drawing.Size(28, 23);
+            this.btnLoadProcess.TabIndex = 2;
+            this.btnLoadProcess.UseVisualStyleBackColor = false;
+            this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
             // 
             // cbProcess
             // 
@@ -155,6 +187,51 @@
             this.pnDesigner.Name = "pnDesigner";
             this.pnDesigner.Size = new System.Drawing.Size(26, 533);
             this.pnDesigner.TabIndex = 3;
+            // 
+            // btnOption
+            // 
+            this.btnOption.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOption.Image = global::ProcScribe.Properties.Resources.Properties;
+            this.btnOption.Location = new System.Drawing.Point(0, 66);
+            this.btnOption.Name = "btnOption";
+            this.btnOption.Size = new System.Drawing.Size(26, 23);
+            this.btnOption.TabIndex = 7;
+            this.btnOption.UseVisualStyleBackColor = true;
+            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDelete.Image = global::ProcScribe.Properties.Resources.trash;
+            this.btnDelete.Location = new System.Drawing.Point(0, 44);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(26, 22);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnSubAdd
+            // 
+            this.btnSubAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubAdd.Image = global::ProcScribe.Properties.Resources.new_child;
+            this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
+            this.btnSubAdd.Name = "btnSubAdd";
+            this.btnSubAdd.Size = new System.Drawing.Size(26, 22);
+            this.btnSubAdd.TabIndex = 6;
+            this.btnSubAdd.UseVisualStyleBackColor = true;
+            this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdd.Image = global::ProcScribe.Properties.Resources.add;
+            this.btnAdd.Location = new System.Drawing.Point(0, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(26, 22);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Tag = "";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // statusStrip1
             // 
@@ -219,83 +296,6 @@
             this.editNameToolStripMenuItem.Text = "Edit Name";
             this.editNameToolStripMenuItem.Click += new System.EventHandler(this.editNameToolStripMenuItem_Click);
             // 
-            // btnHide
-            // 
-            this.btnHide.Image = global::ProcScribe.Properties.Resources.bt_skip_sw;
-            this.btnHide.Location = new System.Drawing.Point(3, 3);
-            this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(23, 34);
-            this.btnHide.TabIndex = 1;
-            this.btnHide.UseVisualStyleBackColor = true;
-            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
-            // 
-            // btnSaveProcessAs
-            // 
-            this.btnSaveProcessAs.Image = global::ProcScribe.Properties.Resources.Save2;
-            this.btnSaveProcessAs.Location = new System.Drawing.Point(280, 7);
-            this.btnSaveProcessAs.Name = "btnSaveProcessAs";
-            this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 23);
-            this.btnSaveProcessAs.TabIndex = 3;
-            this.btnSaveProcessAs.UseVisualStyleBackColor = true;
-            this.btnSaveProcessAs.Visible = false;
-            this.btnSaveProcessAs.Click += new System.EventHandler(this.btnSaveProcessAs_Click);
-            // 
-            // btnLoadProcess
-            // 
-            this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.Load;
-            this.btnLoadProcess.Location = new System.Drawing.Point(246, 7);
-            this.btnLoadProcess.Name = "btnLoadProcess";
-            this.btnLoadProcess.Size = new System.Drawing.Size(28, 23);
-            this.btnLoadProcess.TabIndex = 2;
-            this.btnLoadProcess.UseVisualStyleBackColor = false;
-            this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
-            // 
-            // btnOption
-            // 
-            this.btnOption.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOption.Image = global::ProcScribe.Properties.Resources.Properties;
-            this.btnOption.Location = new System.Drawing.Point(0, 66);
-            this.btnOption.Name = "btnOption";
-            this.btnOption.Size = new System.Drawing.Size(26, 23);
-            this.btnOption.TabIndex = 7;
-            this.btnOption.UseVisualStyleBackColor = true;
-            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDelete.Image = global::ProcScribe.Properties.Resources.trash;
-            this.btnDelete.Location = new System.Drawing.Point(0, 44);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(26, 22);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSubAdd
-            // 
-            this.btnSubAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSubAdd.Image = global::ProcScribe.Properties.Resources.new_child;
-            this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
-            this.btnSubAdd.Name = "btnSubAdd";
-            this.btnSubAdd.Size = new System.Drawing.Size(26, 22);
-            this.btnSubAdd.TabIndex = 6;
-            this.btnSubAdd.UseVisualStyleBackColor = true;
-            this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdd.Image = global::ProcScribe.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(0, 0);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(26, 22);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Tag = "";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,6 +304,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(300, 500);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProcScribe";

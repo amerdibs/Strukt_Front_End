@@ -1227,6 +1227,9 @@ namespace ProcScribe
                 frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 33;
                 btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_bk));
                 global.hideWindows = true;
+
+                
+                
             }
             else
             {
