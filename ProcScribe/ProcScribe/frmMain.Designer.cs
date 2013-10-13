@@ -97,6 +97,7 @@
             // 
             // btnHide
             // 
+            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHide.Image = global::ProcScribe.Properties.Resources.bt_skip_sw;
             this.btnHide.Location = new System.Drawing.Point(3, 3);
             this.btnHide.Name = "btnHide";
@@ -121,6 +122,7 @@
             // 
             // btnAddProcess
             // 
+            this.btnAddProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProcess.Location = new System.Drawing.Point(314, 7);
             this.btnAddProcess.Name = "btnAddProcess";
             this.btnAddProcess.Size = new System.Drawing.Size(40, 23);
@@ -132,7 +134,8 @@
             // 
             // btnSaveProcessAs
             // 
-            this.btnSaveProcessAs.Image = global::ProcScribe.Properties.Resources.Save2;
+            this.btnSaveProcessAs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveProcessAs.Image = global::ProcScribe.Properties.Resources.save;
             this.btnSaveProcessAs.Location = new System.Drawing.Point(280, 7);
             this.btnSaveProcessAs.Name = "btnSaveProcessAs";
             this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 23);
@@ -144,7 +147,8 @@
             // btnLoadProcess
             // 
             this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.Load;
+            this.btnLoadProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.down1;
             this.btnLoadProcess.Location = new System.Drawing.Point(246, 7);
             this.btnLoadProcess.Name = "btnLoadProcess";
             this.btnLoadProcess.Size = new System.Drawing.Size(28, 23);
@@ -191,7 +195,8 @@
             // btnOption
             // 
             this.btnOption.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOption.Image = global::ProcScribe.Properties.Resources.Properties;
+            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
             this.btnOption.Location = new System.Drawing.Point(0, 66);
             this.btnOption.Name = "btnOption";
             this.btnOption.Size = new System.Drawing.Size(26, 23);
@@ -202,6 +207,7 @@
             // btnDelete
             // 
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Image = global::ProcScribe.Properties.Resources.trash;
             this.btnDelete.Location = new System.Drawing.Point(0, 44);
             this.btnDelete.Name = "btnDelete";
@@ -213,6 +219,7 @@
             // btnSubAdd
             // 
             this.btnSubAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubAdd.Image = global::ProcScribe.Properties.Resources.new_child;
             this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
             this.btnSubAdd.Name = "btnSubAdd";
@@ -224,6 +231,7 @@
             // btnAdd
             // 
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = global::ProcScribe.Properties.Resources.add;
             this.btnAdd.Location = new System.Drawing.Point(0, 0);
             this.btnAdd.Name = "btnAdd";
