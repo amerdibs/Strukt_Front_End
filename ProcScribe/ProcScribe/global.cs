@@ -10,7 +10,7 @@ using System.Data;
 
 namespace ProcScribe
 {
-    class global
+    public class global
     {
         // Users Interface part --------------
         public static bool hideWindows;
