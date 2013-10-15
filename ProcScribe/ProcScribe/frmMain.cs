@@ -29,7 +29,8 @@ namespace ProcScribe
         public frmMain()
         {
             InitializeComponent();
-         
+           
+            
         }
 
         private void checkAssignmentUpdateControl(object sender, EventArgs e)
@@ -1228,7 +1229,6 @@ namespace ProcScribe
                 btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_bk));
                 global.hideWindows = true;
 
-                
                 
             }
             else

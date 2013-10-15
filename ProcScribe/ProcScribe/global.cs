@@ -56,6 +56,7 @@ namespace ProcScribe
         public static DataTable appTable;
         public static string roleUser = "D";
 
+       
 
         //calculate height of Task control
         public static int getHeightTaskControl(Task tTask)
