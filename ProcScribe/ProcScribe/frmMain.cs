@@ -105,7 +105,21 @@ namespace ProcScribe
                 readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
                 readReg.SetValue("ALLWAYTOP", "FALSE");
             }
-            String strTop = readReg.GetValue("ALLWAYTOP","FALSE").ToString();
+            String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
+            int top_postion = Convert.ToInt32(readReg.GetValue("top_position").ToString());
+            int left_position = Convert.ToInt32(readReg.GetValue("left_position").ToString());
+            int hight = Convert.ToInt32(readReg.GetValue("frm_height").ToString());
+            int task_bar_position = Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.WorkingArea.Height;
+            if (top_postion < task_bar_position+hight)
+            {
+                top_postion = top_postion+task_bar_position+25;
+            }
+            
+            this.Left = left_position;
+           // this.Top = top_postion;
+            
+
+            
             if (strTop == "FALSE")
             {
                 this.TopMost = false;
@@ -202,13 +216,37 @@ namespace ProcScribe
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+         
+
             DialogResult result1 = MessageBox.Show("Do you want to exit?",
                                                     "Please confirm",
                                                     MessageBoxButtons.OKCancel);
+            
+            
             if (result1 != System.Windows.Forms.DialogResult.OK)
             {
+                
                 e.Cancel = true;
             }
+            int top_position = this.Top;
+            int left_position = this.Left;
+            int width = this.Width;
+            int height = this.Height;
+            Rectangle resolution = Screen.PrimaryScreen.Bounds;
+            int resolution_height = resolution.Size.Height;
+            int resolution_width = resolution.Size.Width;
+            RegistryKey readReg;
+            readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
+
+            Registry.CurrentUser.CreateSubKey(global.registryPath);
+            readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
+            readReg.SetValue("top_position", top_position.ToString());
+            readReg.SetValue("left_position", left_position.ToString());
+            readReg.SetValue("frm_width", width.ToString());
+            readReg.SetValue("frm_height", height.ToString());
+            readReg.SetValue("resolution_height", resolution_height.ToString());
+            readReg.SetValue("resolution_width", resolution_width.ToString());
+               
             
         }
 
