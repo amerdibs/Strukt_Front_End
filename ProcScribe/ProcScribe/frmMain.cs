@@ -88,6 +88,14 @@ namespace ProcScribe
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            this.MinimumSize = new Size(global.minFrmWidth,global.minFrmHeight);
+           
+            //if (Screen.PrimaryScreen.Bounds.Height == 800)
+            //{
+                //this.Size =new Size(Screen.PrimaryScreen.Bounds.Width/3.5,this.Height);
+                this.Width = (int)(Screen.PrimaryScreen.Bounds.Width / 3.5);
+                MessageBox.Show(this.Width.ToString());
+            //}
             //Set appearance by options from registry
             RegistryKey readReg;
             readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);

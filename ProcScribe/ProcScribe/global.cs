@@ -7,6 +7,7 @@ using System.Drawing;
 using Newtonsoft.Json;
 using System.Globalization;
 using System.Data;
+using System.Windows.Forms;
 
 namespace ProcScribe
 {
@@ -42,6 +43,9 @@ namespace ProcScribe
         public static string resultSuccessStrukt = "{\"type\":\"success\"}";
         public static string registryPath = "SOFTWARE\\ProcScribe";
 
+        public static int minFrmHeight = 600;
+        public static int minFrmWidth = 320;
+
 
         // fix value is used for the first prototype only
         //public static string strWorkflowID = "354249471";
@@ -57,6 +61,7 @@ namespace ProcScribe
         public static string roleUser = "D";
 
        
+
 
         //calculate height of Task control
         public static int getHeightTaskControl(Task tTask)
