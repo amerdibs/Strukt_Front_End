@@ -106,17 +106,17 @@ namespace ProcScribe
                 readReg.SetValue("ALLWAYTOP", "FALSE");
             }
             String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
-            int top_postion = Convert.ToInt32(readReg.GetValue("top_position").ToString());
-            int left_position = Convert.ToInt32(readReg.GetValue("left_position").ToString());
-            int hight = Convert.ToInt32(readReg.GetValue("frm_height").ToString());
-            int task_bar_position = Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.WorkingArea.Height;
-            if (top_postion < task_bar_position+hight)
-            {
-                top_postion = top_postion+task_bar_position+25;
-            }
+            //int top_postion = Convert.ToInt32(readReg.GetValue("top_position").ToString());
+            //int left_position = Convert.ToInt32(readReg.GetValue("left_position").ToString());
+            //int hight = Convert.ToInt32(readReg.GetValue("frm_height").ToString());
+            //int task_bar_position = Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.WorkingArea.Height;
+            //if (top_postion < task_bar_position+hight)
+            //{
+            //    top_postion = top_postion+task_bar_position+25;
+            //}
             
-            this.Left = left_position;
-           // this.Top = top_postion;
+            //this.Left = left_position;
+           ///////////// this.Top = top_postion;
             
 
             

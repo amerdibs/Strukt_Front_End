@@ -62,5 +62,60 @@ namespace ProcScribe
             }
 
         }
+
+        private void btnColorBack_Click(object sender, EventArgs e)
+        {
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtColorBack.BackColor = cdDialog.Color;
+                txtColorBack.Tag = cdDialog.Color;
+            }
+
+        }
+
+        private void btnColorTask_Click(object sender, EventArgs e)
+        {
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtColorTask.BackColor = cdDialog.Color;
+                txtColorTask.Tag = cdDialog.Color;
+            }
+        }
+
+        private void btnColorText1_Click(object sender, EventArgs e)
+        {
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtColorText1.BackColor = cdDialog.Color;
+                txtColorText1.Tag = cdDialog.Color;
+            }
+        }
+
+        private void btnColorText2_Click(object sender, EventArgs e)
+        {
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtColorText2.BackColor = cdDialog.Color;
+                txtColorText2.Tag = cdDialog.Color;
+            }
+        }
+
+        private void btnColorText3_Click(object sender, EventArgs e)
+        {
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtColorText3.BackColor = cdDialog.Color;
+                txtColorText3.Tag = cdDialog.Color;
+            }
+        }
+
+        private void btnColorText4_Click(object sender, EventArgs e)
+        {
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtColorText4.BackColor = cdDialog.Color;
+                txtColorText4.Tag = cdDialog.Color;
+            }
+        }
     }
 }

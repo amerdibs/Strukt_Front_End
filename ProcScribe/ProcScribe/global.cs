@@ -27,13 +27,14 @@ namespace ProcScribe
         public static Object dragTaskControlObject;
         public static Object dropTaskControlObject;
 
-        public static Color ColorMainTask = Color.SkyBlue;
+        
+        public static Color ColorMainTask = Color.WhiteSmoke; // old skyblue
         public static Color ColorHover = Color.Tan;
         public static Color ColorSubTask = Color.Lavender;
         public static Color ColorSelect = Color.SandyBrown;
 
         public static int iIndentOfCheckBox = 12;
-        public static int iGradientOfColor = 30;
+        public static int iGradientOfColor = 0; // old 0
 
         public static int heightControlTaskNormal = 27;
         public static int heightControlTaskReceive = heightControlTaskNormal + 39;
