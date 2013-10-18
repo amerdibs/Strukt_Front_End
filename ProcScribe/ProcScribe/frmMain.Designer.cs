@@ -40,7 +40,6 @@
             this.cbProcess = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnDesigner = new System.Windows.Forms.Panel();
-            this.btnOption = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSubAdd = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -53,11 +52,17 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnOption = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
+            this.pnCenter.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnDesigner.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.ctmTask.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -77,7 +82,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.908463F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.09154F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(395, 579);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 579);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pnCenter
@@ -85,10 +90,11 @@
             this.pnCenter.AllowDrop = true;
             this.pnCenter.AutoScroll = true;
             this.pnCenter.BackColor = System.Drawing.Color.Transparent;
+            this.pnCenter.Controls.Add(this.tabControl1);
             this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnCenter.Location = new System.Drawing.Point(35, 43);
+            this.pnCenter.Location = new System.Drawing.Point(34, 43);
             this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(357, 533);
+            this.pnCenter.Size = new System.Drawing.Size(347, 533);
             this.pnCenter.TabIndex = 0;
             this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
             this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
@@ -109,21 +115,22 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.btnOption);
             this.panel2.Controls.Add(this.btnAddProcess);
             this.panel2.Controls.Add(this.btnSaveProcessAs);
             this.panel2.Controls.Add(this.btnLoadProcess);
             this.panel2.Controls.Add(this.cbProcess);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(35, 3);
+            this.panel2.Location = new System.Drawing.Point(34, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(357, 34);
+            this.panel2.Size = new System.Drawing.Size(347, 34);
             this.panel2.TabIndex = 2;
             // 
             // btnAddProcess
             // 
             this.btnAddProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddProcess.Location = new System.Drawing.Point(314, 9);
+            this.btnAddProcess.Location = new System.Drawing.Point(474, 8);
             this.btnAddProcess.Name = "btnAddProcess";
             this.btnAddProcess.Size = new System.Drawing.Size(40, 21);
             this.btnAddProcess.TabIndex = 4;
@@ -136,7 +143,7 @@
             // 
             this.btnSaveProcessAs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveProcessAs.Image = global::ProcScribe.Properties.Resources.save;
-            this.btnSaveProcessAs.Location = new System.Drawing.Point(280, 9);
+            this.btnSaveProcessAs.Location = new System.Drawing.Point(426, 7);
             this.btnSaveProcessAs.Name = "btnSaveProcessAs";
             this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 21);
             this.btnSaveProcessAs.TabIndex = 3;
@@ -182,27 +189,14 @@
             // pnDesigner
             // 
             this.pnDesigner.AccessibleDescription = "";
-            this.pnDesigner.Controls.Add(this.btnOption);
             this.pnDesigner.Controls.Add(this.btnDelete);
             this.pnDesigner.Controls.Add(this.btnSubAdd);
             this.pnDesigner.Controls.Add(this.btnAdd);
             this.pnDesigner.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnDesigner.Location = new System.Drawing.Point(3, 43);
             this.pnDesigner.Name = "pnDesigner";
-            this.pnDesigner.Size = new System.Drawing.Size(26, 533);
+            this.pnDesigner.Size = new System.Drawing.Size(25, 533);
             this.pnDesigner.TabIndex = 3;
-            // 
-            // btnOption
-            // 
-            this.btnOption.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
-            this.btnOption.Location = new System.Drawing.Point(0, 66);
-            this.btnOption.Name = "btnOption";
-            this.btnOption.Size = new System.Drawing.Size(26, 23);
-            this.btnOption.TabIndex = 7;
-            this.btnOption.UseVisualStyleBackColor = true;
-            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
             // 
             // btnDelete
             // 
@@ -211,7 +205,7 @@
             this.btnDelete.Image = global::ProcScribe.Properties.Resources.trash;
             this.btnDelete.Location = new System.Drawing.Point(0, 44);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(26, 22);
+            this.btnDelete.Size = new System.Drawing.Size(25, 22);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -223,7 +217,7 @@
             this.btnSubAdd.Image = global::ProcScribe.Properties.Resources.new_child;
             this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
             this.btnSubAdd.Name = "btnSubAdd";
-            this.btnSubAdd.Size = new System.Drawing.Size(26, 22);
+            this.btnSubAdd.Size = new System.Drawing.Size(25, 22);
             this.btnSubAdd.TabIndex = 6;
             this.btnSubAdd.UseVisualStyleBackColor = true;
             this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
@@ -235,7 +229,7 @@
             this.btnAdd.Image = global::ProcScribe.Properties.Resources.add;
             this.btnAdd.Location = new System.Drawing.Point(0, 0);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(26, 22);
+            this.btnAdd.Size = new System.Drawing.Size(25, 22);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Tag = "";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -248,7 +242,7 @@
             this.tsUserName});
             this.statusStrip1.Location = new System.Drawing.Point(0, 579);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(395, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(384, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -304,11 +298,52 @@
             this.editNameToolStripMenuItem.Text = "Edit Name";
             this.editNameToolStripMenuItem.Click += new System.EventHandler(this.editNameToolStripMenuItem_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(223, 99);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(8, 8);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(0, 0);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(0, 0);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnOption
+            // 
+            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
+            this.btnOption.Location = new System.Drawing.Point(280, 9);
+            this.btnOption.Name = "btnOption";
+            this.btnOption.Size = new System.Drawing.Size(41, 21);
+            this.btnOption.TabIndex = 7;
+            this.btnOption.UseVisualStyleBackColor = true;
+            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 601);
+            this.ClientSize = new System.Drawing.Size(384, 601);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -319,12 +354,14 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.pnCenter.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnDesigner.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ctmTask.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,7 +381,6 @@
         private System.Windows.Forms.Panel pnDesigner;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSubAdd;
-        private System.Windows.Forms.Button btnOption;
         private System.Windows.Forms.Button btnSaveProcessAs;
         private System.Windows.Forms.ContextMenuStrip ctmTask;
         private System.Windows.Forms.ToolStripMenuItem addMainTaskToolStripMenuItem;
@@ -355,6 +391,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripStatusLabel tsUserName;
         private System.Windows.Forms.ToolTip ttMainForm;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnOption;
     }
 }
 
