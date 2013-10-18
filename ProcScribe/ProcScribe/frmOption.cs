@@ -48,6 +48,7 @@ namespace ProcScribe
         private void frmOption_Load(object sender, EventArgs e)
         {
             //load configurations from registry
+            this.Height -= 260; 
             RegistryKey readReg;
             readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
             String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
@@ -115,6 +116,20 @@ namespace ProcScribe
             {
                 txtColorText4.BackColor = cdDialog.Color;
                 txtColorText4.Tag = cdDialog.Color;
+            }
+        }
+
+        private void btnAdvance_Click(object sender, EventArgs e)
+        {
+            gbColor.Visible = true;
+        }
+
+        private void btnTaskSelectColor_Click(object sender, EventArgs e)
+        {
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtTaskSelectColor.BackColor = cdDialog.Color;
+                txtTaskSelectColor.Tag = cdDialog.Color;
             }
         }
     }
