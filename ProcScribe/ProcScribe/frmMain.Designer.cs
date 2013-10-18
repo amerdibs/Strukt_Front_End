@@ -52,36 +52,37 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnOption = new System.Windows.Forms.Button();
+            this.tabCenter = new System.Windows.Forms.TabControl();
+            this.tpGuide = new System.Windows.Forms.TabPage();
+            this.tpSearch = new System.Windows.Forms.TabPage();
+            this.tpEdit = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1.SuspendLayout();
-            this.pnCenter.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnDesigner.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.ctmTask.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabCenter.SuspendLayout();
+            this.tpGuide.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.264462F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.264463F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.73553F));
-            this.tableLayoutPanel1.Controls.Add(this.pnCenter, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnHide, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tabCenter, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.pnDesigner, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.908463F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.09154F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 579);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -90,11 +91,10 @@
             this.pnCenter.AllowDrop = true;
             this.pnCenter.AutoScroll = true;
             this.pnCenter.BackColor = System.Drawing.Color.Transparent;
-            this.pnCenter.Controls.Add(this.tabControl1);
             this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnCenter.Location = new System.Drawing.Point(34, 43);
+            this.pnCenter.Location = new System.Drawing.Point(3, 3);
             this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(347, 533);
+            this.pnCenter.Size = new System.Drawing.Size(333, 501);
             this.pnCenter.TabIndex = 0;
             this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
             this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
@@ -298,36 +298,6 @@
             this.editNameToolStripMenuItem.Text = "Edit Name";
             this.editNameToolStripMenuItem.Click += new System.EventHandler(this.editNameToolStripMenuItem_Click);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(223, 99);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(8, 8);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(0, 0);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(0, 0);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // btnOption
             // 
             this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -338,6 +308,49 @@
             this.btnOption.TabIndex = 7;
             this.btnOption.UseVisualStyleBackColor = true;
             this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
+            // 
+            // tabCenter
+            // 
+            this.tabCenter.Controls.Add(this.tpGuide);
+            this.tabCenter.Controls.Add(this.tpSearch);
+            this.tabCenter.Controls.Add(this.tpEdit);
+            this.tabCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabCenter.Location = new System.Drawing.Point(34, 43);
+            this.tabCenter.Name = "tabCenter";
+            this.tabCenter.SelectedIndex = 0;
+            this.tabCenter.Size = new System.Drawing.Size(347, 533);
+            this.tabCenter.TabIndex = 6;
+            this.tabCenter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabCenter_MouseClick);
+            // 
+            // tpGuide
+            // 
+            this.tpGuide.Controls.Add(this.pnCenter);
+            this.tpGuide.Location = new System.Drawing.Point(4, 22);
+            this.tpGuide.Name = "tpGuide";
+            this.tpGuide.Padding = new System.Windows.Forms.Padding(3);
+            this.tpGuide.Size = new System.Drawing.Size(339, 507);
+            this.tpGuide.TabIndex = 0;
+            this.tpGuide.Text = "Guide";
+            this.tpGuide.UseVisualStyleBackColor = true;
+            // 
+            // tpSearch
+            // 
+            this.tpSearch.Location = new System.Drawing.Point(4, 22);
+            this.tpSearch.Name = "tpSearch";
+            this.tpSearch.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSearch.Size = new System.Drawing.Size(339, 507);
+            this.tpSearch.TabIndex = 1;
+            this.tpSearch.Text = "Search";
+            this.tpSearch.UseVisualStyleBackColor = true;
+            // 
+            // tpEdit
+            // 
+            this.tpEdit.Location = new System.Drawing.Point(4, 22);
+            this.tpEdit.Name = "tpEdit";
+            this.tpEdit.Size = new System.Drawing.Size(339, 507);
+            this.tpEdit.TabIndex = 2;
+            this.tpEdit.Text = "Edit";
+            this.tpEdit.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -354,14 +367,14 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.pnCenter.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnDesigner.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ctmTask.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tabCenter.ResumeLayout(false);
+            this.tpGuide.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,10 +404,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripStatusLabel tsUserName;
         private System.Windows.Forms.ToolTip ttMainForm;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnOption;
+        private System.Windows.Forms.TabControl tabCenter;
+        private System.Windows.Forms.TabPage tpGuide;
+        private System.Windows.Forms.TabPage tpSearch;
+        private System.Windows.Forms.TabPage tpEdit;
     }
 }
 

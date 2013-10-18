@@ -33,6 +33,11 @@ namespace ProcScribe
         public static Color ColorSubTask = Color.Lavender;
         public static Color ColorSelect = Color.FromArgb(161, 202, 241);
 
+        public static Color ColorMainTaskDefault = Color.White;
+        public static Color ColorHoverDefault = Color.FromArgb(161, 202, 241);
+        public static Color ColorSelectDefault = Color.FromArgb(161, 202, 241);
+
+
         public static int iIndentOfCheckBox = 12;
         public static int iGradientOfColor = 0; // old 0
 

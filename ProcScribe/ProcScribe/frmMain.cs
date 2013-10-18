@@ -93,8 +93,8 @@ namespace ProcScribe
             //if (Screen.PrimaryScreen.Bounds.Height == 800)
             //{
                 //this.Size =new Size(Screen.PrimaryScreen.Bounds.Width/3.5,this.Height);
-                this.Width = (int)(Screen.PrimaryScreen.Bounds.Width / 3.5);
-                MessageBox.Show(this.Width.ToString());
+                this.Width = (int)(Screen.PrimaryScreen.Bounds.Width / 3.2);
+                //MessageBox.Show(this.Width.ToString());
             //}
             //Set appearance by options from registry
             RegistryKey readReg;
@@ -1545,6 +1545,21 @@ namespace ProcScribe
         private void pnCenter_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void tabCenter_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            if ((tabCenter.SelectedTab.Name == "tpEdit") || (tabCenter.SelectedTab.Name == "tpGuide"))
+            {
+                if (!tabCenter.SelectedTab.Contains(pnCenter))
+                {
+                    tabCenter.SelectedTab.Controls.Add(pnCenter);
+                    pnCenter.Dock = DockStyle.Fill;
+                }
+            }
+            
+            
         }
     }
 }
