@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.cbCheck = new System.Windows.Forms.CheckBox();
             this.lbTitle = new System.Windows.Forms.Label();
+            this.ttTaskControl = new System.Windows.Forms.ToolTip(this.components);
             this.pbCollape = new System.Windows.Forms.PictureBox();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
-            this.ttTaskControl = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbCollape)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +79,7 @@
             // 
             this.btnLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLink.Enabled = false;
-            this.btnLink.Image = global::ProcScribe.Properties.Resources.web;
+            this.btnLink.Image = global::ProcScribe.Properties.Resources.network_find1;
             this.btnLink.Location = new System.Drawing.Point(291, 0);
             this.btnLink.Name = "btnLink";
             this.btnLink.Size = new System.Drawing.Size(28, 23);
@@ -90,7 +90,7 @@
             // btnProp
             // 
             this.btnProp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProp.Image = global::ProcScribe.Properties.Resources.edit;
+            this.btnProp.Image = global::ProcScribe.Properties.Resources.applications;
             this.btnProp.Location = new System.Drawing.Point(264, 0);
             this.btnProp.Name = "btnProp";
             this.btnProp.Size = new System.Drawing.Size(28, 23);

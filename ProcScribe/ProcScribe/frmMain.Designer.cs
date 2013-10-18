@@ -123,9 +123,9 @@
             // btnAddProcess
             // 
             this.btnAddProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddProcess.Location = new System.Drawing.Point(314, 7);
+            this.btnAddProcess.Location = new System.Drawing.Point(314, 9);
             this.btnAddProcess.Name = "btnAddProcess";
-            this.btnAddProcess.Size = new System.Drawing.Size(40, 23);
+            this.btnAddProcess.Size = new System.Drawing.Size(40, 21);
             this.btnAddProcess.TabIndex = 4;
             this.btnAddProcess.Text = "New";
             this.btnAddProcess.UseVisualStyleBackColor = true;
@@ -136,9 +136,9 @@
             // 
             this.btnSaveProcessAs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveProcessAs.Image = global::ProcScribe.Properties.Resources.save;
-            this.btnSaveProcessAs.Location = new System.Drawing.Point(280, 7);
+            this.btnSaveProcessAs.Location = new System.Drawing.Point(280, 9);
             this.btnSaveProcessAs.Name = "btnSaveProcessAs";
-            this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 23);
+            this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 21);
             this.btnSaveProcessAs.TabIndex = 3;
             this.btnSaveProcessAs.UseVisualStyleBackColor = true;
             this.btnSaveProcessAs.Visible = false;
@@ -148,11 +148,11 @@
             // 
             this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.down1;
-            this.btnLoadProcess.Location = new System.Drawing.Point(246, 7);
+            this.btnLoadProcess.Location = new System.Drawing.Point(232, 9);
             this.btnLoadProcess.Name = "btnLoadProcess";
-            this.btnLoadProcess.Size = new System.Drawing.Size(28, 23);
+            this.btnLoadProcess.Size = new System.Drawing.Size(42, 21);
             this.btnLoadProcess.TabIndex = 2;
+            this.btnLoadProcess.Text = "Load";
             this.btnLoadProcess.UseVisualStyleBackColor = false;
             this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
             // 
@@ -165,7 +165,7 @@
             "2036565491"});
             this.cbProcess.Location = new System.Drawing.Point(54, 9);
             this.cbProcess.Name = "cbProcess";
-            this.cbProcess.Size = new System.Drawing.Size(186, 21);
+            this.cbProcess.Size = new System.Drawing.Size(172, 21);
             this.cbProcess.TabIndex = 1;
             this.cbProcess.Text = "‏Search for Processes...";
             this.cbProcess.SelectedIndexChanged += new System.EventHandler(this.cbProcess_SelectedIndexChanged);
