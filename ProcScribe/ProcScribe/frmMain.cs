@@ -103,20 +103,49 @@ namespace ProcScribe
             {
                 Registry.CurrentUser.CreateSubKey(global.registryPath);
                 readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
-                readReg.SetValue("ALLWAYTOP", "FALSE");
+
+                
+
+
             }
             String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
-            //int top_postion = Convert.ToInt32(readReg.GetValue("top_position").ToString());
-            //int left_position = Convert.ToInt32(readReg.GetValue("left_position").ToString());
-            //int hight = Convert.ToInt32(readReg.GetValue("frm_height").ToString());
-            //int task_bar_position = Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.WorkingArea.Height;
-            //if (top_postion < task_bar_position+hight)
-            //{
-            //    top_postion = top_postion+task_bar_position+25;
-            //}
+            if (readReg.ValueCount < 6)
+            {
+
+                readReg.SetValue("ALLWAYTOP", "FALSE");
+                readReg.SetValue("top_position", "44");
+                readReg.SetValue("left_position", "483");
+                readReg.SetValue("frm_width", "640");
+                readReg.SetValue("frm_height", "426");
+                readReg.SetValue("resolution_height", Screen.PrimaryScreen.Bounds.Height.ToString());
+                readReg.SetValue("resolution_width", Screen.PrimaryScreen.Bounds.Width.ToString());
+            }
+            int resolution_width = Convert.ToInt32(readReg.GetValue("resolution_width").ToString());
+            int resolution_height = Convert.ToInt32(readReg.GetValue("resolution_height").ToString());
+            int top_postion = Convert.ToInt32(readReg.GetValue("top_position").ToString());
+            int left_position = Convert.ToInt32(readReg.GetValue("left_position").ToString());
+            int hight = Convert.ToInt32(readReg.GetValue("frm_height").ToString());
+            int width = Convert.ToInt32(readReg.GetValue("frm_width").ToString());
+            if (resolution_height != Screen.PrimaryScreen.Bounds.Height)
+            {
+                top_postion = (top_postion * Screen.PrimaryScreen.Bounds.Height) / resolution_height;
+                hight = (hight * Screen.PrimaryScreen.Bounds.Height) / resolution_height;
+            }
+            if (resolution_width != Screen.PrimaryScreen.Bounds.Width)
+            {
+                width = (width * Screen.PrimaryScreen.Bounds.Width) / resolution_width;
+                width = (width * Screen.PrimaryScreen.Bounds.Width) / resolution_width;
+
+            }
             
-            //this.Left = left_position;
-           ///////////// this.Top = top_postion;
+            int task_bar_position = Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.WorkingArea.Height;
+            if (top_postion < task_bar_position + hight)
+            {
+                top_postion = top_postion + task_bar_position + 25;
+            }
+
+            this.Left = left_position;
+            // this.Top = top_postion;
             
 
             

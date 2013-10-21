@@ -32,11 +32,11 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.pnBody = new System.Windows.Forms.Panel();
+            this.lbUser = new System.Windows.Forms.ListBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMsg = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbUser = new System.Windows.Forms.ListBox();
             this.pnControl.SuspendLayout();
             this.pnBody.SuspendLayout();
             this.SuspendLayout();
@@ -54,28 +54,24 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::ProcScribe.Properties.Resources.ball_red;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(211, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Image = global::ProcScribe.Properties.Resources.mail;
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOK.Location = new System.Drawing.Point(130, 6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "Send";
-            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -91,6 +87,14 @@
             this.pnBody.Name = "pnBody";
             this.pnBody.Size = new System.Drawing.Size(289, 263);
             this.pnBody.TabIndex = 2;
+            // 
+            // lbUser
+            // 
+            this.lbUser.FormattingEnabled = true;
+            this.lbUser.Location = new System.Drawing.Point(79, 10);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(193, 69);
+            this.lbUser.TabIndex = 5;
             // 
             // txtUser
             // 
@@ -127,14 +131,6 @@
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "User";
-            // 
-            // lbUser
-            // 
-            this.lbUser.FormattingEnabled = true;
-            this.lbUser.Location = new System.Drawing.Point(79, 10);
-            this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(193, 69);
-            this.lbUser.TabIndex = 5;
             // 
             // frmMessage
             // 
