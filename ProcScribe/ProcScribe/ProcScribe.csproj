@@ -302,6 +302,7 @@
     <None Include="Resources\Properties.jpg" />
     <None Include="Resources\network_find.gif" />
     <None Include="Resources\network_find1.gif" />
+    <None Include="Resources\bt_play10pix.gif" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>

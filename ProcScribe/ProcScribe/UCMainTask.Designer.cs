@@ -32,9 +32,11 @@
             this.cbCheck = new System.Windows.Forms.CheckBox();
             this.lbTitle = new System.Windows.Forms.Label();
             this.ttTaskControl = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbCollape = new System.Windows.Forms.PictureBox();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCollape)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,12 +60,23 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Black;
             this.lbTitle.Location = new System.Drawing.Point(36, 4);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(222, 14);
+            this.lbTitle.Size = new System.Drawing.Size(213, 14);
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "[New Task]";
             this.lbTitle.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragDrop);
             this.lbTitle.DragEnter += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragEnter);
             this.lbTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitle_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::ProcScribe.Properties.Resources.bt_play10pix;
+            this.pictureBox1.Location = new System.Drawing.Point(252, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(12, 12);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // pbCollape
             // 
@@ -104,6 +117,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.pbCollape);
             this.Controls.Add(this.btnLink);
@@ -117,6 +131,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UCMainTask_MouseDown);
             this.MouseEnter += new System.EventHandler(this.UCMainTask_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.UCMainTask_MouseLeave);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCollape)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -131,5 +146,6 @@
         private System.Windows.Forms.Button btnLink;
         private System.Windows.Forms.PictureBox pbCollape;
         private System.Windows.Forms.ToolTip ttTaskControl;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

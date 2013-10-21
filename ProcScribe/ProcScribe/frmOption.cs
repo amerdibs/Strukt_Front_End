@@ -48,7 +48,7 @@ namespace ProcScribe
         private void frmOption_Load(object sender, EventArgs e)
         {
             //load configurations from registry
-            this.Height -= 260; 
+            this.Height -= 290; 
             RegistryKey readReg;
             readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
             String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
@@ -121,7 +121,11 @@ namespace ProcScribe
 
         private void btnAdvance_Click(object sender, EventArgs e)
         {
-            gbColor.Visible = true;
+            if (!gbColor.Visible)
+            {
+                gbColor.Visible = true;
+                this.Height += 290;
+            }
         }
 
         private void btnTaskSelectColor_Click(object sender, EventArgs e)

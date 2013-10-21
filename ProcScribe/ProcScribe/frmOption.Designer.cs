@@ -32,6 +32,13 @@
             this.cbTop = new System.Windows.Forms.CheckBox();
             this.cdDialog = new System.Windows.Forms.ColorDialog();
             this.gbColor = new System.Windows.Forms.GroupBox();
+            this.btnTaskHoverColor = new System.Windows.Forms.Button();
+            this.txtTaskHoverColor = new System.Windows.Forms.TextBox();
+            this.btnDefault = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnTaskSelectColor = new System.Windows.Forms.Button();
+            this.txtTaskSelectColor = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnColorText4 = new System.Windows.Forms.Button();
             this.btnColorText3 = new System.Windows.Forms.Button();
             this.btnColorText2 = new System.Windows.Forms.Button();
@@ -50,14 +57,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtColorBack = new System.Windows.Forms.TextBox();
-            this.btnDefault = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnTaskSelectColor = new System.Windows.Forms.Button();
-            this.txtTaskSelectColor = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnTaskHoverColor = new System.Windows.Forms.Button();
-            this.txtTaskHoverColor = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.btnAdvance = new System.Windows.Forms.Button();
             this.gbColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -118,11 +118,73 @@
             this.gbColor.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbColor.Location = new System.Drawing.Point(0, 64);
             this.gbColor.Name = "gbColor";
-            this.gbColor.Size = new System.Drawing.Size(284, 260);
+            this.gbColor.Size = new System.Drawing.Size(298, 260);
             this.gbColor.TabIndex = 9;
             this.gbColor.TabStop = false;
             this.gbColor.Text = "Color";
             this.gbColor.Visible = false;
+            // 
+            // btnTaskHoverColor
+            // 
+            this.btnTaskHoverColor.Location = new System.Drawing.Point(171, 98);
+            this.btnTaskHoverColor.Name = "btnTaskHoverColor";
+            this.btnTaskHoverColor.Size = new System.Drawing.Size(83, 23);
+            this.btnTaskHoverColor.TabIndex = 33;
+            this.btnTaskHoverColor.Text = "Choose color";
+            this.btnTaskHoverColor.UseVisualStyleBackColor = true;
+            // 
+            // txtTaskHoverColor
+            // 
+            this.txtTaskHoverColor.Location = new System.Drawing.Point(104, 100);
+            this.txtTaskHoverColor.Name = "txtTaskHoverColor";
+            this.txtTaskHoverColor.ReadOnly = true;
+            this.txtTaskHoverColor.Size = new System.Drawing.Size(53, 20);
+            this.txtTaskHoverColor.TabIndex = 32;
+            // 
+            // btnDefault
+            // 
+            this.btnDefault.Location = new System.Drawing.Point(171, 227);
+            this.btnDefault.Name = "btnDefault";
+            this.btnDefault.Size = new System.Drawing.Size(89, 23);
+            this.btnDefault.TabIndex = 13;
+            this.btnDefault.Text = "Back to default";
+            this.btnDefault.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 103);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 13);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "Task Hover Color";
+            // 
+            // btnTaskSelectColor
+            // 
+            this.btnTaskSelectColor.Location = new System.Drawing.Point(171, 73);
+            this.btnTaskSelectColor.Name = "btnTaskSelectColor";
+            this.btnTaskSelectColor.Size = new System.Drawing.Size(83, 23);
+            this.btnTaskSelectColor.TabIndex = 30;
+            this.btnTaskSelectColor.Text = "Choose color";
+            this.btnTaskSelectColor.UseVisualStyleBackColor = true;
+            this.btnTaskSelectColor.Click += new System.EventHandler(this.btnTaskSelectColor_Click);
+            // 
+            // txtTaskSelectColor
+            // 
+            this.txtTaskSelectColor.Location = new System.Drawing.Point(104, 75);
+            this.txtTaskSelectColor.Name = "txtTaskSelectColor";
+            this.txtTaskSelectColor.ReadOnly = true;
+            this.txtTaskSelectColor.Size = new System.Drawing.Size(53, 20);
+            this.txtTaskSelectColor.TabIndex = 29;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 78);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 13);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Task Select Color";
             // 
             // btnColorText4
             // 
@@ -286,15 +348,6 @@
             this.txtColorBack.Size = new System.Drawing.Size(53, 20);
             this.txtColorBack.TabIndex = 9;
             // 
-            // btnDefault
-            // 
-            this.btnDefault.Location = new System.Drawing.Point(171, 227);
-            this.btnDefault.Name = "btnDefault";
-            this.btnDefault.Size = new System.Drawing.Size(89, 23);
-            this.btnDefault.TabIndex = 13;
-            this.btnDefault.Text = "Back to default";
-            this.btnDefault.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnAdvance);
@@ -303,62 +356,9 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 64);
+            this.groupBox1.Size = new System.Drawing.Size(298, 64);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
-            // 
-            // btnTaskSelectColor
-            // 
-            this.btnTaskSelectColor.Location = new System.Drawing.Point(171, 73);
-            this.btnTaskSelectColor.Name = "btnTaskSelectColor";
-            this.btnTaskSelectColor.Size = new System.Drawing.Size(83, 23);
-            this.btnTaskSelectColor.TabIndex = 30;
-            this.btnTaskSelectColor.Text = "Choose color";
-            this.btnTaskSelectColor.UseVisualStyleBackColor = true;
-            this.btnTaskSelectColor.Click += new System.EventHandler(this.btnTaskSelectColor_Click);
-            // 
-            // txtTaskSelectColor
-            // 
-            this.txtTaskSelectColor.Location = new System.Drawing.Point(104, 75);
-            this.txtTaskSelectColor.Name = "txtTaskSelectColor";
-            this.txtTaskSelectColor.ReadOnly = true;
-            this.txtTaskSelectColor.Size = new System.Drawing.Size(53, 20);
-            this.txtTaskSelectColor.TabIndex = 29;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 13);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Task Select Color";
-            // 
-            // btnTaskHoverColor
-            // 
-            this.btnTaskHoverColor.Location = new System.Drawing.Point(171, 98);
-            this.btnTaskHoverColor.Name = "btnTaskHoverColor";
-            this.btnTaskHoverColor.Size = new System.Drawing.Size(83, 23);
-            this.btnTaskHoverColor.TabIndex = 33;
-            this.btnTaskHoverColor.Text = "Choose color";
-            this.btnTaskHoverColor.UseVisualStyleBackColor = true;
-            // 
-            // txtTaskHoverColor
-            // 
-            this.txtTaskHoverColor.Location = new System.Drawing.Point(104, 100);
-            this.txtTaskHoverColor.Name = "txtTaskHoverColor";
-            this.txtTaskHoverColor.ReadOnly = true;
-            this.txtTaskHoverColor.Size = new System.Drawing.Size(53, 20);
-            this.txtTaskHoverColor.TabIndex = 32;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 103);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 13);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "Task Hover Color";
             // 
             // btnAdvance
             // 
@@ -374,7 +374,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 363);
+            this.ClientSize = new System.Drawing.Size(298, 363);
             this.ControlBox = false;
             this.Controls.Add(this.gbColor);
             this.Controls.Add(this.groupBox1);
