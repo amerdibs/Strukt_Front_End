@@ -183,6 +183,7 @@
             this.rbNone.TabStop = true;
             this.rbNone.Text = "None";
             this.rbNone.UseVisualStyleBackColor = true;
+            this.rbNone.CheckedChanged += new System.EventHandler(this.rbNone_CheckedChanged);
             this.rbNone.Click += new System.EventHandler(this.rbNone_Click);
             // 
             // btnBrowse
@@ -253,7 +254,7 @@
             this.Controls.Add(this.pnName);
             this.Controls.Add(this.panel2);
             this.Name = "frmTaskEdit";
-            this.Text = "Edit Task";
+            this.Text = "Edit Task Form";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmTaskEdit_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmTaskEdit_Paint);

@@ -109,7 +109,7 @@ namespace ProcScribe
             if (!rbNone.Checked && txtAddress.Text.Trim() == "")
             {
                 DialogResult = DialogResult.None;
-                MessageBox.Show("Please input address in tool textbox or please select tool to None.");
+                MessageBox.Show("Tool not chosen! Please select an appropriate tool!", "Error Message");
                 return;
             }
 
@@ -134,7 +134,7 @@ namespace ProcScribe
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult dResult = MessageBox.Show("Do you want to cancel this action?", "Please confirm", MessageBoxButtons.OKCancel);
+            DialogResult dResult = MessageBox.Show("Do you really want to cancel this action?", "Cancel Message", MessageBoxButtons.OKCancel);
             if (dResult == DialogResult.Cancel)
                 this.DialogResult = DialogResult.None;
         }
@@ -157,7 +157,7 @@ namespace ProcScribe
                 return;
             else
                 if (rbLink.Checked)
-                    MessageBox.Show("Please input web address in textbox.");
+                    MessageBox.Show("*********************************", "Error Message");
                 else
                     if (rbApp.Checked)
                     {
@@ -207,6 +207,11 @@ namespace ProcScribe
             txtAddress.Text = "";
             txtAddress.Enabled = true;
             txtAddress.ReadOnly = true;
+        }
+
+        private void rbNone_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
 

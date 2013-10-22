@@ -49,6 +49,12 @@ namespace ProcScribe
         public static string resultSuccessStrukt = "{\"type\":\"success\"}";
         public static string registryPath = "SOFTWARE\\ProcScribe";
 
+
+        // getting the current user information
+        public static string userName;
+        public static string machineName;
+        public static string domainName;
+
         public static int minFrmHeight = 600;
         public static int minFrmWidth = 320;
 

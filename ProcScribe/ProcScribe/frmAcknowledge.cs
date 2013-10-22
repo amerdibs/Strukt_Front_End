@@ -16,5 +16,10 @@ namespace ProcScribe
         {
             InitializeComponent();
         }
+
+        private void frmAcknowledge_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

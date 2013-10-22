@@ -31,14 +31,19 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pnCenter = new System.Windows.Forms.Panel();
             this.btnHide = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnOption = new System.Windows.Forms.Button();
             this.btnAddProcess = new System.Windows.Forms.Button();
             this.btnSaveProcessAs = new System.Windows.Forms.Button();
             this.btnLoadProcess = new System.Windows.Forms.Button();
             this.cbProcess = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabCenter = new System.Windows.Forms.TabControl();
+            this.tpGuide = new System.Windows.Forms.TabPage();
+            this.pnCenter = new System.Windows.Forms.Panel();
+            this.tpSearch = new System.Windows.Forms.TabPage();
+            this.tpEdit = new System.Windows.Forms.TabPage();
             this.pnDesigner = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSubAdd = new System.Windows.Forms.Button();
@@ -52,18 +57,13 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
-            this.btnOption = new System.Windows.Forms.Button();
-            this.tabCenter = new System.Windows.Forms.TabControl();
-            this.tpGuide = new System.Windows.Forms.TabPage();
-            this.tpSearch = new System.Windows.Forms.TabPage();
-            this.tpEdit = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabCenter.SuspendLayout();
+            this.tpGuide.SuspendLayout();
             this.pnDesigner.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.ctmTask.SuspendLayout();
-            this.tabCenter.SuspendLayout();
-            this.tpGuide.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -85,21 +85,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 579);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // pnCenter
-            // 
-            this.pnCenter.AllowDrop = true;
-            this.pnCenter.AutoScroll = true;
-            this.pnCenter.BackColor = System.Drawing.Color.Transparent;
-            this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnCenter.Location = new System.Drawing.Point(3, 3);
-            this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(333, 501);
-            this.pnCenter.TabIndex = 0;
-            this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
-            this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
-            this.pnCenter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnCenter_Paint);
-            this.pnCenter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCenter_MouseDown);
             // 
             // btnHide
             // 
@@ -126,6 +111,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(347, 34);
             this.panel2.TabIndex = 2;
+            // 
+            // btnOption
+            // 
+            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
+            this.btnOption.Location = new System.Drawing.Point(280, 9);
+            this.btnOption.Name = "btnOption";
+            this.btnOption.Size = new System.Drawing.Size(41, 21);
+            this.btnOption.TabIndex = 7;
+            this.btnOption.UseVisualStyleBackColor = true;
+            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
             // 
             // btnAddProcess
             // 
@@ -185,6 +181,64 @@
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Process:";
+            // 
+            // tabCenter
+            // 
+            this.tabCenter.Controls.Add(this.tpGuide);
+            this.tabCenter.Controls.Add(this.tpSearch);
+            this.tabCenter.Controls.Add(this.tpEdit);
+            this.tabCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabCenter.Location = new System.Drawing.Point(34, 43);
+            this.tabCenter.Name = "tabCenter";
+            this.tabCenter.SelectedIndex = 0;
+            this.tabCenter.Size = new System.Drawing.Size(347, 533);
+            this.tabCenter.TabIndex = 6;
+            this.tabCenter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabCenter_MouseClick);
+            // 
+            // tpGuide
+            // 
+            this.tpGuide.Controls.Add(this.pnCenter);
+            this.tpGuide.Location = new System.Drawing.Point(4, 22);
+            this.tpGuide.Name = "tpGuide";
+            this.tpGuide.Padding = new System.Windows.Forms.Padding(3);
+            this.tpGuide.Size = new System.Drawing.Size(339, 507);
+            this.tpGuide.TabIndex = 0;
+            this.tpGuide.Text = "Guide";
+            this.tpGuide.UseVisualStyleBackColor = true;
+            // 
+            // pnCenter
+            // 
+            this.pnCenter.AllowDrop = true;
+            this.pnCenter.AutoScroll = true;
+            this.pnCenter.BackColor = System.Drawing.Color.Transparent;
+            this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnCenter.Location = new System.Drawing.Point(3, 3);
+            this.pnCenter.Name = "pnCenter";
+            this.pnCenter.Size = new System.Drawing.Size(333, 501);
+            this.pnCenter.TabIndex = 0;
+            this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
+            this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
+            this.pnCenter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnCenter_Paint);
+            this.pnCenter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCenter_MouseDown);
+            // 
+            // tpSearch
+            // 
+            this.tpSearch.Location = new System.Drawing.Point(4, 22);
+            this.tpSearch.Name = "tpSearch";
+            this.tpSearch.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSearch.Size = new System.Drawing.Size(339, 507);
+            this.tpSearch.TabIndex = 1;
+            this.tpSearch.Text = "Search";
+            this.tpSearch.UseVisualStyleBackColor = true;
+            // 
+            // tpEdit
+            // 
+            this.tpEdit.Location = new System.Drawing.Point(4, 22);
+            this.tpEdit.Name = "tpEdit";
+            this.tpEdit.Size = new System.Drawing.Size(339, 507);
+            this.tpEdit.TabIndex = 2;
+            this.tpEdit.Text = "Edit";
+            this.tpEdit.UseVisualStyleBackColor = true;
             // 
             // pnDesigner
             // 
@@ -253,6 +307,7 @@
             this.tsUserName.Name = "tsUserName";
             this.tsUserName.Size = new System.Drawing.Size(91, 17);
             this.tsUserName.Text = "No User Log-In";
+            this.tsUserName.Click += new System.EventHandler(this.tsUserName_Click);
             // 
             // ctmTask
             // 
@@ -298,60 +353,6 @@
             this.editNameToolStripMenuItem.Text = "Edit Name";
             this.editNameToolStripMenuItem.Click += new System.EventHandler(this.editNameToolStripMenuItem_Click);
             // 
-            // btnOption
-            // 
-            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
-            this.btnOption.Location = new System.Drawing.Point(280, 9);
-            this.btnOption.Name = "btnOption";
-            this.btnOption.Size = new System.Drawing.Size(41, 21);
-            this.btnOption.TabIndex = 7;
-            this.btnOption.UseVisualStyleBackColor = true;
-            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
-            // 
-            // tabCenter
-            // 
-            this.tabCenter.Controls.Add(this.tpGuide);
-            this.tabCenter.Controls.Add(this.tpSearch);
-            this.tabCenter.Controls.Add(this.tpEdit);
-            this.tabCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabCenter.Location = new System.Drawing.Point(34, 43);
-            this.tabCenter.Name = "tabCenter";
-            this.tabCenter.SelectedIndex = 0;
-            this.tabCenter.Size = new System.Drawing.Size(347, 533);
-            this.tabCenter.TabIndex = 6;
-            this.tabCenter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabCenter_MouseClick);
-            // 
-            // tpGuide
-            // 
-            this.tpGuide.Controls.Add(this.pnCenter);
-            this.tpGuide.Location = new System.Drawing.Point(4, 22);
-            this.tpGuide.Name = "tpGuide";
-            this.tpGuide.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGuide.Size = new System.Drawing.Size(339, 507);
-            this.tpGuide.TabIndex = 0;
-            this.tpGuide.Text = "Guide";
-            this.tpGuide.UseVisualStyleBackColor = true;
-            // 
-            // tpSearch
-            // 
-            this.tpSearch.Location = new System.Drawing.Point(4, 22);
-            this.tpSearch.Name = "tpSearch";
-            this.tpSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSearch.Size = new System.Drawing.Size(339, 507);
-            this.tpSearch.TabIndex = 1;
-            this.tpSearch.Text = "Search";
-            this.tpSearch.UseVisualStyleBackColor = true;
-            // 
-            // tpEdit
-            // 
-            this.tpEdit.Location = new System.Drawing.Point(4, 22);
-            this.tpEdit.Name = "tpEdit";
-            this.tpEdit.Size = new System.Drawing.Size(339, 507);
-            this.tpEdit.TabIndex = 2;
-            this.tpEdit.Text = "Edit";
-            this.tpEdit.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,19 +363,19 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ProcScribe";
+            this.Text = "ProcScribe - Easy User Guidance";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabCenter.ResumeLayout(false);
+            this.tpGuide.ResumeLayout(false);
             this.pnDesigner.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ctmTask.ResumeLayout(false);
-            this.tabCenter.ResumeLayout(false);
-            this.tpGuide.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

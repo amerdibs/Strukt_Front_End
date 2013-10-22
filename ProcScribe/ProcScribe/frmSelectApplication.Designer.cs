@@ -111,7 +111,7 @@
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnBody);
             this.Name = "frmSelectApplication";
-            this.Text = "Application";
+            this.Text = "Link Application Form";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmSelectApplication_Load);
             this.pnControl.ResumeLayout(false);

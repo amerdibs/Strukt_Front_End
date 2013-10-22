@@ -115,7 +115,8 @@
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnBody);
             this.Name = "frmAcknowledge";
-            this.Text = "Acknowledgement";
+            this.Text = "Acknowledgement Form";
+            this.Load += new System.EventHandler(this.frmAcknowledge_Load);
             this.pnControl.ResumeLayout(false);
             this.pnBody.ResumeLayout(false);
             this.pnBody.PerformLayout();

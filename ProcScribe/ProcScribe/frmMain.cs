@@ -41,7 +41,7 @@ namespace ProcScribe
                 bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
                 if (bResult)
                 {
-                    MessageBox.Show("There is a new assigned task to you.");
+                    MessageBox.Show("New assigned task.");
                     //We are interested only the assignments which we received for acknowledgement
                     foreach (Assignment asEach in global.assignmentReceivedList)
                     {
@@ -88,6 +88,16 @@ namespace ProcScribe
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+
+            //get the current username, machine name, domain name and save them in the associated variables when required
+
+            global.userName = Environment.UserName;
+            global.machineName = Environment.MachineName;
+            global.domainName = Environment.UserDomainName;
+
+            // assign the label at the bottom of the screen the user name, machine name, domain name
+            tsUserName.Text = "User: " + global.userName + ", Machine: " + global.machineName + ", Domain: " + global.domainName;
+
             this.MinimumSize = new Size(global.minFrmWidth,global.minFrmHeight);
            
             //if (Screen.PrimaryScreen.Bounds.Height == 800)
@@ -175,7 +185,7 @@ namespace ProcScribe
 
             if (global.processTable.Columns.Contains("u_name"))
             {
-                this.Text = global.processTable.Rows[0]["u_name"].ToString() + " >> Welcome to Guidance";
+                this.Text = global.processTable.Rows[0]["u_name"].ToString() + "Welcome to ProcScribe - Your User Guidance Application";
 
                 //Set user role
                 if (global.processTable.Rows[0]["u_role"] != null)
@@ -194,6 +204,7 @@ namespace ProcScribe
                 else
                     if (global.roleUser == User.roleDesigner)
                         tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Process Designer";
+
 
                 //Assignment Checking
                 bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
@@ -215,7 +226,7 @@ namespace ProcScribe
                                 }
                                 else
                                 {
-                                    fAck.Controls["pnBody"].Text = "not exists in Log-In: " + global.getValueFromStruktValue(tGet.user_id);
+                                    fAck.Controls["pnBody"].Text = "User information does not exist: " + global.getValueFromStruktValue(tGet.user_id);
                                 }
                             }
 
@@ -229,8 +240,8 @@ namespace ProcScribe
                                     asEach.acknowledged = "true";
                                 else
                                 {
-                                    MessageBox.Show("Update assignment error");
-                                    throw new System.Exception("Update assignment error");
+                                    MessageBox.Show("Assignment update error!");
+                                    throw new System.Exception("Assignment update error!");
                                 }
                             }
                         }
@@ -249,8 +260,8 @@ namespace ProcScribe
         {
          
 
-            DialogResult result1 = MessageBox.Show("Do you want to exit?",
-                                                    "Please confirm",
+            DialogResult result1 = MessageBox.Show("Do you really want to exit?",
+                                                    "Close Program",
                                                     MessageBoxButtons.OKCancel);
             
             
@@ -286,19 +297,19 @@ namespace ProcScribe
         {
             if (pnCenter.Controls.Count == 0)
             {
-                MessageBox.Show("Please add a task before.");
+                MessageBox.Show("Please add a task first!", "Error Message");
                 return;
             }
 
             if ((global.workflowMain == null) || (global.workflowMain.taskChildList.Count == 0))
             {
-                MessageBox.Show("Please load process before.");
+                MessageBox.Show("Please load a process first!", "Error Message");
                 return;
             }
             else
                 if (global.currentTaskControlID == 0)
                 {
-                    MessageBox.Show("Please select a task before.");
+                    MessageBox.Show("Please select a task first.");
                     return;
                 }
                 else
@@ -321,7 +332,7 @@ namespace ProcScribe
                     Task taskNew = new Task();
                     taskNew.parent_workflow_id = taskParent.child_workflow_id;
                     taskNew.user_id = global.workflowMain.user_id;
-                    taskNew.name = "New Task";
+                    taskNew.name = "<New Task>";
 
                     frmTaskEdit frmEdit = new frmTaskEdit();
                     frmEdit.strFormMode = frmEdit.formModeNew;
@@ -443,7 +454,7 @@ namespace ProcScribe
 
             if ((global.workflowMain == null) && ((global.workflowMain.taskChildList == null) || (global.workflowMain.taskChildList.Count == 0)))
             {
-                MessageBox.Show("Please load process before.\n We still don't implement this step right now.");
+                MessageBox.Show("Please load a process first.********************************** This step is under construction!");
                 return;
             }
             else
@@ -453,7 +464,7 @@ namespace ProcScribe
                 Task taskNew = new Task();
                 taskNew.parent_workflow_id = global.workflowMain.id;
                 taskNew.user_id = global.workflowMain.user_id;
-                taskNew.name = "New Task";
+                taskNew.name = "<New Task>";
                 frmTaskEdit frmEdit = new frmTaskEdit();
                 frmEdit.strFormMode = frmEdit.formModeNew;
                 frmEdit.taskUse = taskNew;
@@ -536,7 +547,7 @@ namespace ProcScribe
                 taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
                 taskNew.follows_id = global.workflowMain.taskChildList[0].id;
                 taskNew.user_id = global.workflowMain.user_id;
-                taskNew.name = "New Task";
+                taskNew.name = "<New Task>";
                 frmTaskEdit frmEdit = new frmTaskEdit();
                 frmEdit.strFormMode = frmEdit.formModeNew;
                 frmEdit.taskUse = taskNew;
@@ -630,7 +641,7 @@ namespace ProcScribe
                 taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
                 taskNew.follows_id = taskFollow.id;
                 taskNew.user_id = global.workflowMain.user_id;
-                taskNew.name = "New Task";
+                taskNew.name = "<New Task>";
                 if (taskUnderFollow != null)
                 {
                     taskNew.precedes_id = taskUnderFollow.id;
@@ -732,20 +743,20 @@ namespace ProcScribe
         {
             if (pnCenter.Controls.Count == 0)
             {
-                MessageBox.Show("There are no any tasks.");
+                MessageBox.Show("No task selected to be deleted!", "Error Message");
                 return;
             }
 
             if (global.currentTaskControlID == 0)
             {
-                MessageBox.Show("Please select a task to delete.");
+                MessageBox.Show("Please select a task to delete!", "Error Message");
                 return;
             }
 
             
 
-            DialogResult result1 = MessageBox.Show("Do you want to delete this task?",
-                                        "Please confirm",
+            DialogResult result1 = MessageBox.Show("Do you really want to delete this task?",
+                                        "Delete Task",
                                         MessageBoxButtons.OKCancel);
             if (result1 == System.Windows.Forms.DialogResult.OK)
             {
@@ -754,7 +765,7 @@ namespace ProcScribe
                 //  check number of child tasks in its child workflow
                 if ((uSelect.taskMember.workflowChild.taskChildList != null) && (uSelect.taskMember.workflowChild.taskChildList.Count > 0))
                 {
-                    MessageBox.Show("Please delete child tasks of this task before.");
+                    MessageBox.Show("Sub-tasks have to be deleted before deleting the main task!", "Error Message");
                     return;
                 }
 
@@ -767,7 +778,7 @@ namespace ProcScribe
                     strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
                     if (strResult != global.resultSuccessStrukt)
                     {
-                        MessageBox.Show("There is error. Task cannot be deleted.");
+                        MessageBox.Show("Task cannot be deleted!");
                         return;
                     }
 
@@ -805,7 +816,7 @@ namespace ProcScribe
                     strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
                     if (strResult != global.resultSuccessStrukt)
                     {
-                        MessageBox.Show("There is error. Task cannot be deleted.");
+                        MessageBox.Show("Task cannot be deleted!");
                         return;
                     }
                     //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
@@ -836,7 +847,7 @@ namespace ProcScribe
                     strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
                     if (strResult != global.resultSuccessStrukt)
                     {
-                        MessageBox.Show("There is error. Task cannot be deleted.");
+                        MessageBox.Show("Task cannot be deleted!");
                         return;
                     }
                     //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
@@ -873,7 +884,7 @@ namespace ProcScribe
                     strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
                     if (strResult != global.resultSuccessStrukt)
                     {
-                        MessageBox.Show("There is error. Task cannot be deleted.");
+                        MessageBox.Show("Task cannot be deleted!");
                         return;
                     }
                     //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
@@ -1031,7 +1042,7 @@ namespace ProcScribe
             //The dragged task and dropped task must be in the same workflow.
             if (ucReceive.taskMember.parent_workflow_id != ucDrag.taskMember.parent_workflow_id)
             {
-                MessageBox.Show("Please change order of tasks which are in the same workflow", "Cannot change the order of tasks");
+                MessageBox.Show("Drag and Drop operation failure! Change of order for sub-tasks under the same main task only!");
                 global.dragTaskControlObject = null;
                 global.dragTaskControlID = 0;
                 return;
@@ -1122,7 +1133,7 @@ namespace ProcScribe
 
                             if (ucUpper == ucDrag)
                             {
-                                MessageBox.Show("Please move task from down to top");
+                                MessageBox.Show("Operation failed! Please move task from ********************************* down to top!");
                                 return;
                             }
 
@@ -1369,7 +1380,7 @@ namespace ProcScribe
         private void btnSaveProcessAs_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show("Save as... Please wait for phase 2");
+            MessageBox.Show("Save as...****************************** Please wait for phase 2");
 
 
             //UCMainTask uSelect = (UCMainTask)global.currentTaskControlObject;
@@ -1387,14 +1398,14 @@ namespace ProcScribe
 
         private void btnAddProcess_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Add new process... Please wait for phase 2");
+            MessageBox.Show("Add new process...***************************** Please wait for phase 2");
         }
 
         private void editNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (global.currentTaskControlObject == null)
             {
-                MessageBox.Show("Please select a task");
+                MessageBox.Show("Please select a task!");
                 return;
             }
             UCMainTask umSelect = (UCMainTask)global.currentTaskControlObject;
@@ -1591,6 +1602,11 @@ namespace ProcScribe
             }
             
             
+        }
+
+        private void tsUserName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,8 +33,8 @@ namespace ProcScribe
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result1 = MessageBox.Show("Do you want to cancel?",
-                                       "Please confirm",
+            DialogResult result1 = MessageBox.Show("Do you really want to cancel the task assignment?",
+                                       "Cancel Task Assignment",
                                        MessageBoxButtons.OKCancel);
             if (result1 == System.Windows.Forms.DialogResult.OK)
                 Close();
@@ -49,7 +49,7 @@ namespace ProcScribe
             DataTable dtProcess = wsStrukt.getProcessByUserID(cbUser.SelectedValue.ToString());
             if (dtProcess == null)
             {
-                MessageBox.Show("The process of this user us not exist","Please select the other user.");
+                MessageBox.Show("This process is not allocated to the current user! \n Please select another!","Error Message");
             }
             List<Task> taskList = Task.getTaskByParentWorkflowID(dtProcess.Rows[0]["p_workflow_id"].ToString());
             //Now we can support only the user who has Task in process 

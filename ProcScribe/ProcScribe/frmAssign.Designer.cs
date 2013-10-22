@@ -129,7 +129,7 @@
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnBody);
             this.Name = "frmAssign";
-            this.Text = "Assign Task to";
+            this.Text = "Assignment Form";
             this.Load += new System.EventHandler(this.frmAssign_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmAssign_Paint);
             this.pnBody.ResumeLayout(false);

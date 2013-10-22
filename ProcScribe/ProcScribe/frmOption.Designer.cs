@@ -379,7 +379,7 @@
             this.Controls.Add(this.gbColor);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmOption";
-            this.Text = "Option";
+            this.Text = "Settings Form";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmOption_Load);
             this.gbColor.ResumeLayout(false);
