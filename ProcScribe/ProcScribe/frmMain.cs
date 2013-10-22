@@ -107,19 +107,17 @@ namespace ProcScribe
 
             String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
 
-            //if (readReg.ValueCount < 1)
-            //{
             if (readReg.GetValue("ALLWAYTOP") == null)
                 readReg.SetValue("ALLWAYTOP", "FALSE");
-            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\top_position", true) == null)
+            if (readReg.GetValue("top_position") == null)
                 readReg.SetValue("top_position", "44");
-            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\left_position", true) == null)
+            if (readReg.GetValue("left_position") == null)
                 readReg.SetValue("left_position", "483");
-            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\frm_width", true) == null)
+            if (readReg.GetValue("frm_width") == null)
                 readReg.SetValue("frm_width", "640");
-            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\resolution_height", true) == null)
+            if (readReg.GetValue("resolution_height") == null)
                 readReg.SetValue("resolution_height", Screen.PrimaryScreen.Bounds.Height.ToString());
-            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\resolution_width", true) == null)
+            if (readReg.GetValue("resolution_width") == null)
                 readReg.SetValue("resolution_width", Screen.PrimaryScreen.Bounds.Width.ToString());
             
             int resolution_width = Convert.ToInt32(readReg.GetValue("resolution_width").ToString());
