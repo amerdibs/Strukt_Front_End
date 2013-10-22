@@ -103,23 +103,25 @@ namespace ProcScribe
             {
                 Registry.CurrentUser.CreateSubKey(global.registryPath);
                 readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
-
-                
-
-
             }
+
             String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
-            if (readReg.ValueCount < 6)
-            {
 
+            //if (readReg.ValueCount < 1)
+            //{
+            if (readReg.GetValue("ALLWAYTOP") == null)
                 readReg.SetValue("ALLWAYTOP", "FALSE");
+            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\top_position", true) == null)
                 readReg.SetValue("top_position", "44");
+            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\left_position", true) == null)
                 readReg.SetValue("left_position", "483");
+            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\frm_width", true) == null)
                 readReg.SetValue("frm_width", "640");
-                readReg.SetValue("frm_height", "426");
+            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\resolution_height", true) == null)
                 readReg.SetValue("resolution_height", Screen.PrimaryScreen.Bounds.Height.ToString());
+            if (Registry.CurrentUser.OpenSubKey(global.registryPath + "\\resolution_width", true) == null)
                 readReg.SetValue("resolution_width", Screen.PrimaryScreen.Bounds.Width.ToString());
-            }
+            
             int resolution_width = Convert.ToInt32(readReg.GetValue("resolution_width").ToString());
             int resolution_height = Convert.ToInt32(readReg.GetValue("resolution_height").ToString());
             int top_postion = Convert.ToInt32(readReg.GetValue("top_position").ToString());
@@ -141,11 +143,13 @@ namespace ProcScribe
             int task_bar_position = Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.WorkingArea.Height;
             if (top_postion < task_bar_position + hight)
             {
-                top_postion = top_postion + task_bar_position + 25;
+                top_postion = top_postion - task_bar_position - 25;
+                if (top_postion < 0)
+                    top_postion = 1;
             }
 
             this.Left = left_position;
-            // this.Top = top_postion;
+            this.Top = top_postion;
             
 
             
