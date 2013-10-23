@@ -1444,7 +1444,7 @@ namespace ProcScribe
         private void frmMain_Paint(object sender, PaintEventArgs e)
         {
             Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
-            using (LinearGradientBrush brush = new LinearGradientBrush(rc, Color.WhiteSmoke, Color.BurlyWood, LinearGradientMode.Vertical))
+            using (LinearGradientBrush brush = new LinearGradientBrush(rc, Color.WhiteSmoke, Color.White, LinearGradientMode.Vertical))
             {
 
                 e.Graphics.FillRectangle(brush, rc);
