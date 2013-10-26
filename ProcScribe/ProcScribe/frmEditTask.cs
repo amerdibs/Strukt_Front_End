@@ -160,7 +160,7 @@ namespace ProcScribe
                 return;
             else
                 if (rbLink.Checked)
-                    MessageBox.Show("*********************************", "Error Message");
+                    return;
                 else
                     if (rbApp.Checked)
                     {
@@ -175,7 +175,7 @@ namespace ProcScribe
                         if (rbFile.Checked)
                         {
                             DialogResult result = ofFileDialog.ShowDialog();
-                            if (result == DialogResult.OK) 
+                            if (result == DialogResult.OK)
                             {
                                 txtAddress.Text = ofFileDialog.FileName;
                             }

@@ -98,13 +98,8 @@ namespace ProcScribe
             tsUserName.Text = "User: " + global.userName + ", Machine: " + global.machineName + ", Domain: " + global.domainName;
 
             this.MinimumSize = new Size(global.minFrmWidth,global.minFrmHeight);
-           
-            //if (Screen.PrimaryScreen.Bounds.Height == 800)
-            //{
-                //this.Size =new Size(Screen.PrimaryScreen.Bounds.Width/3.5,this.Height);
-                this.Width = (int)(Screen.PrimaryScreen.Bounds.Width / 3.2);
-                //MessageBox.Show(this.Width.ToString());
-            //}
+            this.Width = (int)(Screen.PrimaryScreen.Bounds.Width / 3.2);
+
             //Set appearance by options from registry
             RegistryKey readReg;
             readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
@@ -315,7 +310,7 @@ namespace ProcScribe
             else
                 if (global.currentTaskControlID == 0)
                 {
-                    MessageBox.Show("Please select a task first.");
+                    MessageBox.Show("Please select a task before.");
                     return;
                 }
                 else
