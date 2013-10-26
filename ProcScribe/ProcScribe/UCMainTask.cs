@@ -81,6 +81,11 @@ namespace ProcScribe
            Task returnTask= Task.editTask(taskMember);
            //Update Task Extend in Webservice
            ttTaskControl.SetToolTip(lbTitle, taskMember.description);
+           lbDesc.Text = taskMember.description;
+           if (taskMember.description.Length == 0)
+               pbDesc.Visible = false;
+           else
+               pbDesc.Visible = true;
            StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
            struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(taskMember.id), taskMember.description, taskMember.attachmentType, taskMember.attachmentDetail);
            if (taskMember.attachmentType != "NONE" && taskMember.attachmentType != "" && taskMember.attachmentType != null)
@@ -351,6 +356,20 @@ namespace ProcScribe
                 global.dragTaskControlObject = this;
                 DoDragDrop((this as UserControl).GetHashCode().ToString(), DragDropEffects.Link);
 
+            }
+        }
+
+        private void pbDesc_Click(object sender, EventArgs e)
+        {
+            if (this.Height == global.heightControlTaskNormal)
+            {
+                this.Height = global.heightControlTaskDesc;
+                lbDesc.Visible = true;
+            }
+            else
+            {
+                this.Height = global.heightControlTaskNormal;
+                lbDesc.Visible = false;
             }
         }
 

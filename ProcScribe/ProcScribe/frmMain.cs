@@ -129,6 +129,12 @@ namespace ProcScribe
                 readReg.SetValue("resolution_height", Screen.PrimaryScreen.Bounds.Height.ToString());
             if (readReg.GetValue("resolution_width") == null)
                 readReg.SetValue("resolution_width", Screen.PrimaryScreen.Bounds.Width.ToString());
+            if (readReg.GetValue("COLORMAINTASK") == null)
+                readReg.SetValue("COLORMAINTASK", Screen.PrimaryScreen.Bounds.Width.ToString());
+            if (readReg.GetValue("COLORHOVER") == null)
+                readReg.SetValue("COLORHOVER", Screen.PrimaryScreen.Bounds.Width.ToString()); 
+            if (readReg.GetValue("COLORSELECT") == null)
+                readReg.SetValue("COLORSELECT", Screen.PrimaryScreen.Bounds.Width.ToString());
             
             int resolution_width = Convert.ToInt32(readReg.GetValue("resolution_width").ToString());
             int resolution_height = Convert.ToInt32(readReg.GetValue("resolution_height").ToString());
@@ -136,6 +142,7 @@ namespace ProcScribe
             int left_position = Convert.ToInt32(readReg.GetValue("left_position").ToString());
             int hight = Convert.ToInt32(readReg.GetValue("frm_height").ToString());
             int width = Convert.ToInt32(readReg.GetValue("frm_width").ToString());
+
             if (resolution_height != Screen.PrimaryScreen.Bounds.Height)
             {
                 top_postion = (top_postion * Screen.PrimaryScreen.Bounds.Height) / resolution_height;
@@ -417,6 +424,9 @@ namespace ProcScribe
                     uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left + global.iIndentOfCheckBox;
                     uMain.Controls["lbTitle"].Width = uMain.Controls["lbTitle"].Width - global.iIndentOfCheckBox;
                     uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left + global.iIndentOfCheckBox;
+                    uMain.Controls["lbDesc"].Width = uMain.Controls["lbDesc"].Width - global.iIndentOfCheckBox;
+                    uMain.Controls["lbDesc"].Left = uSelect.Controls["lbDesc"].Left + global.iIndentOfCheckBox;
+
                     uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left + global.iIndentOfCheckBox;
                     uMain.setExistenceCollapeButtonRole();
                     UCMainTask ucParent = getUCMainTaskByTask(taskParent);
@@ -434,6 +444,11 @@ namespace ProcScribe
 
                     //Update Task Extend in Webservice
                     ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
+                    uMain.Controls["lbDesc"].Text = uMain.taskMember.description;
+                    if (uMain.taskMember.description.Length == 0)
+                        uMain.Controls["pbDesc"].Visible = false;
+                    else
+                        uMain.Controls["pbDesc"].Visible = true;
                     StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                     struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
                     if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
@@ -517,6 +532,11 @@ namespace ProcScribe
 
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
+                uMain.Controls["lbDesc"].Text = uMain.taskMember.description;
+                if (uMain.taskMember.description.Length == 0)
+                    uMain.Controls["pbDesc"].Visible = false;
+                else
+                    uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                 struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
@@ -602,6 +622,11 @@ namespace ProcScribe
 
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
+                uMain.Controls["lbDesc"].Text = uMain.taskMember.description;
+                if (uMain.taskMember.description.Length == 0)
+                    uMain.Controls["pbDesc"].Visible = false;
+                else
+                    uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                 struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
@@ -712,6 +737,7 @@ namespace ProcScribe
                 uMain.BackColor = global.ColorMainTask;
                 uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left;
                 uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left;
+                uMain.Controls["lbDesc"].Left = uSelect.Controls["lbDesc"].Left;
                 uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left;
                 uMain.setExistenceCollapeButtonRole();
                 uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uSelect.iLevel);
@@ -728,6 +754,11 @@ namespace ProcScribe
 
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
+                uMain.Controls["lbDesc"].Text = uMain.taskMember.description;
+                if (uMain.taskMember.description.Length == 0)
+                    uMain.Controls["pbDesc"].Visible = false;
+                else
+                    uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                 struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
@@ -1276,6 +1307,11 @@ namespace ProcScribe
                             if (global.getValueFromStruktValue(ucMain.taskMember.id) == dtRow["tk_task_id"].ToString())
                             {
                                 ttMainForm.SetToolTip(ucMain.Controls["lbTitle"], dtRow["tk_description"].ToString());
+                                ucMain.Controls["lbDesc"].Text = dtRow["tk_description"].ToString();
+                                if (dtRow["tk_description"].ToString().Length == 0)
+                                    ucMain.Controls["pbDesc"].Visible = false;
+                                else
+                                    ucMain.Controls["pbDesc"].Visible = true;
                                 ucMain.taskMember.description = dtRow["tk_description"].ToString();
                                 ucMain.taskMember.attachmentType = dtRow["tk_link_type"].ToString();
                                 ucMain.taskMember.attachmentDetail = dtRow["tk_address"].ToString();
@@ -1349,6 +1385,8 @@ namespace ProcScribe
                 uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["lbTitle"].Width = uMain.Controls["lbTitle"].Width - (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["lbTitle"].Left = uMain.Controls["lbTitle"].Left + (global.iIndentOfCheckBox * iLevel);
+                uMain.Controls["lbDesc"].Width = uMain.Controls["lbDesc"].Width - (global.iIndentOfCheckBox * iLevel);
+                uMain.Controls["lbDesc"].Left = uMain.Controls["lbDesc"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["pbCollape"].Left = uMain.Controls["pbCollape"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.setExistenceCollapeButtonRole();
                 

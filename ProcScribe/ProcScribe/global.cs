@@ -28,12 +28,12 @@ namespace ProcScribe
         public static Object dropTaskControlObject;
 
 
-        public static Color ColorMainTask = Color.White;
+        public static Color ColorMainTask = Color.WhiteSmoke;
         public static Color ColorHover = Color.LightGray;
         public static Color ColorSubTask = Color.Lavender;
         public static Color ColorSelect = Color.FromArgb(161, 202, 241);
 
-        public static Color ColorMainTaskDefault = Color.White;
+        public static Color ColorMainTaskDefault = Color.WhiteSmoke;
         public static Color ColorHoverDefault = Color.FromArgb(161, 202, 241);
         public static Color ColorSelectDefault = Color.FromArgb(161, 202, 241);
 
@@ -45,6 +45,7 @@ namespace ProcScribe
         public static int heightControlTaskReceive = heightControlTaskNormal + 39;
         public static int heightControlTaskAssign = heightControlTaskNormal + 47;
         public static int heightControlTaskCollape = 0;
+        public static int heightControlTaskDesc = 64;
 
         public static string resultSuccessStrukt = "{\"type\":\"success\"}";
         public static string registryPath = "SOFTWARE\\ProcScribe";

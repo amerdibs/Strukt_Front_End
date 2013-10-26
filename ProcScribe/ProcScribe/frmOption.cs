@@ -48,7 +48,7 @@ namespace ProcScribe
         private void frmOption_Load(object sender, EventArgs e)
         {
             //load configurations from registry
-            this.Height -= 290; 
+            this.Height -= 127; 
             RegistryKey readReg;
             readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
             String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
@@ -64,15 +64,6 @@ namespace ProcScribe
 
         }
 
-        private void btnColorBack_Click(object sender, EventArgs e)
-        {
-            if (cdDialog.ShowDialog() == DialogResult.OK)
-            {
-                txtColorBack.BackColor = cdDialog.Color;
-                txtColorBack.Tag = cdDialog.Color;
-            }
-
-        }
 
         private void btnColorTask_Click(object sender, EventArgs e)
         {
@@ -83,48 +74,18 @@ namespace ProcScribe
             }
         }
 
-        private void btnColorText1_Click(object sender, EventArgs e)
-        {
-            if (cdDialog.ShowDialog() == DialogResult.OK)
-            {
-                txtColorText1.BackColor = cdDialog.Color;
-                txtColorText1.Tag = cdDialog.Color;
-            }
-        }
-
-        private void btnColorText2_Click(object sender, EventArgs e)
-        {
-            if (cdDialog.ShowDialog() == DialogResult.OK)
-            {
-                txtColorText2.BackColor = cdDialog.Color;
-                txtColorText2.Tag = cdDialog.Color;
-            }
-        }
-
-        private void btnColorText3_Click(object sender, EventArgs e)
-        {
-            if (cdDialog.ShowDialog() == DialogResult.OK)
-            {
-                txtColorText3.BackColor = cdDialog.Color;
-                txtColorText3.Tag = cdDialog.Color;
-            }
-        }
-
-        private void btnColorText4_Click(object sender, EventArgs e)
-        {
-            if (cdDialog.ShowDialog() == DialogResult.OK)
-            {
-                txtColorText4.BackColor = cdDialog.Color;
-                txtColorText4.Tag = cdDialog.Color;
-            }
-        }
-
         private void btnAdvance_Click(object sender, EventArgs e)
         {
             if (!gbColor.Visible)
             {
                 gbColor.Visible = true;
-                this.Height += 290;
+                this.Height += 127;
+                txtColorTask.BackColor = global.ColorMainTask;
+                txtColorTask.Tag = global.ColorMainTask;
+                txtTaskSelectColor.BackColor = global.ColorSelect;
+                txtTaskSelectColor.Tag = global.ColorSelect;
+                txtTaskHoverColor.BackColor = global.ColorHover;
+                txtTaskHoverColor.Tag = global.ColorHover;
             }
         }
 
@@ -134,6 +95,25 @@ namespace ProcScribe
             {
                 txtTaskSelectColor.BackColor = cdDialog.Color;
                 txtTaskSelectColor.Tag = cdDialog.Color;
+            }
+        }
+
+        private void btnDefault_Click(object sender, EventArgs e)
+        {
+            txtColorTask.BackColor = global.ColorMainTaskDefault;
+            txtColorTask.Tag = global.ColorMainTaskDefault;
+            txtTaskSelectColor.BackColor = global.ColorSelectDefault;
+            txtTaskSelectColor.Tag = global.ColorSelectDefault;
+            txtTaskHoverColor.BackColor = global.ColorHoverDefault;
+            txtTaskHoverColor.Tag = global.ColorHoverDefault;
+        }
+
+        private void btnTaskHoverColor_Click(object sender, EventArgs e)
+        {
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtTaskHoverColor.BackColor = cdDialog.Color;
+                txtTaskHoverColor.Tag = cdDialog.Color;
             }
         }
     }
