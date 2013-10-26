@@ -31,10 +31,13 @@ namespace ProcScribe
                 strReturn = global.postJSONintoStrukt(Strukt.URL_Assignment, global.composeJSONforStrukt(Strukt.T_Assignment, strObj));
                 return JsonConvert.DeserializeObject<Assignment>(strReturn);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -51,9 +54,13 @@ namespace ProcScribe
                 List<Assignment> strSnoopDog = JsonConvert.DeserializeObject<List<Assignment>>(strAssign);
                 return strSnoopDog;
             }
-            catch(Exception)
+            catch(Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -70,9 +77,13 @@ namespace ProcScribe
                 List<Assignment> strAssignSource = JsonConvert.DeserializeObject<List<Assignment>>(strSource);
                 return strAssignSource;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -110,10 +121,13 @@ namespace ProcScribe
                 strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Assignment, strObj));
                 return JsonConvert.DeserializeObject<Assignment>(strReturn);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -130,9 +144,13 @@ namespace ProcScribe
                 strReturn = global.postJSONintoStrukt(Strukt.URL_Assignment, global.composeJSONforStrukt(Strukt.T_Assignment, strObj));
                 return JsonConvert.DeserializeObject<Assignment>(strReturn);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
     }

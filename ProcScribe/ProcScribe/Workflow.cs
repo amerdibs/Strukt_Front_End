@@ -32,9 +32,13 @@ namespace ProcScribe
                 List<Workflow> workflow = JsonConvert.DeserializeObject<List<Workflow>>(strSect);
                 return workflow;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -74,10 +78,13 @@ namespace ProcScribe
                 strReturn = global.postJSONintoStrukt(Strukt.URL_Workflow, global.composeJSONforStrukt(Strukt.T_Workflow, strInitial));
                 return JsonConvert.DeserializeObject<Workflow>(strReturn);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
 
         }
@@ -94,10 +101,13 @@ namespace ProcScribe
                 strReturn = global.postJSONintoStrukt(Strukt.URL_Workflow, global.composeJSONforStrukt(Strukt.T_Workflow, strObj));
                 return JsonConvert.DeserializeObject<Workflow>(strReturn);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -113,9 +123,13 @@ namespace ProcScribe
 
                 return strSect;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
 
         }

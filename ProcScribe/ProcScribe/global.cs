@@ -141,10 +141,13 @@ namespace ProcScribe
                 System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
                 return sr.ReadToEnd().Trim();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
             
         }
@@ -161,10 +164,13 @@ namespace ProcScribe
                 System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
                 return sr.ReadToEnd().Trim();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
 
         }
@@ -251,9 +257,13 @@ namespace ProcScribe
                 }
                 return getExtractValueFromRespondSingle(strResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
 
         }
@@ -319,9 +329,13 @@ namespace ProcScribe
                         System.Diagnostics.Process.Start(startInfo);
                         startInfo = null;
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
-                        throw;
+                        Console.WriteLine("\n*** Error throwing! ***");
+                        Console.WriteLine(" Method: {0}", e.TargetSite);
+                        Console.WriteLine(" Message: {0}", e.Message);
+                        Console.WriteLine(" Source: {0}", e.Source);
+                        throw e;
                     }
                 }
             }

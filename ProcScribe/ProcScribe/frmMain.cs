@@ -88,7 +88,6 @@ namespace ProcScribe
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
             //get the current username, machine name, domain name and save them in the associated variables when required
 
             global.userName = Environment.UserName;
@@ -1194,10 +1193,13 @@ namespace ProcScribe
                 Task taskReturnReceive = Task.editTask(ucReceive.taskMember);
                 Task taskReturnDrag = Task.editTask(ucDrag.taskMember);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", ex.TargetSite);
+                Console.WriteLine(" Message: {0}", ex.Message);
+                Console.WriteLine(" Source: {0}", ex.Source);
+                throw ex;
             }
             finally
             {
@@ -1333,10 +1335,13 @@ namespace ProcScribe
                 //    MessageBox.Show("Please load the other process (Procument). Do not use this process to test! Please read only.");
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", ex.TargetSite);
+                Console.WriteLine(" Message: {0}", ex.Message);
+                Console.WriteLine(" Source: {0}", ex.Source);
+                throw ex;
             }
             finally
             {

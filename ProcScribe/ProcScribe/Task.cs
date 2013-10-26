@@ -47,10 +47,13 @@ namespace ProcScribe
                 strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Task, strObj));
                 return JsonConvert.DeserializeObject<Task>(strReturn);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
         public static Task editTask(Task tParam)
@@ -66,10 +69,13 @@ namespace ProcScribe
                 return JsonConvert.DeserializeObject<Task>(strReturn);
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -86,9 +92,13 @@ namespace ProcScribe
                 List<Task> taskList = JsonConvert.DeserializeObject<List<Task>>(strFlowID);
                 return taskList;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -105,9 +115,13 @@ namespace ProcScribe
                 List<Task> UserList = JsonConvert.DeserializeObject<List<Task>>(strUser);
                 return UserList;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -124,9 +138,13 @@ namespace ProcScribe
                 List<Task> UserList = JsonConvert.DeserializeObject<List<Task>>(strUser);
                 return UserList;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -151,10 +169,13 @@ namespace ProcScribe
                 ltSort.Reverse();
                 return ltSort;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
 
@@ -182,16 +203,23 @@ namespace ProcScribe
 
                     return strSect;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    throw;
+                    Console.WriteLine("\n*** Error throwing! ***");
+                    Console.WriteLine(" Method: {0}", e.TargetSite);
+                    Console.WriteLine(" Message: {0}", e.Message);
+                    Console.WriteLine(" Source: {0}", e.Source);
+                    throw e;
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
     }

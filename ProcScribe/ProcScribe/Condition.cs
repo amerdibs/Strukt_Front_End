@@ -29,9 +29,13 @@ namespace ProcScribe
 
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", e.TargetSite);
+                Console.WriteLine(" Message: {0}", e.Message);
+                Console.WriteLine(" Source: {0}", e.Source);
+                throw e;
             }
         }
         public class AlternativeCondition_set
@@ -53,9 +57,13 @@ namespace ProcScribe
                     List<AlternativeCondition_set> alternateCondtion_set = JsonConvert.DeserializeObject<List<AlternativeCondition_set>>(strResourceSet);
                     return alternateCondtion_set;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    throw;
+                    Console.WriteLine("\n*** Error throwing! ***");
+                    Console.WriteLine(" Method: {0}", e.TargetSite);
+                    Console.WriteLine(" Message: {0}", e.Message);
+                    Console.WriteLine(" Source: {0}", e.Source);
+                    throw e;
                 }
             }
 
@@ -91,9 +99,13 @@ namespace ProcScribe
                     List<OptionalCondition_set> optionalCondtion_set = JsonConvert.DeserializeObject<List<OptionalCondition_set>>(strOptionalSet);
                     return optionalCondtion_set;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    throw;
+                    Console.WriteLine("\n*** Error throwing! ***");
+                    Console.WriteLine(" Method: {0}", e.TargetSite);
+                    Console.WriteLine(" Message: {0}", e.Message);
+                    Console.WriteLine(" Source: {0}", e.Source);
+                    throw e;
                 }
             }
         }
@@ -117,9 +129,13 @@ namespace ProcScribe
                     List<Precondtion_set> precondtion_set = JsonConvert.DeserializeObject<List<Precondtion_set>>(strSect);
                     return precondtion_set;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    throw;
+                    Console.WriteLine("\n*** Error throwing! ***");
+                    Console.WriteLine(" Method: {0}", e.TargetSite);
+                    Console.WriteLine(" Message: {0}", e.Message);
+                    Console.WriteLine(" Source: {0}", e.Source);
+                    throw e;
                 }
             }
         }
@@ -150,9 +166,13 @@ namespace ProcScribe
                     List<ResourceCondition_set> resourceCondtion_set = JsonConvert.DeserializeObject<List<ResourceCondition_set>>(strResourceSet);
                     return resourceCondtion_set;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    throw;
+                    Console.WriteLine("\n*** Error throwing! ***");
+                    Console.WriteLine(" Method: {0}", e.TargetSite);
+                    Console.WriteLine(" Message: {0}", e.Message);
+                    Console.WriteLine(" Source: {0}", e.Source);
+                    throw e;
                 }
             }
         }
@@ -183,9 +203,13 @@ namespace ProcScribe
                     List<RoleCondition_set> roleCondtion_set = JsonConvert.DeserializeObject<List<RoleCondition_set>>(strRoleSet);
                     return roleCondtion_set;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    throw;
+                    Console.WriteLine("\n*** Error throwing! ***");
+                    Console.WriteLine(" Method: {0}", e.TargetSite);
+                    Console.WriteLine(" Message: {0}", e.Message);
+                    Console.WriteLine(" Source: {0}", e.Source);
+                    throw e;
                 }
             }
         }

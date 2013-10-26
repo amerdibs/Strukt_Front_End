@@ -45,10 +45,13 @@ namespace ProcScribe
                 PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
    
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Console.WriteLine("\n*** Error throwing! ***");
+                Console.WriteLine(" Method: {0}", ex.TargetSite);
+                Console.WriteLine(" Message: {0}", ex.Message);
+                Console.WriteLine(" Source: {0}", ex.Source);
+                throw ex;
             }
 
           
