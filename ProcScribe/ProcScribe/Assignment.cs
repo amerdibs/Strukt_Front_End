@@ -33,10 +33,7 @@ namespace ProcScribe
             }
             catch (Exception e)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", e.TargetSite);
-                Console.WriteLine(" Message: {0}", e.Message);
-                Console.WriteLine(" Source: {0}", e.Source);
+                global.getExceptionThrow(e);
                 throw e;
             }
         }
@@ -56,10 +53,7 @@ namespace ProcScribe
             }
             catch(Exception e)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", e.TargetSite);
-                Console.WriteLine(" Message: {0}", e.Message);
-                Console.WriteLine(" Source: {0}", e.Source);
+                global.getExceptionThrow(e);
                 throw e;
             }
         }
@@ -79,10 +73,7 @@ namespace ProcScribe
             }
             catch (Exception e)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", e.TargetSite);
-                Console.WriteLine(" Message: {0}", e.Message);
-                Console.WriteLine(" Source: {0}", e.Source);
+                global.getExceptionThrow(e);
                 throw e;
             }
         }
@@ -123,10 +114,7 @@ namespace ProcScribe
             }
             catch (Exception e)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", e.TargetSite);
-                Console.WriteLine(" Message: {0}", e.Message);
-                Console.WriteLine(" Source: {0}", e.Source);
+                global.getExceptionThrow(e);
                 throw e;
             }
         }
@@ -146,10 +134,7 @@ namespace ProcScribe
             }
             catch (Exception e)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", e.TargetSite);
-                Console.WriteLine(" Message: {0}", e.Message);
-                Console.WriteLine(" Source: {0}", e.Source);
+                global.getExceptionThrow(e);
                 throw e;
             }
         }

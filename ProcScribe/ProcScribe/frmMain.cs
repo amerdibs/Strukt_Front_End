@@ -89,14 +89,13 @@ namespace ProcScribe
         private void frmMain_Load(object sender, EventArgs e)
         {
             //get the current username, machine name, domain name and save them in the associated variables when required
-
             global.userName = Environment.UserName;
             global.machineName = Environment.MachineName;
             global.domainName = Environment.UserDomainName;
 
             // assign the label at the bottom of the screen the user name, machine name, domain name
             tsUserName.Text = "User: " + global.userName + ", Machine: " + global.machineName + ", Domain: " + global.domainName;
-
+            
             this.MinimumSize = new Size(global.minFrmWidth,global.minFrmHeight);
             this.Width = (int)(Screen.PrimaryScreen.Bounds.Width / 3.2);
 
@@ -184,74 +183,91 @@ namespace ProcScribe
             global.userTable = wsStrukt.getUserAll();
             global.appTable = wsStrukt.getAppListAll();
 
-            if (global.processTable.Columns.Contains("u_name"))
+            //Hide edit feature ,if user is a normal user.
+            DataRow[] dtSelect = global.userTable.Select("u_name = " + "'" + global.userName + "'");
+            if (dtSelect.Length > 0)
             {
-                this.Text = global.processTable.Rows[0]["u_name"].ToString() + "Welcome to ProcScribe - Your User Guidance Application";
-
-                //Set user role
-                if (global.processTable.Rows[0]["u_role"] != null)
-                    global.roleUser = global.processTable.Rows[0]["u_role"].ToString();
-
-                if (global.roleUser == User.roleExecutor)
-                {
-                    btnAdd.Visible = false;
-                    btnSubAdd.Visible = false;
-                    btnDelete.Visible = false;
-                }
-
-
-                if (global.roleUser == User.roleExecutor)
-                    tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Executor" ;
-                else
-                    if (global.roleUser == User.roleDesigner)
-                        tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Process Designer";
-
-
-                //Assignment Checking
-                bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
-                if (bResult)
-                {
-                    //We are interested only the assignments which we received for acknowledgement
-                    foreach (Assignment asEach in global.assignmentReceivedList)
-                    {
-                        if (asEach.acknowledged == "false")
-                        {
-                            frmAcknowledge fAck = new frmAcknowledge();
-                            Task tGet = Task.getTaskByID(global.getValueFromStruktValue(asEach.source_task_id))[0];
-                            if (tGet != null)
-                            {
-                                DataTable dtUser = wsStrukt.getUserByStruktID(global.getValueFromStruktValue(tGet.user_id));
-                                if (dtUser != null)
-                                {
-                                    fAck.Controls["pnBody"].Controls["txtUser"].Text = dtUser.Rows[0]["u_name"].ToString();
-                                }
-                                else
-                                {
-                                    fAck.Controls["pnBody"].Text = "User information does not exist: " + global.getValueFromStruktValue(tGet.user_id);
-                                }
-                            }
-
-                            fAck.Controls["pnBody"].Controls["txtMsg"].Text = asEach.message;
-
-                            DialogResult dResult = fAck.ShowDialog();
-                            if (dResult == DialogResult.OK) //Update acknowledgement
-                            {
-                                Assignment asAckResult = Assignment.updateAssignmentAcknowledge(asEach);
-                                if (asAckResult != null)
-                                    asEach.acknowledged = "true";
-                                else
-                                {
-                                    MessageBox.Show("Assignment update error!");
-                                    throw new System.Exception("Assignment update error!");
-                                }
-                            }
-                        }
-                    }
-                }
-
-                btnLoadProcess_Click(sender, e);
-
+                pnDesigner.Visible = true;
+                global.roleUser = User.roleDesigner;
+                tsRole.Text = "Designer";
             }
+            else
+            {
+                pnDesigner.Visible = false;
+                global.roleUser = User.roleExecutor;
+                tsRole.Text = "Executor";
+            }
+            
+
+            //Change idea of role in second phase
+            //if (global.processTable.Columns.Contains("u_name"))
+            //{
+            //    this.Text = global.processTable.Rows[0]["u_name"].ToString() + "Welcome to ProcScribe - Your User Guidance Application";
+
+            //    //Set user role
+            //    if (global.processTable.Rows[0]["u_role"] != null)
+            //        global.roleUser = global.processTable.Rows[0]["u_role"].ToString();
+
+            //    if (global.roleUser == User.roleExecutor)
+            //    {
+            //        btnAdd.Visible = false;
+            //        btnSubAdd.Visible = false;
+            //        btnDelete.Visible = false;
+            //    }
+
+
+            //    if (global.roleUser == User.roleExecutor)
+            //        tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Executor" ;
+            //    else
+            //        if (global.roleUser == User.roleDesigner)
+            //            tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Process Designer";
+                
+
+
+            //    //Hide assignment feature at phase 2
+            //    ////Assignment Checking
+            //    //bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
+            //    //if (bResult)
+            //    //{
+            //    //    //We are interested only the assignments which we received for acknowledgement
+            //    //    foreach (Assignment asEach in global.assignmentReceivedList)
+            //    //    {
+            //    //        if (asEach.acknowledged == "false")
+            //    //        {
+            //    //            frmAcknowledge fAck = new frmAcknowledge();
+            //    //            Task tGet = Task.getTaskByID(global.getValueFromStruktValue(asEach.source_task_id))[0];
+            //    //            if (tGet != null)
+            //    //            {
+            //    //                DataTable dtUser = wsStrukt.getUserByStruktID(global.getValueFromStruktValue(tGet.user_id));
+            //    //                if (dtUser != null)
+            //    //                {
+            //    //                    fAck.Controls["pnBody"].Controls["txtUser"].Text = dtUser.Rows[0]["u_name"].ToString();
+            //    //                }
+            //    //                else
+            //    //                {
+            //    //                    fAck.Controls["pnBody"].Text = "User information does not exist: " + global.getValueFromStruktValue(tGet.user_id);
+            //    //                }
+            //    //            }
+
+            //    //            fAck.Controls["pnBody"].Controls["txtMsg"].Text = asEach.message;
+
+            //    //            DialogResult dResult = fAck.ShowDialog();
+            //    //            if (dResult == DialogResult.OK) //Update acknowledgement
+            //    //            {
+            //    //                Assignment asAckResult = Assignment.updateAssignmentAcknowledge(asEach);
+            //    //                if (asAckResult != null)
+            //    //                    asEach.acknowledged = "true";
+            //    //                else
+            //    //                {
+            //    //                    MessageBox.Show("Assignment update error!");
+            //    //                    throw new System.Exception("Assignment update error!");
+            //    //                }
+            //    //            }
+            //    //        }
+            //    //    }
+            //    //}
+            //btnLoadProcess_Click(sender, e);
+            //}
            
         }
 
@@ -1190,10 +1206,7 @@ namespace ProcScribe
             }
             catch (Exception ex)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", ex.TargetSite);
-                Console.WriteLine(" Message: {0}", ex.Message);
-                Console.WriteLine(" Source: {0}", ex.Source);
+                global.getExceptionThrow(ex);
                 throw ex;
             }
             finally
@@ -1332,10 +1345,7 @@ namespace ProcScribe
             }
             catch (Exception ex)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", ex.TargetSite);
-                Console.WriteLine(" Message: {0}", ex.Message);
-                Console.WriteLine(" Source: {0}", ex.Source);
+                global.getExceptionThrow(ex);
                 throw ex;
             }
             finally
@@ -1642,9 +1652,6 @@ namespace ProcScribe
             
         }
 
-        private void tsUserName_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

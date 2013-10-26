@@ -73,8 +73,14 @@ namespace ProcScribe
         public static DataTable appTable;
         public static string roleUser = "D";
 
-       
-
+        //get Exception and show in output windows
+        public static void getExceptionThrow(Exception e)
+        {
+            Console.WriteLine("\n*** Error throwing! ***");
+            Console.WriteLine(" Method: {0}", e.TargetSite);
+            Console.WriteLine(" Message: {0}", e.Message);
+            Console.WriteLine(" Source: {0}", e.Source);
+        }
 
         //calculate height of Task control
         public static int getHeightTaskControl(Task tTask)
@@ -143,10 +149,7 @@ namespace ProcScribe
             }
             catch (Exception e)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", e.TargetSite);
-                Console.WriteLine(" Message: {0}", e.Message);
-                Console.WriteLine(" Source: {0}", e.Source);
+                global.getExceptionThrow(e);
                 throw e;
             }
             
@@ -166,10 +169,7 @@ namespace ProcScribe
             }
             catch (Exception e)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", e.TargetSite);
-                Console.WriteLine(" Message: {0}", e.Message);
-                Console.WriteLine(" Source: {0}", e.Source);
+                global.getExceptionThrow(e);
                 throw e;
             }
 
@@ -259,10 +259,7 @@ namespace ProcScribe
             }
             catch (Exception e)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", e.TargetSite);
-                Console.WriteLine(" Message: {0}", e.Message);
-                Console.WriteLine(" Source: {0}", e.Source);
+                global.getExceptionThrow(e);
                 throw e;
             }
 
@@ -331,10 +328,7 @@ namespace ProcScribe
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("\n*** Error throwing! ***");
-                        Console.WriteLine(" Method: {0}", e.TargetSite);
-                        Console.WriteLine(" Message: {0}", e.Message);
-                        Console.WriteLine(" Source: {0}", e.Source);
+                        global.getExceptionThrow(e);
                         throw e;
                     }
                 }

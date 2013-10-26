@@ -50,6 +50,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsUserName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsRole = new System.Windows.Forms.ToolStripStatusLabel();
             this.ctmTask = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addMainTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSubTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -293,21 +294,27 @@
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.Transparent;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsUserName});
+            this.tsUserName,
+            this.tsRole});
             this.statusStrip1.Location = new System.Drawing.Point(0, 579);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(384, 22);
             this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // tsUserName
             // 
-            this.tsUserName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsUserName.ForeColor = System.Drawing.Color.Blue;
+            this.tsUserName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsUserName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tsUserName.Name = "tsUserName";
-            this.tsUserName.Size = new System.Drawing.Size(91, 17);
+            this.tsUserName.Size = new System.Drawing.Size(87, 17);
             this.tsUserName.Text = "No User Log-In";
-            this.tsUserName.Click += new System.EventHandler(this.tsUserName_Click);
+            // 
+            // tsRole
+            // 
+            this.tsRole.ForeColor = System.Drawing.Color.SteelBlue;
+            this.tsRole.Name = "tsRole";
+            this.tsRole.Size = new System.Drawing.Size(30, 17);
+            this.tsRole.Text = "Role";
             // 
             // ctmTask
             // 
@@ -410,6 +417,7 @@
         private System.Windows.Forms.TabPage tpGuide;
         private System.Windows.Forms.TabPage tpSearch;
         private System.Windows.Forms.TabPage tpEdit;
+        private System.Windows.Forms.ToolStripStatusLabel tsRole;
     }
 }
 

@@ -47,10 +47,7 @@ namespace ProcScribe
             }
             catch (Exception ex)
             {
-                Console.WriteLine("\n*** Error throwing! ***");
-                Console.WriteLine(" Method: {0}", ex.TargetSite);
-                Console.WriteLine(" Message: {0}", ex.Message);
-                Console.WriteLine(" Source: {0}", ex.Source);
+                global.getExceptionThrow(ex);
                 throw ex;
             }
 
