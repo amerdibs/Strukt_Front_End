@@ -32,6 +32,7 @@
             this.cbTop = new System.Windows.Forms.CheckBox();
             this.cdDialog = new System.Windows.Forms.ColorDialog();
             this.gbColor = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnTaskHoverColor = new System.Windows.Forms.Button();
             this.txtTaskHoverColor = new System.Windows.Forms.TextBox();
             this.btnDefault = new System.Windows.Forms.Button();
@@ -44,14 +45,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdvance = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.gbColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(195, 35);
+            this.btnOK.Location = new System.Drawing.Point(203, 36);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(89, 23);
             this.btnOK.TabIndex = 0;
@@ -90,15 +90,24 @@
             this.gbColor.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbColor.Location = new System.Drawing.Point(0, 64);
             this.gbColor.Name = "gbColor";
-            this.gbColor.Size = new System.Drawing.Size(298, 127);
+            this.gbColor.Size = new System.Drawing.Size(298, 134);
             this.gbColor.TabIndex = 9;
             this.gbColor.TabStop = false;
             this.gbColor.Text = "Color";
             this.gbColor.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "* Color will be effect on new starting.";
+            // 
             // btnTaskHoverColor
             // 
-            this.btnTaskHoverColor.Location = new System.Drawing.Point(203, 67);
+            this.btnTaskHoverColor.Location = new System.Drawing.Point(203, 75);
             this.btnTaskHoverColor.Name = "btnTaskHoverColor";
             this.btnTaskHoverColor.Size = new System.Drawing.Size(89, 23);
             this.btnTaskHoverColor.TabIndex = 33;
@@ -108,7 +117,7 @@
             // 
             // txtTaskHoverColor
             // 
-            this.txtTaskHoverColor.Location = new System.Drawing.Point(136, 69);
+            this.txtTaskHoverColor.Location = new System.Drawing.Point(136, 75);
             this.txtTaskHoverColor.Name = "txtTaskHoverColor";
             this.txtTaskHoverColor.ReadOnly = true;
             this.txtTaskHoverColor.Size = new System.Drawing.Size(53, 20);
@@ -116,7 +125,7 @@
             // 
             // btnDefault
             // 
-            this.btnDefault.Location = new System.Drawing.Point(203, 96);
+            this.btnDefault.Location = new System.Drawing.Point(203, 105);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.Size = new System.Drawing.Size(89, 23);
             this.btnDefault.TabIndex = 13;
@@ -127,7 +136,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(41, 72);
+            this.label8.Location = new System.Drawing.Point(40, 78);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 13);
             this.label8.TabIndex = 31;
@@ -135,7 +144,7 @@
             // 
             // btnTaskSelectColor
             // 
-            this.btnTaskSelectColor.Location = new System.Drawing.Point(203, 42);
+            this.btnTaskSelectColor.Location = new System.Drawing.Point(203, 45);
             this.btnTaskSelectColor.Name = "btnTaskSelectColor";
             this.btnTaskSelectColor.Size = new System.Drawing.Size(89, 23);
             this.btnTaskSelectColor.TabIndex = 30;
@@ -145,7 +154,7 @@
             // 
             // txtTaskSelectColor
             // 
-            this.txtTaskSelectColor.Location = new System.Drawing.Point(136, 44);
+            this.txtTaskSelectColor.Location = new System.Drawing.Point(136, 45);
             this.txtTaskSelectColor.Name = "txtTaskSelectColor";
             this.txtTaskSelectColor.ReadOnly = true;
             this.txtTaskSelectColor.Size = new System.Drawing.Size(53, 20);
@@ -154,7 +163,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 47);
+            this.label7.Location = new System.Drawing.Point(40, 50);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 28;
@@ -172,7 +181,7 @@
             // 
             // txtColorTask
             // 
-            this.txtColorTask.Location = new System.Drawing.Point(136, 19);
+            this.txtColorTask.Location = new System.Drawing.Point(136, 17);
             this.txtColorTask.Name = "txtColorTask";
             this.txtColorTask.ReadOnly = true;
             this.txtColorTask.Size = new System.Drawing.Size(53, 20);
@@ -201,7 +210,7 @@
             // 
             // btnAdvance
             // 
-            this.btnAdvance.Location = new System.Drawing.Point(100, 35);
+            this.btnAdvance.Location = new System.Drawing.Point(108, 36);
             this.btnAdvance.Name = "btnAdvance";
             this.btnAdvance.Size = new System.Drawing.Size(89, 23);
             this.btnAdvance.TabIndex = 2;
@@ -209,20 +218,11 @@
             this.btnAdvance.UseVisualStyleBackColor = true;
             this.btnAdvance.Click += new System.EventHandler(this.btnAdvance_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 109);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "* Color will be effect on new starting.";
-            // 
             // frmOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 195);
+            this.ClientSize = new System.Drawing.Size(298, 210);
             this.ControlBox = false;
             this.Controls.Add(this.gbColor);
             this.Controls.Add(this.groupBox1);

@@ -116,7 +116,7 @@
             // 
             this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
-            this.btnOption.Location = new System.Drawing.Point(280, 9);
+            this.btnOption.Location = new System.Drawing.Point(278, 9);
             this.btnOption.Name = "btnOption";
             this.btnOption.Size = new System.Drawing.Size(41, 21);
             this.btnOption.TabIndex = 7;
@@ -151,7 +151,7 @@
             // 
             this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadProcess.Location = new System.Drawing.Point(232, 9);
+            this.btnLoadProcess.Location = new System.Drawing.Point(231, 9);
             this.btnLoadProcess.Name = "btnLoadProcess";
             this.btnLoadProcess.Size = new System.Drawing.Size(42, 21);
             this.btnLoadProcess.TabIndex = 2;
@@ -178,9 +178,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Process:";
+            this.label1.Text = "Process";
             // 
             // tabCenter
             // 

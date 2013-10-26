@@ -65,9 +65,9 @@
             // txtTaskName
             // 
             this.txtTaskName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTaskName.Location = new System.Drawing.Point(42, 10);
+            this.txtTaskName.Location = new System.Drawing.Point(48, 10);
             this.txtTaskName.Name = "txtTaskName";
-            this.txtTaskName.Size = new System.Drawing.Size(307, 20);
+            this.txtTaskName.Size = new System.Drawing.Size(300, 20);
             this.txtTaskName.TabIndex = 2;
             // 
             // label1
@@ -109,7 +109,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(269, 6);
+            this.btnCancel.Location = new System.Drawing.Point(268, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 0;
@@ -146,11 +146,11 @@
             // 
             this.txtDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDetail.ForeColor = System.Drawing.Color.Blue;
-            this.txtDetail.Location = new System.Drawing.Point(58, 19);
+            this.txtDetail.Location = new System.Drawing.Point(48, 19);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDetail.Size = new System.Drawing.Size(291, 48);
+            this.txtDetail.Size = new System.Drawing.Size(301, 48);
             this.txtDetail.TabIndex = 16;
             // 
             // groupBox2
@@ -190,7 +190,7 @@
             // 
             this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrowse.Location = new System.Drawing.Point(269, 69);
+            this.btnBrowse.Location = new System.Drawing.Point(268, 69);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnBrowse.TabIndex = 4;
@@ -201,7 +201,7 @@
             // txtAddress
             // 
             this.txtAddress.Enabled = false;
-            this.txtAddress.Location = new System.Drawing.Point(19, 43);
+            this.txtAddress.Location = new System.Drawing.Point(19, 44);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(324, 20);
             this.txtAddress.TabIndex = 3;
