@@ -94,7 +94,7 @@
             this.btnHide.Location = new System.Drawing.Point(3, 3);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(23, 34);
-            this.btnHide.TabIndex = 1;
+            this.btnHide.TabIndex = 6;
             this.btnHide.UseVisualStyleBackColor = true;
             this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
             // 
@@ -120,7 +120,7 @@
             this.btnOption.Location = new System.Drawing.Point(278, 9);
             this.btnOption.Name = "btnOption";
             this.btnOption.Size = new System.Drawing.Size(41, 21);
-            this.btnOption.TabIndex = 7;
+            this.btnOption.TabIndex = 5;
             this.btnOption.UseVisualStyleBackColor = true;
             this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
             // 
@@ -193,7 +193,7 @@
             this.tabCenter.Name = "tabCenter";
             this.tabCenter.SelectedIndex = 0;
             this.tabCenter.Size = new System.Drawing.Size(347, 533);
-            this.tabCenter.TabIndex = 6;
+            this.tabCenter.TabIndex = 3;
             this.tabCenter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabCenter_MouseClick);
             // 
             // tpGuide
@@ -216,7 +216,7 @@
             this.pnCenter.Location = new System.Drawing.Point(3, 3);
             this.pnCenter.Name = "pnCenter";
             this.pnCenter.Size = new System.Drawing.Size(333, 501);
-            this.pnCenter.TabIndex = 0;
+            this.pnCenter.TabIndex = 4;
             this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
             this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
             this.pnCenter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnCenter_Paint);
@@ -261,7 +261,7 @@
             this.btnDelete.Location = new System.Drawing.Point(0, 44);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(25, 22);
-            this.btnDelete.TabIndex = 5;
+            this.btnDelete.TabIndex = 9;
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -273,7 +273,7 @@
             this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
             this.btnSubAdd.Name = "btnSubAdd";
             this.btnSubAdd.Size = new System.Drawing.Size(25, 22);
-            this.btnSubAdd.TabIndex = 6;
+            this.btnSubAdd.TabIndex = 8;
             this.btnSubAdd.UseVisualStyleBackColor = true;
             this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
             // 
@@ -285,7 +285,7 @@
             this.btnAdd.Location = new System.Drawing.Point(0, 0);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(25, 22);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Tag = "";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);

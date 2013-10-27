@@ -45,7 +45,7 @@
             this.txtUserName.Location = new System.Drawing.Point(75, 12);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(100, 20);
-            this.txtUserName.TabIndex = 0;
+            this.txtUserName.TabIndex = 1;
             this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
             // 
             // txtPassword
@@ -55,7 +55,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword.TabIndex = 1;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // label1
@@ -83,7 +83,7 @@
             this.btnPass.Location = new System.Drawing.Point(221, 2);
             this.btnPass.Name = "btnPass";
             this.btnPass.Size = new System.Drawing.Size(130, 23);
-            this.btnPass.TabIndex = 4;
+            this.btnPass.TabIndex = 5;
             this.btnPass.Text = "No Log-In But cannot use Assignment (Test Only)";
             this.btnPass.UseVisualStyleBackColor = true;
             this.btnPass.Click += new System.EventHandler(this.btnPass_Click);
@@ -95,7 +95,7 @@
             this.btnTest.Location = new System.Drawing.Point(327, 38);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(24, 23);
-            this.btnTest.TabIndex = 5;
+            this.btnTest.TabIndex = 7;
             this.btnTest.Tag = "";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
@@ -107,7 +107,7 @@
             this.btnOK.Location = new System.Drawing.Point(19, 78);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 2;
+            this.btnOK.TabIndex = 3;
             this.btnOK.Text = "Log In";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -120,7 +120,7 @@
             this.btnCancel.Location = new System.Drawing.Point(100, 78);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -132,7 +132,7 @@
             this.txtTest.Name = "txtTest";
             this.txtTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtTest.Size = new System.Drawing.Size(100, 100);
-            this.txtTest.TabIndex = 8;
+            this.txtTest.TabIndex = 6;
             // 
             // frmLogin
             // 

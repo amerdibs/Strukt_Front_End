@@ -68,7 +68,8 @@
             this.txtTaskName.Location = new System.Drawing.Point(48, 10);
             this.txtTaskName.Name = "txtTaskName";
             this.txtTaskName.Size = new System.Drawing.Size(300, 20);
-            this.txtTaskName.TabIndex = 2;
+            this.txtTaskName.TabIndex = 1;
+            this.txtTaskName.TextChanged += new System.EventHandler(this.txtTaskName_TextChanged);
             // 
             // label1
             // 
@@ -98,7 +99,7 @@
             this.btnOK.Location = new System.Drawing.Point(188, 6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 1;
+            this.btnOK.TabIndex = 9;
             this.btnOK.Text = "Save";
             this.btnOK.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnOK.UseVisualStyleBackColor = true;
@@ -112,7 +113,7 @@
             this.btnCancel.Location = new System.Drawing.Point(268, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 0;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -151,7 +152,7 @@
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDetail.Size = new System.Drawing.Size(301, 48);
-            this.txtDetail.TabIndex = 16;
+            this.txtDetail.TabIndex = 2;
             // 
             // groupBox2
             // 
@@ -179,7 +180,7 @@
             this.rbNone.Location = new System.Drawing.Point(19, 20);
             this.rbNone.Name = "rbNone";
             this.rbNone.Size = new System.Drawing.Size(51, 17);
-            this.rbNone.TabIndex = 5;
+            this.rbNone.TabIndex = 3;
             this.rbNone.TabStop = true;
             this.rbNone.Text = "None";
             this.rbNone.UseVisualStyleBackColor = true;
@@ -193,7 +194,7 @@
             this.btnBrowse.Location = new System.Drawing.Point(268, 69);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 4;
+            this.btnBrowse.TabIndex = 8;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -204,7 +205,7 @@
             this.txtAddress.Location = new System.Drawing.Point(19, 44);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(324, 20);
-            this.txtAddress.TabIndex = 3;
+            this.txtAddress.TabIndex = 7;
             // 
             // rbFile
             // 
@@ -212,7 +213,7 @@
             this.rbFile.Location = new System.Drawing.Point(268, 20);
             this.rbFile.Name = "rbFile";
             this.rbFile.Size = new System.Drawing.Size(41, 17);
-            this.rbFile.TabIndex = 2;
+            this.rbFile.TabIndex = 6;
             this.rbFile.Text = "File";
             this.rbFile.UseVisualStyleBackColor = true;
             this.rbFile.Click += new System.EventHandler(this.rbFile_Click);
@@ -223,7 +224,7 @@
             this.rbApp.Location = new System.Drawing.Point(169, 20);
             this.rbApp.Name = "rbApp";
             this.rbApp.Size = new System.Drawing.Size(77, 17);
-            this.rbApp.TabIndex = 1;
+            this.rbApp.TabIndex = 5;
             this.rbApp.Text = "Application";
             this.rbApp.UseVisualStyleBackColor = true;
             this.rbApp.Click += new System.EventHandler(this.rbApp_Click);
@@ -234,7 +235,7 @@
             this.rbLink.Location = new System.Drawing.Point(94, 20);
             this.rbLink.Name = "rbLink";
             this.rbLink.Size = new System.Drawing.Size(45, 17);
-            this.rbLink.TabIndex = 0;
+            this.rbLink.TabIndex = 4;
             this.rbLink.Text = "Link";
             this.rbLink.UseVisualStyleBackColor = true;
             this.rbLink.Click += new System.EventHandler(this.rbLink_Click);

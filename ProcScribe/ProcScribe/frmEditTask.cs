@@ -214,6 +214,11 @@ namespace ProcScribe
 
         }
 
+        private void txtTaskName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
       
