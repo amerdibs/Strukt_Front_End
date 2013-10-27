@@ -499,15 +499,28 @@ namespace ProcScribe
                     return;
                 }
                 Workflow wfNew = Workflow.addWorkflow();
+                taskNew.child_workflow_id = wfNew.id;
                 Task returnTaskAdd0 = Task.addTask(taskNew);
 
+
+                //wfNew.parent_task_id = returnTaskAdd0.id;
+                //Workflow returnChildWorkflow00 = Workflow.editWorkflow(wfNew);
+                //returnTaskAdd0.child_workflow_id = wfNew.id;
+                //Task returnTaskAdd = Task.editTask(returnTaskAdd0);
+
+                //returnChildWorkflow00.user_id = global.workflowMain.user_id;
+                //Workflow returnChildWorkflow = Workflow.editWorkflow(returnChildWorkflow00);
+
+                
+                
+                //Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
+                //Task returnTaskAdd = Task.editTask(returnTaskAdd0);
 
                 wfNew.parent_task_id = returnTaskAdd0.id;
                 returnTaskAdd0.child_workflow_id = wfNew.id;
                 wfNew.user_id = global.workflowMain.user_id;
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
                 Task returnTaskAdd = Task.editTask(returnTaskAdd0);
-
 
                 returnTaskAdd.workflowChild = returnChildWorkflow;
                 returnTaskAdd.workflowParent = global.workflowMain;
