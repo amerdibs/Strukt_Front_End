@@ -95,6 +95,7 @@
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(23, 34);
             this.btnHide.TabIndex = 6;
+            this.ttMainForm.SetToolTip(this.btnHide, "Hide Application");
             this.btnHide.UseVisualStyleBackColor = true;
             this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
             // 
@@ -121,6 +122,7 @@
             this.btnOption.Name = "btnOption";
             this.btnOption.Size = new System.Drawing.Size(41, 21);
             this.btnOption.TabIndex = 5;
+            this.ttMainForm.SetToolTip(this.btnOption, "Settings");
             this.btnOption.UseVisualStyleBackColor = true;
             this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
             // 
@@ -152,11 +154,12 @@
             // 
             this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.down1;
             this.btnLoadProcess.Location = new System.Drawing.Point(231, 9);
             this.btnLoadProcess.Name = "btnLoadProcess";
             this.btnLoadProcess.Size = new System.Drawing.Size(42, 21);
             this.btnLoadProcess.TabIndex = 2;
-            this.btnLoadProcess.Text = "Load";
+            this.ttMainForm.SetToolTip(this.btnLoadProcess, "Load");
             this.btnLoadProcess.UseVisualStyleBackColor = false;
             this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
             // 
@@ -262,6 +265,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(25, 22);
             this.btnDelete.TabIndex = 9;
+            this.ttMainForm.SetToolTip(this.btnDelete, "Delete Task");
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -274,6 +278,7 @@
             this.btnSubAdd.Name = "btnSubAdd";
             this.btnSubAdd.Size = new System.Drawing.Size(25, 22);
             this.btnSubAdd.TabIndex = 8;
+            this.ttMainForm.SetToolTip(this.btnSubAdd, "Add Sub Task");
             this.btnSubAdd.UseVisualStyleBackColor = true;
             this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
             // 
@@ -287,6 +292,7 @@
             this.btnAdd.Size = new System.Drawing.Size(25, 22);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Tag = "";
+            this.ttMainForm.SetToolTip(this.btnAdd, "Add Task");
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
