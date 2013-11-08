@@ -9,16 +9,6 @@ namespace ProcScribeTests
     public class GlobalTests
     {
         [TestMethod]
-        public void getHeightTaskControl()
-        {
-
-        }
-
-        public void getColorTaskControlBackground()
-        {
-
-        }
-
         public void getValueFromStruktValueTest()
         {
             //String str = global.getValueFromStruktValue("");
