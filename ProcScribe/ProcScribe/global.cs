@@ -85,23 +85,23 @@ namespace ProcScribe
         //calculate height of Task control
         public static int getHeightTaskControl(Task tTask)
         {
-            if (!tTask.hasAssignmentSent && !tTask.hasAssignmentReceived)
-            {
-                return heightControlTaskNormal;
-            }
-            else if (tTask.hasAssignmentSent && tTask.hasAssignmentReceived)
-            {
-                return heightControlTaskNormal + 130;
-            }
-            else if (tTask.hasAssignmentSent && !tTask.hasAssignmentReceived)
-            {
-                return heightControlTaskAssign;
-            }
-            else if (!tTask.hasAssignmentSent && tTask.hasAssignmentReceived)
-            {
-                return heightControlTaskReceive;
-            }
-            else
+            //if (!tTask.hasAssignmentSent && !tTask.hasAssignmentReceived)
+            //{
+            //    return heightControlTaskNormal;
+            //}
+            //else if (tTask.hasAssignmentSent && tTask.hasAssignmentReceived)
+            //{
+            //    return heightControlTaskNormal + 130;
+            //}
+            //else if (tTask.hasAssignmentSent && !tTask.hasAssignmentReceived)
+            //{
+            //    return heightControlTaskAssign;
+            //}
+            //else if (!tTask.hasAssignmentSent && tTask.hasAssignmentReceived)
+            //{
+            //    return heightControlTaskReceive;
+            //}
+            //else
                 return heightControlTaskNormal;
         }
 

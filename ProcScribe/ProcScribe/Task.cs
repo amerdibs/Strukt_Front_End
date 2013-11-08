@@ -32,8 +32,8 @@ namespace ProcScribe
         
         public Workflow workflowChild { get; set; }
         public Workflow workflowParent { get; set; }
-        public bool hasAssignmentSent { get; set; }
-        public bool hasAssignmentReceived { get; set; }
+        //public bool hasAssignmentSent { get; set; }
+        //public bool hasAssignmentReceived { get; set; }
 
 
         public static Task addTask(Task tParam)

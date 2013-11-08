@@ -517,10 +517,11 @@ namespace ProcScribe
                 //Task returnTaskAdd = Task.editTask(returnTaskAdd0);
 
                 wfNew.parent_task_id = returnTaskAdd0.id;
-                returnTaskAdd0.child_workflow_id = wfNew.id;
+                //returnTaskAdd0.child_workflow_id = wfNew.id;
                 wfNew.user_id = global.workflowMain.user_id;
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
                 Task returnTaskAdd = Task.editTask(returnTaskAdd0);
+                //Task returnTaskAdd = returnTaskAdd0;
 
                 returnTaskAdd.workflowChild = returnChildWorkflow;
                 returnTaskAdd.workflowParent = global.workflowMain;
