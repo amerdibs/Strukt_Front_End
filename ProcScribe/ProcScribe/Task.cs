@@ -105,7 +105,7 @@ namespace ProcScribe
                 if (strReturn == null)
                     return null;
                 List<Task> lTask = new List<Task>();
-                lTask.Add(JsonConvert.DeserializeObject<Task>(strReturn));
+                lTask = JsonConvert.DeserializeObject<List<Task>>(strReturn);
                 return lTask;
 
                 //string strFlowID = global.getExtractValueFromRespond(
@@ -188,7 +188,7 @@ namespace ProcScribe
             try
             {
                 List<Task> ltSort = new List<Task>();
-                Task tFirst = ltParam.Find(o => o.follows_id == null);
+                Task tFirst = ltParam.Find(o => ((o.follows_id == null) || (o.follows_id == "")));
                 ltSort.Add(tFirst);
                 ltParam.Remove(tFirst);
                 int i = ltParam.Count();

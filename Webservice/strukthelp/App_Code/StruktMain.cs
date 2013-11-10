@@ -613,27 +613,33 @@ public class StruktMain : System.Web.Services.WebService {
             if (dtTable.Rows.Count == 0)
                 return null;
 
-            Task tk = new Task();
-            tk.real_id = dtTable.Rows[0]["real_id"].ToString();
-            tk.id = dtTable.Rows[0]["id"].ToString();
-            tk.precedes_id = dtTable.Rows[0]["precedes_id"].ToString();
-            tk.parent_workflow_id = dtTable.Rows[0]["parent_workflow_id"].ToString();
-            tk.child_workflow_id = dtTable.Rows[0]["child_workflow_id"].ToString();
-            tk.workflow_model_id = dtTable.Rows[0]["workflow_model_id"].ToString();
-            tk.user_id = dtTable.Rows[0]["user_id"].ToString();
-            tk.name = dtTable.Rows[0]["name"].ToString();
-            tk.deadline = dtTable.Rows[0]["deadline"].ToString();
-            tk.date = dtTable.Rows[0]["date"].ToString();
-            tk.status_id = dtTable.Rows[0]["status_id"].ToString();
-            tk.type_id = dtTable.Rows[0]["type_id"].ToString();
-            tk.location_id = dtTable.Rows[0]["location_id"].ToString();
-            tk.project_id = dtTable.Rows[0]["project_id"].ToString();
-            tk.follows_id = dtTable.Rows[0]["follows_id"].ToString();
+            List<Task> listTask = new List<Task>();
+            foreach (DataRow dr in dtTable.Rows)
+            {
+                Task tk = new Task();
+                tk.real_id = dr["real_id"].ToString();
+                tk.id = dr["id"].ToString();
+                tk.precedes_id = dr["precedes_id"].ToString();
+                tk.parent_workflow_id = dr["parent_workflow_id"].ToString();
+                tk.child_workflow_id = dr["child_workflow_id"].ToString();
+                tk.workflow_model_id = dr["workflow_model_id"].ToString();
+                tk.user_id = dr["user_id"].ToString();
+                tk.name = dr["name"].ToString();
+                tk.deadline = dr["deadline"].ToString();
+                tk.date = dr["date"].ToString();
+                tk.status_id = dr["status_id"].ToString();
+                tk.type_id = dr["type_id"].ToString();
+                tk.location_id = dr["location_id"].ToString();
+                tk.project_id = dr["project_id"].ToString();
+                tk.follows_id = dr["follows_id"].ToString();
+                listTask.Add(tk);
+            }
+
 
 
             JsonSerializerSettings jsSetting = new JsonSerializerSettings();
             jsSetting.NullValueHandling = NullValueHandling.Ignore;
-            strAnswer = JsonConvert.SerializeObject(tk, jsSetting);
+            strAnswer = JsonConvert.SerializeObject(listTask, jsSetting);
             return strAnswer;
 
         }
