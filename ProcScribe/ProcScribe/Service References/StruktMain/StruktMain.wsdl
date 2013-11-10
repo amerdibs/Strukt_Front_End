@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="addWorkflow">
+        <s:complexType />
+      </s:element>
+      <s:element name="addWorkflowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addWorkflowResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editWorkflow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strWorkflow" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editWorkflowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="editWorkflowResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteWorkflow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strWorkflowID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteWorkflowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteWorkflowResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="addWorkflowSoapIn">
+    <wsdl:part name="parameters" element="tns:addWorkflow" />
+  </wsdl:message>
+  <wsdl:message name="addWorkflowSoapOut">
+    <wsdl:part name="parameters" element="tns:addWorkflowResponse" />
+  </wsdl:message>
+  <wsdl:message name="editWorkflowSoapIn">
+    <wsdl:part name="parameters" element="tns:editWorkflow" />
+  </wsdl:message>
+  <wsdl:message name="editWorkflowSoapOut">
+    <wsdl:part name="parameters" element="tns:editWorkflowResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteWorkflowSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteWorkflow" />
+  </wsdl:message>
+  <wsdl:message name="deleteWorkflowSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteWorkflowResponse" />
+  </wsdl:message>
+  <wsdl:portType name="StruktMainSoap">
+    <wsdl:operation name="addWorkflow">
+      <wsdl:input message="tns:addWorkflowSoapIn" />
+      <wsdl:output message="tns:addWorkflowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editWorkflow">
+      <wsdl:input message="tns:editWorkflowSoapIn" />
+      <wsdl:output message="tns:editWorkflowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteWorkflow">
+      <wsdl:input message="tns:deleteWorkflowSoapIn" />
+      <wsdl:output message="tns:deleteWorkflowSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StruktMainSoap" type="tns:StruktMainSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addWorkflow">
+      <soap:operation soapAction="http://tempuri.org/addWorkflow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editWorkflow">
+      <soap:operation soapAction="http://tempuri.org/editWorkflow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteWorkflow">
+      <soap:operation soapAction="http://tempuri.org/deleteWorkflow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StruktMainSoap12" type="tns:StruktMainSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addWorkflow">
+      <soap12:operation soapAction="http://tempuri.org/addWorkflow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editWorkflow">
+      <soap12:operation soapAction="http://tempuri.org/editWorkflow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteWorkflow">
+      <soap12:operation soapAction="http://tempuri.org/deleteWorkflow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StruktMain">
+    <wsdl:port name="StruktMainSoap" binding="tns:StruktMainSoap">
+      <soap:address location="http://pakorn.somee.com/strukthelp/StruktMain.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StruktMainSoap12" binding="tns:StruktMainSoap12">
+      <soap12:address location="http://pakorn.somee.com/strukthelp/StruktMain.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

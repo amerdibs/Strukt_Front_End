@@ -137,6 +137,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="PropertiesStrukt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\StruktMain\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\StruktWebservice\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -214,6 +219,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.addWorkflowResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.deleteWorkflowResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.editWorkflowResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StruktMain\StruktMain.wsdl" />
     <None Include="Service References\StruktWebservice\StruktUser.wsdl" />
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +318,13 @@
     <None Include="Resources\network_find.gif" />
     <None Include="Resources\network_find1.gif" />
     <None Include="Resources\bt_play10pix.gif" />
+    <None Include="Service References\StruktMain\StruktMain.disco" />
+    <None Include="Service References\StruktMain\configuration91.svcinfo" />
+    <None Include="Service References\StruktMain\configuration.svcinfo" />
+    <None Include="Service References\StruktMain\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -326,6 +348,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\StruktMain\" />
     <WCFMetadataStorage Include="Service References\StruktWebservice\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

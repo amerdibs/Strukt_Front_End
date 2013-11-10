@@ -21,8 +21,12 @@ namespace ProcScribe
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            Condition alternate_set = Condition.getConditionByTaskID ("2031343073");
-            MessageBox.Show("Ok");
+            //Condition alternate_set = Condition.getConditionByTaskID ("2031343073");
+            Workflow wf = Workflow.addWorkflow();
+            wf.parent_task_id = "Lalllaaaaa";
+            wf = Workflow.editWorkflow(wf);
+
+            MessageBox.Show(wf.parent_task_id);
 
             /*List<PropertiesStrukt.Status> status = PropertiesStrukt.Status.getStatusByID("4");
             MessageBox.Show(status[0].id);

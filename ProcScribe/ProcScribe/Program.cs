@@ -17,7 +17,7 @@ namespace ProcScribe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            //Application.Run(new frmMain());
 
             // Pakorn comments Logi Page at 15.09.13
             //frmLogin fLogin = new frmLogin();
@@ -32,7 +32,7 @@ namespace ProcScribe
             //}
 
             //Application.Run(new frmMain());
-            //Application.Run(new TestFunction());
+            Application.Run(new TestFunction());
             //Application.Run(new frmTaskEdit());
         }
     }

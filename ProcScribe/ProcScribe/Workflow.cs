@@ -69,11 +69,13 @@ namespace ProcScribe
             try
             {
                 string strReturn = "";
-                JsonSerializerSettings jsSetting = new JsonSerializerSettings();
-                jsSetting.NullValueHandling = NullValueHandling.Ignore;
-                string strInitial = "{\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}";
-                strReturn = global.postJSONintoStrukt(Strukt.URL_Workflow, global.composeJSONforStrukt(Strukt.T_Workflow, strInitial));
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                strReturn = wsStrukt.addWorkflow();
                 return JsonConvert.DeserializeObject<Workflow>(strReturn);
+                //JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                //jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                //string strInitial = "{\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}";
+                //strReturn = global.postJSONintoStrukt(Strukt.URL_Workflow, global.composeJSONforStrukt(Strukt.T_Workflow, strInitial));
             }
             catch (Exception e)
             {
@@ -92,8 +94,17 @@ namespace ProcScribe
                 jsSetting.NullValueHandling = NullValueHandling.Ignore;
                 jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
-                strReturn = global.postJSONintoStrukt(Strukt.URL_Workflow, global.composeJSONforStrukt(Strukt.T_Workflow, strObj));
+
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                strReturn = wsStrukt.editWorkflow(strObj);
                 return JsonConvert.DeserializeObject<Workflow>(strReturn);
+                
+                //JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                //jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                //jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                //string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
+                //strReturn = global.postJSONintoStrukt(Strukt.URL_Workflow, global.composeJSONforStrukt(Strukt.T_Workflow, strObj));
+                //return JsonConvert.DeserializeObject<Workflow>(strReturn);
             }
             catch (Exception e)
             {
@@ -107,12 +118,15 @@ namespace ProcScribe
 
             try
             {
-                string strSect = global.getRespondFromStruktDelete(Strukt.URL_Workflow, "/" + strParam);
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                String strReturn = wsStrukt.deleteWorkflow(strParam);
 
-                if (strSect == "")
+                //string strSect = global.getRespondFromStruktDelete(Strukt.URL_Workflow, "/" + strParam);
+
+                if (strReturn == "")
                     return null;
 
-                return strSect;
+                return strReturn;
             }
             catch (Exception e)
             {
