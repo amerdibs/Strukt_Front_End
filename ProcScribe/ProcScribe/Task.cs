@@ -43,9 +43,20 @@ namespace ProcScribe
                 string strReturn = "";
                 JsonSerializerSettings jsSetting = new JsonSerializerSettings();
                 jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
-                strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Task, strObj));
+
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                strReturn = wsStrukt.addTask(strObj);
                 return JsonConvert.DeserializeObject<Task>(strReturn);
+
+
+                //string strReturn = "";
+                //JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                //jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                //string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
+                //strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Task, strObj));
+                //return JsonConvert.DeserializeObject<Task>(strReturn);
             }
             catch (Exception e)
             {
@@ -62,8 +73,19 @@ namespace ProcScribe
                 jsSetting.NullValueHandling = NullValueHandling.Ignore;
                 jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
-                strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Task, strObj));
+
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                strReturn = wsStrukt.editTask(strObj);
                 return JsonConvert.DeserializeObject<Task>(strReturn);
+
+
+                //string strReturn = "";
+                //JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+                //jsSetting.NullValueHandling = NullValueHandling.Ignore;
+                //jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                //string strObj = JsonConvert.SerializeObject(tParam, jsSetting);
+                //strReturn = global.postJSONintoStrukt(Strukt.URL_Task, global.composeJSONforStrukt(Strukt.T_Task, strObj));
+                //return JsonConvert.DeserializeObject<Task>(strReturn);
 
             }
             catch (Exception e)
@@ -77,14 +99,23 @@ namespace ProcScribe
         {
             try
             {
-                string strFlowID = global.getExtractValueFromRespond(
-                                    global.getRespondFromStruktGet(Strukt.URL_Task, "?parent_workflow_id=" + Strukt.Type_Workflow + strParentWorkflowID));
-
-                if (strFlowID == "")
+                string strReturn = "";
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                strReturn = wsStrukt.selectTaskByParentWorkflowID(Strukt.Type_Workflow + strParentWorkflowID);
+                if (strReturn == null)
                     return null;
+                List<Task> lTask = new List<Task>();
+                lTask.Add(JsonConvert.DeserializeObject<Task>(strReturn));
+                return lTask;
 
-                List<Task> taskList = JsonConvert.DeserializeObject<List<Task>>(strFlowID);
-                return taskList;
+                //string strFlowID = global.getExtractValueFromRespond(
+                //                    global.getRespondFromStruktGet(Strukt.URL_Task, "?parent_workflow_id=" + Strukt.Type_Workflow + strParentWorkflowID));
+
+                //if (strFlowID == "")
+                //    return null;
+
+                //List<Task> taskList = JsonConvert.DeserializeObject<List<Task>>(strFlowID);
+                //return taskList;
             }
             catch (Exception e)
             {
@@ -97,14 +128,23 @@ namespace ProcScribe
         {
             try
             {
-                string strUser = global.getExtractValueFromRespond(
-                                    global.getRespondFromStruktGet(Strukt.URL_Task, "?user_id=" + Strukt.Type_User + strUserID));
-
-                if (strUser == "")
+                string strReturn = "";
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                strReturn = wsStrukt.selectTaskByUserID(Strukt.Type_User + strUserID);
+                if (strReturn == null)
                     return null;
+                List<Task> lTask = new List<Task>();
+                lTask.Add(JsonConvert.DeserializeObject<Task>(strReturn));
+                return lTask;
 
-                List<Task> UserList = JsonConvert.DeserializeObject<List<Task>>(strUser);
-                return UserList;
+                //string strUser = global.getExtractValueFromRespond(
+                //                    global.getRespondFromStruktGet(Strukt.URL_Task, "?user_id=" + Strukt.Type_User + strUserID));
+
+                //if (strUser == "")
+                //    return null;
+
+                //List<Task> UserList = JsonConvert.DeserializeObject<List<Task>>(strUser);
+                //return UserList;
             }
             catch (Exception e)
             {
@@ -117,14 +157,23 @@ namespace ProcScribe
         {
             try
             {
-                string strUser = global.getExtractValueFromRespond(
-                                    global.getRespondFromStruktGet(Strukt.URL_Task, "/" + strID));
-
-                if (strUser == "")
+                string strReturn = "";
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                strReturn = wsStrukt.selectTask(Strukt.Type_Task + strID);
+                if (strReturn == null)
                     return null;
+                List<Task> lTask = new List<Task>();
+                lTask.Add(JsonConvert.DeserializeObject<Task>(strReturn));
+                return lTask;
 
-                List<Task> UserList = JsonConvert.DeserializeObject<List<Task>>(strUser);
-                return UserList;
+                //string strUser = global.getExtractValueFromRespond(
+                //                    global.getRespondFromStruktGet(Strukt.URL_Task, "/" + strID));
+
+                //if (strUser == "")
+                //    return null;
+
+                //List<Task> UserList = JsonConvert.DeserializeObject<List<Task>>(strUser);
+                //return UserList;
             }
             catch (Exception e)
             {
@@ -178,12 +227,14 @@ namespace ProcScribe
             {
                 try
                 {
-                    string strSect = global.getRespondFromStruktDelete(Strukt.URL_Task, "/" + strParam);
+                    StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                    String strReturn = wsStrukt.deleteTask(Strukt.Type_Task + strParam);
+                    //string strSect = global.getRespondFromStruktDelete(Strukt.URL_Task, "/" + strParam);
 
-                    if (strSect == "")
+                    if (strReturn == "")
                         return null;
 
-                    return strSect;
+                    return strReturn;
                 }
                 catch (Exception e)
                 {

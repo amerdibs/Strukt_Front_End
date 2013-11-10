@@ -219,13 +219,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.addTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\StruktMain\ProcScribe.StruktMain.addWorkflowResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.deleteTaskResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\StruktMain\ProcScribe.StruktMain.deleteWorkflowResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.editTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\StruktMain\ProcScribe.StruktMain.editWorkflowResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.selectTaskByParentWorkflowIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.selectTaskByUserIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.selectTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.selectWorkflowResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\StruktMain\StruktMain.wsdl" />

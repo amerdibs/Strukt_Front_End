@@ -24,13 +24,23 @@ namespace ProcScribe
         {
             try
             {
-                string strSect = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Workflow, "/" + strWorkflowID));
-
-                if (strSect == "")
+                string strReturn = "";
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                strReturn = wsStrukt.selectWorkflow(Strukt.Type_Workflow + strWorkflowID);
+                if (strReturn == null)
                     return null;
+                List<Workflow> lwf = new List<Workflow>();
+                lwf.Add(JsonConvert.DeserializeObject<Workflow>(strReturn));
+                return lwf;
 
-                List<Workflow> workflow = JsonConvert.DeserializeObject<List<Workflow>>(strSect);
-                return workflow;
+
+                //string strSect = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Workflow, "/" + strWorkflowID));
+
+                //if (strSect == "")
+                //    return null;
+
+                //List<Workflow> workflow = JsonConvert.DeserializeObject<List<Workflow>>(strSect);
+                //return workflow;
             }
             catch (Exception e)
             {
@@ -119,7 +129,7 @@ namespace ProcScribe
             try
             {
                 StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
-                String strReturn = wsStrukt.deleteWorkflow(strParam);
+                String strReturn = wsStrukt.deleteWorkflow(Strukt.Type_Workflow + strParam);
 
                 //string strSect = global.getRespondFromStruktDelete(Strukt.URL_Workflow, "/" + strParam);
 

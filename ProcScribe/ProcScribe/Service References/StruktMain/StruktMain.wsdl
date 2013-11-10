@@ -2,6 +2,20 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="selectWorkflow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strWorkflowID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectWorkflowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectWorkflowResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="addWorkflow">
         <s:complexType />
       </s:element>
@@ -40,8 +54,98 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="selectTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTaskID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectTaskResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTaskObject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addTaskResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTask" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="editTaskResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTaskID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteTaskResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectTaskByParentWorkflowID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strParentWorkflowID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectTaskByParentWorkflowIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectTaskByParentWorkflowIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectTaskByUserID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectTaskByUserIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectTaskByUserIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="selectWorkflowSoapIn">
+    <wsdl:part name="parameters" element="tns:selectWorkflow" />
+  </wsdl:message>
+  <wsdl:message name="selectWorkflowSoapOut">
+    <wsdl:part name="parameters" element="tns:selectWorkflowResponse" />
+  </wsdl:message>
   <wsdl:message name="addWorkflowSoapIn">
     <wsdl:part name="parameters" element="tns:addWorkflow" />
   </wsdl:message>
@@ -60,7 +164,47 @@
   <wsdl:message name="deleteWorkflowSoapOut">
     <wsdl:part name="parameters" element="tns:deleteWorkflowResponse" />
   </wsdl:message>
+  <wsdl:message name="selectTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:selectTask" />
+  </wsdl:message>
+  <wsdl:message name="selectTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:selectTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="addTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:addTask" />
+  </wsdl:message>
+  <wsdl:message name="addTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:addTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="editTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:editTask" />
+  </wsdl:message>
+  <wsdl:message name="editTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:editTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteTask" />
+  </wsdl:message>
+  <wsdl:message name="deleteTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectTaskByParentWorkflowIDSoapIn">
+    <wsdl:part name="parameters" element="tns:selectTaskByParentWorkflowID" />
+  </wsdl:message>
+  <wsdl:message name="selectTaskByParentWorkflowIDSoapOut">
+    <wsdl:part name="parameters" element="tns:selectTaskByParentWorkflowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectTaskByUserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:selectTaskByUserID" />
+  </wsdl:message>
+  <wsdl:message name="selectTaskByUserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:selectTaskByUserIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="StruktMainSoap">
+    <wsdl:operation name="selectWorkflow">
+      <wsdl:input message="tns:selectWorkflowSoapIn" />
+      <wsdl:output message="tns:selectWorkflowSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="addWorkflow">
       <wsdl:input message="tns:addWorkflowSoapIn" />
       <wsdl:output message="tns:addWorkflowSoapOut" />
@@ -73,9 +217,42 @@
       <wsdl:input message="tns:deleteWorkflowSoapIn" />
       <wsdl:output message="tns:deleteWorkflowSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="selectTask">
+      <wsdl:input message="tns:selectTaskSoapIn" />
+      <wsdl:output message="tns:selectTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addTask">
+      <wsdl:input message="tns:addTaskSoapIn" />
+      <wsdl:output message="tns:addTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editTask">
+      <wsdl:input message="tns:editTaskSoapIn" />
+      <wsdl:output message="tns:editTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTask">
+      <wsdl:input message="tns:deleteTaskSoapIn" />
+      <wsdl:output message="tns:deleteTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectTaskByParentWorkflowID">
+      <wsdl:input message="tns:selectTaskByParentWorkflowIDSoapIn" />
+      <wsdl:output message="tns:selectTaskByParentWorkflowIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectTaskByUserID">
+      <wsdl:input message="tns:selectTaskByUserIDSoapIn" />
+      <wsdl:output message="tns:selectTaskByUserIDSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StruktMainSoap" type="tns:StruktMainSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectWorkflow">
+      <soap:operation soapAction="http://tempuri.org/selectWorkflow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="addWorkflow">
       <soap:operation soapAction="http://tempuri.org/addWorkflow" style="document" />
       <wsdl:input>
@@ -103,9 +280,72 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="selectTask">
+      <soap:operation soapAction="http://tempuri.org/selectTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addTask">
+      <soap:operation soapAction="http://tempuri.org/addTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editTask">
+      <soap:operation soapAction="http://tempuri.org/editTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTask">
+      <soap:operation soapAction="http://tempuri.org/deleteTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTaskByParentWorkflowID">
+      <soap:operation soapAction="http://tempuri.org/selectTaskByParentWorkflowID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTaskByUserID">
+      <soap:operation soapAction="http://tempuri.org/selectTaskByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="StruktMainSoap12" type="tns:StruktMainSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectWorkflow">
+      <soap12:operation soapAction="http://tempuri.org/selectWorkflow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="addWorkflow">
       <soap12:operation soapAction="http://tempuri.org/addWorkflow" style="document" />
       <wsdl:input>
@@ -126,6 +366,60 @@
     </wsdl:operation>
     <wsdl:operation name="deleteWorkflow">
       <soap12:operation soapAction="http://tempuri.org/deleteWorkflow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTask">
+      <soap12:operation soapAction="http://tempuri.org/selectTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addTask">
+      <soap12:operation soapAction="http://tempuri.org/addTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editTask">
+      <soap12:operation soapAction="http://tempuri.org/editTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTask">
+      <soap12:operation soapAction="http://tempuri.org/deleteTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTaskByParentWorkflowID">
+      <soap12:operation soapAction="http://tempuri.org/selectTaskByParentWorkflowID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTaskByUserID">
+      <soap12:operation soapAction="http://tempuri.org/selectTaskByUserID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
