@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProcScribe
-{
     public class Strukt
     {
 
@@ -70,4 +68,4 @@ namespace ProcScribe
 
 
     }
-}
+

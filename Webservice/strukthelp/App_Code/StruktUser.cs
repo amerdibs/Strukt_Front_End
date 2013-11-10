@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using System.Data;
 using System.Data.SqlClient;
+using Newtonsoft.Json;
 
 /// <summary>
 /// Summary description for StruktUser
@@ -345,6 +346,7 @@ public class StruktUser : System.Web.Services.WebService {
             return null;
         }
     }
-    
+
+
     
 }

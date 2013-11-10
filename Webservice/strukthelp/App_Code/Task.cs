@@ -8,25 +8,29 @@ using System.Web;
 /// </summary>
 public class Task
 {
+
+
+    public string real_id { get; set; }
+    public string id { get; set; }
+    public string precedes_id { get; set; }
+    public string parent_workflow_id { get; set; }
+    public string child_workflow_id { get; set; }
+    public string workflow_model_id { get; set; }
+    public string user_id { get; set; }
+    public string name { get; set; }
+    public string deadline { get; set; }
+    public string date { get; set; }
+    public string status_id { get; set; }
+    public string type_id { get; set; }
+    public string location_id { get; set; }
+    public string project_id { get; set; }
+    public string follows_id { get; set; }
+
 	public Task()
 	{
 		//
 		// TODO: Add constructor logic here
 		//
-        string id;
-        string precedes_id;
-        string parent_workflow_id;
-        string child_workflow_id;
-        string workflow_model_id;
-        string user_id;
-        string name;
-        string deadline;
-        string date;
-        string status_id;
-        string type_id;
-        string location_id;
-        string project_id;
-        string follows_id;
 
 	}
 }
