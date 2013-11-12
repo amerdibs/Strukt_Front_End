@@ -33,57 +33,57 @@ namespace ProcScribe
             
         }
 
-        private void checkAssignmentUpdateControl(object sender, EventArgs e)
-        {
-            if (global.processTable.Columns.Contains("u_name"))
-            {
-                //Assignment Checking
-                bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
-                if (bResult)
-                {
-                    MessageBox.Show("New assigned task.");
-                    //We are interested only the assignments which we received for acknowledgement
-                    foreach (Assignment asEach in global.assignmentReceivedList)
-                    {
-                        if (asEach.acknowledged == "false")
-                        {
-                            frmAcknowledge fAck = new frmAcknowledge();
-                            Task tGet = Task.getTaskByID(global.getValueFromStruktValue(asEach.source_task_id))[0];
-                            if (tGet != null)
-                            {
-                                StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
+        //private void checkAssignmentUpdateControl(object sender, EventArgs e)
+        //{
+        //    if (global.processTable.Columns.Contains("u_name"))
+        //    {
+        //        //Assignment Checking
+        //        bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
+        //        if (bResult)
+        //        {
+        //            MessageBox.Show("New assigned task.");
+        //            //We are interested only the assignments which we received for acknowledgement
+        //            foreach (Assignment asEach in global.assignmentReceivedList)
+        //            {
+        //                if (asEach.acknowledged == "false")
+        //                {
+        //                    frmAcknowledge fAck = new frmAcknowledge();
+        //                    Task tGet = Task.getTaskByID(global.getValueFromStruktValue(asEach.source_task_id))[0];
+        //                    if (tGet != null)
+        //                    {
+        //                        StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
 
-                                DataTable dtUser = wsStrukt.getUserByStruktID(global.getValueFromStruktValue(tGet.user_id));
-                                if (dtUser != null)
-                                {
-                                    fAck.Controls["pnBody"].Controls["txtUser"].Text = dtUser.Rows[0]["u_name"].ToString();
-                                }
-                                else
-                                {
-                                    fAck.Controls["pnBody"].Text = "not exists in Log-In: " + global.getValueFromStruktValue(tGet.user_id);
-                                }
-                            }
+        //                        DataTable dtUser = wsStrukt.getUserByStruktID(global.getValueFromStruktValue(tGet.user_id));
+        //                        if (dtUser != null)
+        //                        {
+        //                            fAck.Controls["pnBody"].Controls["txtUser"].Text = dtUser.Rows[0]["u_name"].ToString();
+        //                        }
+        //                        else
+        //                        {
+        //                            fAck.Controls["pnBody"].Text = "not exists in Log-In: " + global.getValueFromStruktValue(tGet.user_id);
+        //                        }
+        //                    }
 
-                            fAck.Controls["pnBody"].Controls["txtMsg"].Text = asEach.message;
+        //                    fAck.Controls["pnBody"].Controls["txtMsg"].Text = asEach.message;
 
-                            DialogResult dResult = fAck.ShowDialog();
-                            if (dResult == DialogResult.OK) //Update acknowledgement
-                            {
-                                Assignment asAckResult = Assignment.updateAssignmentAcknowledge(asEach);
-                                if (asAckResult != null)
-                                    asEach.acknowledged = "true";
-                                else
-                                {
-                                    MessageBox.Show("Update assignment error");
-                                    throw new System.Exception("Update assignment error");
-                                }
-                            }
-                        }
-                    }
-                    btnLoadProcess_Click(sender, e);
-                }
-            }
-        }
+        //                    DialogResult dResult = fAck.ShowDialog();
+        //                    if (dResult == DialogResult.OK) //Update acknowledgement
+        //                    {
+        //                        Assignment asAckResult = Assignment.updateAssignmentAcknowledge(asEach);
+        //                        if (asAckResult != null)
+        //                            asEach.acknowledged = "true";
+        //                        else
+        //                        {
+        //                            MessageBox.Show("Update assignment error");
+        //                            throw new System.Exception("Update assignment error");
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //            btnLoadProcess_Click(sender, e);
+        //        }
+        //    }
+        //}
 
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -190,6 +190,7 @@ namespace ProcScribe
                 pnDesigner.Visible = true;
                 global.roleUser = User.roleDesigner;
                 tsRole.Text = "Designer";
+                tpGuide.Text += "/Edit";
             }
             else
             {
@@ -467,7 +468,7 @@ namespace ProcScribe
                     }
 
 
-                    checkAssignmentUpdateControl(sender, e);
+                    //checkAssignmentUpdateControl(sender, e);
                 }
 
         }
@@ -791,7 +792,7 @@ namespace ProcScribe
                 }
             }
 
-            checkAssignmentUpdateControl(sender, e);
+            //checkAssignmentUpdateControl(sender, e);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -827,7 +828,7 @@ namespace ProcScribe
                 //If task in the only one task in workflow
                 //delete select task, delete its child workflow
                 //update into Strukt
-                if ((uSelect.taskMember.follows_id == null) && (uSelect.taskMember.precedes_id == null))
+                if (String.IsNullOrEmpty(uSelect.taskMember.follows_id) && String.IsNullOrEmpty(uSelect.taskMember.precedes_id))
                 {
                     string strResult;
                     strResult = Task.deleteTask(global.getValueFromStruktValue(uSelect.taskMember.id));
@@ -861,7 +862,7 @@ namespace ProcScribe
                 //update followed task.follow_id = null
                 //delete select task, delete its child workflow
                 //update into Strukt
-                else if (uSelect.taskMember.follows_id == null)
+                else if (String.IsNullOrEmpty(uSelect.taskMember.follows_id))
                 {
                     Task taskFollow = uSelect.taskMember.workflowParent.taskChildList[uSelect.taskMember.workflowParent.taskChildList.IndexOf(uSelect.taskMember) - 1];
                     taskFollow.follows_id = null;
@@ -892,7 +893,7 @@ namespace ProcScribe
                 //update precedes task.precedes id = null
                 //delete select task, delete its child workflow
                 //update into Strukt
-                else if (uSelect.taskMember.precedes_id == null)
+                else if (String.IsNullOrEmpty(uSelect.taskMember.precedes_id))
                 {
                     Task taskPrecedes = uSelect.taskMember.workflowParent.taskChildList[uSelect.taskMember.workflowParent.taskChildList.IndexOf(uSelect.taskMember) + 1];
                     taskPrecedes.precedes_id = null;
@@ -961,10 +962,7 @@ namespace ProcScribe
 
             }
 
-            checkAssignmentUpdateControl(sender, e);
-
-
-
+            //checkAssignmentUpdateControl(sender, e);
 
 
             /*
@@ -1118,7 +1116,7 @@ namespace ProcScribe
                 //        change old upper(precedes) task.precedes_id to null
                 UCMainTask ucOldFollow = null;
                 UCMainTask ucOldUpper = null;
-                if (ucDrag.taskMember.follows_id == null)
+                if (String.IsNullOrEmpty(ucDrag.taskMember.follows_id))
                 {
                     if (ucDrag.taskMember.precedes_id != ucReceive.taskMember.id)
                     {
@@ -1127,13 +1125,13 @@ namespace ProcScribe
                     }
                 }
                 else
-                    if (ucDrag.taskMember.precedes_id == null)
+                    if (String.IsNullOrEmpty(ucDrag.taskMember.precedes_id))
                     {
                         ucOldUpper = getUCMainTaskByTaskID(ucDrag.taskMember.follows_id);
                         ucOldUpper.taskMember.precedes_id = null;
                     }
                     else
-                        if ((ucDrag.taskMember.follows_id != null) && (ucDrag.taskMember.precedes_id != null))
+                        if (!String.IsNullOrEmpty(ucDrag.taskMember.follows_id) && !String.IsNullOrEmpty(ucDrag.taskMember.precedes_id))
                         {
                             ucOldUpper = getUCMainTaskByTaskID(ucDrag.taskMember.follows_id);
                             ucOldFollow = getUCMainTaskByTaskID(ucDrag.taskMember.precedes_id);
@@ -1150,7 +1148,7 @@ namespace ProcScribe
                 //            set follow id to null
                 //        first task of the list
                 //            change follow id to dropped task 
-                if (ucReceive.taskMember.follows_id == null)
+                if (String.IsNullOrEmpty(ucReceive.taskMember.follows_id))
                 {
                     ucDrag.taskMember.precedes_id = ucReceive.taskMember.id;
                     ucDrag.taskMember.follows_id = null;
@@ -1165,7 +1163,7 @@ namespace ProcScribe
                 //        the last task of the list
                 //            change precedes id to dropped task id
                 else
-                    if (ucReceive.taskMember.precedes_id == null)
+                    if (String.IsNullOrEmpty(ucReceive.taskMember.precedes_id))
                     {
                         ucDrag.taskMember.follows_id = ucReceive.taskMember.id;
                         ucDrag.taskMember.precedes_id = null;
@@ -1182,13 +1180,13 @@ namespace ProcScribe
                     //        the follow task
                     //            change precedes id to dragged task id
                     else
-                        if ((ucReceive.taskMember.precedes_id != null) && (ucReceive.taskMember.follows_id != null))
+                        if (!String.IsNullOrEmpty(ucReceive.taskMember.precedes_id) && !String.IsNullOrEmpty(ucReceive.taskMember.follows_id))
                         {
                             ucUpper = getUCMainTaskByTaskID(ucReceive.taskMember.follows_id);
 
                             if (ucUpper == ucDrag)
                             {
-                                MessageBox.Show("Operation failed! Please move task from ********************************* down to top!");
+                                MessageBox.Show("Operation failed! Please do not move first task of process from down to top, please move another way instead! ");
                                 return;
                             }
 
@@ -1641,30 +1639,15 @@ namespace ProcScribe
             return ucRet;
         }
 
-        private void cbProcess_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pnCenter_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
-        private void tabCenter_MouseClick(object sender, MouseEventArgs e)
-        {
 
-            if ((tabCenter.SelectedTab.Name == "tpEdit") || (tabCenter.SelectedTab.Name == "tpGuide"))
-            {
-                if (!tabCenter.SelectedTab.Contains(pnCenter))
-                {
-                    tabCenter.SelectedTab.Controls.Add(pnCenter);
-                    pnCenter.Dock = DockStyle.Fill;
-                }
-            }
-            
-            
-        }
+
 
 
     }

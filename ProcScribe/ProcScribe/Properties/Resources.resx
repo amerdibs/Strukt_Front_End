@@ -157,6 +157,9 @@
   <data name="adim1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\adim1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="file_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_edit.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Load" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Load1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -226,6 +229,9 @@
   <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\down.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bt_play10pix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_play10pix.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bt_skip_sw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bt_skip_sw.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -244,7 +250,7 @@
   <data name="down1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\down1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bt_play10pix" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bt_play10pix.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="file_find" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_find.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

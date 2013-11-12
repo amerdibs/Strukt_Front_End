@@ -36,7 +36,7 @@
             this.pbCollape = new System.Windows.Forms.PictureBox();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
-            this.lbDesc = new System.Windows.Forms.Label();
+            this.lbDesc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCollape)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +106,7 @@
             // btnProp
             // 
             this.btnProp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProp.Image = global::ProcScribe.Properties.Resources.applications;
+            this.btnProp.Image = global::ProcScribe.Properties.Resources.file_edit;
             this.btnProp.Location = new System.Drawing.Point(264, 0);
             this.btnProp.Name = "btnProp";
             this.btnProp.Size = new System.Drawing.Size(28, 23);
@@ -118,12 +118,13 @@
             // 
             this.lbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDesc.AutoEllipsis = true;
-            this.lbDesc.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lbDesc.Location = new System.Drawing.Point(15, 26);
+            this.lbDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbDesc.Location = new System.Drawing.Point(15, 27);
+            this.lbDesc.Multiline = true;
             this.lbDesc.Name = "lbDesc";
+            this.lbDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.lbDesc.Size = new System.Drawing.Size(292, 29);
-            this.lbDesc.TabIndex = 11;
+            this.lbDesc.TabIndex = 12;
             // 
             // UCMainTask
             // 
@@ -131,8 +132,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.lbDesc);
+            this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.pbDesc);
             this.Controls.Add(this.pbCollape);
             this.Controls.Add(this.btnLink);
@@ -162,6 +163,6 @@
         private System.Windows.Forms.PictureBox pbCollape;
         private System.Windows.Forms.ToolTip ttTaskControl;
         private System.Windows.Forms.PictureBox pbDesc;
-        private System.Windows.Forms.Label lbDesc;
+        private System.Windows.Forms.TextBox lbDesc;
     }
 }

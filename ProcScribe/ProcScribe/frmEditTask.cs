@@ -103,7 +103,13 @@ namespace ProcScribe
   
          
         private void btnOK_Click(object sender, EventArgs e)
-        {            
+        {
+            if (txtTaskName.Text.Trim() == "")
+            {
+                MessageBox.Show("Please input task name!", "Error Message");
+                return;
+            }
+            
             taskUse.name = txtTaskName.Text;
 
             if (!rbNone.Checked && txtAddress.Text.Trim() == "")

@@ -346,6 +346,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Resources\file_edit.gif" />
+    <None Include="Resources\file_find.gif" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>

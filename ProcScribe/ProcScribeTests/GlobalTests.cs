@@ -5,10 +5,10 @@ using ProcScribe;
 
 namespace ProcScribeTests
 {
-    [TestClass]
+    //[TestClass]
     public class GlobalTests
     {
-        [TestMethod]
+        //[TestMethod]
         public void getValueFromStruktValueTest()
         {
             //String str = global.getValueFromStruktValue("");
