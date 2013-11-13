@@ -31,15 +31,27 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnHide = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnOption = new System.Windows.Forms.Button();
             this.btnAddProcess = new System.Windows.Forms.Button();
+            this.btnSaveProcessAs = new System.Windows.Forms.Button();
+            this.btnLoadProcess = new System.Windows.Forms.Button();
             this.cbProcess = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabCenter = new System.Windows.Forms.TabControl();
             this.tpGuide = new System.Windows.Forms.TabPage();
             this.pnCenter = new System.Windows.Forms.Panel();
             this.tpSearch = new System.Windows.Forms.TabPage();
+            this.pnSearch = new System.Windows.Forms.Panel();
+            this.lvSearch = new System.Windows.Forms.ListView();
+            this.pnSearchTop = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnDesigner = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSubAdd = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsUserName = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsRole = new System.Windows.Forms.ToolStripStatusLabel();
@@ -50,28 +62,16 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
-            this.pnSearch = new System.Windows.Forms.Panel();
-            this.pnSearchTop = new System.Windows.Forms.Panel();
-            this.lvSearch = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnHide = new System.Windows.Forms.Button();
-            this.btnOption = new System.Windows.Forms.Button();
-            this.btnSaveProcessAs = new System.Windows.Forms.Button();
-            this.btnLoadProcess = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSubAdd = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabCenter.SuspendLayout();
             this.tpGuide.SuspendLayout();
             this.tpSearch.SuspendLayout();
+            this.pnSearch.SuspendLayout();
+            this.pnSearchTop.SuspendLayout();
             this.pnDesigner.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.ctmTask.SuspendLayout();
-            this.pnSearch.SuspendLayout();
-            this.pnSearchTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -94,6 +94,18 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 579);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // btnHide
+            // 
+            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHide.Image = global::ProcScribe.Properties.Resources.bt_skip_sw;
+            this.btnHide.Location = new System.Drawing.Point(3, 3);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(23, 34);
+            this.btnHide.TabIndex = 9;
+            this.ttMainForm.SetToolTip(this.btnHide, "Hide Application");
+            this.btnHide.UseVisualStyleBackColor = true;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -109,6 +121,18 @@
             this.panel2.Size = new System.Drawing.Size(347, 34);
             this.panel2.TabIndex = 2;
             // 
+            // btnOption
+            // 
+            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
+            this.btnOption.Location = new System.Drawing.Point(278, 9);
+            this.btnOption.Name = "btnOption";
+            this.btnOption.Size = new System.Drawing.Size(41, 21);
+            this.btnOption.TabIndex = 8;
+            this.ttMainForm.SetToolTip(this.btnOption, "Settings");
+            this.btnOption.UseVisualStyleBackColor = true;
+            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
+            // 
             // btnAddProcess
             // 
             this.btnAddProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -120,6 +144,31 @@
             this.btnAddProcess.UseVisualStyleBackColor = true;
             this.btnAddProcess.Visible = false;
             this.btnAddProcess.Click += new System.EventHandler(this.btnAddProcess_Click);
+            // 
+            // btnSaveProcessAs
+            // 
+            this.btnSaveProcessAs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveProcessAs.Image = global::ProcScribe.Properties.Resources.save;
+            this.btnSaveProcessAs.Location = new System.Drawing.Point(426, 7);
+            this.btnSaveProcessAs.Name = "btnSaveProcessAs";
+            this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 21);
+            this.btnSaveProcessAs.TabIndex = 3;
+            this.btnSaveProcessAs.UseVisualStyleBackColor = true;
+            this.btnSaveProcessAs.Visible = false;
+            this.btnSaveProcessAs.Click += new System.EventHandler(this.btnSaveProcessAs_Click);
+            // 
+            // btnLoadProcess
+            // 
+            this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
+            this.btnLoadProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.down1;
+            this.btnLoadProcess.Location = new System.Drawing.Point(231, 9);
+            this.btnLoadProcess.Name = "btnLoadProcess";
+            this.btnLoadProcess.Size = new System.Drawing.Size(42, 21);
+            this.btnLoadProcess.TabIndex = 2;
+            this.ttMainForm.SetToolTip(this.btnLoadProcess, "Load");
+            this.btnLoadProcess.UseVisualStyleBackColor = false;
+            this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
             // 
             // cbProcess
             // 
@@ -190,6 +239,52 @@
             this.tpSearch.Text = "Search";
             this.tpSearch.UseVisualStyleBackColor = true;
             // 
+            // pnSearch
+            // 
+            this.pnSearch.Controls.Add(this.lvSearch);
+            this.pnSearch.Controls.Add(this.pnSearchTop);
+            this.pnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnSearch.Location = new System.Drawing.Point(3, 3);
+            this.pnSearch.Name = "pnSearch";
+            this.pnSearch.Size = new System.Drawing.Size(333, 501);
+            this.pnSearch.TabIndex = 0;
+            // 
+            // lvSearch
+            // 
+            this.lvSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvSearch.Location = new System.Drawing.Point(0, 41);
+            this.lvSearch.Name = "lvSearch";
+            this.lvSearch.Size = new System.Drawing.Size(333, 460);
+            this.lvSearch.TabIndex = 1;
+            this.lvSearch.UseCompatibleStateImageBehavior = false;
+            // 
+            // pnSearchTop
+            // 
+            this.pnSearchTop.Controls.Add(this.btnSearch);
+            this.pnSearchTop.Controls.Add(this.textBox1);
+            this.pnSearchTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnSearchTop.Location = new System.Drawing.Point(0, 0);
+            this.pnSearchTop.Name = "pnSearchTop";
+            this.pnSearchTop.Size = new System.Drawing.Size(333, 41);
+            this.pnSearchTop.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = global::ProcScribe.Properties.Resources.file_find;
+            this.btnSearch.Location = new System.Drawing.Point(225, 9);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(42, 21);
+            this.btnSearch.TabIndex = 12;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(9, 9);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(210, 20);
+            this.textBox1.TabIndex = 11;
+            // 
             // pnDesigner
             // 
             this.pnDesigner.AccessibleDescription = "";
@@ -201,6 +296,46 @@
             this.pnDesigner.Name = "pnDesigner";
             this.pnDesigner.Size = new System.Drawing.Size(25, 533);
             this.pnDesigner.TabIndex = 3;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Image = global::ProcScribe.Properties.Resources.trash;
+            this.btnDelete.Location = new System.Drawing.Point(0, 44);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(25, 22);
+            this.btnDelete.TabIndex = 7;
+            this.ttMainForm.SetToolTip(this.btnDelete, "Delete Task");
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnSubAdd
+            // 
+            this.btnSubAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubAdd.Image = global::ProcScribe.Properties.Resources.new_child;
+            this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
+            this.btnSubAdd.Name = "btnSubAdd";
+            this.btnSubAdd.Size = new System.Drawing.Size(25, 22);
+            this.btnSubAdd.TabIndex = 6;
+            this.ttMainForm.SetToolTip(this.btnSubAdd, "Add Sub Task");
+            this.btnSubAdd.UseVisualStyleBackColor = true;
+            this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = global::ProcScribe.Properties.Resources.add;
+            this.btnAdd.Location = new System.Drawing.Point(0, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(25, 22);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Tag = "";
+            this.ttMainForm.SetToolTip(this.btnAdd, "Add Task");
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // statusStrip1
             // 
@@ -272,141 +407,6 @@
             this.editNameToolStripMenuItem.Text = "Edit Name";
             this.editNameToolStripMenuItem.Click += new System.EventHandler(this.editNameToolStripMenuItem_Click);
             // 
-            // pnSearch
-            // 
-            this.pnSearch.Controls.Add(this.lvSearch);
-            this.pnSearch.Controls.Add(this.pnSearchTop);
-            this.pnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnSearch.Location = new System.Drawing.Point(3, 3);
-            this.pnSearch.Name = "pnSearch";
-            this.pnSearch.Size = new System.Drawing.Size(333, 501);
-            this.pnSearch.TabIndex = 0;
-            // 
-            // pnSearchTop
-            // 
-            this.pnSearchTop.Controls.Add(this.btnSearch);
-            this.pnSearchTop.Controls.Add(this.textBox1);
-            this.pnSearchTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnSearchTop.Location = new System.Drawing.Point(0, 0);
-            this.pnSearchTop.Name = "pnSearchTop";
-            this.pnSearchTop.Size = new System.Drawing.Size(333, 41);
-            this.pnSearchTop.TabIndex = 0;
-            // 
-            // lvSearch
-            // 
-            this.lvSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvSearch.Location = new System.Drawing.Point(0, 41);
-            this.lvSearch.Name = "lvSearch";
-            this.lvSearch.Size = new System.Drawing.Size(333, 460);
-            this.lvSearch.TabIndex = 1;
-            this.lvSearch.UseCompatibleStateImageBehavior = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(9, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // btnHide
-            // 
-            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHide.Image = global::ProcScribe.Properties.Resources.bt_skip_sw;
-            this.btnHide.Location = new System.Drawing.Point(3, 3);
-            this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(23, 34);
-            this.btnHide.TabIndex = 6;
-            this.ttMainForm.SetToolTip(this.btnHide, "Hide Application");
-            this.btnHide.UseVisualStyleBackColor = true;
-            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
-            // 
-            // btnOption
-            // 
-            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
-            this.btnOption.Location = new System.Drawing.Point(278, 9);
-            this.btnOption.Name = "btnOption";
-            this.btnOption.Size = new System.Drawing.Size(41, 21);
-            this.btnOption.TabIndex = 5;
-            this.ttMainForm.SetToolTip(this.btnOption, "Settings");
-            this.btnOption.UseVisualStyleBackColor = true;
-            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
-            // 
-            // btnSaveProcessAs
-            // 
-            this.btnSaveProcessAs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveProcessAs.Image = global::ProcScribe.Properties.Resources.save;
-            this.btnSaveProcessAs.Location = new System.Drawing.Point(426, 7);
-            this.btnSaveProcessAs.Name = "btnSaveProcessAs";
-            this.btnSaveProcessAs.Size = new System.Drawing.Size(28, 21);
-            this.btnSaveProcessAs.TabIndex = 3;
-            this.btnSaveProcessAs.UseVisualStyleBackColor = true;
-            this.btnSaveProcessAs.Visible = false;
-            this.btnSaveProcessAs.Click += new System.EventHandler(this.btnSaveProcessAs_Click);
-            // 
-            // btnLoadProcess
-            // 
-            this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoadProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.down1;
-            this.btnLoadProcess.Location = new System.Drawing.Point(231, 9);
-            this.btnLoadProcess.Name = "btnLoadProcess";
-            this.btnLoadProcess.Size = new System.Drawing.Size(42, 21);
-            this.btnLoadProcess.TabIndex = 2;
-            this.ttMainForm.SetToolTip(this.btnLoadProcess, "Load");
-            this.btnLoadProcess.UseVisualStyleBackColor = false;
-            this.btnLoadProcess.Click += new System.EventHandler(this.btnLoadProcess_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Image = global::ProcScribe.Properties.Resources.file_find;
-            this.btnSearch.Location = new System.Drawing.Point(225, 9);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(42, 21);
-            this.btnSearch.TabIndex = 1;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Image = global::ProcScribe.Properties.Resources.trash;
-            this.btnDelete.Location = new System.Drawing.Point(0, 44);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(25, 22);
-            this.btnDelete.TabIndex = 9;
-            this.ttMainForm.SetToolTip(this.btnDelete, "Delete Task");
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSubAdd
-            // 
-            this.btnSubAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSubAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubAdd.Image = global::ProcScribe.Properties.Resources.new_child;
-            this.btnSubAdd.Location = new System.Drawing.Point(0, 22);
-            this.btnSubAdd.Name = "btnSubAdd";
-            this.btnSubAdd.Size = new System.Drawing.Size(25, 22);
-            this.btnSubAdd.TabIndex = 8;
-            this.ttMainForm.SetToolTip(this.btnSubAdd, "Add Sub Task");
-            this.btnSubAdd.UseVisualStyleBackColor = true;
-            this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Image = global::ProcScribe.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(0, 0);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(25, 22);
-            this.btnAdd.TabIndex = 7;
-            this.btnAdd.Tag = "";
-            this.ttMainForm.SetToolTip(this.btnAdd, "Add Task");
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,13 +427,13 @@
             this.tabCenter.ResumeLayout(false);
             this.tpGuide.ResumeLayout(false);
             this.tpSearch.ResumeLayout(false);
+            this.pnSearch.ResumeLayout(false);
+            this.pnSearchTop.ResumeLayout(false);
+            this.pnSearchTop.PerformLayout();
             this.pnDesigner.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ctmTask.ResumeLayout(false);
-            this.pnSearch.ResumeLayout(false);
-            this.pnSearchTop.ResumeLayout(false);
-            this.pnSearchTop.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

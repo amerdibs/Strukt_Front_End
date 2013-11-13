@@ -55,7 +55,7 @@
             this.btnCancel.Location = new System.Drawing.Point(197, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "OK";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -77,7 +77,7 @@
             this.txtUser.Location = new System.Drawing.Point(80, 10);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(192, 20);
-            this.txtUser.TabIndex = 4;
+            this.txtUser.TabIndex = 1;
             this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
