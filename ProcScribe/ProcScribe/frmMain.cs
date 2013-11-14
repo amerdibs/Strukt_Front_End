@@ -1652,6 +1652,12 @@ namespace ProcScribe
         }
 
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(sender, e);
+        }
+
+
 
 
 

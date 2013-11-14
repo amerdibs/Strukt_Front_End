@@ -122,6 +122,7 @@
             this.lbDesc.Location = new System.Drawing.Point(15, 27);
             this.lbDesc.Multiline = true;
             this.lbDesc.Name = "lbDesc";
+            this.lbDesc.ReadOnly = true;
             this.lbDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.lbDesc.Size = new System.Drawing.Size(292, 29);
             this.lbDesc.TabIndex = 12;

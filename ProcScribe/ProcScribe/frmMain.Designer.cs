@@ -47,7 +47,7 @@
             this.lvSearch = new System.Windows.Forms.ListView();
             this.pnSearchTop = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnDesigner = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSubAdd = new System.Windows.Forms.Button();
@@ -261,7 +261,7 @@
             // pnSearchTop
             // 
             this.pnSearchTop.Controls.Add(this.btnSearch);
-            this.pnSearchTop.Controls.Add(this.textBox1);
+            this.pnSearchTop.Controls.Add(this.txtSearch);
             this.pnSearchTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSearchTop.Location = new System.Drawing.Point(0, 0);
             this.pnSearchTop.Name = "pnSearchTop";
@@ -278,12 +278,13 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtSearch.Location = new System.Drawing.Point(9, 9);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(210, 20);
+            this.txtSearch.TabIndex = 11;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // pnDesigner
             // 
@@ -472,7 +473,7 @@
         private System.Windows.Forms.ListView lvSearch;
         private System.Windows.Forms.Panel pnSearchTop;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }
 
