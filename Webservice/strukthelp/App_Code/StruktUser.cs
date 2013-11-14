@@ -202,7 +202,7 @@ public class StruktUser : System.Web.Services.WebService {
         strTask = strTask.Substring(0, strTask.Length - 1) + ")";
 
 
-        string strSQL = "SELECT tk_task_id,isnull(tk_description,'') tk_description,isnull(tk_link_type,'') tk_link_type ,isnull(tk_address,'') tk_address  FROM struktTaskExtend  WHERE  tk_task_id in " + strTask;
+        string strSQL = "SELECT tk_task_id,isnull(tk_description,'') tk_description,isnull(tk_link_type,'') tk_link_type ,isnull(tk_address,'') tk_address, isnull(tk_keyword,'') tk_keyword  FROM struktTaskExtend  WHERE  tk_task_id in " + strTask;
         SqlCommand qCommand = new SqlCommand(strSQL, dbConnection);
         SqlDataReader qReader = qCommand.ExecuteReader();
         DataTable dtTable = new DataTable();
@@ -274,7 +274,7 @@ public class StruktUser : System.Web.Services.WebService {
     }
 
     [WebMethod]
-    public void setUpdateTaskExtend(string strID, string strDesc, string strLinkType, string strAddress)
+    public void setUpdateTaskExtend(string strID, string strDesc, string strLinkType, string strAddress, string strKeyword)
     {
         SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
         try
@@ -292,22 +292,25 @@ public class StruktUser : System.Web.Services.WebService {
             if (dtTable.Rows.Count > 0)
             {
                 //Update
-                strQuery = "update struktTaskExtend set tk_description = @tk_description,tk_link_type = @tk_link_type,tk_address = @tk_address  WHERE tk_task_id= @tk_task_id ";
+                strQuery = "update struktTaskExtend set tk_description = @tk_description,tk_link_type = @tk_link_type,tk_address = @tk_address,tk_keyword = @tk_keyword WHERE tk_task_id= @tk_task_id ";
             }
             else
             {
                 //Insert
-                strQuery = "insert into struktTaskExtend  (tk_task_id, tk_description, tk_link_type, tk_address ) values (@tk_task_id,@tk_description,@tk_link_type,@tk_address)  ";
+                strQuery = "insert into struktTaskExtend  (tk_task_id, tk_description, tk_link_type, tk_address, tk_keyword ) values (@tk_task_id,@tk_description,@tk_link_type,@tk_address,@tk_keyword)  ";
             }
 
             SqlParameter spDesc = new SqlParameter("@tk_description", strDesc);
             SqlParameter spLinkType = new SqlParameter("@tk_link_type", strLinkType);
             SqlParameter spAddress = new SqlParameter("@tk_address", strAddress);
+            SqlParameter spKeyword = new SqlParameter("@tk_keyword", strKeyword);
+
             qCommand.Parameters.Clear();
             qCommand.Parameters.Add(spTaskID);
             qCommand.Parameters.Add(spDesc);
             qCommand.Parameters.Add(spLinkType);
             qCommand.Parameters.Add(spAddress);
+            qCommand.Parameters.Add(spKeyword);
             qCommand.CommandText = strQuery;
             qCommand.ExecuteNonQuery();
 

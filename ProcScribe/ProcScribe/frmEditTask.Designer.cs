@@ -35,6 +35,8 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbProp = new System.Windows.Forms.GroupBox();
+            this.txtKeyword = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDetail = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -86,7 +88,7 @@
             this.panel2.Controls.Add(this.btnOK);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 215);
+            this.panel2.Location = new System.Drawing.Point(0, 239);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 40);
             this.panel2.TabIndex = 1;
@@ -122,22 +124,42 @@
             // gbProp
             // 
             this.gbProp.BackColor = System.Drawing.Color.Transparent;
+            this.gbProp.Controls.Add(this.txtKeyword);
+            this.gbProp.Controls.Add(this.label2);
             this.gbProp.Controls.Add(this.label13);
             this.gbProp.Controls.Add(this.txtDetail);
             this.gbProp.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbProp.Location = new System.Drawing.Point(0, 41);
             this.gbProp.Name = "gbProp";
-            this.gbProp.Size = new System.Drawing.Size(355, 77);
+            this.gbProp.Size = new System.Drawing.Size(355, 101);
             this.gbProp.TabIndex = 2;
             this.gbProp.TabStop = false;
             this.gbProp.Text = "Properties";
             // 
+            // txtKeyword
+            // 
+            this.txtKeyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtKeyword.Location = new System.Drawing.Point(70, 73);
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(261, 20);
+            this.txtKeyword.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(16, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Keyword";
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.Blue;
-            this.label13.Location = new System.Drawing.Point(12, 21);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(30, 21);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 13);
             this.label13.TabIndex = 17;
@@ -146,12 +168,12 @@
             // txtDetail
             // 
             this.txtDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDetail.ForeColor = System.Drawing.Color.Blue;
-            this.txtDetail.Location = new System.Drawing.Point(48, 19);
+            this.txtDetail.ForeColor = System.Drawing.Color.Black;
+            this.txtDetail.Location = new System.Drawing.Point(70, 19);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDetail.Size = new System.Drawing.Size(301, 48);
+            this.txtDetail.Size = new System.Drawing.Size(279, 48);
             this.txtDetail.TabIndex = 2;
             // 
             // groupBox2
@@ -165,7 +187,7 @@
             this.groupBox2.Controls.Add(this.rbLink);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(0, 118);
+            this.groupBox2.Location = new System.Drawing.Point(0, 142);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(355, 96);
             this.groupBox2.TabIndex = 3;
@@ -249,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 255);
+            this.ClientSize = new System.Drawing.Size(355, 279);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbProp);
             this.Controls.Add(this.pnName);
@@ -289,5 +311,7 @@
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.RadioButton rbNone;
         private System.Windows.Forms.OpenFileDialog ofFileDialog;
+        private System.Windows.Forms.TextBox txtKeyword;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -104,7 +104,7 @@ namespace ProcScribe
             global.assignmentSentList.Add(asReturn);
 
             StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-            struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(returnTaskAdd.id), taskAssign.description, taskAssign.attachmentType, taskAssign.attachmentDetail);
+            struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(returnTaskAdd.id), taskAssign.description, taskAssign.attachmentType, taskAssign.attachmentDetail, taskAssign.keyword);
 
             MessageBox.Show("Assign Complete");
             //returnTaskAdd.workflowChild = returnChildWorkflow;

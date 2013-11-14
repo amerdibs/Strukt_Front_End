@@ -87,7 +87,7 @@ namespace ProcScribe
            else
                pbDesc.Visible = true;
            StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-           struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(taskMember.id), taskMember.description, taskMember.attachmentType, taskMember.attachmentDetail);
+           struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(taskMember.id), taskMember.description, taskMember.attachmentType, taskMember.attachmentDetail, taskMember.keyword);
            if (taskMember.attachmentType != "NONE" && taskMember.attachmentType != "" && taskMember.attachmentType != null)
            {
                btnLink.Enabled = true;

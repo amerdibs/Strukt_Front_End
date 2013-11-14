@@ -395,6 +395,7 @@ namespace ProcScribe
                     returnTaskAdd.description = frmEdit.taskUse.description;
                     returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
                     returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
+                    returnTaskAdd.keyword = frmEdit.taskUse.keyword;
 
                     uMain.taskMember = returnTaskAdd;
 
@@ -461,7 +462,7 @@ namespace ProcScribe
                     else
                         uMain.Controls["pbDesc"].Visible = true;
                     StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-                    struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
+                    struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword);
                     if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                     {
                         uMain.Controls["btnLink"].Enabled = true;
@@ -532,6 +533,7 @@ namespace ProcScribe
                 returnTaskAdd.description = frmEdit.taskUse.description;
                 returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
                 returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
+                returnTaskAdd.keyword = frmEdit.taskUse.keyword;
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
@@ -563,7 +565,7 @@ namespace ProcScribe
                 else
                     uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
+                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword);
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                 {
                     uMain.Controls["btnLink"].Enabled = true;
@@ -622,6 +624,7 @@ namespace ProcScribe
                 returnTaskAdd.description = frmEdit.taskUse.description;
                 returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
                 returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
+                returnTaskAdd.keyword = frmEdit.taskUse.keyword;
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
@@ -653,7 +656,7 @@ namespace ProcScribe
                 else
                     uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
+                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail,uMain.taskMember.keyword);
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                 {
                     uMain.Controls["btnLink"].Enabled = true;
@@ -731,6 +734,7 @@ namespace ProcScribe
                 returnTaskAdd.description = frmEdit.taskUse.description;
                 returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
                 returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
+                returnTaskAdd.keyword = frmEdit.taskUse.keyword;
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
@@ -762,7 +766,9 @@ namespace ProcScribe
                 uMain.BackColor = global.ColorMainTask;
                 uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left;
                 uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left;
+                uMain.Controls["lbTitle"].Width = uSelect.Controls["lbTitle"].Width;
                 uMain.Controls["lbDesc"].Left = uSelect.Controls["lbDesc"].Left;
+                uMain.Controls["lbDesc"].Width = uSelect.Controls["lbDesc"].Width;
                 uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left;
                 uMain.setExistenceCollapeButtonRole();
                 uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uSelect.iLevel);
@@ -785,7 +791,7 @@ namespace ProcScribe
                 else
                     uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail);
+                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword);
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                 {
                     uMain.Controls["btnLink"].Enabled = true;
@@ -1337,6 +1343,7 @@ namespace ProcScribe
                                 ucMain.taskMember.description = dtRow["tk_description"].ToString();
                                 ucMain.taskMember.attachmentType = dtRow["tk_link_type"].ToString();
                                 ucMain.taskMember.attachmentDetail = dtRow["tk_address"].ToString();
+                                ucMain.taskMember.keyword = dtRow["tk_keyword"].ToString();
                                 if (ucMain.taskMember.attachmentType != "NONE" && ucMain.taskMember.attachmentType != "" && ucMain.taskMember.attachmentType != null)
                                 {
                                     ucMain.Controls["btnLink"].Enabled = true;

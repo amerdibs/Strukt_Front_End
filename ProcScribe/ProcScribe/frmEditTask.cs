@@ -64,6 +64,8 @@ namespace ProcScribe
                     txtDetail.Text = taskUse.description;
                 if (taskUse.attachmentDetail != null)
                     txtAddress.Text = taskUse.attachmentDetail;
+                if (taskUse.keyword != null)
+                    txtKeyword.Text = taskUse.keyword;
                 if (taskUse.attachmentType != null)
                 {
                     if (taskUse.attachmentType == "NONE")
@@ -106,6 +108,7 @@ namespace ProcScribe
         {
             if (txtTaskName.Text.Trim() == "")
             {
+                DialogResult = DialogResult.None;
                 MessageBox.Show("Please input task name!", "Error Message");
                 return;
             }
@@ -135,6 +138,7 @@ namespace ProcScribe
             taskUse.description = txtDetail.Text;
             taskUse.attachmentDetail = txtAddress.Text;
             taskUse.attachmentType = strType;
+            taskUse.keyword = txtKeyword.Text;
   
         }
 
