@@ -155,6 +155,12 @@
     <Compile Include="TestFunction.Designer.cs">
       <DependentUpon>TestFunction.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCListItem.Designer.cs">
+      <DependentUpon>UCListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserTests.cs" />
     <Compile Include="UCMainTask.cs">
       <SubType>UserControl</SubType>
@@ -203,6 +209,9 @@
     </Compile>
     <EmbeddedResource Include="TestFunction.resx">
       <DependentUpon>TestFunction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCListItem.resx">
+      <DependentUpon>UCListItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCMainTask.resx">
       <DependentUpon>UCMainTask.cs</DependentUpon>

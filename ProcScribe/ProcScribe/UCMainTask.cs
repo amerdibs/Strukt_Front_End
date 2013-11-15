@@ -63,11 +63,6 @@ namespace ProcScribe
             this.BackColor = preColor;
         }
 
-
-        private void lbTitle_Click_1(object sender, EventArgs e)
-        {
-        }
-
         private void btnProp_Click(object sender, EventArgs e)
         {
             frmTaskEdit frTaskEdit = new frmTaskEdit();

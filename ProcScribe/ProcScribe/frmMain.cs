@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System.Text.RegularExpressions;
 
 
 namespace ProcScribe
@@ -1648,6 +1649,32 @@ namespace ProcScribe
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //pnSearchResult.Controls.Clear();
+            listVSearch.Items.Clear();
+            if ((global.taskListSearch != null) && !String.IsNullOrEmpty(txtSearch.Text))
+            {
+                IEnumerable<Task> lstFoundItems = from objTask in global.taskListSearch
+                                                  where (objTask.name.ToLower().Contains(txtSearch.Text.ToLower())||
+                                                         objTask.description.ToLower().Contains(txtSearch.Text.ToLower()) ||
+                                                         objTask.keyword.ToLower().Contains(txtSearch.Text.ToLower()))
+                                                  select objTask;
+
+                foreach (Task tk in lstFoundItems)
+                {
+                    ListViewItem lvi = new ListViewItem(new String[] {tk.name,tk.description,tk.keyword});
+                    lvi.Tag = tk.id;
+                    listVSearch.Items.Add(lvi);
+
+
+                    //UCListItem uclItem = new UCListItem();
+                    //uclItem.Controls["lbTaskName"].Text = tk.name;
+                    //uclItem.Controls["lbTaskDesc"].Text = tk.description;
+                    //uclItem.Controls["lbTaskKey"].Text = tk.keyword;
+                    //pnSearchResult.Controls.Add(uclItem);
+                    //uclItem.Dock = DockStyle.Top;
+                    //uclItem.BringToFront();
+                }
+            }
 
         }
 
@@ -1655,6 +1682,43 @@ namespace ProcScribe
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             btnSearch_Click(sender, e);
+        }
+
+        private void tabCenter_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabCenter.SelectedTab.Name == "tpSearch")
+            {
+                if (global.workflowMain != null)
+                {
+                    List<Task> listTaskSearch = new List<Task>();
+                    global.getTaskListFromAllWorkflow(global.workflowMain, listTaskSearch);
+                    global.taskListSearch = listTaskSearch;
+                    global.taskListSearch.Reverse();
+                }
+            }
+            
+        }
+
+        private void listVSearch_DoubleClick(object sender, EventArgs e)
+        {
+            if (listVSearch.SelectedItems != null)
+            {
+                ListViewItem lvi = listVSearch.SelectedItems[0];
+                foreach (Object objEach in pnCenter.Controls)
+                {
+                    UCMainTask ucTask = (UCMainTask)objEach;
+                    ucTask.Height = global.heightControlTaskNormal;
+                    ucTask.BackColor = global.ColorMainTask;
+                }
+                UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
+                global.currentTaskControlID = ucMain.GetHashCode();
+                global.currentTaskControlType = global.currentTaskControlTypeMainTask;
+                global.currentTaskControlObject = ucMain;
+                ucMain.preColor = ucMain.BackColor;
+                ucMain.BackColor = global.ColorSelect;
+                tabCenter.SelectedTab = tpGuide;
+
+            }
         }
 
 

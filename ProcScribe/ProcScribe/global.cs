@@ -64,6 +64,8 @@ namespace ProcScribe
         //public static string strWorkflowID = "354249471";
         //public static string strUserID = "4";
         public static Workflow workflowMain;
+        public static List<Task> taskListSearch;
+
         public static List<Assignment> assignmentSentList;
         public static List<Assignment> assignmentReceivedList;
 
