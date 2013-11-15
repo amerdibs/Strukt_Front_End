@@ -1309,6 +1309,8 @@ namespace ProcScribe
                 Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString(),null);
                 global.workflowMain = wfMain;
                 pnCenter.Controls.Clear();
+                listVSearch.Items.Clear();
+                txtSearch.Text = "";
 
                 //Generate task control
                 generateTaskControl(wfMain, 0);
@@ -1653,27 +1655,37 @@ namespace ProcScribe
             listVSearch.Items.Clear();
             if ((global.taskListSearch != null) && !String.IsNullOrEmpty(txtSearch.Text))
             {
-                IEnumerable<Task> lstFoundItems = from objTask in global.taskListSearch
-                                                  where (objTask.name.ToLower().Contains(txtSearch.Text.ToLower())||
-                                                         objTask.description.ToLower().Contains(txtSearch.Text.ToLower()) ||
-                                                         objTask.keyword.ToLower().Contains(txtSearch.Text.ToLower()))
-                                                  select objTask;
 
-                foreach (Task tk in lstFoundItems)
+                try
                 {
-                    ListViewItem lvi = new ListViewItem(new String[] {tk.name,tk.description,tk.keyword});
-                    lvi.Tag = tk.id;
-                    listVSearch.Items.Add(lvi);
+                    IEnumerable<Task> lstFoundItems = from objTask in global.taskListSearch
+                                                      where (objTask.name.ToLower().Contains(txtSearch.Text.ToLower()) ||
+                                                             objTask.description.ToLower().Contains(txtSearch.Text.ToLower()) ||
+                                                             objTask.keyword.ToLower().Contains(txtSearch.Text.ToLower()))
+                                                      select objTask;
+                    foreach (Task tk in lstFoundItems)
+                    {
+                        ListViewItem lvi = new ListViewItem(new String[] { tk.name, tk.description, tk.keyword });
+                        lvi.Tag = tk.id;
+                        listVSearch.Items.Add(lvi);
 
 
-                    //UCListItem uclItem = new UCListItem();
-                    //uclItem.Controls["lbTaskName"].Text = tk.name;
-                    //uclItem.Controls["lbTaskDesc"].Text = tk.description;
-                    //uclItem.Controls["lbTaskKey"].Text = tk.keyword;
-                    //pnSearchResult.Controls.Add(uclItem);
-                    //uclItem.Dock = DockStyle.Top;
-                    //uclItem.BringToFront();
+                        //UCListItem uclItem = new UCListItem();
+                        //uclItem.Controls["lbTaskName"].Text = tk.name;
+                        //uclItem.Controls["lbTaskDesc"].Text = tk.description;
+                        //uclItem.Controls["lbTaskKey"].Text = tk.keyword;
+                        //pnSearchResult.Controls.Add(uclItem);
+                        //uclItem.Dock = DockStyle.Top;
+                        //uclItem.BringToFront();
+                    }
                 }
+                catch (NullReferenceException)
+                {
+
+                    return;
+                }
+
+
             }
 
         }
@@ -1712,6 +1724,7 @@ namespace ProcScribe
                     ucTask.BackColor = global.ColorMainTask;
                 }
                 UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
+                pnCenter.ScrollControlIntoView(ucMain);
                 global.currentTaskControlID = ucMain.GetHashCode();
                 global.currentTaskControlType = global.currentTaskControlTypeMainTask;
                 global.currentTaskControlObject = ucMain;

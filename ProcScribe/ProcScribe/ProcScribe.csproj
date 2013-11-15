@@ -134,6 +134,7 @@
       <DependentUpon>frmSelectApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="global.cs" />
+    <Compile Include="IEnumerable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PropertiesStrukt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
