@@ -1699,7 +1699,8 @@ namespace ProcScribe
             
         }
 
-        private void listVSearch_DoubleClick(object sender, EventArgs e)
+
+        private void listVSearch_MouseClick(object sender, MouseEventArgs e)
         {
             if (listVSearch.SelectedItems != null)
             {

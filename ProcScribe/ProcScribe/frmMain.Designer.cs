@@ -44,6 +44,11 @@
             this.pnCenter = new System.Windows.Forms.Panel();
             this.tpSearch = new System.Windows.Forms.TabPage();
             this.pnSearch = new System.Windows.Forms.Panel();
+            this.pnSearchResult = new System.Windows.Forms.Panel();
+            this.listVSearch = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnSearchTop = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -61,22 +66,17 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
-            this.pnSearchResult = new System.Windows.Forms.Panel();
-            this.listVSearch = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabCenter.SuspendLayout();
             this.tpGuide.SuspendLayout();
             this.tpSearch.SuspendLayout();
             this.pnSearch.SuspendLayout();
+            this.pnSearchResult.SuspendLayout();
             this.pnSearchTop.SuspendLayout();
             this.pnDesigner.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.ctmTask.SuspendLayout();
-            this.pnSearchResult.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -255,6 +255,52 @@
             this.pnSearch.Size = new System.Drawing.Size(333, 501);
             this.pnSearch.TabIndex = 0;
             // 
+            // pnSearchResult
+            // 
+            this.pnSearchResult.AutoScroll = true;
+            this.pnSearchResult.Controls.Add(this.listVSearch);
+            this.pnSearchResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnSearchResult.Location = new System.Drawing.Point(0, 41);
+            this.pnSearchResult.Name = "pnSearchResult";
+            this.pnSearchResult.Size = new System.Drawing.Size(333, 460);
+            this.pnSearchResult.TabIndex = 1;
+            // 
+            // listVSearch
+            // 
+            this.listVSearch.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listVSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listVSearch.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listVSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listVSearch.FullRowSelect = true;
+            this.listVSearch.GridLines = true;
+            this.listVSearch.HotTracking = true;
+            this.listVSearch.HoverSelection = true;
+            this.listVSearch.Location = new System.Drawing.Point(0, 0);
+            this.listVSearch.MultiSelect = false;
+            this.listVSearch.Name = "listVSearch";
+            this.listVSearch.Size = new System.Drawing.Size(333, 460);
+            this.listVSearch.TabIndex = 0;
+            this.listVSearch.UseCompatibleStateImageBehavior = false;
+            this.listVSearch.View = System.Windows.Forms.View.Details;
+            this.listVSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listVSearch_MouseClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 139;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Description";
+            this.columnHeader2.Width = 127;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Keyword";
+            // 
             // pnSearchTop
             // 
             this.pnSearchTop.Controls.Add(this.btnSearch);
@@ -405,52 +451,6 @@
             this.editNameToolStripMenuItem.Text = "Edit Name";
             this.editNameToolStripMenuItem.Click += new System.EventHandler(this.editNameToolStripMenuItem_Click);
             // 
-            // pnSearchResult
-            // 
-            this.pnSearchResult.AutoScroll = true;
-            this.pnSearchResult.Controls.Add(this.listVSearch);
-            this.pnSearchResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnSearchResult.Location = new System.Drawing.Point(0, 41);
-            this.pnSearchResult.Name = "pnSearchResult";
-            this.pnSearchResult.Size = new System.Drawing.Size(333, 460);
-            this.pnSearchResult.TabIndex = 1;
-            // 
-            // listVSearch
-            // 
-            this.listVSearch.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listVSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listVSearch.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listVSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listVSearch.FullRowSelect = true;
-            this.listVSearch.GridLines = true;
-            this.listVSearch.HotTracking = true;
-            this.listVSearch.HoverSelection = true;
-            this.listVSearch.Location = new System.Drawing.Point(0, 0);
-            this.listVSearch.MultiSelect = false;
-            this.listVSearch.Name = "listVSearch";
-            this.listVSearch.Size = new System.Drawing.Size(333, 460);
-            this.listVSearch.TabIndex = 0;
-            this.listVSearch.UseCompatibleStateImageBehavior = false;
-            this.listVSearch.View = System.Windows.Forms.View.Details;
-            this.listVSearch.DoubleClick += new System.EventHandler(this.listVSearch_DoubleClick);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 139;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Description";
-            this.columnHeader2.Width = 127;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Keyword";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,13 +472,13 @@
             this.tpGuide.ResumeLayout(false);
             this.tpSearch.ResumeLayout(false);
             this.pnSearch.ResumeLayout(false);
+            this.pnSearchResult.ResumeLayout(false);
             this.pnSearchTop.ResumeLayout(false);
             this.pnSearchTop.PerformLayout();
             this.pnDesigner.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ctmTask.ResumeLayout(false);
-            this.pnSearchResult.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
