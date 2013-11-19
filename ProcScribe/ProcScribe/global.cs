@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Globalization;
 using System.Data;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ProcScribe
 {
@@ -69,6 +70,9 @@ namespace ProcScribe
         public static List<Assignment> assignmentSentList;
         public static List<Assignment> assignmentReceivedList;
 
+        //fix values for file upload test
+        string localFilePath = "C:\\Users\\SvenLaptop\\Downloads";
+
 
         public static DataTable processTable;
         public static DataTable userTable;
@@ -104,7 +108,7 @@ namespace ProcScribe
             //    return heightControlTaskReceive;
             //}
             //else
-                return heightControlTaskNormal;
+            return heightControlTaskNormal;
         }
 
         //calculate color for Task control background
@@ -139,7 +143,7 @@ namespace ProcScribe
         }
 
         //Send Get to Strukt and receive data
-        public static string getRespondFromStruktGet(string strURLResource , string strParam)
+        public static string getRespondFromStruktGet(string strURLResource, string strParam)
         {
             // still did not define Proxy
             System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strURLResource + strParam);
@@ -154,7 +158,7 @@ namespace ProcScribe
                 global.getExceptionThrow(e);
                 throw e;
             }
-            
+
         }
 
         //Send Delete to Strukt and receive data
@@ -191,7 +195,7 @@ namespace ProcScribe
             {
 
                 string[] aStrSecond = aStrFirst[i].Split(new string[] { "}}" }, StringSplitOptions.None);
-                lStrExtract.Add("{"+aStrSecond[0]+"}");
+                lStrExtract.Add("{" + aStrSecond[0] + "}");
             }
 
             strReturn = "[";
@@ -336,6 +340,21 @@ namespace ProcScribe
                 }
             }
         }
+
+        public void uploadMyFile(string fileToUpload)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                global.getExceptionThrow(e);
+                throw e;
+            }
+
+        }
+
 
     }
 }
