@@ -1376,24 +1376,24 @@ namespace ProcScribe
             }
         }
 
-        //private void btnHide_Click(object sender, EventArgs e)
-        //{
+        private void btnHide_Click(object sender, EventArgs e)
+        {
 
-        //    if (global.hideWindows == false)
-        //    {
-        //        frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 33;
-        //        btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_bk));
-        //        global.hideWindows = true;
+            if (global.hideWindows == false)
+            {
+                frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 33;
+                btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_bk));
+                global.hideWindows = true;
 
                 
-        //    }
-        //    else
-        //    {
-        //        frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 420;
-        //        btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_sw));
-        //        global.hideWindows = false;
-        //    }
-        //}
+            }
+            else
+            {
+                frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 420;
+                btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_sw));
+                global.hideWindows = false;
+            }
+        }
 
         //Create hierachy of Task Controls
         private void generateTaskControl(Workflow wfParam, int iLevel)

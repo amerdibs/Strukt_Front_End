@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checkLoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProcessByUserID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProcessByUserIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getProcessByUserIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProcessAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="getProcessAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getProcessAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="getUserAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserByStruktID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserByStruktIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserByStruktIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDescriptionDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDescriptionDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDescriptionDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTaskExtendByList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listStrTaskID" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getTaskExtendByListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTaskExtendByListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setUptadeTaskDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setUptadeTaskDescriptionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="setUpdateTaskExtend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLinkType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strKeyword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setUpdateTaskExtendResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAppListAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAppListAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAppListAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:checkLogin" />
+  </wsdl:message>
+  <wsdl:message name="checkLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:checkLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="getProcessByUserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getProcessByUserID" />
+  </wsdl:message>
+  <wsdl:message name="getProcessByUserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getProcessByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getProcessAllSoapIn">
+    <wsdl:part name="parameters" element="tns:getProcessAll" />
+  </wsdl:message>
+  <wsdl:message name="getProcessAllSoapOut">
+    <wsdl:part name="parameters" element="tns:getProcessAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserAllSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserAll" />
+  </wsdl:message>
+  <wsdl:message name="getUserAllSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserByStruktIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserByStruktID" />
+  </wsdl:message>
+  <wsdl:message name="getUserByStruktIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserByStruktIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDescriptionDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:getDescriptionDetail" />
+  </wsdl:message>
+  <wsdl:message name="getDescriptionDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:getDescriptionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTaskExtendByListSoapIn">
+    <wsdl:part name="parameters" element="tns:getTaskExtendByList" />
+  </wsdl:message>
+  <wsdl:message name="getTaskExtendByListSoapOut">
+    <wsdl:part name="parameters" element="tns:getTaskExtendByListResponse" />
+  </wsdl:message>
+  <wsdl:message name="setUptadeTaskDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:setUptadeTaskDescription" />
+  </wsdl:message>
+  <wsdl:message name="setUptadeTaskDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:setUptadeTaskDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="setUpdateTaskExtendSoapIn">
+    <wsdl:part name="parameters" element="tns:setUpdateTaskExtend" />
+  </wsdl:message>
+  <wsdl:message name="setUpdateTaskExtendSoapOut">
+    <wsdl:part name="parameters" element="tns:setUpdateTaskExtendResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAppListAllSoapIn">
+    <wsdl:part name="parameters" element="tns:getAppListAll" />
+  </wsdl:message>
+  <wsdl:message name="getAppListAllSoapOut">
+    <wsdl:part name="parameters" element="tns:getAppListAllResponse" />
+  </wsdl:message>
+  <wsdl:portType name="StruktUserSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkLogin">
+      <wsdl:input message="tns:checkLoginSoapIn" />
+      <wsdl:output message="tns:checkLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProcessByUserID">
+      <wsdl:input message="tns:getProcessByUserIDSoapIn" />
+      <wsdl:output message="tns:getProcessByUserIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProcessAll">
+      <wsdl:input message="tns:getProcessAllSoapIn" />
+      <wsdl:output message="tns:getProcessAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserAll">
+      <wsdl:input message="tns:getUserAllSoapIn" />
+      <wsdl:output message="tns:getUserAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserByStruktID">
+      <wsdl:input message="tns:getUserByStruktIDSoapIn" />
+      <wsdl:output message="tns:getUserByStruktIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDescriptionDetail">
+      <wsdl:input message="tns:getDescriptionDetailSoapIn" />
+      <wsdl:output message="tns:getDescriptionDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTaskExtendByList">
+      <wsdl:input message="tns:getTaskExtendByListSoapIn" />
+      <wsdl:output message="tns:getTaskExtendByListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setUptadeTaskDescription">
+      <wsdl:input message="tns:setUptadeTaskDescriptionSoapIn" />
+      <wsdl:output message="tns:setUptadeTaskDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setUpdateTaskExtend">
+      <wsdl:input message="tns:setUpdateTaskExtendSoapIn" />
+      <wsdl:output message="tns:setUpdateTaskExtendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAppListAll">
+      <wsdl:input message="tns:getAppListAllSoapIn" />
+      <wsdl:output message="tns:getAppListAllSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StruktUserSoap" type="tns:StruktUserSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkLogin">
+      <soap:operation soapAction="http://tempuri.org/checkLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessByUserID">
+      <soap:operation soapAction="http://tempuri.org/getProcessByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessAll">
+      <soap:operation soapAction="http://tempuri.org/getProcessAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserAll">
+      <soap:operation soapAction="http://tempuri.org/getUserAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserByStruktID">
+      <soap:operation soapAction="http://tempuri.org/getUserByStruktID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDescriptionDetail">
+      <soap:operation soapAction="http://tempuri.org/getDescriptionDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTaskExtendByList">
+      <soap:operation soapAction="http://tempuri.org/getTaskExtendByList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUptadeTaskDescription">
+      <soap:operation soapAction="http://tempuri.org/setUptadeTaskDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUpdateTaskExtend">
+      <soap:operation soapAction="http://tempuri.org/setUpdateTaskExtend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAppListAll">
+      <soap:operation soapAction="http://tempuri.org/getAppListAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StruktUserSoap12" type="tns:StruktUserSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkLogin">
+      <soap12:operation soapAction="http://tempuri.org/checkLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessByUserID">
+      <soap12:operation soapAction="http://tempuri.org/getProcessByUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessAll">
+      <soap12:operation soapAction="http://tempuri.org/getProcessAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserAll">
+      <soap12:operation soapAction="http://tempuri.org/getUserAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserByStruktID">
+      <soap12:operation soapAction="http://tempuri.org/getUserByStruktID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDescriptionDetail">
+      <soap12:operation soapAction="http://tempuri.org/getDescriptionDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTaskExtendByList">
+      <soap12:operation soapAction="http://tempuri.org/getTaskExtendByList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUptadeTaskDescription">
+      <soap12:operation soapAction="http://tempuri.org/setUptadeTaskDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUpdateTaskExtend">
+      <soap12:operation soapAction="http://tempuri.org/setUpdateTaskExtend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAppListAll">
+      <soap12:operation soapAction="http://tempuri.org/getAppListAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StruktUser">
+    <wsdl:port name="StruktUserSoap" binding="tns:StruktUserSoap">
+      <soap:address location="http://pakorn.somee.com/strukthelp/StruktUser.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StruktUserSoap12" binding="tns:StruktUserSoap12">
+      <soap12:address location="http://pakorn.somee.com/strukthelp/StruktUser.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
