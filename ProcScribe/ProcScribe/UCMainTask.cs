@@ -268,25 +268,39 @@ namespace ProcScribe
 
             //    }
             //}
-            if (String.IsNullOrEmpty(this.taskMember.precedes_id))
-            {
-                lbTail.Visible = false;
-            }
-            else
-            {
-                lbTail.Visible = true;
-            }
-
-            //if (collapseType == collapseType_uncollapse)
+            //if (String.IsNullOrEmpty(this.taskMember.precedes_id))
             //{
-            //    lbTail2.Visible = true;
             //    lbTail.Visible = false;
             //}
             //else
             //{
-            //    lbTail2.Visible = false;
             //    lbTail.Visible = true;
             //}
+
+            if (collapseType == collapseType_uncollapse)
+            {
+                lbTail2.Visible = true;
+                if (String.IsNullOrEmpty(this.taskMember.precedes_id))
+                {
+                    lbTail.Visible = false;
+                }
+                else
+                {
+                    lbTail.Visible = true;
+                }
+            }
+            else
+            {
+                lbTail2.Visible = false;
+                if (String.IsNullOrEmpty(this.taskMember.precedes_id))
+                {
+                    lbTail.Visible = false;
+                }
+                else
+                {
+                    lbTail.Visible = true;
+                }
+            }
         }
 
         public void setExistenceCollapeButtonRoleChild()
