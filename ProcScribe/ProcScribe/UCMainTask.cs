@@ -268,6 +268,25 @@ namespace ProcScribe
 
             //    }
             //}
+            if (String.IsNullOrEmpty(this.taskMember.precedes_id))
+            {
+                lbTail.Visible = false;
+            }
+            else
+            {
+                lbTail.Visible = true;
+            }
+
+            //if (collapseType == collapseType_uncollapse)
+            //{
+            //    lbTail2.Visible = true;
+            //    lbTail.Visible = false;
+            //}
+            //else
+            //{
+            //    lbTail2.Visible = false;
+            //    lbTail.Visible = true;
+            //}
         }
 
         public void setExistenceCollapeButtonRoleChild()
@@ -281,8 +300,9 @@ namespace ProcScribe
             }
             else
             {
-                pbCollape.Visible = false;
+                //pbCollape.Visible = false;
                 collapseType = collapseType_nochild;
+                pbCollape.Image = null;
             }
 
             //User's role control
@@ -300,8 +320,9 @@ namespace ProcScribe
             }
             else
             {
-                pbCollape.Visible = false;
+                //pbCollape.Visible = false;
                 collapseType = collapseType_nochild;
+                pbCollape.Image = null;
             }
 
             //User's role control

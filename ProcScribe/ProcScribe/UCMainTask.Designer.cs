@@ -37,6 +37,10 @@
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
             this.lbDesc = new System.Windows.Forms.TextBox();
+            this.lbTop = new System.Windows.Forms.Label();
+            this.lbTail = new System.Windows.Forms.Label();
+            this.lbCenter = new System.Windows.Forms.Label();
+            this.lbTail2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCollape)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +48,7 @@
             // cbCheck
             // 
             this.cbCheck.AutoSize = true;
-            this.cbCheck.Location = new System.Drawing.Point(18, 4);
+            this.cbCheck.Location = new System.Drawing.Point(23, 4);
             this.cbCheck.Name = "cbCheck";
             this.cbCheck.Size = new System.Drawing.Size(15, 14);
             this.cbCheck.TabIndex = 0;
@@ -60,7 +64,7 @@
             this.lbTitle.BackColor = System.Drawing.Color.Transparent;
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lbTitle.ForeColor = System.Drawing.Color.Black;
-            this.lbTitle.Location = new System.Drawing.Point(34, 3);
+            this.lbTitle.Location = new System.Drawing.Point(39, 3);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(213, 14);
             this.lbTitle.TabIndex = 1;
@@ -83,8 +87,9 @@
             // 
             // pbCollape
             // 
+            this.pbCollape.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbCollape.Image = global::ProcScribe.Properties.Resources.collapes;
-            this.pbCollape.Location = new System.Drawing.Point(2, 3);
+            this.pbCollape.Location = new System.Drawing.Point(7, 3);
             this.pbCollape.Margin = new System.Windows.Forms.Padding(0);
             this.pbCollape.Name = "pbCollape";
             this.pbCollape.Size = new System.Drawing.Size(15, 15);
@@ -127,16 +132,53 @@
             this.lbDesc.Size = new System.Drawing.Size(292, 29);
             this.lbDesc.TabIndex = 12;
             // 
+            // lbTop
+            // 
+            this.lbTop.BackColor = System.Drawing.Color.Black;
+            this.lbTop.Location = new System.Drawing.Point(0, 0);
+            this.lbTop.Name = "lbTop";
+            this.lbTop.Size = new System.Drawing.Size(5, 14);
+            this.lbTop.TabIndex = 13;
+            // 
+            // lbTail
+            // 
+            this.lbTail.BackColor = System.Drawing.Color.Black;
+            this.lbTail.Location = new System.Drawing.Point(0, 14);
+            this.lbTail.Name = "lbTail";
+            this.lbTail.Size = new System.Drawing.Size(5, 91);
+            this.lbTail.TabIndex = 14;
+            // 
+            // lbCenter
+            // 
+            this.lbCenter.BackColor = System.Drawing.Color.Black;
+            this.lbCenter.Location = new System.Drawing.Point(5, 9);
+            this.lbCenter.Name = "lbCenter";
+            this.lbCenter.Size = new System.Drawing.Size(5, 5);
+            this.lbCenter.TabIndex = 15;
+            // 
+            // lbTail2
+            // 
+            this.lbTail2.BackColor = System.Drawing.Color.Black;
+            this.lbTail2.Location = new System.Drawing.Point(12, 18);
+            this.lbTail2.Name = "lbTail2";
+            this.lbTail2.Size = new System.Drawing.Size(5, 91);
+            this.lbTail2.TabIndex = 16;
+            this.lbTail2.Visible = false;
+            // 
             // UCMainTask
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
+            this.Controls.Add(this.lbTail2);
+            this.Controls.Add(this.pbCollape);
+            this.Controls.Add(this.lbCenter);
+            this.Controls.Add(this.lbTail);
+            this.Controls.Add(this.lbTop);
             this.Controls.Add(this.lbDesc);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.pbDesc);
-            this.Controls.Add(this.pbCollape);
             this.Controls.Add(this.btnLink);
             this.Controls.Add(this.btnProp);
             this.Controls.Add(this.cbCheck);
@@ -165,5 +207,9 @@
         private System.Windows.Forms.ToolTip ttTaskControl;
         private System.Windows.Forms.PictureBox pbDesc;
         private System.Windows.Forms.TextBox lbDesc;
+        private System.Windows.Forms.Label lbTop;
+        private System.Windows.Forms.Label lbTail;
+        private System.Windows.Forms.Label lbCenter;
+        private System.Windows.Forms.Label lbTail2;
     }
 }

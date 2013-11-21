@@ -441,6 +441,9 @@ namespace ProcScribe
                     uMain.Controls["lbDesc"].Left = uSelect.Controls["lbDesc"].Left + global.iIndentOfCheckBox;
 
                     uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left + global.iIndentOfCheckBox;
+                    uMain.Controls["lbTop"].Left = uSelect.Controls["lbTop"].Left + global.iIndentOfCheckBox;
+                    uMain.Controls["lbTail"].Left = uSelect.Controls["lbTail"].Left + global.iIndentOfCheckBox;
+                    uMain.Controls["lbCenter"].Left = uSelect.Controls["lbCenter"].Left + global.iIndentOfCheckBox;
                     uMain.setExistenceCollapeButtonRole();
                     UCMainTask ucParent = getUCMainTaskByTask(taskParent);
                     ucParent.setExistenceCollapeButtonRoleChild();
@@ -771,6 +774,9 @@ namespace ProcScribe
                 uMain.Controls["lbDesc"].Left = uSelect.Controls["lbDesc"].Left;
                 uMain.Controls["lbDesc"].Width = uSelect.Controls["lbDesc"].Width;
                 uMain.Controls["pbCollape"].Left = uSelect.Controls["pbCollape"].Left;
+                uMain.Controls["lbTop"].Left = uSelect.Controls["lbTop"].Left;
+                uMain.Controls["lbTail"].Left = uSelect.Controls["lbTail"].Left;
+                uMain.Controls["lbCenter"].Left = uSelect.Controls["lbCenter"].Left;
                 uMain.setExistenceCollapeButtonRole();
                 uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uSelect.iLevel);
                 uMain.colorBackGround = uMain.BackColor;
@@ -1420,6 +1426,9 @@ namespace ProcScribe
                 uMain.Controls["lbDesc"].Width = uMain.Controls["lbDesc"].Width - (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["lbDesc"].Left = uMain.Controls["lbDesc"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["pbCollape"].Left = uMain.Controls["pbCollape"].Left + (global.iIndentOfCheckBox * iLevel);
+                uMain.Controls["lbTop"].Left = uMain.Controls["lbTop"].Left + (global.iIndentOfCheckBox * iLevel);
+                uMain.Controls["lbTail"].Left = uMain.Controls["lbTail"].Left + (global.iIndentOfCheckBox * iLevel);
+                uMain.Controls["lbCenter"].Left = uMain.Controls["lbCenter"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.setExistenceCollapeButtonRole();
                 
         

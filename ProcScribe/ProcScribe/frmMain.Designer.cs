@@ -62,6 +62,7 @@
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnDesigner = new System.Windows.Forms.Panel();
+            this.pnCenterHead = new System.Windows.Forms.Panel();
             this.tabCenter.SuspendLayout();
             this.tpGuide.SuspendLayout();
             this.tpSearch.SuspendLayout();
@@ -70,8 +71,8 @@
             this.pnSearchTop.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.ctmTask.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.pnDesigner.SuspendLayout();
+            this.pnCenterHead.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -116,11 +117,12 @@
             // 
             // btnOption
             // 
+            this.btnOption.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption.Image = global::ProcScribe.Properties.Resources.applications;
-            this.btnOption.Location = new System.Drawing.Point(343, 0);
+            this.btnOption.Location = new System.Drawing.Point(342, 0);
             this.btnOption.Name = "btnOption";
-            this.btnOption.Size = new System.Drawing.Size(41, 21);
+            this.btnOption.Size = new System.Drawing.Size(41, 19);
             this.btnOption.TabIndex = 8;
             this.ttMainForm.SetToolTip(this.btnOption, "Settings");
             this.btnOption.UseVisualStyleBackColor = true;
@@ -131,7 +133,7 @@
             this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.down1;
-            this.btnLoadProcess.Location = new System.Drawing.Point(237, 3);
+            this.btnLoadProcess.Location = new System.Drawing.Point(234, 7);
             this.btnLoadProcess.Name = "btnLoadProcess";
             this.btnLoadProcess.Size = new System.Drawing.Size(42, 21);
             this.btnLoadProcess.TabIndex = 2;
@@ -146,7 +148,7 @@
             this.cbProcess.Items.AddRange(new object[] {
             "910664516",
             "2036565491"});
-            this.cbProcess.Location = new System.Drawing.Point(60, 3);
+            this.cbProcess.Location = new System.Drawing.Point(56, 7);
             this.cbProcess.Name = "cbProcess";
             this.cbProcess.Size = new System.Drawing.Size(172, 21);
             this.cbProcess.TabIndex = 1;
@@ -155,7 +157,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 7);
+            this.label1.Location = new System.Drawing.Point(5, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
@@ -166,20 +168,21 @@
             this.tabCenter.Controls.Add(this.tpGuide);
             this.tabCenter.Controls.Add(this.tpSearch);
             this.tabCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabCenter.Location = new System.Drawing.Point(0, 25);
+            this.tabCenter.Location = new System.Drawing.Point(0, 12);
             this.tabCenter.Name = "tabCenter";
             this.tabCenter.SelectedIndex = 0;
-            this.tabCenter.Size = new System.Drawing.Size(384, 530);
+            this.tabCenter.Size = new System.Drawing.Size(384, 543);
             this.tabCenter.TabIndex = 3;
             this.tabCenter.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabCenter_Selected);
             // 
             // tpGuide
             // 
             this.tpGuide.Controls.Add(this.pnCenter);
+            this.tpGuide.Controls.Add(this.pnCenterHead);
             this.tpGuide.Location = new System.Drawing.Point(4, 22);
             this.tpGuide.Name = "tpGuide";
             this.tpGuide.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGuide.Size = new System.Drawing.Size(376, 504);
+            this.tpGuide.Size = new System.Drawing.Size(376, 517);
             this.tpGuide.TabIndex = 0;
             this.tpGuide.Text = "Guide";
             this.tpGuide.UseVisualStyleBackColor = true;
@@ -190,9 +193,9 @@
             this.pnCenter.AutoScroll = true;
             this.pnCenter.BackColor = System.Drawing.Color.Transparent;
             this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnCenter.Location = new System.Drawing.Point(3, 3);
+            this.pnCenter.Location = new System.Drawing.Point(3, 34);
             this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(370, 498);
+            this.pnCenter.Size = new System.Drawing.Size(370, 480);
             this.pnCenter.TabIndex = 4;
             this.pnCenter.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragDrop);
             this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
@@ -365,15 +368,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnOption);
-            this.panel1.Controls.Add(this.cbProcess);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnLoadProcess);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(384, 25);
+            this.panel1.Size = new System.Drawing.Size(384, 12);
             this.panel1.TabIndex = 2;
+            this.panel1.Visible = false;
             // 
             // pnDesigner
             // 
@@ -386,11 +386,23 @@
             this.pnDesigner.Size = new System.Drawing.Size(384, 24);
             this.pnDesigner.TabIndex = 4;
             // 
+            // pnCenterHead
+            // 
+            this.pnCenterHead.Controls.Add(this.btnLoadProcess);
+            this.pnCenterHead.Controls.Add(this.cbProcess);
+            this.pnCenterHead.Controls.Add(this.label1);
+            this.pnCenterHead.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnCenterHead.Location = new System.Drawing.Point(3, 3);
+            this.pnCenterHead.Name = "pnCenterHead";
+            this.pnCenterHead.Size = new System.Drawing.Size(370, 31);
+            this.pnCenterHead.TabIndex = 5;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 601);
+            this.Controls.Add(this.btnOption);
             this.Controls.Add(this.tabCenter);
             this.Controls.Add(this.pnDesigner);
             this.Controls.Add(this.panel1);
@@ -412,9 +424,9 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ctmTask.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.pnDesigner.ResumeLayout(false);
+            this.pnCenterHead.ResumeLayout(false);
+            this.pnCenterHead.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,6 +466,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnDesigner;
+        private System.Windows.Forms.Panel pnCenterHead;
     }
 }
 
