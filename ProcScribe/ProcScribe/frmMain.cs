@@ -351,6 +351,7 @@ namespace ProcScribe
                     Task taskNew = new Task();
                     taskNew.parent_workflow_id = taskParent.child_workflow_id;
                     taskNew.user_id = global.workflowMain.user_id;
+                    taskNew.process_workflow_id = global.workflowMain.id;
                     taskNew.name = "<New Task>";
 
                     frmTaskEdit frmEdit = new frmTaskEdit();
@@ -397,6 +398,7 @@ namespace ProcScribe
                     returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
                     returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
                     returnTaskAdd.keyword = frmEdit.taskUse.keyword;
+                    returnTaskAdd.linkDetail = frmEdit.taskUse.linkDetail;
 
                     uMain.taskMember = returnTaskAdd;
 
@@ -466,7 +468,7 @@ namespace ProcScribe
                     else
                         uMain.Controls["pbDesc"].Visible = true;
                     StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-                    struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword);
+                    struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
                     if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                     {
                         uMain.Controls["btnLink"].Enabled = true;
@@ -495,6 +497,7 @@ namespace ProcScribe
                 Task taskNew = new Task();
                 taskNew.parent_workflow_id = global.workflowMain.id;
                 taskNew.user_id = global.workflowMain.user_id;
+                taskNew.process_workflow_id = global.workflowMain.id;
                 taskNew.name = "<New Task>";
                 frmTaskEdit frmEdit = new frmTaskEdit();
                 frmEdit.strFormMode = frmEdit.formModeNew;
@@ -508,26 +511,11 @@ namespace ProcScribe
                 taskNew.child_workflow_id = wfNew.id;
                 Task returnTaskAdd0 = Task.addTask(taskNew);
 
-
-                //wfNew.parent_task_id = returnTaskAdd0.id;
-                //Workflow returnChildWorkflow00 = Workflow.editWorkflow(wfNew);
-                //returnTaskAdd0.child_workflow_id = wfNew.id;
-                //Task returnTaskAdd = Task.editTask(returnTaskAdd0);
-
-                //returnChildWorkflow00.user_id = global.workflowMain.user_id;
-                //Workflow returnChildWorkflow = Workflow.editWorkflow(returnChildWorkflow00);
-
-                
-                
-                //Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
-                //Task returnTaskAdd = Task.editTask(returnTaskAdd0);
-
                 wfNew.parent_task_id = returnTaskAdd0.id;
-                //returnTaskAdd0.child_workflow_id = wfNew.id;
                 wfNew.user_id = global.workflowMain.user_id;
                 Workflow returnChildWorkflow = Workflow.editWorkflow(wfNew);
                 Task returnTaskAdd = Task.editTask(returnTaskAdd0);
-                //Task returnTaskAdd = returnTaskAdd0;
+
 
                 returnTaskAdd.workflowChild = returnChildWorkflow;
                 returnTaskAdd.workflowParent = global.workflowMain;
@@ -538,6 +526,7 @@ namespace ProcScribe
                 returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
                 returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
                 returnTaskAdd.keyword = frmEdit.taskUse.keyword;
+                returnTaskAdd.linkDetail = frmEdit.taskUse.linkDetail;
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
@@ -569,7 +558,7 @@ namespace ProcScribe
                 else
                     uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword);
+                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                 {
                     uMain.Controls["btnLink"].Enabled = true;
@@ -598,6 +587,7 @@ namespace ProcScribe
                 taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
                 taskNew.follows_id = global.workflowMain.taskChildList[0].id;
                 taskNew.user_id = global.workflowMain.user_id;
+                taskNew.process_workflow_id = global.workflowMain.id;
                 taskNew.name = "<New Task>";
                 frmTaskEdit frmEdit = new frmTaskEdit();
                 frmEdit.strFormMode = frmEdit.formModeNew;
@@ -629,6 +619,7 @@ namespace ProcScribe
                 returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
                 returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
                 returnTaskAdd.keyword = frmEdit.taskUse.keyword;
+                returnTaskAdd.linkDetail = frmEdit.taskUse.linkDetail;
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
@@ -660,7 +651,7 @@ namespace ProcScribe
                 else
                     uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail,uMain.taskMember.keyword);
+                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                 {
                     uMain.Controls["btnLink"].Enabled = true;
@@ -698,6 +689,7 @@ namespace ProcScribe
                 taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
                 taskNew.follows_id = taskFollow.id;
                 taskNew.user_id = global.workflowMain.user_id;
+                taskNew.process_workflow_id = global.workflowMain.id;
                 taskNew.name = "<New Task>";
                 if (taskUnderFollow != null)
                 {
@@ -739,6 +731,7 @@ namespace ProcScribe
                 returnTaskAdd.attachmentType = frmEdit.taskUse.attachmentType;
                 returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
                 returnTaskAdd.keyword = frmEdit.taskUse.keyword;
+                returnTaskAdd.linkDetail = frmEdit.taskUse.linkDetail;
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
@@ -798,7 +791,7 @@ namespace ProcScribe
                 else
                     uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword);
+                struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                 {
                     uMain.Controls["btnLink"].Enabled = true;
@@ -1353,6 +1346,7 @@ namespace ProcScribe
                                 ucMain.taskMember.attachmentType = dtRow["tk_link_type"].ToString();
                                 ucMain.taskMember.attachmentDetail = dtRow["tk_address"].ToString();
                                 ucMain.taskMember.keyword = dtRow["tk_keyword"].ToString();
+                                ucMain.taskMember.linkDetail = dtRow["tk_link_detail"].ToString();
                                 if (ucMain.taskMember.attachmentType != "NONE" && ucMain.taskMember.attachmentType != "" && ucMain.taskMember.attachmentType != null)
                                 {
                                     ucMain.Controls["btnLink"].Enabled = true;

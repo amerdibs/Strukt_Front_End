@@ -305,6 +305,7 @@ namespace ProcScribe
             {
                 getTaskListFromAllWorkflow(tEach.workflowChild, taskList);
                 taskList.Add(tEach);
+                //Console.WriteLine("\n" + tEach.id);
 
             }
 

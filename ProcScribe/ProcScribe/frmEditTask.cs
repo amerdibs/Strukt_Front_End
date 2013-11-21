@@ -66,6 +66,8 @@ namespace ProcScribe
                     txtAddress.Text = taskUse.attachmentDetail;
                 if (taskUse.keyword != null)
                     txtKeyword.Text = taskUse.keyword;
+                if (taskUse.linkDetail != null)
+                    txtLinkDesc.Text = taskUse.linkDetail;
                 if (taskUse.attachmentType != null)
                 {
                     if (taskUse.attachmentType == "NONE")
@@ -139,6 +141,7 @@ namespace ProcScribe
             taskUse.attachmentDetail = txtAddress.Text;
             taskUse.attachmentType = strType;
             taskUse.keyword = txtKeyword.Text;
+            taskUse.linkDetail = txtLinkDesc.Text;
   
         }
 

@@ -47,6 +47,8 @@
             this.rbApp = new System.Windows.Forms.RadioButton();
             this.rbLink = new System.Windows.Forms.RadioButton();
             this.ofFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.txtLinkDesc = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnName.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbProp.SuspendLayout();
@@ -88,7 +90,7 @@
             this.panel2.Controls.Add(this.btnOK);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 239);
+            this.panel2.Location = new System.Drawing.Point(0, 237);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 40);
             this.panel2.TabIndex = 1;
@@ -132,7 +134,7 @@
             this.gbProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbProp.Location = new System.Drawing.Point(0, 41);
             this.gbProp.Name = "gbProp";
-            this.gbProp.Size = new System.Drawing.Size(355, 101);
+            this.gbProp.Size = new System.Drawing.Size(355, 102);
             this.gbProp.TabIndex = 2;
             this.gbProp.TabStop = false;
             this.gbProp.Text = "Properties";
@@ -179,6 +181,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.txtLinkDesc);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.rbNone);
             this.groupBox2.Controls.Add(this.btnBrowse);
             this.groupBox2.Controls.Add(this.txtAddress);
@@ -187,7 +191,7 @@
             this.groupBox2.Controls.Add(this.rbLink);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(0, 142);
+            this.groupBox2.Location = new System.Drawing.Point(0, 143);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(355, 96);
             this.groupBox2.TabIndex = 3;
@@ -267,11 +271,31 @@
             this.ofFileDialog.FileName = "*.*";
             this.ofFileDialog.InitialDirectory = "W:\\";
             // 
+            // txtLinkDesc
+            // 
+            this.txtLinkDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLinkDesc.Location = new System.Drawing.Point(70, 70);
+            this.txtLinkDesc.MaxLength = 25;
+            this.txtLinkDesc.Name = "txtLinkDesc";
+            this.txtLinkDesc.Size = new System.Drawing.Size(192, 20);
+            this.txtLinkDesc.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(5, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Tag = "Description";
+            this.label3.Text = "Description";
+            // 
             // frmTaskEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 279);
+            this.ClientSize = new System.Drawing.Size(355, 277);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbProp);
             this.Controls.Add(this.pnName);
@@ -313,5 +337,7 @@
         private System.Windows.Forms.OpenFileDialog ofFileDialog;
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtLinkDesc;
+        private System.Windows.Forms.Label label3;
     }
 }

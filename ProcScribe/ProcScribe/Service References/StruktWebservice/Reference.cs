@@ -58,13 +58,6 @@ namespace ProcScribe.StruktWebservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getUserByStruktID", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> getUserByStruktIDAsync(string strID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDescriptionDetail", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable getDescriptionDetail(string strID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDescriptionDetail", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> getDescriptionDetailAsync(string strID);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getTaskExtendByList", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable getTaskExtendByList(string[] listStrTaskID);
@@ -72,19 +65,12 @@ namespace ProcScribe.StruktWebservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getTaskExtendByList", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> getTaskExtendByListAsync(string[] listStrTaskID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUptadeTaskDescription", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void setUptadeTaskDescription(string strID, string Desc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUptadeTaskDescription", ReplyAction="*")]
-        System.Threading.Tasks.Task setUptadeTaskDescriptionAsync(string strID, string Desc);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUpdateTaskExtend", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void setUpdateTaskExtend(string strID, string strDesc, string strLinkType, string strAddress, string strKeyword);
+        void setUpdateTaskExtend(string strID, string strDesc, string strLinkType, string strAddress, string strKeyword, string strLinkDetail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/setUpdateTaskExtend", ReplyAction="*")]
-        System.Threading.Tasks.Task setUpdateTaskExtendAsync(string strID, string strDesc, string strLinkType, string strAddress, string strKeyword);
+        System.Threading.Tasks.Task setUpdateTaskExtendAsync(string strID, string strDesc, string strLinkType, string strAddress, string strKeyword, string strLinkDetail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getAppListAll", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -169,14 +155,6 @@ namespace ProcScribe.StruktWebservice {
             return base.Channel.getUserByStruktIDAsync(strID);
         }
         
-        public System.Data.DataTable getDescriptionDetail(string strID) {
-            return base.Channel.getDescriptionDetail(strID);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> getDescriptionDetailAsync(string strID) {
-            return base.Channel.getDescriptionDetailAsync(strID);
-        }
-        
         public System.Data.DataTable getTaskExtendByList(string[] listStrTaskID) {
             return base.Channel.getTaskExtendByList(listStrTaskID);
         }
@@ -185,20 +163,12 @@ namespace ProcScribe.StruktWebservice {
             return base.Channel.getTaskExtendByListAsync(listStrTaskID);
         }
         
-        public void setUptadeTaskDescription(string strID, string Desc) {
-            base.Channel.setUptadeTaskDescription(strID, Desc);
+        public void setUpdateTaskExtend(string strID, string strDesc, string strLinkType, string strAddress, string strKeyword, string strLinkDetail) {
+            base.Channel.setUpdateTaskExtend(strID, strDesc, strLinkType, strAddress, strKeyword, strLinkDetail);
         }
         
-        public System.Threading.Tasks.Task setUptadeTaskDescriptionAsync(string strID, string Desc) {
-            return base.Channel.setUptadeTaskDescriptionAsync(strID, Desc);
-        }
-        
-        public void setUpdateTaskExtend(string strID, string strDesc, string strLinkType, string strAddress, string strKeyword) {
-            base.Channel.setUpdateTaskExtend(strID, strDesc, strLinkType, strAddress, strKeyword);
-        }
-        
-        public System.Threading.Tasks.Task setUpdateTaskExtendAsync(string strID, string strDesc, string strLinkType, string strAddress, string strKeyword) {
-            return base.Channel.setUpdateTaskExtendAsync(strID, strDesc, strLinkType, strAddress, strKeyword);
+        public System.Threading.Tasks.Task setUpdateTaskExtendAsync(string strID, string strDesc, string strLinkType, string strAddress, string strKeyword, string strLinkDetail) {
+            return base.Channel.setUpdateTaskExtendAsync(strID, strDesc, strLinkType, strAddress, strKeyword, strLinkDetail);
         }
         
         public System.Data.DataTable getAppListAll() {

@@ -25,11 +25,15 @@ namespace ProcScribe
         public string project_id { get; set; }
         public string follows_id { get; set; }
 
+        //for searching
+         public string process_workflow_id { get; set; }
+
         //outside Strukt system
         public string description { get; set; }
         public string attachmentType { get; set; }
         public string attachmentDetail { get; set; }
         public string keyword { get; set; }
+        public string linkDetail { get; set; }
         
         public Workflow workflowChild { get; set; }
         public Workflow workflowParent { get; set; }

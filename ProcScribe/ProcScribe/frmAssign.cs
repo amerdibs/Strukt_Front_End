@@ -73,6 +73,7 @@ namespace ProcScribe
             taskNew.user_id = taskFollow.user_id;
             taskNew.precedes_id = null;
             taskNew.id = null;
+            taskNew.process_workflow_id = global.workflowMain.id;
 
             Task taskNewReturn = Task.addTask(taskNew);
             taskFollow.precedes_id = taskNewReturn.id;
@@ -104,7 +105,7 @@ namespace ProcScribe
             global.assignmentSentList.Add(asReturn);
 
             StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-            struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(returnTaskAdd.id), taskAssign.description, taskAssign.attachmentType, taskAssign.attachmentDetail, taskAssign.keyword);
+            struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(returnTaskAdd.id), taskAssign.description, taskAssign.attachmentType, taskAssign.attachmentDetail, taskAssign.keyword, taskAssign.linkDetail);
 
             MessageBox.Show("Assign Complete");
             //returnTaskAdd.workflowChild = returnChildWorkflow;

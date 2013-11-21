@@ -110,27 +110,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getDescriptionDetail">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="getDescriptionDetailResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getDescriptionDetailResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="getTaskExtendByList">
         <s:complexType>
           <s:sequence>
@@ -157,17 +136,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="setUptadeTaskDescription">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="setUptadeTaskDescriptionResponse">
-        <s:complexType />
-      </s:element>
       <s:element name="setUpdateTaskExtend">
         <s:complexType>
           <s:sequence>
@@ -176,6 +144,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="strLinkType" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="strAddress" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="strKeyword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLinkDetail" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -237,23 +206,11 @@
   <wsdl:message name="getUserByStruktIDSoapOut">
     <wsdl:part name="parameters" element="tns:getUserByStruktIDResponse" />
   </wsdl:message>
-  <wsdl:message name="getDescriptionDetailSoapIn">
-    <wsdl:part name="parameters" element="tns:getDescriptionDetail" />
-  </wsdl:message>
-  <wsdl:message name="getDescriptionDetailSoapOut">
-    <wsdl:part name="parameters" element="tns:getDescriptionDetailResponse" />
-  </wsdl:message>
   <wsdl:message name="getTaskExtendByListSoapIn">
     <wsdl:part name="parameters" element="tns:getTaskExtendByList" />
   </wsdl:message>
   <wsdl:message name="getTaskExtendByListSoapOut">
     <wsdl:part name="parameters" element="tns:getTaskExtendByListResponse" />
-  </wsdl:message>
-  <wsdl:message name="setUptadeTaskDescriptionSoapIn">
-    <wsdl:part name="parameters" element="tns:setUptadeTaskDescription" />
-  </wsdl:message>
-  <wsdl:message name="setUptadeTaskDescriptionSoapOut">
-    <wsdl:part name="parameters" element="tns:setUptadeTaskDescriptionResponse" />
   </wsdl:message>
   <wsdl:message name="setUpdateTaskExtendSoapIn">
     <wsdl:part name="parameters" element="tns:setUpdateTaskExtend" />
@@ -292,17 +249,9 @@
       <wsdl:input message="tns:getUserByStruktIDSoapIn" />
       <wsdl:output message="tns:getUserByStruktIDSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="getDescriptionDetail">
-      <wsdl:input message="tns:getDescriptionDetailSoapIn" />
-      <wsdl:output message="tns:getDescriptionDetailSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="getTaskExtendByList">
       <wsdl:input message="tns:getTaskExtendByListSoapIn" />
       <wsdl:output message="tns:getTaskExtendByListSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="setUptadeTaskDescription">
-      <wsdl:input message="tns:setUptadeTaskDescriptionSoapIn" />
-      <wsdl:output message="tns:setUptadeTaskDescriptionSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="setUpdateTaskExtend">
       <wsdl:input message="tns:setUpdateTaskExtendSoapIn" />
@@ -369,26 +318,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getDescriptionDetail">
-      <soap:operation soapAction="http://tempuri.org/getDescriptionDetail" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getTaskExtendByList">
       <soap:operation soapAction="http://tempuri.org/getTaskExtendByList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="setUptadeTaskDescription">
-      <soap:operation soapAction="http://tempuri.org/setUptadeTaskDescription" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -471,26 +402,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getDescriptionDetail">
-      <soap12:operation soapAction="http://tempuri.org/getDescriptionDetail" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getTaskExtendByList">
       <soap12:operation soapAction="http://tempuri.org/getTaskExtendByList" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="setUptadeTaskDescription">
-      <soap12:operation soapAction="http://tempuri.org/setUptadeTaskDescription" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

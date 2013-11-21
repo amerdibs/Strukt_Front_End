@@ -25,6 +25,7 @@ public class Task
     public string location_id { get; set; }
     public string project_id { get; set; }
     public string follows_id { get; set; }
+    public string process_workflow_id { get; set; }
 
 	public Task()
 	{

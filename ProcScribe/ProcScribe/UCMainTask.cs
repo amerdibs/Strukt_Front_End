@@ -82,7 +82,7 @@ namespace ProcScribe
            else
                pbDesc.Visible = true;
            StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
-           struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(taskMember.id), taskMember.description, taskMember.attachmentType, taskMember.attachmentDetail, taskMember.keyword);
+           struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(taskMember.id), taskMember.description, taskMember.attachmentType, taskMember.attachmentDetail, taskMember.keyword, taskMember.linkDetail);
            if (taskMember.attachmentType != "NONE" && taskMember.attachmentType != "" && taskMember.attachmentType != null)
            {
                btnLink.Enabled = true;
@@ -268,14 +268,7 @@ namespace ProcScribe
 
             //    }
             //}
-            //if (String.IsNullOrEmpty(this.taskMember.precedes_id))
-            //{
-            //    lbTail.Visible = false;
-            //}
-            //else
-            //{
-            //    lbTail.Visible = true;
-            //}
+
 
             if (collapseType == collapseType_uncollapse)
             {

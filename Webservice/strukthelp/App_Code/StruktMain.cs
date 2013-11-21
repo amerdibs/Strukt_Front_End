@@ -244,7 +244,7 @@ public class StruktMain : System.Web.Services.WebService {
             tk.location_id = dtTable.Rows[0]["location_id"].ToString();
             tk.project_id = dtTable.Rows[0]["project_id"].ToString();
             tk.follows_id = dtTable.Rows[0]["follows_id"].ToString();
-
+            tk.process_workflow_id = dtTable.Rows[0]["process_workflow_id"].ToString();
 
             JsonSerializerSettings jsSetting = new JsonSerializerSettings();
             jsSetting.NullValueHandling = NullValueHandling.Ignore;
@@ -312,6 +312,7 @@ public class StruktMain : System.Web.Services.WebService {
                ",[location_id] = @location_id " +
                ",[project_id] = @project_id " +
                ",[follows_id] = @follows_id " +
+               ",[process_workflow_id] = @process_workflow_id " +
                "WHERE [id] = @id";
             qCommand.Parameters.Clear();
             qCommand = new SqlCommand(strD, dbConnection);
@@ -380,6 +381,11 @@ public class StruktMain : System.Web.Services.WebService {
             else
                 qCommand.Parameters.Add(new SqlParameter("follows_id", tk.follows_id));
 
+            if (tk.process_workflow_id == null)
+                qCommand.Parameters.Add(new SqlParameter("process_workflow_id", DBNull.Value));
+            else
+                qCommand.Parameters.Add(new SqlParameter("process_workflow_id", tk.process_workflow_id));
+
             qCommand.Parameters.Add(new SqlParameter("id", tk.id));
             qCommand.CommandText = strD;
             qCommand.ExecuteNonQuery();
@@ -408,6 +414,7 @@ public class StruktMain : System.Web.Services.WebService {
             tk.location_id = dtTableSelect.Rows[0]["location_id"].ToString();
             tk.project_id = dtTableSelect.Rows[0]["project_id"].ToString();
             tk.follows_id = dtTableSelect.Rows[0]["follows_id"].ToString();
+            tk.process_workflow_id = dtTableSelect.Rows[0]["process_workflow_id"].ToString();
 
             JsonSerializerSettings jsSetting = new JsonSerializerSettings();
             jsSetting.NullValueHandling = NullValueHandling.Ignore;
@@ -450,6 +457,7 @@ public class StruktMain : System.Web.Services.WebService {
                 ",[location_id] = @location_id " +
                 ",[project_id] = @project_id " +
                 ",[follows_id] = @follows_id " +
+                ",[process_workflow_id] = @process_workflow_id " +
                 "WHERE [id] = @id";
             SqlCommand qCommand = new SqlCommand(strD, dbConnection);
             if (tk.precedes_id == null)
@@ -516,7 +524,12 @@ public class StruktMain : System.Web.Services.WebService {
                 qCommand.Parameters.Add(new SqlParameter("follows_id", DBNull.Value));
             else
                 qCommand.Parameters.Add(new SqlParameter("follows_id", tk.follows_id));
-            
+
+            if (tk.process_workflow_id == null)
+                qCommand.Parameters.Add(new SqlParameter("process_workflow_id", DBNull.Value));
+            else
+                qCommand.Parameters.Add(new SqlParameter("process_workflow_id", tk.process_workflow_id));
+
             qCommand.Parameters.Add(new SqlParameter("id", tk.id));
             qCommand.CommandText = strD;
             qCommand.ExecuteNonQuery();
@@ -545,6 +558,7 @@ public class StruktMain : System.Web.Services.WebService {
             tk.location_id = dtTable.Rows[0]["location_id"].ToString();
             tk.project_id = dtTable.Rows[0]["project_id"].ToString();
             tk.follows_id = dtTable.Rows[0]["follows_id"].ToString();
+            tk.process_workflow_id = dtTable.Rows[0]["process_workflow_id"].ToString();
 
             JsonSerializerSettings jsSetting = new JsonSerializerSettings();
             jsSetting.NullValueHandling = NullValueHandling.Ignore;
@@ -577,6 +591,67 @@ public class StruktMain : System.Web.Services.WebService {
             qCommand.CommandText = strD;
             qCommand.ExecuteNonQuery();
             return "{\"type\":\"success\"}";
+
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        finally
+        {
+            dbConnection.Close();
+        }
+
+    }
+
+    [WebMethod]
+    public string selectTaskProcessAll(String strParentWorkflowID)
+    {
+        string strAnswer = "";
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        try
+        {
+
+            dbConnection.Open();
+            string strD = "select * from Task join struktProcess on Task.process_workflow_id = 'http://strukt.west.uni-koblenz.de/workflow/' + [p_workflow_id]";
+            SqlCommand qCommand = new SqlCommand(strD, dbConnection);
+            qCommand.CommandText = strD;
+            SqlDataReader qReader = qCommand.ExecuteReader();
+            DataTable dtTable = new DataTable();
+            dtTable.Load(qReader);
+            dtTable.TableName = "TaskProcess";
+
+            if (dtTable.Rows.Count == 0)
+                return null;
+
+            List<TaskProcess> listTask = new List<TaskProcess>();
+            foreach (DataRow dr in dtTable.Rows)
+            {
+                TaskProcess tk = new TaskProcess();
+                tk.real_id = dr["real_id"].ToString();
+                tk.id = dr["id"].ToString();
+                tk.precedes_id = dr["precedes_id"].ToString();
+                tk.parent_workflow_id = dr["parent_workflow_id"].ToString();
+                tk.child_workflow_id = dr["child_workflow_id"].ToString();
+                tk.workflow_model_id = dr["workflow_model_id"].ToString();
+                tk.user_id = dr["user_id"].ToString();
+                tk.name = dr["name"].ToString();
+                tk.deadline = dr["deadline"].ToString();
+                tk.date = dr["date"].ToString();
+                tk.status_id = dr["status_id"].ToString();
+                tk.type_id = dr["type_id"].ToString();
+                tk.location_id = dr["location_id"].ToString();
+                tk.project_id = dr["project_id"].ToString();
+                tk.follows_id = dr["follows_id"].ToString();
+                tk.process_workflow_id = dr["process_workflow_id"].ToString();
+                tk.process_name = dr["p_name"].ToString();
+                listTask.Add(tk);
+            }
+            JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+            jsSetting.NullValueHandling = NullValueHandling.Ignore;
+            strAnswer = JsonConvert.SerializeObject(listTask, jsSetting);
+            return strAnswer;
 
         }
         catch (Exception)
@@ -632,6 +707,7 @@ public class StruktMain : System.Web.Services.WebService {
                 tk.location_id = dr["location_id"].ToString();
                 tk.project_id = dr["project_id"].ToString();
                 tk.follows_id = dr["follows_id"].ToString();
+                tk.process_workflow_id = dtTable.Rows[0]["process_workflow_id"].ToString();
                 listTask.Add(tk);
             }
 
@@ -693,7 +769,7 @@ public class StruktMain : System.Web.Services.WebService {
             tk.location_id = dtTable.Rows[0]["location_id"].ToString();
             tk.project_id = dtTable.Rows[0]["project_id"].ToString();
             tk.follows_id = dtTable.Rows[0]["follows_id"].ToString();
-
+            tk.process_workflow_id = dtTable.Rows[0]["process_workflow_id"].ToString();
 
             JsonSerializerSettings jsSetting = new JsonSerializerSettings();
             jsSetting.NullValueHandling = NullValueHandling.Ignore;
