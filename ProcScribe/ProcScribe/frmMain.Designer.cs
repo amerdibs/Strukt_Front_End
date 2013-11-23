@@ -36,10 +36,10 @@
             this.btnOption = new System.Windows.Forms.Button();
             this.btnLoadProcess = new System.Windows.Forms.Button();
             this.cbProcess = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabCenter = new System.Windows.Forms.TabControl();
             this.tpGuide = new System.Windows.Forms.TabPage();
             this.pnCenter = new System.Windows.Forms.Panel();
+            this.pnCenterHead = new System.Windows.Forms.Panel();
             this.tpSearch = new System.Windows.Forms.TabPage();
             this.pnSearch = new System.Windows.Forms.Panel();
             this.pnSearchResult = new System.Windows.Forms.Panel();
@@ -62,9 +62,9 @@
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnDesigner = new System.Windows.Forms.Panel();
-            this.pnCenterHead = new System.Windows.Forms.Panel();
             this.tabCenter.SuspendLayout();
             this.tpGuide.SuspendLayout();
+            this.pnCenterHead.SuspendLayout();
             this.tpSearch.SuspendLayout();
             this.pnSearch.SuspendLayout();
             this.pnSearchResult.SuspendLayout();
@@ -72,7 +72,6 @@
             this.statusStrip1.SuspendLayout();
             this.ctmTask.SuspendLayout();
             this.pnDesigner.SuspendLayout();
-            this.pnCenterHead.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -133,7 +132,7 @@
             this.btnLoadProcess.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadProcess.Image = global::ProcScribe.Properties.Resources.down1;
-            this.btnLoadProcess.Location = new System.Drawing.Point(234, 7);
+            this.btnLoadProcess.Location = new System.Drawing.Point(180, 4);
             this.btnLoadProcess.Name = "btnLoadProcess";
             this.btnLoadProcess.Size = new System.Drawing.Size(42, 21);
             this.btnLoadProcess.TabIndex = 2;
@@ -148,20 +147,11 @@
             this.cbProcess.Items.AddRange(new object[] {
             "910664516",
             "2036565491"});
-            this.cbProcess.Location = new System.Drawing.Point(56, 7);
+            this.cbProcess.Location = new System.Drawing.Point(5, 4);
             this.cbProcess.Name = "cbProcess";
             this.cbProcess.Size = new System.Drawing.Size(172, 21);
             this.cbProcess.TabIndex = 1;
             this.cbProcess.Text = "‏Search for Processes...";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Process";
             // 
             // tabCenter
             // 
@@ -201,13 +191,23 @@
             this.pnCenter.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnCenter_DragEnter);
             this.pnCenter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCenter_MouseDown);
             // 
+            // pnCenterHead
+            // 
+            this.pnCenterHead.Controls.Add(this.btnLoadProcess);
+            this.pnCenterHead.Controls.Add(this.cbProcess);
+            this.pnCenterHead.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnCenterHead.Location = new System.Drawing.Point(3, 3);
+            this.pnCenterHead.Name = "pnCenterHead";
+            this.pnCenterHead.Size = new System.Drawing.Size(370, 31);
+            this.pnCenterHead.TabIndex = 5;
+            // 
             // tpSearch
             // 
             this.tpSearch.Controls.Add(this.pnSearch);
             this.tpSearch.Location = new System.Drawing.Point(4, 22);
             this.tpSearch.Name = "tpSearch";
             this.tpSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSearch.Size = new System.Drawing.Size(376, 504);
+            this.tpSearch.Size = new System.Drawing.Size(376, 517);
             this.tpSearch.TabIndex = 1;
             this.tpSearch.Text = "Search";
             this.tpSearch.UseVisualStyleBackColor = true;
@@ -219,7 +219,7 @@
             this.pnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnSearch.Location = new System.Drawing.Point(3, 3);
             this.pnSearch.Name = "pnSearch";
-            this.pnSearch.Size = new System.Drawing.Size(370, 498);
+            this.pnSearch.Size = new System.Drawing.Size(370, 511);
             this.pnSearch.TabIndex = 0;
             // 
             // pnSearchResult
@@ -229,7 +229,7 @@
             this.pnSearchResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnSearchResult.Location = new System.Drawing.Point(0, 41);
             this.pnSearchResult.Name = "pnSearchResult";
-            this.pnSearchResult.Size = new System.Drawing.Size(370, 457);
+            this.pnSearchResult.Size = new System.Drawing.Size(370, 470);
             this.pnSearchResult.TabIndex = 1;
             // 
             // listVSearch
@@ -248,7 +248,7 @@
             this.listVSearch.Location = new System.Drawing.Point(0, 0);
             this.listVSearch.MultiSelect = false;
             this.listVSearch.Name = "listVSearch";
-            this.listVSearch.Size = new System.Drawing.Size(370, 457);
+            this.listVSearch.Size = new System.Drawing.Size(370, 470);
             this.listVSearch.TabIndex = 0;
             this.listVSearch.UseCompatibleStateImageBehavior = false;
             this.listVSearch.View = System.Windows.Forms.View.Details;
@@ -386,17 +386,6 @@
             this.pnDesigner.Size = new System.Drawing.Size(384, 24);
             this.pnDesigner.TabIndex = 4;
             // 
-            // pnCenterHead
-            // 
-            this.pnCenterHead.Controls.Add(this.btnLoadProcess);
-            this.pnCenterHead.Controls.Add(this.cbProcess);
-            this.pnCenterHead.Controls.Add(this.label1);
-            this.pnCenterHead.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnCenterHead.Location = new System.Drawing.Point(3, 3);
-            this.pnCenterHead.Name = "pnCenterHead";
-            this.pnCenterHead.Size = new System.Drawing.Size(370, 31);
-            this.pnCenterHead.TabIndex = 5;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,6 +405,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
             this.tabCenter.ResumeLayout(false);
             this.tpGuide.ResumeLayout(false);
+            this.pnCenterHead.ResumeLayout(false);
             this.tpSearch.ResumeLayout(false);
             this.pnSearch.ResumeLayout(false);
             this.pnSearchResult.ResumeLayout(false);
@@ -425,8 +415,6 @@
             this.statusStrip1.PerformLayout();
             this.ctmTask.ResumeLayout(false);
             this.pnDesigner.ResumeLayout(false);
-            this.pnCenterHead.ResumeLayout(false);
-            this.pnCenterHead.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,7 +425,6 @@
         private System.Windows.Forms.Panel pnCenter;
         private System.Windows.Forms.Button btnLoadProcess;
         private System.Windows.Forms.ComboBox cbProcess;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;

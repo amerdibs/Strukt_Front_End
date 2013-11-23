@@ -294,6 +294,41 @@ namespace ProcScribe
                     lbTail.Visible = true;
                 }
             }
+
+
+            if (this.taskMember.workflowParent.taskParent != null)
+            {
+                if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.precedes_id))
+                {
+                    for (int i = iLevel - 1 ; i < iLevel; i++)
+                    {
+                        if (this.Controls["lbTail_" + i.ToString()] != null)
+                        {
+                            Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+                            lb.Visible = false;
+                        }
+                    }
+                }
+
+                if (this.taskMember.workflowParent.taskParent.workflowParent.taskParent != null)
+                {
+                    if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.workflowParent.taskParent.precedes_id))
+                    {
+                        for (int i = iLevel-2; i < iLevel; i++)
+                        {
+                            if (this.Controls["lbTail_" + i.ToString()] != null)
+                            {
+                                Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+                                lb.Visible = false;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+
+
         }
 
         public void setExistenceCollapeButtonRoleChild()
@@ -394,6 +429,22 @@ namespace ProcScribe
                 this.Height = global.heightControlTaskNormal;
                 lbDesc.Visible = false;
             }
+        }
+
+        public void generateLabelHierarchy()
+        {
+            for (int i = 0; i < iLevel; i++)
+            {
+                Label lb = new Label();
+                this.Controls.Add(lb);
+                lb.Name = "lbTail_" + i.ToString();
+                lb.Width = 5;
+                lb.Height = 105;
+                lb.Top = 0;
+                lb.Left = global.iIndentOfCheckBox * i;
+                lb.BackColor = Color.Black;
+            }
+            
         }
 
         
