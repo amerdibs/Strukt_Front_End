@@ -46,7 +46,7 @@ namespace ProcScribe
         public static int heightControlTaskReceive = heightControlTaskNormal + 39;
         public static int heightControlTaskAssign = heightControlTaskNormal + 47;
         public static int heightControlTaskCollape = 0;
-        public static int heightControlTaskDesc = 64;
+        public static int heightControlTaskDesc = 77;
 
         public static string resultSuccessStrukt = "{\"type\":\"success\"}";
         public static string registryPath = "SOFTWARE\\ProcScribe";

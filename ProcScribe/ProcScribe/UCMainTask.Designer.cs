@@ -36,11 +36,11 @@
             this.pbCollape = new System.Windows.Forms.PictureBox();
             this.btnLink = new System.Windows.Forms.Button();
             this.btnProp = new System.Windows.Forms.Button();
-            this.lbDesc = new System.Windows.Forms.TextBox();
             this.lbTop = new System.Windows.Forms.Label();
             this.lbTail = new System.Windows.Forms.Label();
             this.lbCenter = new System.Windows.Forms.Label();
             this.lbTail2 = new System.Windows.Forms.Label();
+            this.lbDesc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCollape)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +77,7 @@
             // 
             this.pbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbDesc.Image = global::ProcScribe.Properties.Resources.bt_play10pix;
-            this.pbDesc.Location = new System.Drawing.Point(252, 11);
+            this.pbDesc.Location = new System.Drawing.Point(296, 11);
             this.pbDesc.Name = "pbDesc";
             this.pbDesc.Size = new System.Drawing.Size(12, 12);
             this.pbDesc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -101,9 +101,9 @@
             this.btnLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLink.Enabled = false;
             this.btnLink.Image = global::ProcScribe.Properties.Resources.network_find1;
-            this.btnLink.Location = new System.Drawing.Point(291, 0);
+            this.btnLink.Location = new System.Drawing.Point(281, 50);
             this.btnLink.Name = "btnLink";
-            this.btnLink.Size = new System.Drawing.Size(28, 23);
+            this.btnLink.Size = new System.Drawing.Size(28, 25);
             this.btnLink.TabIndex = 3;
             this.btnLink.UseVisualStyleBackColor = true;
             this.btnLink.Click += new System.EventHandler(this.btnLink_Click);
@@ -112,25 +112,12 @@
             // 
             this.btnProp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProp.Image = global::ProcScribe.Properties.Resources.file_edit;
-            this.btnProp.Location = new System.Drawing.Point(264, 0);
+            this.btnProp.Location = new System.Drawing.Point(292, -1);
             this.btnProp.Name = "btnProp";
-            this.btnProp.Size = new System.Drawing.Size(28, 23);
+            this.btnProp.Size = new System.Drawing.Size(28, 15);
             this.btnProp.TabIndex = 2;
             this.btnProp.UseVisualStyleBackColor = true;
             this.btnProp.Click += new System.EventHandler(this.btnProp_Click);
-            // 
-            // lbDesc
-            // 
-            this.lbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbDesc.Location = new System.Drawing.Point(15, 27);
-            this.lbDesc.Multiline = true;
-            this.lbDesc.Name = "lbDesc";
-            this.lbDesc.ReadOnly = true;
-            this.lbDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.lbDesc.Size = new System.Drawing.Size(292, 29);
-            this.lbDesc.TabIndex = 12;
             // 
             // lbTop
             // 
@@ -165,25 +152,37 @@
             this.lbTail2.TabIndex = 16;
             this.lbTail2.Visible = false;
             // 
+            // lbDesc
+            // 
+            this.lbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDesc.AutoEllipsis = true;
+            this.lbDesc.BackColor = System.Drawing.Color.Gainsboro;
+            this.lbDesc.Location = new System.Drawing.Point(23, 18);
+            this.lbDesc.Name = "lbDesc";
+            this.lbDesc.Size = new System.Drawing.Size(286, 29);
+            this.lbDesc.TabIndex = 17;
+            this.lbDesc.Visible = false;
+            // 
             // UCMainTask
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
+            this.Controls.Add(this.btnProp);
+            this.Controls.Add(this.pbDesc);
+            this.Controls.Add(this.lbDesc);
             this.Controls.Add(this.lbTail2);
             this.Controls.Add(this.pbCollape);
             this.Controls.Add(this.lbCenter);
             this.Controls.Add(this.lbTail);
             this.Controls.Add(this.lbTop);
-            this.Controls.Add(this.lbDesc);
             this.Controls.Add(this.lbTitle);
-            this.Controls.Add(this.pbDesc);
             this.Controls.Add(this.btnLink);
-            this.Controls.Add(this.btnProp);
             this.Controls.Add(this.cbCheck);
             this.Name = "UCMainTask";
-            this.Size = new System.Drawing.Size(320, 27);
+            this.Size = new System.Drawing.Size(320, 79);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragEnter);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCMainTask_Paint);
@@ -206,10 +205,10 @@
         private System.Windows.Forms.PictureBox pbCollape;
         private System.Windows.Forms.ToolTip ttTaskControl;
         private System.Windows.Forms.PictureBox pbDesc;
-        private System.Windows.Forms.TextBox lbDesc;
         private System.Windows.Forms.Label lbTop;
         private System.Windows.Forms.Label lbTail;
         private System.Windows.Forms.Label lbCenter;
         private System.Windows.Forms.Label lbTail2;
+        private System.Windows.Forms.Label lbDesc;
     }
 }

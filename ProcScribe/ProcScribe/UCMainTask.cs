@@ -269,6 +269,10 @@ namespace ProcScribe
             //    }
             //}
 
+            if (global.roleUser == User.roleExecutor)
+                btnProp.Visible = false;
+            else
+                btnProp.Visible = true;
 
             if (collapseType == collapseType_uncollapse)
             {
