@@ -9,6 +9,8 @@ using System.Web;
 public class TaskProcess : Task
 {
     public string process_name { get; set; }
+    public string description { get; set; }
+    public string keyword { get; set; }
 
 	public TaskProcess()
 	{

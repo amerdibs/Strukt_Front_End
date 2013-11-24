@@ -71,6 +71,13 @@ namespace ProcScribe.StruktMain {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/deleteTask", ReplyAction="*")]
         System.Threading.Tasks.Task<ProcScribe.StruktMain.deleteTaskResponse> deleteTaskAsync(ProcScribe.StruktMain.deleteTaskRequest request);
         
+        // CODEGEN: Generating message contract since element name selectTaskProcessAllResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/selectTaskProcessAll", ReplyAction="*")]
+        ProcScribe.StruktMain.selectTaskProcessAllResponse selectTaskProcessAll(ProcScribe.StruktMain.selectTaskProcessAllRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/selectTaskProcessAll", ReplyAction="*")]
+        System.Threading.Tasks.Task<ProcScribe.StruktMain.selectTaskProcessAllResponse> selectTaskProcessAllAsync(ProcScribe.StruktMain.selectTaskProcessAllRequest request);
+        
         // CODEGEN: Generating message contract since element name strParentWorkflowID from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/selectTaskByParentWorkflowID", ReplyAction="*")]
         ProcScribe.StruktMain.selectTaskByParentWorkflowIDResponse selectTaskByParentWorkflowID(ProcScribe.StruktMain.selectTaskByParentWorkflowIDRequest request);
@@ -627,6 +634,67 @@ namespace ProcScribe.StruktMain {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class selectTaskProcessAllRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="selectTaskProcessAll", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribe.StruktMain.selectTaskProcessAllRequestBody Body;
+        
+        public selectTaskProcessAllRequest() {
+        }
+        
+        public selectTaskProcessAllRequest(ProcScribe.StruktMain.selectTaskProcessAllRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class selectTaskProcessAllRequestBody {
+        
+        public selectTaskProcessAllRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class selectTaskProcessAllResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="selectTaskProcessAllResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribe.StruktMain.selectTaskProcessAllResponseBody Body;
+        
+        public selectTaskProcessAllResponse() {
+        }
+        
+        public selectTaskProcessAllResponse(ProcScribe.StruktMain.selectTaskProcessAllResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class selectTaskProcessAllResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string selectTaskProcessAllResult;
+        
+        public selectTaskProcessAllResponseBody() {
+        }
+        
+        public selectTaskProcessAllResponseBody(string selectTaskProcessAllResult) {
+            this.selectTaskProcessAllResult = selectTaskProcessAllResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class selectTaskByParentWorkflowIDRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="selectTaskByParentWorkflowID", Namespace="http://tempuri.org/", Order=0)]
@@ -982,6 +1050,29 @@ namespace ProcScribe.StruktMain {
             inValue.Body = new ProcScribe.StruktMain.deleteTaskRequestBody();
             inValue.Body.strTaskID = strTaskID;
             return ((ProcScribe.StruktMain.StruktMainSoap)(this)).deleteTaskAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ProcScribe.StruktMain.selectTaskProcessAllResponse ProcScribe.StruktMain.StruktMainSoap.selectTaskProcessAll(ProcScribe.StruktMain.selectTaskProcessAllRequest request) {
+            return base.Channel.selectTaskProcessAll(request);
+        }
+        
+        public string selectTaskProcessAll() {
+            ProcScribe.StruktMain.selectTaskProcessAllRequest inValue = new ProcScribe.StruktMain.selectTaskProcessAllRequest();
+            inValue.Body = new ProcScribe.StruktMain.selectTaskProcessAllRequestBody();
+            ProcScribe.StruktMain.selectTaskProcessAllResponse retVal = ((ProcScribe.StruktMain.StruktMainSoap)(this)).selectTaskProcessAll(inValue);
+            return retVal.Body.selectTaskProcessAllResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ProcScribe.StruktMain.selectTaskProcessAllResponse> ProcScribe.StruktMain.StruktMainSoap.selectTaskProcessAllAsync(ProcScribe.StruktMain.selectTaskProcessAllRequest request) {
+            return base.Channel.selectTaskProcessAllAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ProcScribe.StruktMain.selectTaskProcessAllResponse> selectTaskProcessAllAsync() {
+            ProcScribe.StruktMain.selectTaskProcessAllRequest inValue = new ProcScribe.StruktMain.selectTaskProcessAllRequest();
+            inValue.Body = new ProcScribe.StruktMain.selectTaskProcessAllRequestBody();
+            return ((ProcScribe.StruktMain.StruktMainSoap)(this)).selectTaskProcessAllAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

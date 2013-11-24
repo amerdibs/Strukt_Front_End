@@ -606,7 +606,7 @@ public class StruktMain : System.Web.Services.WebService {
     }
 
     [WebMethod]
-    public string selectTaskProcessAll(String strParentWorkflowID)
+    public string selectTaskProcessAll()
     {
         string strAnswer = "";
         SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
@@ -614,7 +614,10 @@ public class StruktMain : System.Web.Services.WebService {
         {
 
             dbConnection.Open();
-            string strD = "select * from Task join struktProcess on Task.process_workflow_id = 'http://strukt.west.uni-koblenz.de/workflow/' + [p_workflow_id]";
+            string strD = "select * from Task join struktProcess " +
+                    "on Task.process_workflow_id = 'http://strukt.west.uni-koblenz.de/workflow/' + [p_workflow_id] " +
+                    "join struktTaskExtend " +
+                    "on Task.[id] = 'http://strukt.west.uni-koblenz.de/task/' + struktTaskExtend.[tk_task_id] ";
             SqlCommand qCommand = new SqlCommand(strD, dbConnection);
             qCommand.CommandText = strD;
             SqlDataReader qReader = qCommand.ExecuteReader();
@@ -646,6 +649,8 @@ public class StruktMain : System.Web.Services.WebService {
                 tk.follows_id = dr["follows_id"].ToString();
                 tk.process_workflow_id = dr["process_workflow_id"].ToString();
                 tk.process_name = dr["p_name"].ToString();
+                tk.description = dr["tk_description"].ToString();
+                tk.keyword = dr["tk_keyword"].ToString();
                 listTask.Add(tk);
             }
             JsonSerializerSettings jsSetting = new JsonSerializerSettings();

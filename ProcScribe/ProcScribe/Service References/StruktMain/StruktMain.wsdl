@@ -110,6 +110,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="selectTaskProcessAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectTaskProcessAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectTaskProcessAllResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="selectTaskByParentWorkflowID">
         <s:complexType>
           <s:sequence>
@@ -188,6 +198,12 @@
   <wsdl:message name="deleteTaskSoapOut">
     <wsdl:part name="parameters" element="tns:deleteTaskResponse" />
   </wsdl:message>
+  <wsdl:message name="selectTaskProcessAllSoapIn">
+    <wsdl:part name="parameters" element="tns:selectTaskProcessAll" />
+  </wsdl:message>
+  <wsdl:message name="selectTaskProcessAllSoapOut">
+    <wsdl:part name="parameters" element="tns:selectTaskProcessAllResponse" />
+  </wsdl:message>
   <wsdl:message name="selectTaskByParentWorkflowIDSoapIn">
     <wsdl:part name="parameters" element="tns:selectTaskByParentWorkflowID" />
   </wsdl:message>
@@ -232,6 +248,10 @@
     <wsdl:operation name="deleteTask">
       <wsdl:input message="tns:deleteTaskSoapIn" />
       <wsdl:output message="tns:deleteTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectTaskProcessAll">
+      <wsdl:input message="tns:selectTaskProcessAllSoapIn" />
+      <wsdl:output message="tns:selectTaskProcessAllSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="selectTaskByParentWorkflowID">
       <wsdl:input message="tns:selectTaskByParentWorkflowIDSoapIn" />
@@ -309,6 +329,15 @@
     </wsdl:operation>
     <wsdl:operation name="deleteTask">
       <soap:operation soapAction="http://tempuri.org/deleteTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTaskProcessAll">
+      <soap:operation soapAction="http://tempuri.org/selectTaskProcessAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -402,6 +431,15 @@
     </wsdl:operation>
     <wsdl:operation name="deleteTask">
       <soap12:operation soapAction="http://tempuri.org/deleteTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTaskProcessAll">
+      <soap12:operation soapAction="http://tempuri.org/selectTaskProcessAll" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

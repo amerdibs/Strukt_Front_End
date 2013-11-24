@@ -50,12 +50,13 @@ namespace ProcScribe
 
         public static string resultSuccessStrukt = "{\"type\":\"success\"}";
         public static string registryPath = "SOFTWARE\\ProcScribe";
-
-
+        
         // getting the current user information
         public static string userName;
         public static string machineName;
         public static string domainName;
+
+        public static string processName;
 
         public static int minFrmHeight = 600;
         public static int minFrmWidth = 320;
@@ -66,6 +67,7 @@ namespace ProcScribe
         //public static string strUserID = "4";
         public static Workflow workflowMain;
         public static List<Task> taskListSearch;
+        public static List<TaskProcess> taskProcessListSearch;
 
         public static List<Assignment> assignmentSentList;
         public static List<Assignment> assignmentReceivedList;

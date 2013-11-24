@@ -176,7 +176,8 @@ namespace ProcScribe
             //Get all processes
             StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
             global.processTable = wsStrukt.getProcessAll();
-
+            global.taskProcessListSearch = TaskProcess.getTaskProcessAll(); 
+            
             cbProcess.DataSource = global.processTable;
             cbProcess.ValueMember = "p_workflow_id";
             cbProcess.DisplayMember = "p_name";
@@ -192,6 +193,8 @@ namespace ProcScribe
                 global.roleUser = User.roleDesigner;
                 tsRole.Text = "Designer";
                 tpGuide.Text += "/Edit";
+                cbProcess.Visible = true;
+                btnLoadProcess.Visible = true;
             }
             else
             {
@@ -1310,6 +1313,10 @@ namespace ProcScribe
             {
                 //Create main workflow object
                 Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString(),null);
+                DataRowView dr = (DataRowView)cbProcess.SelectedItem;
+                global.processName = dr["p_name"].ToString();
+                lbProcess.Text = global.processName;
+                lbProcessHead.Visible = true;
                 global.workflowMain = wfMain;
                 pnCenter.Controls.Clear();
                 listVSearch.Items.Clear();
@@ -1702,7 +1709,67 @@ namespace ProcScribe
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            btnSearch_Click(sender, e);
+            if (cbExistingProcess.Checked)
+            {
+                listVSearch.Items.Clear();
+                if ((global.taskListSearch != null) && !String.IsNullOrEmpty(txtSearch.Text))
+                {
+
+                    try
+                    {
+                        IEnumerable<Task> lstFoundItems = from objTask in global.taskListSearch
+                                                          where (objTask.name.ToLower().Contains(txtSearch.Text.ToLower()) ||
+                                                                 objTask.description.ToLower().Contains(txtSearch.Text.ToLower()) ||
+                                                                 objTask.keyword.ToLower().Contains(txtSearch.Text.ToLower()))
+                                                          select objTask;
+                        foreach (Task tk in lstFoundItems)
+                        {
+                            ListViewItem lvi = new ListViewItem(new String[] { tk.name, tk.description, tk.keyword });
+                            lvi.Tag = tk.id;
+                            listVSearch.Items.Add(lvi);
+                        }
+                    }
+                    catch (NullReferenceException)
+                    {
+
+                        return;
+                    }
+
+
+                }
+            }
+            else
+            {
+                listVSearchProcess.Items.Clear();
+                if ((global.taskProcessListSearch != null) && !String.IsNullOrEmpty(txtSearch.Text))
+                {
+
+                    try
+                    {
+                        IEnumerable<TaskProcess> lstFoundItems = from objTask in global.taskProcessListSearch
+                                                          where (objTask.process_name.ToLower().Contains(txtSearch.Text.ToLower()) ||
+                                                                 objTask.name.ToLower().Contains(txtSearch.Text.ToLower()) ||
+                                                                 objTask.description.ToLower().Contains(txtSearch.Text.ToLower()) ||
+                                                                 objTask.keyword.ToLower().Contains(txtSearch.Text.ToLower()))
+                                                          select objTask;
+                        foreach (TaskProcess tk in lstFoundItems)
+                        {
+                            ListViewItem lvi = new ListViewItem(new String[] {tk.process_name, tk.name, tk.description, tk.keyword, tk.process_workflow_id });
+                            lvi.Tag = tk.id;
+                            listVSearchProcess.Items.Add(lvi);
+                        }
+                    }
+                    catch (NullReferenceException)
+                    {
+
+                        return;
+                    }
+
+
+                }
+            }
+
+            
         }
 
         private void tabCenter_Selected(object sender, TabControlEventArgs e)
@@ -1715,6 +1782,19 @@ namespace ProcScribe
                     global.getTaskListFromAllWorkflow(global.workflowMain, listTaskSearch);
                     global.taskListSearch = listTaskSearch;
                     global.taskListSearch.Reverse();
+                    cbExistingProcess.Visible = true;
+                }
+                if (cbExistingProcess.Checked)
+                {
+                    listVSearchProcess.Visible = false;
+                    listVSearch.Visible = true;
+                    listVSearch.Dock = DockStyle.Fill;
+                }
+                else
+                {
+                    listVSearch.Visible = false;
+                    listVSearchProcess.Visible = true;
+                    listVSearchProcess.Dock = DockStyle.Fill;
                 }
             }
             
@@ -1725,21 +1805,99 @@ namespace ProcScribe
         {
             if (listVSearch.SelectedItems != null)
             {
-                ListViewItem lvi = listVSearch.SelectedItems[0];
-                foreach (Object objEach in pnCenter.Controls)
+                if (global.workflowMain != null)
                 {
-                    UCMainTask ucTask = (UCMainTask)objEach;
-                    ucTask.Height = global.heightControlTaskNormal;
-                    ucTask.BackColor = global.ColorMainTask;
+                    ListViewItem lvi = listVSearch.SelectedItems[0];
+                    foreach (Object objEach in pnCenter.Controls)
+                    {
+                        UCMainTask ucTask = (UCMainTask)objEach;
+                        ucTask.Height = global.heightControlTaskNormal;
+                        ucTask.BackColor = global.ColorMainTask;
+                        if (ucTask.taskMember.workflowChild.taskChildList != null)
+                            ucTask.collapseType = UCMainTask.collapseType_uncollapse;
+                    }
+                    UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
+                    pnCenter.ScrollControlIntoView(ucMain);
+                    global.currentTaskControlID = ucMain.GetHashCode();
+                    global.currentTaskControlType = global.currentTaskControlTypeMainTask;
+                    global.currentTaskControlObject = ucMain;
+                    ucMain.preColor = ucMain.BackColor;
+                    ucMain.BackColor = global.ColorSelect;
+                    tabCenter.SelectedTab = tpGuide;
                 }
-                UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
-                pnCenter.ScrollControlIntoView(ucMain);
-                global.currentTaskControlID = ucMain.GetHashCode();
-                global.currentTaskControlType = global.currentTaskControlTypeMainTask;
-                global.currentTaskControlObject = ucMain;
-                ucMain.preColor = ucMain.BackColor;
-                ucMain.BackColor = global.ColorSelect;
-                tabCenter.SelectedTab = tpGuide;
+                else
+                {
+                }
+            }
+        }
+
+        private void cbExistingProcess_Click(object sender, EventArgs e)
+        {
+            if (cbExistingProcess.Checked)
+            {
+                listVSearchProcess.Visible = false;
+                listVSearch.Visible = true;
+                listVSearch.Dock = DockStyle.Fill;
+                txtSearch_TextChanged(sender, e);
+            }
+            else
+            {
+                listVSearch.Visible = false;
+                listVSearchProcess.Visible = true;
+                listVSearchProcess.Dock = DockStyle.Fill;
+                txtSearch_TextChanged(sender, e);
+            }
+        }
+
+        private void listVSearchProcess_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (listVSearchProcess.SelectedItems != null)
+            {
+                ListViewItem lvi = listVSearchProcess.SelectedItems[0];
+                //If the searching result is in the loaded workflow
+                if ((global.workflowMain != null) && (global.workflowMain.id == lvi.SubItems[4].Text))
+                {
+                    //Search and point to task
+                    foreach (Object objEach in pnCenter.Controls)
+                    {
+                        UCMainTask ucTask = (UCMainTask)objEach;
+                        ucTask.Height = global.heightControlTaskNormal;
+                        ucTask.BackColor = global.ColorMainTask;
+                        if (ucTask.taskMember.workflowChild.taskChildList != null)
+                            ucTask.collapseType = UCMainTask.collapseType_uncollapse;
+                    }
+                    UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
+                    pnCenter.ScrollControlIntoView(ucMain);
+                    global.currentTaskControlID = ucMain.GetHashCode();
+                    global.currentTaskControlType = global.currentTaskControlTypeMainTask;
+                    global.currentTaskControlObject = ucMain;
+                    ucMain.preColor = ucMain.BackColor;
+                    ucMain.BackColor = global.ColorSelect;
+                    tabCenter.SelectedTab = tpGuide;
+                }
+                else
+                {
+                    cbProcess.SelectedValue = global.getValueFromStruktValue(lvi.SubItems[4].Text);
+                    //Load process
+                    btnLoadProcess_Click(sender, e);
+                    //Search and point to task
+                    foreach (Object objEach in pnCenter.Controls)
+                    {
+                        UCMainTask ucTask = (UCMainTask)objEach;
+                        ucTask.Height = global.heightControlTaskNormal;
+                        ucTask.BackColor = global.ColorMainTask;
+                        if (ucTask.taskMember.workflowChild.taskChildList != null)
+                            ucTask.collapseType = UCMainTask.collapseType_uncollapse;
+                    }
+                    UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
+                    pnCenter.ScrollControlIntoView(ucMain);
+                    global.currentTaskControlID = ucMain.GetHashCode();
+                    global.currentTaskControlType = global.currentTaskControlTypeMainTask;
+                    global.currentTaskControlObject = ucMain;
+                    ucMain.preColor = ucMain.BackColor;
+                    ucMain.BackColor = global.ColorSelect;
+                    tabCenter.SelectedTab = tpGuide;
+                }
 
             }
         }

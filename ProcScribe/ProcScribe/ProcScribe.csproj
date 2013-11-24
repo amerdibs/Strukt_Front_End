@@ -150,6 +150,7 @@
     </Compile>
     <Compile Include="Strukt.cs" />
     <Compile Include="Task.cs" />
+    <Compile Include="TaskProcess.cs" />
     <Compile Include="TestFunction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +252,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\StruktMain\ProcScribe.StruktMain.selectTaskByUserIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StruktMain\ProcScribe.StruktMain.selectTaskProcessAllResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\StruktMain\ProcScribe.StruktMain.selectTaskResponse.datasource">
