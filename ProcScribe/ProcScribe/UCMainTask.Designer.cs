@@ -77,7 +77,7 @@
             // 
             this.pbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbDesc.Image = global::ProcScribe.Properties.Resources.bt_play10pix;
-            this.pbDesc.Location = new System.Drawing.Point(296, 11);
+            this.pbDesc.Location = new System.Drawing.Point(296, 12);
             this.pbDesc.Name = "pbDesc";
             this.pbDesc.Size = new System.Drawing.Size(12, 12);
             this.pbDesc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -111,10 +111,10 @@
             // btnProp
             // 
             this.btnProp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProp.Image = global::ProcScribe.Properties.Resources.file_edit;
-            this.btnProp.Location = new System.Drawing.Point(292, -1);
+            this.btnProp.Image = global::ProcScribe.Properties.Resources.applications;
+            this.btnProp.Location = new System.Drawing.Point(292, 0);
             this.btnProp.Name = "btnProp";
-            this.btnProp.Size = new System.Drawing.Size(28, 15);
+            this.btnProp.Size = new System.Drawing.Size(28, 23);
             this.btnProp.TabIndex = 2;
             this.btnProp.UseVisualStyleBackColor = true;
             this.btnProp.Click += new System.EventHandler(this.btnProp_Click);
@@ -170,7 +170,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.Controls.Add(this.btnProp);
             this.Controls.Add(this.pbDesc);
             this.Controls.Add(this.lbDesc);
             this.Controls.Add(this.lbTail2);
@@ -181,6 +180,7 @@
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.btnLink);
             this.Controls.Add(this.cbCheck);
+            this.Controls.Add(this.btnProp);
             this.Name = "UCMainTask";
             this.Size = new System.Drawing.Size(320, 79);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragDrop);

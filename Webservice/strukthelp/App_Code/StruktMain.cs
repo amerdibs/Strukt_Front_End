@@ -614,10 +614,10 @@ public class StruktMain : System.Web.Services.WebService {
         {
 
             dbConnection.Open();
-            string strD = "select * from Task join struktProcess " +
+            string strD = "select struktProcess.*,Task.*,isnull(s.tk_description,'') tk_description,isnull(s.tk_keyword,'') tk_keyword, isnull(s.tk_link_detail,'') tk_link_detail from Task join struktProcess " +
                     "on Task.process_workflow_id = 'http://strukt.west.uni-koblenz.de/workflow/' + [p_workflow_id] " +
-                    "join struktTaskExtend " +
-                    "on Task.[id] = 'http://strukt.west.uni-koblenz.de/task/' + struktTaskExtend.[tk_task_id] ";
+                    "left join struktTaskExtend s " +
+                    "on Task.[id] = 'http://strukt.west.uni-koblenz.de/task/' + s.[tk_task_id] ";
             SqlCommand qCommand = new SqlCommand(strD, dbConnection);
             qCommand.CommandText = strD;
             SqlDataReader qReader = qCommand.ExecuteReader();
