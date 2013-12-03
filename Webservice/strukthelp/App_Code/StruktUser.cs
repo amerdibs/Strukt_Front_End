@@ -304,7 +304,7 @@ public class StruktUser : System.Web.Services.WebService {
             SqlParameter spLinkType = new SqlParameter("@tk_link_type", strLinkType);
             SqlParameter spAddress = new SqlParameter("@tk_address", strAddress);
             SqlParameter spKeyword = new SqlParameter("@tk_keyword", strKeyword);
-            SqlParameter spLinkDetail = new SqlParameter("@tk_link_detail", strKeyword);
+            SqlParameter spLinkDetail = new SqlParameter("@tk_link_detail", strLinkDetail);
 
             qCommand.Parameters.Clear();
             qCommand.Parameters.Add(spTaskID);

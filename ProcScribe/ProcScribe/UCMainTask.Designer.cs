@@ -98,11 +98,11 @@
             // 
             // btnLink
             // 
-            this.btnLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLink.Enabled = false;
-            this.btnLink.Location = new System.Drawing.Point(42, 54);
+            this.btnLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLink.Location = new System.Drawing.Point(178, 50);
             this.btnLink.Name = "btnLink";
-            this.btnLink.Size = new System.Drawing.Size(273, 25);
+            this.btnLink.Size = new System.Drawing.Size(131, 22);
             this.btnLink.TabIndex = 3;
             this.btnLink.UseVisualStyleBackColor = true;
             this.btnLink.Click += new System.EventHandler(this.btnLink_Click);

@@ -441,7 +441,6 @@ namespace ProcScribe
 
 
                     uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
-                    uMain.Controls["btnLink"].Text = returnTaskAdd.linkDetail;
 
                     uMain.iLevel = uSelect.iLevel + 1;
                     uMain.BackColor = global.ColorMainTask;
@@ -480,11 +479,6 @@ namespace ProcScribe
                         uMain.Controls["pbDesc"].Visible = true;
                     StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                     struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
-                    if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
-                    {
-                        uMain.Controls["btnLink"].Enabled = true;
-                        
-                    }
 
 
                     //checkAssignmentUpdateControl(sender, e);
@@ -572,11 +566,6 @@ namespace ProcScribe
                     uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                 struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
-                if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
-                {
-                    uMain.Controls["btnLink"].Enabled = true;
-                    
-                }
 
             }
             else
@@ -667,10 +656,7 @@ namespace ProcScribe
                     uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                 struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
-                if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
-                {
-                    uMain.Controls["btnLink"].Enabled = true;
-                }
+
             }
             else
             {
@@ -809,10 +795,6 @@ namespace ProcScribe
                     uMain.Controls["pbDesc"].Visible = true;
                 StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                 struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
-                if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
-                {
-                    uMain.Controls["btnLink"].Enabled = true;
-                }
             }
 
             //checkAssignmentUpdateControl(sender, e);
@@ -1359,7 +1341,6 @@ namespace ProcScribe
                             {
                                 ttMainForm.SetToolTip(ucMain.Controls["lbTitle"], dtRow["tk_description"].ToString());
                                 ucMain.Controls["lbDesc"].Text = dtRow["tk_description"].ToString();
-                                ucMain.Controls["btnLink"].Text = dtRow["tk_link_detail"].ToString();
                                 if (String.IsNullOrEmpty(dtRow["tk_description"].ToString()) && String.IsNullOrEmpty(dtRow["tk_link_detail"].ToString()))
                                     ucMain.Controls["pbDesc"].Visible = false;
                                 else
@@ -1369,11 +1350,7 @@ namespace ProcScribe
                                 ucMain.taskMember.attachmentDetail = dtRow["tk_address"].ToString();
                                 ucMain.taskMember.keyword = dtRow["tk_keyword"].ToString();
                                 ucMain.taskMember.linkDetail = dtRow["tk_link_detail"].ToString();
-                                ucMain.Controls["btnLink"].Text = dtRow["tk_link_detail"].ToString();
-                                if (ucMain.taskMember.attachmentType != "NONE" && ucMain.taskMember.attachmentType != "" && ucMain.taskMember.attachmentType != null)
-                                {
-                                    ucMain.Controls["btnLink"].Enabled = true;
-                                }
+
                             }
 
                         }

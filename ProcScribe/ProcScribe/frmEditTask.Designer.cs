@@ -40,6 +40,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtDetail = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtLinkDesc = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.rbNone = new System.Windows.Forms.RadioButton();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -47,8 +49,6 @@
             this.rbApp = new System.Windows.Forms.RadioButton();
             this.rbLink = new System.Windows.Forms.RadioButton();
             this.ofFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.txtLinkDesc = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnName.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbProp.SuspendLayout();
@@ -199,6 +199,26 @@
             this.groupBox2.Text = "Tools";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // txtLinkDesc
+            // 
+            this.txtLinkDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLinkDesc.Location = new System.Drawing.Point(70, 70);
+            this.txtLinkDesc.MaxLength = 25;
+            this.txtLinkDesc.Name = "txtLinkDesc";
+            this.txtLinkDesc.Size = new System.Drawing.Size(192, 20);
+            this.txtLinkDesc.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(5, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Tag = "Description";
+            this.label3.Text = "Description";
+            // 
             // rbNone
             // 
             this.rbNone.AutoSize = true;
@@ -217,7 +237,7 @@
             // 
             this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrowse.Location = new System.Drawing.Point(268, 69);
+            this.btnBrowse.Location = new System.Drawing.Point(268, 42);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnBrowse.TabIndex = 4;
@@ -230,7 +250,7 @@
             this.txtAddress.Enabled = false;
             this.txtAddress.Location = new System.Drawing.Point(19, 44);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(324, 20);
+            this.txtAddress.Size = new System.Drawing.Size(243, 20);
             this.txtAddress.TabIndex = 7;
             // 
             // rbFile
@@ -270,26 +290,6 @@
             // 
             this.ofFileDialog.FileName = "*.*";
             this.ofFileDialog.InitialDirectory = "W:\\";
-            // 
-            // txtLinkDesc
-            // 
-            this.txtLinkDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLinkDesc.Location = new System.Drawing.Point(70, 70);
-            this.txtLinkDesc.MaxLength = 25;
-            this.txtLinkDesc.Name = "txtLinkDesc";
-            this.txtLinkDesc.Size = new System.Drawing.Size(192, 20);
-            this.txtLinkDesc.TabIndex = 21;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(5, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Tag = "Description";
-            this.label3.Text = "Description";
             // 
             // frmTaskEdit
             // 
