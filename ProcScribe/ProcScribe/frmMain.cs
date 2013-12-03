@@ -134,6 +134,9 @@ namespace ProcScribe
             int resolution_height = Convert.ToInt32(readReg.GetValue("resolution_height").ToString());
             int top_postion = Convert.ToInt32(readReg.GetValue("top_position").ToString());
             int left_position = Convert.ToInt32(readReg.GetValue("left_position").ToString());
+            
+            //Here there is a problem with a form Height
+
             int hight = Convert.ToInt32(readReg.GetValue("frm_height").ToString());
             int width = Convert.ToInt32(readReg.GetValue("frm_width").ToString());
 
@@ -202,6 +205,7 @@ namespace ProcScribe
                 global.roleUser = User.roleExecutor;
                 tsRole.Text = "Executor";
             }
+            
             
 
             //Change idea of role in second phase
@@ -404,6 +408,7 @@ namespace ProcScribe
                     returnTaskAdd.linkDetail = frmEdit.taskUse.linkDetail;
 
                     uMain.taskMember = returnTaskAdd;
+                   
 
                     int iIndex = 0;
                     if ((uSelect.taskMember.workflowChild.taskChildList != null) && (uSelect.taskMember.workflowChild.taskChildList.Count > 0))
@@ -436,6 +441,7 @@ namespace ProcScribe
 
 
                     uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
+                    uMain.Controls["btnLink"].Text = returnTaskAdd.linkDetail;
 
                     uMain.iLevel = uSelect.iLevel + 1;
                     uMain.BackColor = global.ColorMainTask;
@@ -477,6 +483,7 @@ namespace ProcScribe
                     if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                     {
                         uMain.Controls["btnLink"].Enabled = true;
+                        
                     }
 
 
@@ -532,7 +539,7 @@ namespace ProcScribe
                 returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
                 returnTaskAdd.keyword = frmEdit.taskUse.keyword;
                 returnTaskAdd.linkDetail = frmEdit.taskUse.linkDetail;
-
+                
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
                 uMain.Height = global.heightControlTaskNormal;
@@ -554,6 +561,7 @@ namespace ProcScribe
                 Label lbTitle = (Label)uMain.Controls["lbTitle"];
                 lbTitle.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 lbTitle.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
+                
 
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
@@ -567,6 +575,7 @@ namespace ProcScribe
                 if (uMain.taskMember.attachmentType != "NONE" && uMain.taskMember.attachmentType != "" && uMain.taskMember.attachmentType != null)
                 {
                     uMain.Controls["btnLink"].Enabled = true;
+                    
                 }
 
             }
@@ -625,6 +634,7 @@ namespace ProcScribe
                 returnTaskAdd.attachmentDetail = frmEdit.taskUse.attachmentDetail;
                 returnTaskAdd.keyword = frmEdit.taskUse.keyword;
                 returnTaskAdd.linkDetail = frmEdit.taskUse.linkDetail;
+                
 
                 //Add Task and config UI
                 UCMainTask uMain = new UCMainTask();
@@ -1349,6 +1359,7 @@ namespace ProcScribe
                             {
                                 ttMainForm.SetToolTip(ucMain.Controls["lbTitle"], dtRow["tk_description"].ToString());
                                 ucMain.Controls["lbDesc"].Text = dtRow["tk_description"].ToString();
+                                ucMain.Controls["btnLink"].Text = dtRow["tk_link_detail"].ToString();
                                 if (String.IsNullOrEmpty(dtRow["tk_description"].ToString()) && String.IsNullOrEmpty(dtRow["tk_link_detail"].ToString()))
                                     ucMain.Controls["pbDesc"].Visible = false;
                                 else
@@ -1358,6 +1369,7 @@ namespace ProcScribe
                                 ucMain.taskMember.attachmentDetail = dtRow["tk_address"].ToString();
                                 ucMain.taskMember.keyword = dtRow["tk_keyword"].ToString();
                                 ucMain.taskMember.linkDetail = dtRow["tk_link_detail"].ToString();
+                                ucMain.Controls["btnLink"].Text = dtRow["tk_link_detail"].ToString();
                                 if (ucMain.taskMember.attachmentType != "NONE" && ucMain.taskMember.attachmentType != "" && ucMain.taskMember.attachmentType != null)
                                 {
                                     ucMain.Controls["btnLink"].Enabled = true;

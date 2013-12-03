@@ -77,6 +77,7 @@ namespace ProcScribe
            //Update Task Extend in Webservice
            ttTaskControl.SetToolTip(lbTitle, taskMember.description);
            lbDesc.Text = taskMember.description;
+           btnLink.Text = taskMember.linkDetail;
            if (taskMember.description.Length == 0)
                pbDesc.Visible = false;
            else
@@ -92,6 +93,7 @@ namespace ProcScribe
                btnLink.Enabled = false;
            }
            lbTitle.Text = returnTask.name;
+           
 
         }
 

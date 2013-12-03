@@ -142,6 +142,7 @@ namespace ProcScribe
             taskUse.attachmentType = strType;
             taskUse.keyword = txtKeyword.Text;
             taskUse.linkDetail = txtLinkDesc.Text;
+            
   
         }
 

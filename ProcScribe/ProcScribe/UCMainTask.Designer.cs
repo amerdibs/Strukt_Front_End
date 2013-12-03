@@ -100,10 +100,9 @@
             // 
             this.btnLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLink.Enabled = false;
-            this.btnLink.Image = global::ProcScribe.Properties.Resources.network_find1;
-            this.btnLink.Location = new System.Drawing.Point(281, 50);
+            this.btnLink.Location = new System.Drawing.Point(42, 54);
             this.btnLink.Name = "btnLink";
-            this.btnLink.Size = new System.Drawing.Size(28, 25);
+            this.btnLink.Size = new System.Drawing.Size(273, 25);
             this.btnLink.TabIndex = 3;
             this.btnLink.UseVisualStyleBackColor = true;
             this.btnLink.Click += new System.EventHandler(this.btnLink_Click);
