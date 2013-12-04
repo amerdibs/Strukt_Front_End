@@ -62,7 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTitle.AutoEllipsis = true;
             this.lbTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lbTitle.ForeColor = System.Drawing.Color.Black;
             this.lbTitle.Location = new System.Drawing.Point(39, 3);
             this.lbTitle.Name = "lbTitle";
@@ -77,7 +77,7 @@
             // 
             this.pbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbDesc.Image = global::ProcScribe.Properties.Resources.bt_play10pix;
-            this.pbDesc.Location = new System.Drawing.Point(296, 12);
+            this.pbDesc.Location = new System.Drawing.Point(294, 24);
             this.pbDesc.Name = "pbDesc";
             this.pbDesc.Size = new System.Drawing.Size(12, 12);
             this.pbDesc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -100,7 +100,7 @@
             // 
             this.btnLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLink.Location = new System.Drawing.Point(178, 50);
+            this.btnLink.Location = new System.Drawing.Point(178, 56);
             this.btnLink.Name = "btnLink";
             this.btnLink.Size = new System.Drawing.Size(131, 22);
             this.btnLink.TabIndex = 3;
@@ -157,11 +157,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbDesc.AutoEllipsis = true;
             this.lbDesc.BackColor = System.Drawing.Color.Gainsboro;
-            this.lbDesc.Location = new System.Drawing.Point(23, 18);
+            this.lbDesc.Location = new System.Drawing.Point(23, 23);
             this.lbDesc.Name = "lbDesc";
-            this.lbDesc.Size = new System.Drawing.Size(286, 29);
+            this.lbDesc.Size = new System.Drawing.Size(286, 14);
             this.lbDesc.TabIndex = 17;
-            this.lbDesc.Visible = false;
             // 
             // UCMainTask
             // 
@@ -181,7 +180,7 @@
             this.Controls.Add(this.cbCheck);
             this.Controls.Add(this.btnProp);
             this.Name = "UCMainTask";
-            this.Size = new System.Drawing.Size(320, 79);
+            this.Size = new System.Drawing.Size(320, 80);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.UCMainTask_DragEnter);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCMainTask_Paint);

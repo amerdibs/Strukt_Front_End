@@ -42,11 +42,11 @@ namespace ProcScribe
         public static int iIndentOfCheckBox = 12;
         public static int iGradientOfColor = 0; // old 0
 
-        public static int heightControlTaskNormal = 27;
+        public static int heightControlTaskNormal = 40;
         public static int heightControlTaskReceive = heightControlTaskNormal + 39;
         public static int heightControlTaskAssign = heightControlTaskNormal + 47;
         public static int heightControlTaskCollape = 0;
-        public static int heightControlTaskDesc = 77;
+        public static int heightControlTaskDesc = 80;
 
         public static string resultSuccessStrukt = "{\"type\":\"success\"}";
         public static string registryPath = "SOFTWARE\\ProcScribe";

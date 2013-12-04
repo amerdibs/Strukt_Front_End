@@ -358,6 +358,15 @@ namespace ProcScribe
                 btnLink.Text = this.taskMember.linkDetail;
             }
 
+            if (String.IsNullOrEmpty(this.taskMember.description))
+            {
+                lbDesc.Visible = false;
+            }
+            else
+            {
+                lbDesc.Visible = true;
+            }
+
 
         }
 
@@ -452,12 +461,12 @@ namespace ProcScribe
             if (this.Height == global.heightControlTaskNormal)
             {
                 this.Height = global.heightControlTaskDesc;
-                lbDesc.Visible = true;
+                lbDesc.Height = 30;
             }
             else
             {
                 this.Height = global.heightControlTaskNormal;
-                lbDesc.Visible = false;
+                lbDesc.Height = 14;
             }
         }
 

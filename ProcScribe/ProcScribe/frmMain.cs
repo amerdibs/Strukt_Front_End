@@ -1803,7 +1803,11 @@ namespace ProcScribe
                         ucTask.Height = global.heightControlTaskNormal;
                         ucTask.BackColor = global.ColorMainTask;
                         if (ucTask.taskMember.workflowChild.taskChildList != null)
+                        {
                             ucTask.collapseType = UCMainTask.collapseType_uncollapse;
+                            PictureBox img = (PictureBox)ucTask.Controls["pbCollape"];
+                            img.Image = Properties.Resources.uncollapes;
+                        }
                     }
                     UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
                     pnCenter.ScrollControlIntoView(ucMain);
@@ -1853,7 +1857,11 @@ namespace ProcScribe
                         ucTask.Height = global.heightControlTaskNormal;
                         ucTask.BackColor = global.ColorMainTask;
                         if (ucTask.taskMember.workflowChild.taskChildList != null)
+                        {
                             ucTask.collapseType = UCMainTask.collapseType_uncollapse;
+                            PictureBox img = (PictureBox)ucTask.Controls["pbCollape"];
+                            img.Image = Properties.Resources.uncollapes;
+                        }
                     }
                     UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
                     pnCenter.ScrollControlIntoView(ucMain);
@@ -1876,7 +1884,11 @@ namespace ProcScribe
                         ucTask.Height = global.heightControlTaskNormal;
                         ucTask.BackColor = global.ColorMainTask;
                         if (ucTask.taskMember.workflowChild.taskChildList != null)
+                        {
                             ucTask.collapseType = UCMainTask.collapseType_uncollapse;
+                            PictureBox img = (PictureBox)ucTask.Controls["pbCollape"];
+                            img.Image = Properties.Resources.uncollapes;
+                        }
                     }
                     UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
                     pnCenter.ScrollControlIntoView(ucMain);
