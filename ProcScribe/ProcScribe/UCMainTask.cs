@@ -321,8 +321,31 @@ namespace ProcScribe
                             }
                         }
                     }
+
+
+
+                        if (this.taskMember.workflowParent.taskParent.workflowParent.taskParent.workflowParent.taskParent != null)
+                        {
+                            if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.workflowParent.taskParent.workflowParent.taskParent.precedes_id))
+                            {
+                                for (int i = iLevel - 3; i < iLevel; i++)
+                                {
+                                    if (this.Controls["lbTail_" + i.ToString()] != null)
+                                    {
+                                        Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+                                        lb.Visible = false;
+                                    }
+                                }
+                            }
+                        }
+                    
+
+
                 }
 
+                
+
+                
             }
 
             if (String.IsNullOrEmpty(this.taskMember.attachmentDetail))
