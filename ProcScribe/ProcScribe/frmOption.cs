@@ -121,10 +121,18 @@ namespace ProcScribe
         {
             if (rdbtnExecutor.Checked)
             {
-                frmParent = new frmMain();
                 global.roleUser = User.roleExecutor;
-                frmParent.Controls["tsRole"].Text = "Executor";
+
+                StatusStrip strp = frmParent.Controls["statusStrip1"] as StatusStrip;
+                ComboBox cbProcess = (frmParent.Controls.Find("cbProcess", true))[0] as ComboBox;
+                cbProcess.Visible = false;
+                strp.Items["tsRole"].Text = "Executor";
                 frmParent.Controls["pnDesigner"].Visible = false;
+                Button btnLoadProcess = (frmParent.Controls.Find("btnLoadProcess", true))[0] as Button;
+                btnLoadProcess.Visible = false;
+                TabPage tpGuide = (frmParent.Controls.Find("tpGuide", true))[0] as TabPage;
+                tpGuide.Text += "Guide";
+                
             }
 
             
@@ -134,14 +142,19 @@ namespace ProcScribe
         {
             if (rdbtnDesigner.Checked)
             {
-                frmParent = new frmMain();
-                global.roleUser = User.roleDesigner;
-                frmParent.Controls["tsRole"].Text = "Designer";
-                frmParent.Controls["pnDesigner"].Visible = true;
-                frmParent.Controls["tpGuide"].Text = "/Edit";
-                frmParent.Controls["cbProcess"].Visible = true;
-                frmParent.Controls["btnLoadProcess"].Visible = true;
                 
+                global.roleUser = User.roleDesigner;
+                StatusStrip strp = frmParent.Controls["statusStrip1"] as StatusStrip;
+                ComboBox cbProcess = (frmParent.Controls.Find("cbProcess", true))[0] as ComboBox;
+                cbProcess.Visible = true;
+                strp.Items["tsRole"].Text = "Designer";
+                frmParent.Controls["pnDesigner"].Visible = true;
+                Button btnLoadProcess = (frmParent.Controls.Find("btnLoadProcess", true))[0] as Button;
+                btnLoadProcess.Visible = true;
+                TabPage tpGuide = (frmParent.Controls.Find("tpGuide", true))[0] as TabPage;
+                tpGuide.Text += "/Edit";
+           
+         
             }
         }
 

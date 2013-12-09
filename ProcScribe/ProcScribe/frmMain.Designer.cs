@@ -61,6 +61,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsUserName = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsRole = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ctmTask = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addMainTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSubTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +71,7 @@
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnDesigner = new System.Windows.Forms.Panel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabCenter.SuspendLayout();
             this.tpGuide.SuspendLayout();
             this.pnCenterHead.SuspendLayout();
@@ -381,7 +383,9 @@
             this.statusStrip1.BackColor = System.Drawing.Color.Transparent;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsUserName,
-            this.tsRole});
+            this.tsRole,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 579);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(384, 22);
@@ -401,6 +405,12 @@
             this.tsRole.Name = "tsRole";
             this.tsRole.Size = new System.Drawing.Size(30, 17);
             this.tsRole.Text = "Role";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // ctmTask
             // 
@@ -465,6 +475,12 @@
             this.pnDesigner.Name = "pnDesigner";
             this.pnDesigner.Size = new System.Drawing.Size(384, 24);
             this.pnDesigner.TabIndex = 4;
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
             // frmMain
             // 
@@ -542,6 +558,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 

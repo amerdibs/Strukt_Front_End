@@ -237,10 +237,12 @@
             // rdbtnExecutor
             // 
             this.rdbtnExecutor.AutoSize = true;
+            this.rdbtnExecutor.Checked = true;
             this.rdbtnExecutor.Location = new System.Drawing.Point(155, 19);
             this.rdbtnExecutor.Name = "rdbtnExecutor";
             this.rdbtnExecutor.Size = new System.Drawing.Size(67, 17);
             this.rdbtnExecutor.TabIndex = 1;
+            this.rdbtnExecutor.TabStop = true;
             this.rdbtnExecutor.Text = "Executor";
             this.rdbtnExecutor.UseVisualStyleBackColor = true;
             this.rdbtnExecutor.CheckedChanged += new System.EventHandler(this.rdbtnExecutor_CheckedChanged);
@@ -248,12 +250,10 @@
             // rdbtnDesigner
             // 
             this.rdbtnDesigner.AutoSize = true;
-            this.rdbtnDesigner.Checked = true;
             this.rdbtnDesigner.Location = new System.Drawing.Point(46, 19);
             this.rdbtnDesigner.Name = "rdbtnDesigner";
             this.rdbtnDesigner.Size = new System.Drawing.Size(67, 17);
             this.rdbtnDesigner.TabIndex = 0;
-            this.rdbtnDesigner.TabStop = true;
             this.rdbtnDesigner.Text = "Designer";
             this.rdbtnDesigner.UseVisualStyleBackColor = true;
             this.rdbtnDesigner.CheckedChanged += new System.EventHandler(this.rdbtnDesigner_CheckedChanged);

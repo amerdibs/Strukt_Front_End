@@ -195,8 +195,9 @@ namespace ProcScribe
                 pnDesigner.Visible = true;
                 global.roleUser = User.roleDesigner;
                 tsRole.Text = "Designer";
+                
                 tpGuide.Text += "/Edit";
-                cbProcess.Visible = true;
+               cbProcess.Visible = true;
                 btnLoadProcess.Visible = true;
             }
             else
@@ -204,6 +205,7 @@ namespace ProcScribe
                 pnDesigner.Visible = false;
                 global.roleUser = User.roleExecutor;
                 tsRole.Text = "Executor";
+                
             }
             
             
@@ -1902,6 +1904,8 @@ namespace ProcScribe
 
             }
         }
+
+       
 
 
 
