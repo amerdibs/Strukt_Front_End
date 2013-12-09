@@ -116,5 +116,35 @@ namespace ProcScribe
                 txtTaskHoverColor.Tag = cdDialog.Color;
             }
         }
+
+        private void rdbtnExecutor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbtnExecutor.Checked)
+            {
+                frmParent = new frmMain();
+                global.roleUser = User.roleExecutor;
+                frmParent.Controls["tsRole"].Text = "Executor";
+                frmParent.Controls["pnDesigner"].Visible = false;
+            }
+
+            
+        }
+
+        private void rdbtnDesigner_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbtnDesigner.Checked)
+            {
+                frmParent = new frmMain();
+                global.roleUser = User.roleDesigner;
+                frmParent.Controls["tsRole"].Text = "Designer";
+                frmParent.Controls["pnDesigner"].Visible = true;
+                frmParent.Controls["tpGuide"].Text = "/Edit";
+                frmParent.Controls["cbProcess"].Visible = true;
+                frmParent.Controls["btnLoadProcess"].Visible = true;
+                
+            }
+        }
+
+       
     }
 }

@@ -187,7 +187,7 @@ namespace ProcScribe
 
             global.userTable = wsStrukt.getUserAll();
             global.appTable = wsStrukt.getAppListAll();
-
+           
             //Hide edit feature ,if user is a normal user.
             DataRow[] dtSelect = global.userTable.Select("u_name = " + "'" + global.userName + "'");
             if (dtSelect.Length > 0)

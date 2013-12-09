@@ -45,8 +45,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdvance = new System.Windows.Forms.Button();
+            this.gbUserRole = new System.Windows.Forms.GroupBox();
+            this.rdbtnExecutor = new System.Windows.Forms.RadioButton();
+            this.rdbtnDesigner = new System.Windows.Forms.RadioButton();
             this.gbColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gbUserRole.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
@@ -218,12 +222,49 @@
             this.btnAdvance.UseVisualStyleBackColor = true;
             this.btnAdvance.Click += new System.EventHandler(this.btnAdvance_Click);
             // 
+            // gbUserRole
+            // 
+            this.gbUserRole.Controls.Add(this.rdbtnExecutor);
+            this.gbUserRole.Controls.Add(this.rdbtnDesigner);
+            this.gbUserRole.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbUserRole.Location = new System.Drawing.Point(0, 198);
+            this.gbUserRole.Name = "gbUserRole";
+            this.gbUserRole.Size = new System.Drawing.Size(298, 48);
+            this.gbUserRole.TabIndex = 4;
+            this.gbUserRole.TabStop = false;
+            this.gbUserRole.Text = "User Role";
+            // 
+            // rdbtnExecutor
+            // 
+            this.rdbtnExecutor.AutoSize = true;
+            this.rdbtnExecutor.Location = new System.Drawing.Point(155, 19);
+            this.rdbtnExecutor.Name = "rdbtnExecutor";
+            this.rdbtnExecutor.Size = new System.Drawing.Size(67, 17);
+            this.rdbtnExecutor.TabIndex = 1;
+            this.rdbtnExecutor.Text = "Executor";
+            this.rdbtnExecutor.UseVisualStyleBackColor = true;
+            this.rdbtnExecutor.CheckedChanged += new System.EventHandler(this.rdbtnExecutor_CheckedChanged);
+            // 
+            // rdbtnDesigner
+            // 
+            this.rdbtnDesigner.AutoSize = true;
+            this.rdbtnDesigner.Checked = true;
+            this.rdbtnDesigner.Location = new System.Drawing.Point(46, 19);
+            this.rdbtnDesigner.Name = "rdbtnDesigner";
+            this.rdbtnDesigner.Size = new System.Drawing.Size(67, 17);
+            this.rdbtnDesigner.TabIndex = 0;
+            this.rdbtnDesigner.TabStop = true;
+            this.rdbtnDesigner.Text = "Designer";
+            this.rdbtnDesigner.UseVisualStyleBackColor = true;
+            this.rdbtnDesigner.CheckedChanged += new System.EventHandler(this.rdbtnDesigner_CheckedChanged);
+            // 
             // frmOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 210);
+            this.ClientSize = new System.Drawing.Size(298, 258);
             this.ControlBox = false;
+            this.Controls.Add(this.gbUserRole);
             this.Controls.Add(this.gbColor);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmOption";
@@ -234,6 +275,8 @@
             this.gbColor.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbUserRole.ResumeLayout(false);
+            this.gbUserRole.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -257,5 +300,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAdvance;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbUserRole;
+        private System.Windows.Forms.RadioButton rdbtnExecutor;
+        private System.Windows.Forms.RadioButton rdbtnDesigner;
     }
 }
