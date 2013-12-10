@@ -62,6 +62,18 @@ namespace ProcScribe
                 cbTop.Checked = true;
             }
 
+            if (global.roleUser == User.roleDesigner)
+            {
+                rdbtnDesigner.Checked = true;
+                rdbtnExecutor.Checked = false;
+            }
+            else
+            {
+                rdbtnDesigner.Checked = false;
+                rdbtnExecutor.Checked = true;
+            }
+
+
         }
 
 
@@ -131,7 +143,7 @@ namespace ProcScribe
                 Button btnLoadProcess = (frmParent.Controls.Find("btnLoadProcess", true))[0] as Button;
                 btnLoadProcess.Visible = false;
                 TabPage tpGuide = (frmParent.Controls.Find("tpGuide", true))[0] as TabPage;
-                tpGuide.Text += "Guide";
+                tpGuide.Text = "Guide";
                 
             }
 
@@ -152,7 +164,7 @@ namespace ProcScribe
                 Button btnLoadProcess = (frmParent.Controls.Find("btnLoadProcess", true))[0] as Button;
                 btnLoadProcess.Visible = true;
                 TabPage tpGuide = (frmParent.Controls.Find("tpGuide", true))[0] as TabPage;
-                tpGuide.Text += "/Edit";
+                tpGuide.Text = "Guide/Edit";
            
          
             }
