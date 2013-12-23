@@ -318,7 +318,6 @@
     <None Include="Resources\screen1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\StruktWebservice\StruktUser.disco" />
     <None Include="Service References\StruktWebservice\configuration91.svcinfo" />
     <None Include="Service References\StruktWebservice\configuration.svcinfo" />
     <None Include="Service References\StruktWebservice\Reference.svcmap">
@@ -353,7 +352,6 @@
     <None Include="Resources\network_find.gif" />
     <None Include="Resources\network_find1.gif" />
     <None Include="Resources\bt_play10pix.gif" />
-    <None Include="Service References\StruktMain\StruktMain.disco" />
     <None Include="Service References\StruktMain\configuration91.svcinfo" />
     <None Include="Service References\StruktMain\configuration.svcinfo" />
     <None Include="Service References\StruktMain\Reference.svcmap">
@@ -362,6 +360,8 @@
     </None>
     <None Include="Resources\file_edit.gif" />
     <None Include="Resources\file_find.gif" />
+    <None Include="Service References\StruktMain\StruktMain.disco" />
+    <None Include="Service References\StruktWebservice\StruktUser.disco" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -220,7 +220,6 @@
             this.btnAdvance.TabIndex = 2;
             this.btnAdvance.Text = "Advance";
             this.btnAdvance.UseVisualStyleBackColor = true;
-            this.btnAdvance.Visible = false;
             this.btnAdvance.Click += new System.EventHandler(this.btnAdvance_Click);
             // 
             // gbUserRole
