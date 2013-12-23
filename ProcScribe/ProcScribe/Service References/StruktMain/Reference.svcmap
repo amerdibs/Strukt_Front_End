@@ -22,8 +22,8 @@
     <MetadataSource Address="http://pakorn.somee.com/strukthelp/StruktMain.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StruktMain.disco" MetadataType="Disco" ID="5362e4f7-d0fe-49ba-8c09-602d3a642943" SourceId="1" SourceUrl="http://pakorn.somee.com/strukthelp/StruktMain.asmx?disco" />
-    <MetadataFile FileName="StruktMain.wsdl" MetadataType="Wsdl" ID="640e0cdd-293a-44d9-ac93-cbbac445c081" SourceId="1" SourceUrl="http://pakorn.somee.com/strukthelp/StruktMain.asmx?wsdl" />
+    <MetadataFile FileName="StruktMain.disco" MetadataType="Disco" ID="19cd4d4b-3738-4051-8b0d-f86fac5b8661" SourceId="1" SourceUrl="http://pakorn.somee.com/strukthelp/StruktMain.asmx?disco" />
+    <MetadataFile FileName="StruktMain.wsdl" MetadataType="Wsdl" ID="3a593b95-a977-4b0e-884e-19a680de3a43" SourceId="1" SourceUrl="http://pakorn.somee.com/strukthelp/StruktMain.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

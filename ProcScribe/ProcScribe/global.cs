@@ -47,6 +47,7 @@ namespace ProcScribe
         public static int heightControlTaskAssign = heightControlTaskNormal + 47;
         public static int heightControlTaskCollape = 0;
         public static int heightControlTaskDesc = 80;
+        public static int heightControlTaskDescLong = 200;
 
         public static string resultSuccessStrukt = "{\"type\":\"success\"}";
         public static string registryPath = "SOFTWARE\\ProcScribe";
@@ -58,8 +59,10 @@ namespace ProcScribe
 
         public static string processName;
 
+        // limitation
         public static int minFrmHeight = 600;
         public static int minFrmWidth = 320;
+        public static int linkDescWidth = 25;
 
 
         // fix value is used for the first prototype only

@@ -37,7 +37,7 @@ namespace ProcScribe
         {
             try
             {
-
+                txtLinkDesc.MaxLength = global.linkDescWidth;
                 //User's role control
                 if (global.roleUser == User.roleExecutor)
                     txtTaskName.ReadOnly = true;
@@ -61,7 +61,7 @@ namespace ProcScribe
             {
                 txtTaskName.Text = taskUse.name;
                 if (taskUse.description != null)
-                    txtDetail.Text = taskUse.description;
+                    txtDetail.Text = taskUse.description.Replace("\n", Environment.NewLine);
                 if (taskUse.attachmentDetail != null)
                     txtAddress.Text = taskUse.attachmentDetail;
                 if (taskUse.keyword != null)
