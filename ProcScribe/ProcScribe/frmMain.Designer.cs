@@ -45,6 +45,8 @@
             this.tpSearch = new System.Windows.Forms.TabPage();
             this.pnSearch = new System.Windows.Forms.Panel();
             this.pnSearchResult = new System.Windows.Forms.Panel();
+            this.listVSearchProcessName = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listVSearchProcess = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,12 +58,15 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnSearchTop = new System.Windows.Forms.Panel();
-            this.cbExistingProcess = new System.Windows.Forms.CheckBox();
+            this.rbAllProcess = new System.Windows.Forms.RadioButton();
+            this.rbInProcess = new System.Windows.Forms.RadioButton();
+            this.rbOnlyProcess = new System.Windows.Forms.RadioButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsUserName = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsRole = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ctmTask = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addMainTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSubTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +76,7 @@
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnDesigner = new System.Windows.Forms.Panel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabCenter.SuspendLayout();
             this.tpGuide.SuspendLayout();
             this.pnCenterHead.SuspendLayout();
@@ -256,13 +261,39 @@
             // pnSearchResult
             // 
             this.pnSearchResult.AutoScroll = true;
+            this.pnSearchResult.Controls.Add(this.listVSearchProcessName);
             this.pnSearchResult.Controls.Add(this.listVSearchProcess);
             this.pnSearchResult.Controls.Add(this.listVSearch);
             this.pnSearchResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnSearchResult.Location = new System.Drawing.Point(0, 41);
+            this.pnSearchResult.Location = new System.Drawing.Point(0, 53);
             this.pnSearchResult.Name = "pnSearchResult";
-            this.pnSearchResult.Size = new System.Drawing.Size(370, 470);
+            this.pnSearchResult.Size = new System.Drawing.Size(370, 458);
             this.pnSearchResult.TabIndex = 1;
+            // 
+            // listVSearchProcessName
+            // 
+            this.listVSearchProcessName.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listVSearchProcessName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listVSearchProcessName.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10});
+            this.listVSearchProcessName.FullRowSelect = true;
+            this.listVSearchProcessName.GridLines = true;
+            this.listVSearchProcessName.HotTracking = true;
+            this.listVSearchProcessName.HoverSelection = true;
+            this.listVSearchProcessName.Location = new System.Drawing.Point(0, 190);
+            this.listVSearchProcessName.MultiSelect = false;
+            this.listVSearchProcessName.Name = "listVSearchProcessName";
+            this.listVSearchProcessName.Size = new System.Drawing.Size(370, 87);
+            this.listVSearchProcessName.TabIndex = 2;
+            this.listVSearchProcessName.UseCompatibleStateImageBehavior = false;
+            this.listVSearchProcessName.View = System.Windows.Forms.View.Details;
+            this.listVSearchProcessName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listVSearchProcessName_MouseClick);
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Process Name";
+            this.columnHeader9.Width = 300;
             // 
             // listVSearchProcess
             // 
@@ -279,10 +310,10 @@
             this.listVSearchProcess.GridLines = true;
             this.listVSearchProcess.HotTracking = true;
             this.listVSearchProcess.HoverSelection = true;
-            this.listVSearchProcess.Location = new System.Drawing.Point(0, 179);
+            this.listVSearchProcess.Location = new System.Drawing.Point(0, 93);
             this.listVSearchProcess.MultiSelect = false;
             this.listVSearchProcess.Name = "listVSearchProcess";
-            this.listVSearchProcess.Size = new System.Drawing.Size(370, 159);
+            this.listVSearchProcess.Size = new System.Drawing.Size(370, 91);
             this.listVSearchProcess.TabIndex = 1;
             this.listVSearchProcess.UseCompatibleStateImageBehavior = false;
             this.listVSearchProcess.View = System.Windows.Forms.View.Details;
@@ -290,12 +321,12 @@
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Process";
+            this.columnHeader7.Text = "Process Name";
             this.columnHeader7.Width = 95;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Name";
+            this.columnHeader4.Text = "Task Name";
             this.columnHeader4.Width = 144;
             // 
             // columnHeader5
@@ -328,7 +359,7 @@
             this.listVSearch.Location = new System.Drawing.Point(0, 0);
             this.listVSearch.MultiSelect = false;
             this.listVSearch.Name = "listVSearch";
-            this.listVSearch.Size = new System.Drawing.Size(370, 159);
+            this.listVSearch.Size = new System.Drawing.Size(370, 87);
             this.listVSearch.TabIndex = 0;
             this.listVSearch.UseCompatibleStateImageBehavior = false;
             this.listVSearch.View = System.Windows.Forms.View.Details;
@@ -336,7 +367,7 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Text = "Task Name";
             this.columnHeader1.Width = 139;
             // 
             // columnHeader2
@@ -350,31 +381,56 @@
             // 
             // pnSearchTop
             // 
-            this.pnSearchTop.Controls.Add(this.cbExistingProcess);
+            this.pnSearchTop.Controls.Add(this.rbAllProcess);
+            this.pnSearchTop.Controls.Add(this.rbInProcess);
+            this.pnSearchTop.Controls.Add(this.rbOnlyProcess);
             this.pnSearchTop.Controls.Add(this.txtSearch);
             this.pnSearchTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSearchTop.Location = new System.Drawing.Point(0, 0);
             this.pnSearchTop.Name = "pnSearchTop";
-            this.pnSearchTop.Size = new System.Drawing.Size(370, 41);
+            this.pnSearchTop.Size = new System.Drawing.Size(370, 53);
             this.pnSearchTop.TabIndex = 0;
             // 
-            // cbExistingProcess
+            // rbAllProcess
             // 
-            this.cbExistingProcess.AutoSize = true;
-            this.cbExistingProcess.Location = new System.Drawing.Point(210, 11);
-            this.cbExistingProcess.Name = "cbExistingProcess";
-            this.cbExistingProcess.Size = new System.Drawing.Size(101, 17);
-            this.cbExistingProcess.TabIndex = 13;
-            this.cbExistingProcess.Text = "existing process";
-            this.cbExistingProcess.UseVisualStyleBackColor = true;
-            this.cbExistingProcess.Visible = false;
-            this.cbExistingProcess.Click += new System.EventHandler(this.cbExistingProcess_Click);
+            this.rbAllProcess.AutoSize = true;
+            this.rbAllProcess.Checked = true;
+            this.rbAllProcess.Location = new System.Drawing.Point(9, 33);
+            this.rbAllProcess.Name = "rbAllProcess";
+            this.rbAllProcess.Size = new System.Drawing.Size(87, 17);
+            this.rbAllProcess.TabIndex = 16;
+            this.rbAllProcess.TabStop = true;
+            this.rbAllProcess.Text = "All processes";
+            this.rbAllProcess.UseVisualStyleBackColor = true;
+            this.rbAllProcess.Click += new System.EventHandler(this.rbAllProcess_Click);
+            // 
+            // rbInProcess
+            // 
+            this.rbInProcess.AutoSize = true;
+            this.rbInProcess.Location = new System.Drawing.Point(113, 33);
+            this.rbInProcess.Name = "rbInProcess";
+            this.rbInProcess.Size = new System.Drawing.Size(101, 17);
+            this.rbInProcess.TabIndex = 15;
+            this.rbInProcess.Text = "Loaded process";
+            this.rbInProcess.UseVisualStyleBackColor = true;
+            this.rbInProcess.Click += new System.EventHandler(this.rbInProcess_Click);
+            // 
+            // rbOnlyProcess
+            // 
+            this.rbOnlyProcess.AutoSize = true;
+            this.rbOnlyProcess.Location = new System.Drawing.Point(228, 33);
+            this.rbOnlyProcess.Name = "rbOnlyProcess";
+            this.rbOnlyProcess.Size = new System.Drawing.Size(92, 17);
+            this.rbOnlyProcess.TabIndex = 14;
+            this.rbOnlyProcess.Text = "Process name";
+            this.rbOnlyProcess.UseVisualStyleBackColor = true;
+            this.rbOnlyProcess.Click += new System.EventHandler(this.rbOnlyProcess_Click);
             // 
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(9, 9);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(195, 20);
+            this.txtSearch.Size = new System.Drawing.Size(318, 20);
             this.txtSearch.TabIndex = 11;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -411,6 +467,12 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
             // ctmTask
             // 
@@ -476,11 +538,10 @@
             this.pnDesigner.Size = new System.Drawing.Size(384, 24);
             this.pnDesigner.TabIndex = 4;
             // 
-            // toolStripStatusLabel2
+            // columnHeader10
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
+            this.columnHeader10.Text = "WorkflowID";
+            this.columnHeader10.Width = 0;
             // 
             // frmMain
             // 
@@ -551,7 +612,6 @@
         private System.Windows.Forms.Panel pnCenterHead;
         private System.Windows.Forms.Label lbProcessHead;
         private System.Windows.Forms.Label lbProcess;
-        private System.Windows.Forms.CheckBox cbExistingProcess;
         private System.Windows.Forms.ListView listVSearchProcess;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader4;
@@ -560,6 +620,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.RadioButton rbAllProcess;
+        private System.Windows.Forms.RadioButton rbInProcess;
+        private System.Windows.Forms.RadioButton rbOnlyProcess;
+        private System.Windows.Forms.ListView listVSearchProcessName;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
     }
 }
 

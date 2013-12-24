@@ -481,7 +481,7 @@ namespace ProcScribe
                 this.Controls.Add(lb);
                 lb.Name = "lbTail_" + i.ToString();
                 lb.Width = 5;
-                lb.Height = 105;
+                lb.Height = 200;
                 lb.Top = 0;
                 lb.Left = global.iIndentOfCheckBox * i;
                 lb.BackColor = Color.Black;

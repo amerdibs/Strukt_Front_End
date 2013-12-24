@@ -132,7 +132,7 @@
             this.lbTail.BackColor = System.Drawing.Color.Black;
             this.lbTail.Location = new System.Drawing.Point(0, 14);
             this.lbTail.Name = "lbTail";
-            this.lbTail.Size = new System.Drawing.Size(5, 91);
+            this.lbTail.Size = new System.Drawing.Size(5, 200);
             this.lbTail.TabIndex = 14;
             // 
             // lbCenter
@@ -148,7 +148,7 @@
             this.lbTail2.BackColor = System.Drawing.Color.Black;
             this.lbTail2.Location = new System.Drawing.Point(12, 18);
             this.lbTail2.Name = "lbTail2";
-            this.lbTail2.Size = new System.Drawing.Size(5, 91);
+            this.lbTail2.Size = new System.Drawing.Size(5, 200);
             this.lbTail2.TabIndex = 16;
             this.lbTail2.Visible = false;
             // 
