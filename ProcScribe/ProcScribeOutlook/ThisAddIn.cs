@@ -13,10 +13,11 @@ namespace ProcScribeOutlook
 {
     public partial class ThisAddIn
     {
+        String strIdentity;
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            
-
+            strIdentity = Guid.NewGuid().ToString("N");
+            //MessageBox.Show(strIdentity);
             //MessageBox.Show(String.Format("There are {0} inspectors and {1} exploeres open.", this.Application.Inspectors.Count, this.Application.Explorers.Count));
         }
 

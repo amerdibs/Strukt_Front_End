@@ -851,7 +851,7 @@ namespace ProcScribe
 
                     //When we delete that only one child task, the most of behavior, Strukt will delete its child workflow too.
                     //If we still insist to delete, we will meet error(500).
-                    //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
                     //if (strResult != global.resultSuccessStrukt)
                     //{
                     //    MessageBox.Show("There is error. Workflow cannot be deleted.");
@@ -886,12 +886,12 @@ namespace ProcScribe
                         MessageBox.Show("Task cannot be deleted!");
                         return;
                     }
-                    //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
-                    //if (strResult != global.resultSuccessStrukt)
-                    //{
-                    //    MessageBox.Show("There is error. Workflow cannot be deleted.");
-                    //    return;
-                    //}
+                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Workflow cannot be deleted.");
+                        return;
+                    }
                     Workflow wfPre = uSelect.taskMember.workflowParent;
                     wfPre.taskChildList.Remove(uSelect.taskMember);
                     uSelect.taskMember.workflowChild = null;
@@ -917,12 +917,12 @@ namespace ProcScribe
                         MessageBox.Show("Task cannot be deleted!");
                         return;
                     }
-                    //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
-                    //if (strResult != global.resultSuccessStrukt)
-                    //{
-                    //    MessageBox.Show("There is error. Workflow cannot be deleted.");
-                    //    return;
-                    //}
+                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Workflow cannot be deleted.");
+                        return;
+                    }
                     Workflow wfPre = uSelect.taskMember.workflowParent;
                     wfPre.taskChildList.Remove(uSelect.taskMember);
                     uSelect.taskMember.workflowChild = null;
@@ -954,12 +954,12 @@ namespace ProcScribe
                         MessageBox.Show("Task cannot be deleted!");
                         return;
                     }
-                    //strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
-                    //if (strResult != global.resultSuccessStrukt)
-                    //{
-                    //    MessageBox.Show("There is error. Workflow cannot be deleted.");
-                    //    return;
-                    //}
+                    strResult = Workflow.deleteWorkflow(global.getValueFromStruktValue(uSelect.taskMember.workflowChild.id));
+                    if (strResult != global.resultSuccessStrukt)
+                    {
+                        MessageBox.Show("There is error. Workflow cannot be deleted.");
+                        return;
+                    }
 
                     Workflow wfPre = uSelect.taskMember.workflowParent;
                     wfPre.taskChildList.Remove(uSelect.taskMember);
