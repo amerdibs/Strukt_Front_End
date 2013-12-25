@@ -124,12 +124,16 @@ namespace ProcScribe
             if (readReg.GetValue("resolution_width") == null)
                 readReg.SetValue("resolution_width", Screen.PrimaryScreen.Bounds.Width.ToString());
             if (readReg.GetValue("COLORMAINTASK") == null)
-                readReg.SetValue("COLORMAINTASK", Screen.PrimaryScreen.Bounds.Width.ToString());
+                readReg.SetValue("COLORMAINTASK", global.ColorMainTaskDefault.ToArgb());
             if (readReg.GetValue("COLORHOVER") == null)
-                readReg.SetValue("COLORHOVER", Screen.PrimaryScreen.Bounds.Width.ToString()); 
+                readReg.SetValue("COLORHOVER", global.ColorHoverDefault.ToArgb()); 
             if (readReg.GetValue("COLORSELECT") == null)
-                readReg.SetValue("COLORSELECT", Screen.PrimaryScreen.Bounds.Width.ToString());
-            
+                readReg.SetValue("COLORSELECT", global.ColorSelectDefault.ToArgb());
+
+            global.ColorHover = Color.FromArgb((int)readReg.GetValue("COLORHOVER", global.ColorHoverDefault.ToArgb()));
+            global.ColorMainTask = Color.FromArgb((int)readReg.GetValue("COLORMAINTASK", global.ColorMainTaskDefault.ToArgb()));
+            global.ColorSelect = Color.FromArgb((int)readReg.GetValue("COLORSELECT", global.ColorSelectDefault.ToArgb()));
+
             int resolution_width = Convert.ToInt32(readReg.GetValue("resolution_width").ToString());
             int resolution_height = Convert.ToInt32(readReg.GetValue("resolution_height").ToString());
             int top_postion = Convert.ToInt32(readReg.GetValue("top_position").ToString());

@@ -42,6 +42,9 @@ namespace ProcScribe
                 readReg.SetValue("ALLWAYTOP", "FALSE");
                 frmParent.TopMost = false;
             }
+            readReg.SetValue("COLORHOVER", txtTaskHoverColor.BackColor.ToArgb());
+            readReg.SetValue("COLORSELECT", txtTaskSelectColor.BackColor.ToArgb());
+            readReg.SetValue("COLORMAINTASK", txtColorTask.BackColor.ToArgb());
             this.Close();
         }
 

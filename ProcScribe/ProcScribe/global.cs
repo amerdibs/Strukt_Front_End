@@ -31,11 +31,10 @@ namespace ProcScribe
 
         public static Color ColorMainTask = Color.WhiteSmoke;
         public static Color ColorHover = Color.LightGray;
-        public static Color ColorSubTask = Color.Lavender;
         public static Color ColorSelect = Color.FromArgb(161, 202, 241);
 
         public static Color ColorMainTaskDefault = Color.WhiteSmoke;
-        public static Color ColorHoverDefault = Color.FromArgb(161, 202, 241);
+        public static Color ColorHoverDefault = Color.LightGray;
         public static Color ColorSelectDefault = Color.FromArgb(161, 202, 241);
 
 
