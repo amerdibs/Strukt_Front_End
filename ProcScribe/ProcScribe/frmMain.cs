@@ -130,6 +130,8 @@ namespace ProcScribe
             if (readReg.GetValue("COLORSELECT") == null)
                 readReg.SetValue("COLORSELECT", global.ColorSelectDefault.ToArgb());
 
+            readReg.SetValue("PROSCRIBEPATH", Application.ExecutablePath);
+
             global.ColorHover = Color.FromArgb((int)readReg.GetValue("COLORHOVER", global.ColorHoverDefault.ToArgb()));
             global.ColorMainTask = Color.FromArgb((int)readReg.GetValue("COLORMAINTASK", global.ColorMainTaskDefault.ToArgb()));
             global.ColorSelect = Color.FromArgb((int)readReg.GetValue("COLORSELECT", global.ColorSelectDefault.ToArgb()));

@@ -52,8 +52,8 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject/>
-		<author>InstallShield</author>
+		<subject>Proscribe</subject>
+		<author>##ID_STRING3##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
 		<template>Intel;1033</template>
@@ -225,6 +225,8 @@
 	<table name="AppSearch">
 		<col key="yes" def="s72">Property</col>
 		<col key="yes" def="s72">Signature_</col>
+		<row><td>DOTNETVERSION40FULL</td><td>DotNet40Full</td></row>
+		<row><td>DOTNETVERSION45FULL</td><td>DotNet45Full</td></row>
 	</table>
 
 	<table name="BBControl">
@@ -251,6 +253,7 @@
 		<col def="V0">Data</col>
 		<col def="S255">ISBuildSourcePath</col>
 		<row><td>ISExpHlp.dll</td><td/><td>&lt;ISRedistPlatformDependentFolder&gt;\ISExpHlp.dll</td></row>
+		<row><td>ISSELFREG.DLL</td><td/><td>&lt;ISRedistPlatformDependentFolder&gt;\isregsvr.dll</td></row>
 		<row><td>NewBinary1</td><td/><td>&lt;ISProductFolder&gt;\Support\Themes\InstallShield Blue Theme\banner.jpg</td></row>
 		<row><td>NewBinary10</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\CompleteSetupIco.ibd</td></row>
 		<row><td>NewBinary11</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\CustomSetupIco.ibd</td></row>
@@ -261,6 +264,7 @@
 		<row><td>NewBinary16</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallFirstUse.ico</td></row>
 		<row><td>NewBinary17</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallPartial.ico</td></row>
 		<row><td>NewBinary18</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallStateMenu.ico</td></row>
+		<row><td>NewBinary19</td><td/><td>&lt;ISProductFolder&gt;\redist\Language independent\i386\SerialNumCAHelper.dll</td></row>
 		<row><td>NewBinary2</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\New.ibd</td></row>
 		<row><td>NewBinary3</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\Up.ibd</td></row>
 		<row><td>NewBinary4</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\WarningIcon.ibd</td></row>
@@ -338,6 +342,9 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
+		<row><td>NewComponent1</td><td>{821BEFE5-6DFA-4D0E-A2B8-060EEAD038E2}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ProcScribe.Primary_output</td><td>{B6B0F896-C323-4722-944F-8143216D81C2}</td><td>INSTALLDIR</td><td>2</td><td/><td>procscribe.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ProcScribeOutlook.Primary_output</td><td>{A50CEAB3-FE52-4166-BED3-5850A1790557}</td><td>INSTALLDIR</td><td>2</td><td/><td>procscribeoutlook.primary_ou</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -917,7 +924,7 @@
 		<row><td>DatabaseFolder</td><td>ChangeFolder</td><td>SpawnDialog</td><td>InstallChangeFolder</td><td>1</td><td>1</td></row>
 		<row><td>DatabaseFolder</td><td>ChangeFolder</td><td>[_BrowseProperty]</td><td>DATABASEDIR</td><td>1</td><td>2</td></row>
 		<row><td>DatabaseFolder</td><td>Next</td><td>NewDialog</td><td>SetupType</td><td>1</td><td>1</td></row>
-		<row><td>DestinationFolder</td><td>Back</td><td>NewDialog</td><td>CustomerInformation</td><td>1</td><td>0</td></row>
+		<row><td>DestinationFolder</td><td>Back</td><td>NewDialog</td><td>InstallWelcome</td><td>NOT Installed</td><td>0</td></row>
 		<row><td>DestinationFolder</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>DestinationFolder</td><td>ChangeFolder</td><td>SpawnDialog</td><td>InstallChangeFolder</td><td>1</td><td>1</td></row>
 		<row><td>DestinationFolder</td><td>ChangeFolder</td><td>[_BrowseProperty]</td><td>INSTALLDIR</td><td>1</td><td>2</td></row>
@@ -934,11 +941,11 @@
 		<row><td>InstallChangeFolder</td><td>Up</td><td>DirectoryListUp</td><td>0</td><td>1</td><td>0</td></row>
 		<row><td>InstallWelcome</td><td>Back</td><td>NewDialog</td><td>SplashBitmap</td><td>Display_IsBitmapDlg</td><td>0</td></row>
 		<row><td>InstallWelcome</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
-		<row><td>InstallWelcome</td><td>Next</td><td>NewDialog</td><td>LicenseAgreement</td><td>1</td><td>0</td></row>
+		<row><td>InstallWelcome</td><td>Next</td><td>NewDialog</td><td>DestinationFolder</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>Back</td><td>NewDialog</td><td>InstallWelcome</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>ISPrintButton</td><td>DoAction</td><td>ISPrint</td><td>1</td><td>0</td></row>
-		<row><td>LicenseAgreement</td><td>Next</td><td>NewDialog</td><td>CustomerInformation</td><td>AgreeToLicense = "Yes"</td><td>0</td></row>
+		<row><td>LicenseAgreement</td><td>Next</td><td>NewDialog</td><td>DestinationFolder</td><td>AgreeToLicense = "Yes"</td><td>0</td></row>
 		<row><td>MaintenanceType</td><td>Back</td><td>NewDialog</td><td>MaintenanceWelcome</td><td>1</td><td>0</td></row>
 		<row><td>MaintenanceType</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>MaintenanceType</td><td>Next</td><td>NewDialog</td><td>CustomSetup</td><td>_IsMaintenance = "Change"</td><td>12</td></row>
@@ -969,7 +976,7 @@
 		<row><td>ReadmeInformation</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>ReadmeInformation</td><td>Next</td><td>NewDialog</td><td>CustomerInformation</td><td>1</td><td>1</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>CustomSetup</td><td>Installed OR _IsSetupTypeMin = "Custom"</td><td>2</td></row>
-		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>CustomerInformation</td><td>NOT Installed</td><td>1</td></row>
+		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>DestinationFolder</td><td>NOT Installed</td><td>1</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MaintenanceType</td><td>Installed AND _IsMaintenance = "Reinstall"</td><td>3</td></row>
 		<row><td>ReadyToInstall</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>ReadyToInstall</td><td>InstallNow</td><td>EndDialog</td><td>Return</td><td>OutOfNoRbDiskSpace &lt;&gt; 1</td><td>0</td></row>
@@ -1007,8 +1014,9 @@
 		<row><td>SetupCompleteError</td><td>Finish</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1")</td><td>3</td></row>
 		<row><td>SetupCompleteError</td><td>Finish</td><td>EndDialog</td><td>Exit</td><td>1</td><td>2</td></row>
 		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>CleanUp</td><td>ISSCRIPTRUNNING="1"</td><td>1</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1") And NOT ISENABLEDWUSFINISHDIALOG</td><td>6</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>EndDialog</td><td>Exit</td><td>1</td><td>2</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>LaunchProgramFileFromSetupCompleteSuccess</td><td>LAUNCHPROGRAM And PROGRAMFILETOLAUNCHATEND &lt;&gt; "" And NOT Installed</td><td>2</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1") And NOT ISENABLEDWUSFINISHDIALOG</td><td>7</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>EndDialog</td><td>Exit</td><td>1</td><td>3</td></row>
 		<row><td>SetupError</td><td>A</td><td>EndDialog</td><td>ErrorAbort</td><td>1</td><td>0</td></row>
 		<row><td>SetupError</td><td>C</td><td>EndDialog</td><td>ErrorCancel</td><td>1</td><td>0</td></row>
 		<row><td>SetupError</td><td>I</td><td>EndDialog</td><td>ErrorIgnore</td><td>1</td><td>0</td></row>
@@ -1046,6 +1054,7 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>INSTALLDIR</td><td>NewComponent1</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1058,6 +1067,11 @@
 		<row><td>ISPreventDowngrade</td><td>19</td><td/><td>[IS_PREVENT_DOWNGRADE_EXIT]</td><td/><td>Exits install when a newer version of this product is found</td></row>
 		<row><td>ISPrint</td><td>1</td><td>SetAllUsers.dll</td><td>PrintScrollableText</td><td/><td>Prints the contents of a ScrollableText control on a dialog.</td></row>
 		<row><td>ISRunSetupTypeAddLocalEvent</td><td>1</td><td>ISExpHlp.dll</td><td>RunSetupTypeAddLocalEvent</td><td/><td>Run the AddLocal events associated with the Next button on the Setup Type dialog.</td></row>
+		<row><td>ISSelfRegisterCosting</td><td>1</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterCosting</td><td/><td/></row>
+		<row><td>ISSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFiles</td><td/><td/></row>
+		<row><td>ISSelfRegisterFinalize</td><td>1</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFinalize</td><td/><td/></row>
+		<row><td>ISUnSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISUnSelfRegisterFiles</td><td/><td/></row>
+		<row><td>LaunchProgramFileFromSetupCompleteSuccess</td><td>1</td><td>NewBinary19</td><td>LaunchProgram</td><td/><td/></row>
 		<row><td>SetARPINSTALLLOCATION</td><td>51</td><td>ARPINSTALLLOCATION</td><td>[INSTALLDIR]</td><td/><td/></row>
 		<row><td>SetAllUsersProfileNT</td><td>51</td><td>ALLUSERSPROFILE</td><td>[%SystemRoot]\Profiles\All Users</td><td/><td/></row>
 		<row><td>ShowMsiLog</td><td>226</td><td>SystemFolder</td><td>[SystemFolder]notepad.exe "[MsiLogFileLocation]"</td><td/><td>Shows Property-driven MSI Log</td></row>
@@ -1131,14 +1145,17 @@
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>ISMyProductDir</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>PROSCRIBE</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>ISYourDataBaseDir</td><td>INSTALLDIR</td><td>Database</td><td/><td>0</td><td/></row>
 		<row><td>LocalAppDataFolder</td><td>TARGETDIR</td><td>.:LocalA~1|LocalAppData</td><td/><td>0</td><td/></row>
+		<row><td>MANNHEIM_INES</td><td>ProgramFilesFolder</td><td>MANNHE~1|Mannheim_InES</td><td/><td>0</td><td/></row>
+		<row><td>MY_PRODUCT_NAME</td><td>MANNHEIM_INES</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
+		<row><td>PROSCRIBE</td><td>MANNHEIM_INES</td><td>PROSCR~1|Proscribe</td><td/><td>0</td><td/></row>
 		<row><td>PersonalFolder</td><td>TARGETDIR</td><td>.:Personal</td><td/><td>0</td><td/></row>
 		<row><td>PrimaryVolumePath</td><td>TARGETDIR</td><td>.:Primar~1|PrimaryVolumePath</td><td/><td>0</td><td/></row>
 		<row><td>PrintHoodFolder</td><td>TARGETDIR</td><td>.:PRINTH~1|PrintHood</td><td/><td>0</td><td/></row>
@@ -1158,6 +1175,8 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
+		<row><td>mannheim_ines</td><td>ProgramMenuFolder</td><td>mannheim_ines</td><td/><td>1</td><td/></row>
+		<row><td>proscribe</td><td>mannheim_ines</td><td>proscribe</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -1849,6 +1868,9 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>AlwaysInstall</td><td>NewComponent1</td></row>
+		<row><td>AlwaysInstall</td><td>ProcScribe.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>ProcScribeOutlook.Primary_output</td></row>
 	</table>
 
 	<table name="File">
@@ -1863,6 +1885,8 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
+		<row><td>procscribe.primary_output</td><td>ProcScribe.Primary_output</td><td>ProcScribe.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ProcScribe&gt;|Built</td><td>3</td><td/></row>
+		<row><td>procscribeoutlook.primary_ou</td><td>ProcScribeOutlook.Primary_output</td><td>ProcScribeOutlook.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ProcScribeOutlook&gt;|Built</td><td>3</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -1878,6 +1902,8 @@
 	<table name="ISAssistantTag">
 		<col key="yes" def="s72">Tag</col>
 		<col def="S255">Data</col>
+		<row><td>PROJECT_ASSISTANT_DEFAULT_FEATURE</td><td>AlwaysInstall</td></row>
+		<row><td>PROJECT_ASSISTANT_FEATURES</td><td>NonSelectable</td></row>
 	</table>
 
 	<table name="ISBillBoard">
@@ -2004,6 +2030,9 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
+		<row><td>NewComponent1</td><td/><td/><td>_41036278_5ACC_436E_84CA_512FAE9A8F12_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ProcScribe.Primary_output</td><td/><td/><td>_AEE06667_5904_4F9F_A988_88C2B885BA33_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ProcScribeOutlook.Primary_output</td><td/><td/><td>_4791BE7F_59B4_40A6_8E27_46456B75BFFB_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2309,6 +2338,8 @@
 		<row><td>ISProductFolder</td><td/><td/><td>1</td></row>
 		<row><td>ISProjectDataFolder</td><td/><td/><td>1</td></row>
 		<row><td>ISProjectFolder</td><td/><td/><td>1</td></row>
+		<row><td>ProcScribe</td><td>ProcScribe\ProcScribe.csproj</td><td/><td>2</td></row>
+		<row><td>ProcScribeOutlook</td><td>ProcScribeOutlook\ProcScribeOutlook.csproj</td><td/><td>2</td></row>
 		<row><td>ProgramFilesFolder</td><td/><td/><td>1</td></row>
 		<row><td>SystemFolder</td><td/><td/><td>1</td></row>
 		<row><td>WindowsFolder</td><td/><td/><td>1</td></row>
@@ -2620,9 +2651,11 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Your Company Name</td><td>0</td><td/><td>-836673743</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Mannheim_InES</td><td>0</td><td/><td>-702472946</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-836673743</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-836673743</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-702465586</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-702465586</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>-836673743</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-836673743</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-836673743</td></row>
@@ -3432,6 +3465,7 @@
 		<row><td>IDS_PROGMSG_XML_UPDATE_FILE</td><td>1033</td><td>Updating XML file %s...</td><td>0</td><td/><td>-836673743</td></row>
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>-836673743</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>-836673743</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>Proscribe</td><td>0</td><td/><td>-702419794</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>-836673743</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>-836673743</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>-836673743</td></row>
@@ -3721,6 +3755,9 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-836673743</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-836673743</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>-836671695</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.institute-for-enterprise-systems.de/</td><td>0</td><td/><td>-702456562</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>Mannheim_InES</td><td>0</td><td/><td>-702472946</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>Proscribe</td><td>0</td><td/><td>-702477106</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-836673743</td></row>
 	</table>
 
@@ -3828,7 +3865,8 @@
 		<col def="V0">Data</col>
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
-		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>ARPPRODUCTICON.exe</td><td/><td>C:\DesktopPKI\other\IconSetPict\FastIcon.Basic.Pack.v1.0.Retail-WDYL\Basic_Pack\The Icons\Win ICOs\user.ico</td><td>0</td></row>
+		<row><td>UNINST_Uninstall_P_26EEA474144143369A61AE6232201B2B.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2013LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3871,6 +3909,10 @@
 		<row><td>FindRelatedProducts</td><td>NOT ISSETUPDRIVEN</td><td>420</td><td>FindRelatedProducts</td><td/></row>
 		<row><td>ISPreventDowngrade</td><td>ISFOUNDNEWERPRODUCTVERSION</td><td>450</td><td>ISPreventDowngrade</td><td/></row>
 		<row><td>ISRunSetupTypeAddLocalEvent</td><td>Not Installed And Not ISRUNSETUPTYPEADDLOCALEVENT</td><td>1050</td><td>ISRunSetupTypeAddLocalEvent</td><td/></row>
+		<row><td>ISSelfRegisterCosting</td><td/><td>2201</td><td/><td/></row>
+		<row><td>ISSelfRegisterFiles</td><td/><td>5601</td><td/><td/></row>
+		<row><td>ISSelfRegisterFinalize</td><td/><td>6601</td><td/><td/></row>
+		<row><td>ISUnSelfRegisterFiles</td><td/><td>2202</td><td/><td/></row>
 		<row><td>InstallFiles</td><td/><td>4000</td><td>InstallFiles</td><td/></row>
 		<row><td>InstallFinalize</td><td/><td>6600</td><td>InstallFinalize</td><td/></row>
 		<row><td>InstallInitialize</td><td/><td>1501</td><td>InstallInitialize</td><td/></row>
@@ -3957,7 +3999,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{1AD74631-6B90-487B-B363-FF4C7571BEFE}</td></row>
 		<row><td>ISUSSignature</td><td>{81E399D0-32DF-4482-AA70-BE9881F78EEB}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUI,viewAppFiles,viewUpgradePaths,viewSetupTypes,viewFeatureFiles,viewRealSetupDesign</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4015,6 +4057,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 	<table name="LaunchCondition">
 		<col key="yes" def="s255">Condition</col>
 		<col def="l255">Description</col>
+		<row><td>DOTNETVERSION40FULL&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL##</td></row>
+		<row><td>DOTNETVERSION45FULL&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL##</td></row>
 	</table>
 
 	<table name="ListBox">
@@ -4265,6 +4309,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ARPINSTALLLOCATION</td><td/><td/></row>
 		<row><td>ARPPRODUCTICON</td><td>ARPPRODUCTICON.exe</td><td/></row>
 		<row><td>ARPSIZE</td><td/><td/></row>
+		<row><td>ARPURLINFOABOUT</td><td>##ID_STRING2##</td><td/></row>
 		<row><td>AgreeToLicense</td><td>No</td><td/></row>
 		<row><td>ApplicationUsers</td><td>AllUsers</td><td/></row>
 		<row><td>DWUSINTERVAL</td><td>30</td><td/></row>
@@ -4301,6 +4346,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>IS_SQLSERVER_USERNAME</td><td>sa</td><td/></row>
 		<row><td>InstallChoice</td><td>AR</td><td/></row>
 		<row><td>LAUNCHPROGRAM</td><td>1</td><td/></row>
+		<row><td>LAUNCHPROGRAMCOMPCODE</td><td>{B6B0F896-C323-4722-944F-8143216D81C2}</td><td/></row>
+		<row><td>LAUNCHPROGRAMFILEKEY</td><td>procscribe.primary_output</td><td/></row>
 		<row><td>LAUNCHREADME</td><td>1</td><td/></row>
 		<row><td>Manufacturer</td><td>##COMPANY_NAME##</td><td/></row>
 		<row><td>PIDKEY</td><td/><td/></row>
@@ -4328,8 +4375,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKAPPPOOLS</td><td>##IDS_PROGMSG_IIS_ROLLBACKAPPPOOLS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
+		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]ProcScribe.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{2B8EFD8B-A781-41EE-A166-BD21703E6C96}</td><td/></row>
-		<row><td>ProductName</td><td>ProscribeSetup</td><td/></row>
+		<row><td>ProductName</td><td>Proscribe</td><td/></row>
 		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
@@ -4342,7 +4390,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RestartManagerOption</td><td>CloseRestart</td><td/></row>
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR</td><td/></row>
+		<row><td>SHOWLAUNCHPROGRAM</td><td>-1</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL;DOTNETVERSION40FULL</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{71622101-010D-4AAD-8FAB-2CFEA1C7DB47}</td><td/></row>
@@ -4387,6 +4436,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s255">Key</col>
 		<col def="S255">Name</col>
 		<col def="I2">Type</col>
+		<row><td>DotNet40Full</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full</td><td>Install</td><td>2</td></row>
+		<row><td>DotNet45Full</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full</td><td>Version</td><td>2</td></row>
 	</table>
 
 	<table name="Registry">
@@ -4405,6 +4456,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
+		<row><td>UNINST_Uninstall_Proscribe</td><td>NewComponent1</td><td/><td>proscribe</td><td>2</td></row>
+		<row><td>_Built</td><td>ProcScribe.Primary_output</td><td/><td>proscribe</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4490,6 +4543,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>UNINST_Uninstall_Proscribe</td><td>proscribe</td><td>UNINST|Uninstall Proscribe</td><td>NewComponent1</td><td>[SystemFolder]msiexec.exe</td><td>/x {2B8EFD8B-A781-41EE-A166-BD21703E6C96}</td><td/><td/><td>UNINST_Uninstall_P_26EEA474144143369A61AE6232201B2B.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built</td><td>proscribe</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>ProcScribe.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>ProcScribe.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

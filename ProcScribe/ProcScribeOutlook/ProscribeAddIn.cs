@@ -8,6 +8,7 @@ using Office = Microsoft.Office.Core;
 using System.Windows.Forms;
 using System.Data;
 using System.Drawing;
+using Microsoft.Win32;
 
 namespace ProcScribeOutlook
 {
@@ -18,6 +19,32 @@ namespace ProcScribeOutlook
         {
             //strIdentity = Guid.NewGuid().ToString("N");
             globalOutlook.proscribeAddIn = this;
+            RegistryKey readReg;
+            readReg = Registry.CurrentUser.OpenSubKey(globalOutlook.registryPath, true);
+            if (readReg == null)
+            {
+                Registry.CurrentUser.CreateSubKey(globalOutlook.registryPath);
+                readReg = Registry.CurrentUser.OpenSubKey(globalOutlook.registryPath, true);
+            }
+            if (readReg.GetValue("PROSCRIBEPATH") == null)
+            {
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Installer\Assemblies");
+                string regfilepath = "";
+                if (key != null)       // Make sure there are Assemblies
+                {
+                    foreach (string Keyname in key.GetSubKeyNames())
+                    {
+                        if (Keyname.IndexOf("PROSCRIBE.EXE") > 0)
+                        {
+                            regfilepath = Keyname;
+                            break;
+                        }
+                    }
+                }
+                regfilepath = regfilepath.Replace('|','\\');
+                MessageBox.Show(regfilepath);
+            }
+
             
             //MessageBox.Show(strIdentity);
             //MessageBox.Show(String.Format("There are {0} inspectors and {1} exploeres open.", this.Application.Inspectors.Count, this.Application.Explorers.Count));

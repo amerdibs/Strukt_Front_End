@@ -28,4 +28,14 @@
 		</TaggedOutputs> -->
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\ProcScribe\ProcScribe.csproj">
+			<Name>ProcScribe</Name>
+			<Project>{ABA02BD1-E73C-467D-A3A1-4759B892ADE0}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ProcScribeOutlook\ProcScribeOutlook.csproj">
+			<Name>ProcScribeOutlook</Name>
+			<Project>{93802A3D-D74C-4716-A23D-FFD1DC53742A}</Project>
+		</ProjectReference>
+	</ItemGroup>
 </Project>
