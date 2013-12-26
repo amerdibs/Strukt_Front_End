@@ -62,6 +62,7 @@
             this.rbtnDiscover.Label = "Discover";
             this.rbtnDiscover.Name = "rbtnDiscover";
             this.rbtnDiscover.ShowImage = true;
+            this.rbtnDiscover.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rbtnDiscover_Click);
             // 
             // rbtnOption
             // 

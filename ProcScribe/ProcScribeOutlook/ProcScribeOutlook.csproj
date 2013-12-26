@@ -159,6 +159,7 @@
     <Compile Include="frmOptions.Designer.cs">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="globalOutlook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -203,15 +204,15 @@
     <Compile Include="Strukt.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskProcess.cs" />
-    <Compile Include="ThisAddIn.cs">
+    <Compile Include="ProscribeAddIn.cs">
       <SubType>Code</SubType>
     </Compile>
     <None Include="Service References\StruktMain\StruktMain1.wsdl" />
-    <None Include="ThisAddIn.Designer.xml">
-      <DependentUpon>ThisAddIn.cs</DependentUpon>
+    <None Include="ProscribeAddIn.Designer.xml">
+      <DependentUpon>ProscribeAddIn.cs</DependentUpon>
     </None>
-    <Compile Include="ThisAddIn.Designer.cs">
-      <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
+    <Compile Include="ProscribeAddIn.Designer.cs">
+      <DependentUpon>ProscribeAddIn.Designer.xml</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
@@ -268,7 +269,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Outlook" HostPackage="{20A848B8-E01F-4801-962E-25DB0FF57389}" OfficeVersion="14.0" VstxVersion="4.0" ApplicationType="Outlook" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\14.0\Outlook\InstallRoot\Path#outlook.exe" AddItemTemplatesGuid="{A58A78EB-1C92-4DDD-80CF-E8BD872ABFC4}" />
         <Host Name="Outlook" GeneratedCodeNamespace="ProcScribeOutlook" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
+          <HostItem Name="ThisAddIn" Code="ProscribeAddIn.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="ProscribeAddIn.Designer.xml" GeneratedCode="ProscribeAddIn.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>
