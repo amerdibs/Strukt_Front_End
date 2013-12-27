@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="oy8yVK0TNKGxMBwf7lSgQFPzp84=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="lmR9ou7xIvbaqiIPqcggCBcUA6o=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="StruktUserSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="StruktUserSoap" contract="StruktWebservice.StruktUserSoap" bindingType="basicHttpBinding" address="http://localhost/strukthelp/StruktUser.asmx" bindingConfiguration="StruktUserSoap">
+    <endpoint name="StruktUserSoap" contract="StruktWebservice.StruktUserSoap" bindingType="basicHttpBinding" address="http://pakorn.somee.com/strukthelp/StruktUser.asmx" bindingConfiguration="StruktUserSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost/strukthelp/StruktUser.asmx</serializedValue>
+          <serializedValue>http://pakorn.somee.com/strukthelp/StruktUser.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
