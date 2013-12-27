@@ -11,6 +11,7 @@ namespace ProcScribeOutlook
     {
         public static ThisAddIn proscribeAddIn;
         public static string registryPath = "SOFTWARE\\ProcScribe";
-        public static string proscribePath = "SOFTWARE\\ProcScribe";
+        public static string proscribePath;
     }
+
 }

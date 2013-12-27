@@ -213,7 +213,35 @@ namespace ProcScribe
                 tsRole.Text = "Executor";
                 
             }
-            
+
+            // If there are passed arguments from outside
+            if (Environment.GetCommandLineArgs().Length > 2)
+            {
+                cbProcess.SelectedValue = Environment.GetCommandLineArgs()[1];
+                //Load process
+                btnLoadProcess_Click(sender, e);
+                //Search and point to task
+                foreach (Object objEach in pnCenter.Controls)
+                {
+                    UCMainTask ucTask = (UCMainTask)objEach;
+                    ucTask.Height = global.heightControlTaskNormal;
+                    ucTask.BackColor = global.ColorMainTask;
+                    if (ucTask.taskMember.workflowChild.taskChildList != null)
+                    {
+                        ucTask.collapseType = UCMainTask.collapseType_uncollapse;
+                        PictureBox img = (PictureBox)ucTask.Controls["pbCollape"];
+                        img.Image = Properties.Resources.uncollapes;
+                    }
+                }
+                UCMainTask ucMain = getUCMainTaskByTaskID(Strukt.Type_Task +  Environment.GetCommandLineArgs()[2]);
+                pnCenter.ScrollControlIntoView(ucMain);
+                global.currentTaskControlID = ucMain.GetHashCode();
+                global.currentTaskControlType = global.currentTaskControlTypeMainTask;
+                global.currentTaskControlObject = ucMain;
+                ucMain.preColor = ucMain.BackColor;
+                ucMain.BackColor = global.ColorSelect;
+                tabCenter.SelectedTab = tpGuide;
+            }
             
 
             //Change idea of role in second phase

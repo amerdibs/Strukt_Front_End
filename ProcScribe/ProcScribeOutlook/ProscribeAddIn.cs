@@ -28,22 +28,35 @@ namespace ProcScribeOutlook
             }
             if (readReg.GetValue("PROSCRIBEPATH") == null)
             {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Installer\Assemblies");
-                string regfilepath = "";
-                if (key != null)       // Make sure there are Assemblies
+                try
                 {
-                    foreach (string Keyname in key.GetSubKeyNames())
+                    RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall");
+                    string regfilepath = "";
+                    if (key != null)       // Make sure there are Assemblies
                     {
-                        if (Keyname.IndexOf("PROSCRIBE.EXE") > 0)
+                        foreach (string Keyname in key.GetSubKeyNames())
                         {
-                            regfilepath = Keyname;
-                            break;
+                            RegistryKey keySub = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\" + Keyname);
+                            String strVal = keySub.GetValue("DisplayName", -1, RegistryValueOptions.None).ToString();
+                            if (strVal != "-1")
+                            {
+                                if (strVal == "Proscribe")
+                                {
+                                    regfilepath = keySub.GetValue("InstallLocation").ToString();
+                                }
+                            }
                         }
                     }
+                    readReg.SetValue("PROSCRIBEPATH", regfilepath + "ProcScribe.exe");
                 }
-                regfilepath = regfilepath.Replace('|','\\');
-                MessageBox.Show(regfilepath);
+                catch (Exception)
+                {
+                    throw;
+                }
+                
             }
+
+            globalOutlook.proscribePath = readReg.GetValue("PROSCRIBEPATH").ToString();
 
             
             //MessageBox.Show(strIdentity);
