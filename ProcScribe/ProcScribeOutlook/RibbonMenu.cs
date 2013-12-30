@@ -30,55 +30,49 @@ namespace ProcScribeOutlook
         {
             globalOutlook.taskProcessFoundList = new List<TaskProcess>();
             List<TaskProcess> taskProcessList = TaskProcess.getTaskProcessAll();
-            if (globalOutlook.proscribeAddIn.Application.ActiveExplorer() != null)
+            Outlook.MailItem mailItem = null;
+            if (globalOutlook.proscribeAddIn.Application.ActiveInspector() != null)
             {
-                Outlook.Explorer activeExp = globalOutlook.proscribeAddIn.Application.ActiveExplorer();
-                if (activeExp.CurrentFolder.DefaultItemType == Outlook.OlItemType.olMailItem)
+                Outlook.Inspector activeInsp = globalOutlook.proscribeAddIn.Application.ActiveInspector();
+                if (activeInsp.CurrentItem is Outlook.MailItem)
                 {
-                    object selObject = activeExp.Selection[1];
-                    if (selObject is Outlook.MailItem)
-                    {
-                        Outlook.MailItem mailItem = (Outlook.MailItem)selObject;
-                        String strMail = mailItem.Body;
-                        foreach (TaskProcess taskP in taskProcessList)
-                        {
-                            if (!String.IsNullOrEmpty(taskP.keyword))
-                            {
-                                if (strMail.Contains(taskP.keyword))
-                                {
-                                    //MessageBox.Show(taskP.keyword);
-                                    globalOutlook.taskProcessFoundList.Add(taskP);
-                                }
-                            }
-                                
-                        }
-                        if (globalOutlook.taskProcessFoundList.Count > 0)
-                        {
-                            frmSearchResult frmSR = new frmSearchResult();
-                            frmSR.ShowDialog();
-                        }
-                        //MessageBox.Show(mailItem.Body);
-                        //Word.Document wed = mailItem.GetInspector.WordEditor;
-                        //Word.Selection wsel = wed.Application.Selection;
-                        
-
-                    }
+                    mailItem = (Outlook.MailItem)activeInsp.CurrentItem;
                 }
             }
-            
-            
+            else
+                if (globalOutlook.proscribeAddIn.Application.ActiveExplorer() != null)
+                {
+                    Outlook.Explorer activeExp = globalOutlook.proscribeAddIn.Application.ActiveExplorer();
+                    if (activeExp.CurrentFolder.DefaultItemType == Outlook.OlItemType.olMailItem)
+                    {
+                        object selObject = activeExp.Selection[1];
+                        if (selObject is Outlook.MailItem)
+                        {
+                            mailItem = (Outlook.MailItem)selObject;
+                        }
+                    }
+                }
 
+            if (mailItem != null)
+            {
+                String strMail = mailItem.Body;
+                foreach (TaskProcess taskP in taskProcessList)
+                {
+                    if (!String.IsNullOrEmpty(taskP.keyword))
+                    {
+                        if (strMail.Contains(taskP.keyword))
+                        {
+                            globalOutlook.taskProcessFoundList.Add(taskP);
+                        }
+                    }
 
-
-
-
-            //Process p = new Process();
-            //p.StartInfo.FileName = globalOutlook.proscribePath;
-            ////p.StartInfo.Arguments = "/c dir *.cs";
-            //p.StartInfo.UseShellExecute = false;
-            //p.StartInfo.RedirectStandardOutput = true;
-            //p.Start();
-            //globalOutlook.proscribeAddIn.Application.ActiveExplorer().
+                }
+                if (globalOutlook.taskProcessFoundList.Count > 0)
+                {
+                    frmSearchResult frmSR = new frmSearchResult();
+                    frmSR.ShowDialog();
+                }
+            }
         }
     }
 }

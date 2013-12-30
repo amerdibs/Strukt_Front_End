@@ -42,16 +42,12 @@ namespace ProcScribeOutlook
                 Process p = new Process();
                 p.StartInfo.FileName = globalOutlook.proscribePath;
                 p.StartInfo.Arguments = globalOutlook.getValueFromStruktValue(lvi.SubItems[4].Text) + " " + globalOutlook.getValueFromStruktValue(lvi.Tag.ToString());
-                MessageBox.Show(p.StartInfo.Arguments);
+                //MessageBox.Show(p.StartInfo.Arguments);
                 p.StartInfo.UseShellExecute = false;
                 p.StartInfo.RedirectStandardOutput = true;
                 p.Start();
             }
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
