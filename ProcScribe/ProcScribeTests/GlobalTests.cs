@@ -11,8 +11,8 @@ namespace ProcScribeTests
         //[TestMethod]
         public void getValueFromStruktValueTest()
         {
-            //String str = global.getValueFromStruktValue("");
-            //Assert.AreEqual("",str);
+            String str = global.getValueFromStruktValue("");
+            Assert.AreEqual("",str);
         }
 
         public void getRespondFromStruktGet()

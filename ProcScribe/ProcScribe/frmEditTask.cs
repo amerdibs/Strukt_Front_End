@@ -219,6 +219,7 @@ namespace ProcScribe
         private void rbFile_Click(object sender, EventArgs e)
         {
             txtAddress.Text = "";
+            btnBrowse.Text = "Open";
             txtAddress.Enabled = true;
             txtAddress.ReadOnly = true;
         }
