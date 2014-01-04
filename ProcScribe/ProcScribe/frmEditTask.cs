@@ -185,10 +185,11 @@ namespace ProcScribe
                     else
                         if (rbFile.Checked)
                         {
-                            DialogResult result = ofFileDialog.ShowDialog();
-                            if (result == DialogResult.OK)
+                            frmUploadFile frmUpload = new frmUploadFile();
+                            DialogResult diaUpload = frmUpload.ShowDialog();
+                            if (diaUpload == DialogResult.OK)
                             {
-                                txtAddress.Text = ofFileDialog.FileName;
+                                txtAddress.Text = frmUpload.strSelect;
                             }
 
                         }
