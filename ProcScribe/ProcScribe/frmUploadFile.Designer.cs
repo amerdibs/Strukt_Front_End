@@ -31,10 +31,10 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnOK
@@ -42,7 +42,7 @@
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.Alert;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnOK.Location = new System.Drawing.Point(392, 107);
+            this.btnOK.Location = new System.Drawing.Point(500, 107);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 6;
@@ -57,7 +57,7 @@
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(428, 212);
+            this.button1.Location = new System.Drawing.Point(514, 219);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -69,49 +69,50 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(367, 171);
+            this.textBox1.Location = new System.Drawing.Point(514, 156);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 20);
             this.textBox1.TabIndex = 8;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // openFileDialog1
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(12, 93);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(325, 210);
-            this.textBox2.TabIndex = 9;
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // webBrowser
             // 
-            this.webBrowser.Location = new System.Drawing.Point(-5, 0);
+            this.webBrowser.Location = new System.Drawing.Point(7, 12);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(460, 58);
+            this.webBrowser.Size = new System.Drawing.Size(354, 58);
             this.webBrowser.TabIndex = 10;
             this.webBrowser.Url = new System.Uri("http://pakorn.somee.com/upload/upload.aspx", System.UriKind.Absolute);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(13, 65);
+            this.button2.Location = new System.Drawing.Point(12, 76);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
             this.button2.Text = "Refresh";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(13, 107);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(348, 196);
+            this.panel1.TabIndex = 12;
+            // 
             // frmUploadFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 315);
+            this.ClientSize = new System.Drawing.Size(531, 315);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.webBrowser);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnOK);
@@ -128,9 +129,9 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
