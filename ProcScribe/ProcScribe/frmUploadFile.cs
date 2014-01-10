@@ -16,7 +16,8 @@ namespace ProcScribe
     {
         public string strSelect { get; set; }
         private string URL = "http://www.pakorn.somee.com/strukthelp/upload/";
-        private string localFilePath = @"C:\Users\SvenLaptop\Documents\GitHub\Strukt_Front_End\ProcScribe\FileFolderTest\TeamViewer_Setup_de.exe";
+        private string localFilePath = @"C:\Users\SvenLaptop\Documents\GitHub\Strukt_Front_End\ProcScribe\FileFolderTest\";
+        
         public frmUploadFile()
         {
             InitializeComponent();
@@ -24,20 +25,20 @@ namespace ProcScribe
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            DialogResult result = openFileDialog1.ShowDialog();
+            /*DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK) // Test result.
             {
                 textBox1.Text = openFileDialog1.FileName;
             }
-            textBox1.Text = openFileDialog1.SafeFileName;
+            textBox1.Text = openFileDialog1.SafeFileName;*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (WebClient client = new WebClient())
+            /*using (WebClient client = new WebClient())
             {
                 client.UploadFile(URL, localFilePath);
-            }
+            }*/
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -46,6 +47,16 @@ namespace ProcScribe
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
 
         }

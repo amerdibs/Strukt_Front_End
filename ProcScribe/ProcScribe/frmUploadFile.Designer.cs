@@ -85,13 +85,14 @@
             this.webBrowser.Location = new System.Drawing.Point(7, 12);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(354, 58);
+            this.webBrowser.Size = new System.Drawing.Size(407, 87);
             this.webBrowser.TabIndex = 10;
             this.webBrowser.Url = new System.Uri("http://pakorn.somee.com/upload/upload.aspx", System.UriKind.Absolute);
+            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 76);
+            this.button2.Location = new System.Drawing.Point(420, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
@@ -102,14 +103,15 @@
             // 
             this.panel1.Location = new System.Drawing.Point(13, 107);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(348, 196);
+            this.panel1.Size = new System.Drawing.Size(357, 196);
             this.panel1.TabIndex = 12;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // frmUploadFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 315);
+            this.ClientSize = new System.Drawing.Size(507, 315);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.webBrowser);
