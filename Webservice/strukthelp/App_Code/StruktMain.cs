@@ -6,6 +6,7 @@ using System.Web.Services;
 using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 /// <summary>
 /// Summary description for StruktMain
@@ -790,6 +791,77 @@ public class StruktMain : System.Web.Services.WebService {
         finally
         {
             dbConnection.Close();
+        }
+
+    }
+
+    [WebMethod]
+    public string getFileList()
+    {
+        string strAnswer = "";
+        try
+        {
+            string[] files = Directory.GetFiles(constantClass.folderShared);
+            List<FileList> listFileList = new List<FileList>();
+            for (int iFile = 0; iFile < files.Length; iFile++)
+            {
+                FileList fileL = new FileList();
+                FileInfo fileInf = new FileInfo(files[iFile]);
+                fileL.fileName = fileInf.Name;
+                fileL.fileSize = String.Format("##0.00", fileInf.Length / (1024 * 1024)) + " MB";
+                fileL.fileCreatedDate = String.Format("dd-MM-yyyy",fileInf.CreationTimeUtc);
+                listFileList.Add(fileL);
+            }
+            JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+            jsSetting.NullValueHandling = NullValueHandling.Ignore;
+            strAnswer = JsonConvert.SerializeObject(listFileList, jsSetting);
+
+            //dbConnection.Open();
+            //string strD = "select * from Task where user_id = @user_id";
+            //SqlCommand qCommand = new SqlCommand(strD, dbConnection);
+            //qCommand.Parameters.Clear();
+            //qCommand.Parameters.Add(new SqlParameter("user_id", strUserID));
+            //qCommand.CommandText = strD;
+            //SqlDataReader qReader = qCommand.ExecuteReader();
+            //DataTable dtTable = new DataTable();
+            //dtTable.Load(qReader);
+            //dtTable.TableName = "Task";
+
+            //if (dtTable.Rows.Count == 0)
+            //    return null;
+
+            //Task tk = new Task();
+            //tk.real_id = dtTable.Rows[0]["real_id"].ToString();
+            //tk.id = dtTable.Rows[0]["id"].ToString();
+            //tk.precedes_id = dtTable.Rows[0]["precedes_id"].ToString();
+            //tk.parent_workflow_id = dtTable.Rows[0]["parent_workflow_id"].ToString();
+            //tk.child_workflow_id = dtTable.Rows[0]["child_workflow_id"].ToString();
+            //tk.workflow_model_id = dtTable.Rows[0]["workflow_model_id"].ToString();
+            //tk.user_id = dtTable.Rows[0]["user_id"].ToString();
+            //tk.name = dtTable.Rows[0]["name"].ToString();
+            //tk.deadline = dtTable.Rows[0]["deadline"].ToString();
+            //tk.date = dtTable.Rows[0]["date"].ToString();
+            //tk.status_id = dtTable.Rows[0]["status_id"].ToString();
+            //tk.type_id = dtTable.Rows[0]["type_id"].ToString();
+            //tk.location_id = dtTable.Rows[0]["location_id"].ToString();
+            //tk.project_id = dtTable.Rows[0]["project_id"].ToString();
+            //tk.follows_id = dtTable.Rows[0]["follows_id"].ToString();
+            //tk.process_workflow_id = dtTable.Rows[0]["process_workflow_id"].ToString();
+
+            //JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+            //jsSetting.NullValueHandling = NullValueHandling.Ignore;
+            //strAnswer = JsonConvert.SerializeObject(tk, jsSetting);
+            return strAnswer;
+
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        finally
+        {
+            //dbConnection.Close();
         }
 
     }
