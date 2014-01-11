@@ -360,8 +360,10 @@ namespace ProcScribe
 
         }
 
-        public double divide(int a, int b)
+        public static double divide(int a, int b)
         {
+            if (b == 0)
+                return 0;
             return a / b;
         }
 

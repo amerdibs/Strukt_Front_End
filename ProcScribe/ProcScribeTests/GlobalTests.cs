@@ -66,9 +66,19 @@ namespace ProcScribeTests
 
         }
 
+        [TestMethod]
         public void openLink()
         {
 
         }
+
+        [TestMethod]
+        public void divideTest()
+        {
+
+            //Assert.AreEqual(global.divide(5, 1), 5);
+            Assert.AreEqual(global.divide(5, 0), 5);
+        }
+
     }
 }
