@@ -148,6 +148,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getFileList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getFileListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFileListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="selectWorkflowSoapIn">
@@ -216,6 +226,12 @@
   <wsdl:message name="selectTaskByUserIDSoapOut">
     <wsdl:part name="parameters" element="tns:selectTaskByUserIDResponse" />
   </wsdl:message>
+  <wsdl:message name="getFileListSoapIn">
+    <wsdl:part name="parameters" element="tns:getFileList" />
+  </wsdl:message>
+  <wsdl:message name="getFileListSoapOut">
+    <wsdl:part name="parameters" element="tns:getFileListResponse" />
+  </wsdl:message>
   <wsdl:portType name="StruktMainSoap">
     <wsdl:operation name="selectWorkflow">
       <wsdl:input message="tns:selectWorkflowSoapIn" />
@@ -260,6 +276,10 @@
     <wsdl:operation name="selectTaskByUserID">
       <wsdl:input message="tns:selectTaskByUserIDSoapIn" />
       <wsdl:output message="tns:selectTaskByUserIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFileList">
+      <wsdl:input message="tns:getFileListSoapIn" />
+      <wsdl:output message="tns:getFileListSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StruktMainSoap" type="tns:StruktMainSoap">
@@ -363,6 +383,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getFileList">
+      <soap:operation soapAction="http://tempuri.org/getFileList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="StruktMainSoap12" type="tns:StruktMainSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -458,6 +487,15 @@
     </wsdl:operation>
     <wsdl:operation name="selectTaskByUserID">
       <soap12:operation soapAction="http://tempuri.org/selectTaskByUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFileList">
+      <soap12:operation soapAction="http://tempuri.org/getFileList" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

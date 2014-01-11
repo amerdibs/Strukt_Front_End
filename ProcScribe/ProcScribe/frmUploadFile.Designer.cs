@@ -42,7 +42,7 @@
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.Alert;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnOK.Location = new System.Drawing.Point(500, 107);
+            this.btnOK.Location = new System.Drawing.Point(544, 107);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 6;
@@ -57,7 +57,7 @@
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(514, 219);
+            this.button1.Location = new System.Drawing.Point(544, 198);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -85,14 +85,14 @@
             this.webBrowser.Location = new System.Drawing.Point(7, 12);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(407, 87);
+            this.webBrowser.Size = new System.Drawing.Size(497, 87);
             this.webBrowser.TabIndex = 10;
             this.webBrowser.Url = new System.Uri("http://pakorn.somee.com/upload/upload.aspx", System.UriKind.Absolute);
             this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(420, 12);
+            this.button2.Location = new System.Drawing.Point(429, 105);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
@@ -103,7 +103,7 @@
             // 
             this.panel1.Location = new System.Drawing.Point(13, 107);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(357, 196);
+            this.panel1.Size = new System.Drawing.Size(410, 196);
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 315);
+            this.ClientSize = new System.Drawing.Size(511, 315);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.webBrowser);
@@ -121,6 +121,7 @@
             this.Name = "frmUploadFile";
             this.Text = "frmUploadFile";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.frmUploadFile_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

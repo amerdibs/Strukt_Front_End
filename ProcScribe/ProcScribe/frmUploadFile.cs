@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace ProcScribe
 {
@@ -60,6 +61,41 @@ namespace ProcScribe
         {
 
         }
-      
+
+        private void frmUploadFile_Load(object sender, EventArgs e)
+        {
+            List<FileList> lFile = new List<FileList>();
+            lFile = getFileListAll();
+            if (lFile != null)
+            {
+                foreach (FileList fileN in lFile)
+                {
+                    //MessageBox.Show(fileN.fileName);
+                    //MessageBox.Show(fileN.fileSize);
+                    //MessageBox.Show(fileN.fileCreatedDate);
+                }
+            }
+        }
+
+        public static List<FileList> getFileListAll()
+        {
+            try
+            {
+                string strReturn = "";
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                strReturn = wsStrukt.getFileList();
+                if (strReturn == null)
+                    return null;
+                List<FileList> lFile = new List<FileList>();
+                lFile = JsonConvert.DeserializeObject<List<FileList>>(strReturn);
+                return lFile;
+
+            }
+            catch (Exception e)
+            {
+                global.getExceptionThrow(e);
+                throw e;
+            }
+        }
     }
 }
