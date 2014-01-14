@@ -56,7 +56,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ConditionTests.cs" />
-    <Compile Include="Copy of GlobalTests.cs" />
     <Compile Include="globalTests.cs" />
     <Compile Include="PropertiesStruktTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

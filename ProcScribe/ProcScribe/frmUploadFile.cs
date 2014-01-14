@@ -10,14 +10,13 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
+using ProcScribe.StruktWebservice;
 
 namespace ProcScribe
 {
     public partial class frmUploadFile : Form
     {
         public string strSelect { get; set; }
-        private string URL = "http://www.pakorn.somee.com/strukthelp/upload/";
-        private string localFilePath = @"C:\Users\SvenLaptop\Documents\GitHub\Strukt_Front_End\ProcScribe\FileFolderTest\";
         
         public frmUploadFile()
         {
@@ -64,12 +63,18 @@ namespace ProcScribe
 
         private void frmUploadFile_Load(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
             List<FileList> lFile = new List<FileList>();
             lFile = getFileListAll();
+            var items = listView1.Items;
             if (lFile != null)
             {
                 foreach (FileList fileN in lFile)
                 {
+                    ListViewItem item = new ListViewItem(fileN.fileName);
+                    item.SubItems.Add(fileN.fileSize);
+                    item.SubItems.Add(fileN.fileCreatedDate);
+                    listView1.Items.AddRange(new ListViewItem[] { item });
                     //MessageBox.Show(fileN.fileName);
                     //MessageBox.Show(fileN.fileSize);
                     //MessageBox.Show(fileN.fileCreatedDate);
@@ -97,5 +102,18 @@ namespace ProcScribe
                 throw e;
             }
         }
+
+        private void listVSearch_MouseClick2(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }

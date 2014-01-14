@@ -35,6 +35,11 @@
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
@@ -98,14 +103,53 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Refresh";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.frmUploadFile_Load);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.listView1);
             this.panel1.Location = new System.Drawing.Point(13, 107);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(410, 196);
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // listView1
+            // 
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HotTracking = true;
+            this.listView1.HoverSelection = true;
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(404, 190);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listVSearch_MouseClick2);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "File Name";
+            this.columnHeader1.Width = 197;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "File Size";
+            this.columnHeader2.Width = 107;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "File Creation Date";
+            this.columnHeader3.Width = 98;
             // 
             // frmUploadFile
             // 
@@ -122,6 +166,7 @@
             this.Text = "frmUploadFile";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmUploadFile_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +181,9 @@
         private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

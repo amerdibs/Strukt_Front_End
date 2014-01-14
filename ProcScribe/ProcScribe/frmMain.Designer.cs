@@ -47,6 +47,7 @@
             this.pnSearchResult = new System.Windows.Forms.Panel();
             this.listVSearchProcessName = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listVSearchProcess = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -76,7 +77,6 @@
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnDesigner = new System.Windows.Forms.Panel();
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabCenter.SuspendLayout();
             this.tpGuide.SuspendLayout();
             this.pnCenterHead.SuspendLayout();
@@ -295,6 +295,11 @@
             this.columnHeader9.Text = "Process Name";
             this.columnHeader9.Width = 300;
             // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "WorkflowID";
+            this.columnHeader10.Width = 0;
+            // 
             // listVSearchProcess
             // 
             this.listVSearchProcess.Activation = System.Windows.Forms.ItemActivation.OneClick;
@@ -317,6 +322,7 @@
             this.listVSearchProcess.TabIndex = 1;
             this.listVSearchProcess.UseCompatibleStateImageBehavior = false;
             this.listVSearchProcess.View = System.Windows.Forms.View.Details;
+            this.listVSearchProcess.SelectedIndexChanged += new System.EventHandler(this.listVSearchProcess_SelectedIndexChanged);
             this.listVSearchProcess.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listVSearchProcess_MouseClick);
             // 
             // columnHeader7
@@ -363,6 +369,7 @@
             this.listVSearch.TabIndex = 0;
             this.listVSearch.UseCompatibleStateImageBehavior = false;
             this.listVSearch.View = System.Windows.Forms.View.Details;
+            this.listVSearch.SelectedIndexChanged += new System.EventHandler(this.listVSearch_SelectedIndexChanged);
             this.listVSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listVSearch_MouseClick);
             // 
             // columnHeader1
@@ -537,11 +544,6 @@
             this.pnDesigner.Name = "pnDesigner";
             this.pnDesigner.Size = new System.Drawing.Size(384, 24);
             this.pnDesigner.TabIndex = 4;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "WorkflowID";
-            this.columnHeader10.Width = 0;
             // 
             // frmMain
             // 
