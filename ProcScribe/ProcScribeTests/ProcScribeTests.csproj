@@ -55,9 +55,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ConditionTests.cs" />
+    <Compile Include="Copy of GlobalTests.cs" />
+    <Compile Include="globalTests.cs" />
+    <Compile Include="PropertiesStruktTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GlobalTests.cs" />
+    <Compile Include="TaskProcessTests.cs" />
     <Compile Include="TaskTests.cs" />
+    <Compile Include="UserTests.cs" />
     <Compile Include="WorkflowTests.cs" />
   </ItemGroup>
   <ItemGroup>

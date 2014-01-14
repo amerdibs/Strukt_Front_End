@@ -1,83 +1,113 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using ProcScribe;
-
-
-namespace ProcScribeTests
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+namespace ProcScribe.Tests1
 {
-    [TestClass]
-    public class GlobalTests
+    [TestClass()]
+    public class globalTests
     {
-        [TestMethod]
-        /*public void getColorTaskControlBackground()
+        [TestMethod()]
+        public void getExceptionThrowTest()
         {
-            //couldnt find out how to make a unit test for the color output
+            try
+            {
+                global.getExceptionThrow(new Exception());
+                Assert.IsTrue(true);
+            }
+            catch (Exception)
+            {
+                Assert.Fail();
+                throw;
+            }
+
         }
+
+        [TestMethod()]
+        public void getHeightTaskControlTest()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod()]
+        public void getColorTaskControlBackgroundTest()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod()]
         public void getValueFromStruktValueTest()
         {
-            //The application would crash with an empty string and the test would fail
-            //String str = global.getValueFromStruktValue("");
-            //Assert.AreNotSame("", str);
-            //check for a correct value
-            String str1072 = global.getValueFromStruktValue("1072");
-            Assert.AreEqual("1072", str1072);
-            //check for an incorrect value
-            String str00000 = global.getValueFromStruktValue("00000");
-            Assert.AreNotEqual("00000", str1072);
+            Assert.AreEqual(global.getValueFromStruktValue("1072"), "1072");
         }
 
-        public void getRespondFromStruktGet()
+        [TestMethod()]
+        public void getRespondFromStruktGetTest()
         {
-            //have to search for the class that call this method
+            Assert.Fail();
         }
 
-        public void getRespondFromStruktDelete()
+        [TestMethod()]
+        public void getRespondFromStruktDeleteTest()
         {
-            //have to search for the class that call this method
-        }*/
-
-        public void getExtractValueFromRespond()
-        {
-            //tried some unit tests but can't figure out the return values
+            Assert.Fail();
         }
 
-        public void getExtractValueFromRespondSingle()
+        [TestMethod()]
+        public void getExtractValueFromRespondTest()
         {
-            //same problem as getExtractValueFromRespond
+            Assert.Fail();
         }
 
-        public void postJSONintoStrukt()
+        [TestMethod()]
+        public void getExtractValueFromRespondSingleTest()
         {
-            //same problem as getExtractValueFromRespond
+            Assert.Fail();
         }
 
-        public void composeJSONforStrukt()
+        [TestMethod()]
+        public void postJSONintoStruktTest()
         {
-            //same problem as getExtractValueFromRespond        
+            Assert.Fail();
         }
 
-        public void convertFromStruktDateTime()
+        [TestMethod()]
+        public void composeJSONforStruktTest()
         {
-            //Method is not used anymore because the assigning task part is not implemented in our application
+            Assert.Fail();
         }
 
-        public void getTaskListFromAllWorkflow()
+        [TestMethod()]
+        public void convertFromStruktDateTimeTest()
         {
-
+            Assert.Fail();
         }
 
-        [TestMethod]
-        public void openLink()
+        [TestMethod()]
+        public void convertStruktDateTimeToStringTest()
         {
-
+            Assert.Fail();
         }
 
-        [TestMethod]
-        public void divideTest()
+        [TestMethod()]
+        public void getTaskListFromAllWorkflowTest()
         {
+            Assert.Fail();
+        }
 
-            //Assert.AreEqual(global.divide(5, 1), 5);
-            Assert.AreEqual(global.divide(5, 0), 5);
+        [TestMethod()]
+        public void openLinkTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void uploadMyFileTest()
+        {
+            Assert.Fail();
         }
 
     }
