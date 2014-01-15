@@ -219,7 +219,6 @@
     <Compile Include="ProscribeAddIn.cs">
       <SubType>Code</SubType>
     </Compile>
-    <None Include="Service References\StruktMain\StruktMain1.wsdl" />
     <None Include="ProscribeAddIn.Designer.xml">
       <DependentUpon>ProscribeAddIn.cs</DependentUpon>
     </None>
@@ -227,6 +226,7 @@
       <DependentUpon>ProscribeAddIn.Designer.xml</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\StruktMain\StruktMain.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\file_find.gif" />
@@ -253,7 +253,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\StruktMain\StruktMain1.disco" />
+    <None Include="Service References\StruktMain\StruktMain.disco" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

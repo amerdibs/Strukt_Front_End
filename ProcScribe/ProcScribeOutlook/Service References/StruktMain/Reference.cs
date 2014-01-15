@@ -58,6 +58,10 @@ namespace ProcScribeOutlook.StruktMain {
         // CODEGEN: Generating message contract since element name strUserID from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/selectTaskByUserID", ReplyAction="*")]
         ProcScribeOutlook.StruktMain.selectTaskByUserIDResponse selectTaskByUserID(ProcScribeOutlook.StruktMain.selectTaskByUserIDRequest request);
+        
+        // CODEGEN: Generating message contract since element name getFileListResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getFileList", ReplyAction="*")]
+        ProcScribeOutlook.StruktMain.getFileListResponse getFileList(ProcScribeOutlook.StruktMain.getFileListRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -794,6 +798,67 @@ namespace ProcScribeOutlook.StruktMain {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getFileListRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getFileList", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribeOutlook.StruktMain.getFileListRequestBody Body;
+        
+        public getFileListRequest() {
+        }
+        
+        public getFileListRequest(ProcScribeOutlook.StruktMain.getFileListRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class getFileListRequestBody {
+        
+        public getFileListRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getFileListResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getFileListResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribeOutlook.StruktMain.getFileListResponseBody Body;
+        
+        public getFileListResponse() {
+        }
+        
+        public getFileListResponse(ProcScribeOutlook.StruktMain.getFileListResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class getFileListResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string getFileListResult;
+        
+        public getFileListResponseBody() {
+        }
+        
+        public getFileListResponseBody(string getFileListResult) {
+            this.getFileListResult = getFileListResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface StruktMainSoapChannel : ProcScribeOutlook.StruktMain.StruktMainSoap, System.ServiceModel.IClientChannel {
     }
@@ -960,6 +1025,18 @@ namespace ProcScribeOutlook.StruktMain {
             inValue.Body.strUserID = strUserID;
             ProcScribeOutlook.StruktMain.selectTaskByUserIDResponse retVal = ((ProcScribeOutlook.StruktMain.StruktMainSoap)(this)).selectTaskByUserID(inValue);
             return retVal.Body.selectTaskByUserIDResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ProcScribeOutlook.StruktMain.getFileListResponse ProcScribeOutlook.StruktMain.StruktMainSoap.getFileList(ProcScribeOutlook.StruktMain.getFileListRequest request) {
+            return base.Channel.getFileList(request);
+        }
+        
+        public string getFileList() {
+            ProcScribeOutlook.StruktMain.getFileListRequest inValue = new ProcScribeOutlook.StruktMain.getFileListRequest();
+            inValue.Body = new ProcScribeOutlook.StruktMain.getFileListRequestBody();
+            ProcScribeOutlook.StruktMain.getFileListResponse retVal = ((ProcScribeOutlook.StruktMain.StruktMainSoap)(this)).getFileList(inValue);
+            return retVal.Body.getFileListResult;
         }
     }
 }
