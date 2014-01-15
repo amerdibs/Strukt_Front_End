@@ -33,12 +33,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,16 +96,17 @@
             this.webBrowser.TabIndex = 10;
             this.webBrowser.Url = new System.Uri("http://pakorn.somee.com/upload/upload.aspx", System.UriKind.Absolute);
             this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
+            this.webBrowser.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser_Navigated);
             // 
-            // button2
+            // btnRefresh
             // 
-            this.button2.Location = new System.Drawing.Point(429, 105);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Refresh";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.frmUploadFile_Load);
+            this.btnRefresh.Location = new System.Drawing.Point(429, 105);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 11;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // panel1
             // 
@@ -125,16 +128,13 @@
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.HotTracking = true;
-            this.listView1.HoverSelection = true;
-            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Location = new System.Drawing.Point(6, 6);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(404, 190);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listVSearch_MouseClick2);
             // 
             // columnHeader1
             // 
@@ -144,6 +144,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "File Size";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader2.Width = 107;
             // 
             // columnHeader3
@@ -151,13 +152,35 @@
             this.columnHeader3.Text = "File Creation Date";
             this.columnHeader3.Width = 98;
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(429, 134);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 13;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(429, 163);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 14;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmUploadFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 315);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -179,11 +202,13 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.WebBrowser webBrowser;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnClose;
     }
 }

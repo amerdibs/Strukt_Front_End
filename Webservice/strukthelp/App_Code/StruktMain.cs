@@ -808,8 +808,8 @@ public class StruktMain : System.Web.Services.WebService {
                 FileList fileL = new FileList();
                 FileInfo fileInf = new FileInfo(files[iFile]);
                 fileL.fileName = fileInf.Name;
-                fileL.fileSize = String.Format("##0.00", fileInf.Length / (1024 * 1024)) + " MB";
-                fileL.fileCreatedDate = String.Format("dd-MM-yyyy",fileInf.CreationTimeUtc);
+                fileL.fileSize = String.Format("{0:#,##0.0}", fileInf.Length / (1024)) + " KB";
+                fileL.fileCreatedDate = String.Format("{0:dd-MM-yyyy}", fileInf.CreationTimeUtc);
                 listFileList.Add(fileL);
             }
             JsonSerializerSettings jsSetting = new JsonSerializerSettings();

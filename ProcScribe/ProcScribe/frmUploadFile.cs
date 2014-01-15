@@ -17,11 +17,20 @@ namespace ProcScribe
     public partial class frmUploadFile : Form
     {
         public string strSelect { get; set; }
+        public frmTaskEdit frmEdit;
         
         public frmUploadFile()
         {
             InitializeComponent();
         }
+
+        public frmUploadFile(frmTaskEdit pfrmEdit)
+        {
+            InitializeComponent();
+            frmEdit = pfrmEdit;
+        }
+
+
 
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -63,23 +72,24 @@ namespace ProcScribe
 
         private void frmUploadFile_Load(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            List<FileList> lFile = new List<FileList>();
-            lFile = getFileListAll();
-            var items = listView1.Items;
-            if (lFile != null)
-            {
-                foreach (FileList fileN in lFile)
-                {
-                    ListViewItem item = new ListViewItem(fileN.fileName);
-                    item.SubItems.Add(fileN.fileSize);
-                    item.SubItems.Add(fileN.fileCreatedDate);
-                    listView1.Items.AddRange(new ListViewItem[] { item });
-                    //MessageBox.Show(fileN.fileName);
-                    //MessageBox.Show(fileN.fileSize);
-                    //MessageBox.Show(fileN.fileCreatedDate);
-                }
-            }
+            btnRefresh_Click(sender, e);
+            //listView1.Items.Clear();
+            //List<FileList> lFile = new List<FileList>();
+            //lFile = getFileListAll();
+            //var items = listView1.Items;
+            //if (lFile != null)
+            //{
+            //    foreach (FileList fileN in lFile)
+            //    {
+            //        ListViewItem item = new ListViewItem(fileN.fileName);
+            //        item.SubItems.Add(fileN.fileSize);
+            //        item.SubItems.Add(fileN.fileCreatedDate);
+            //        listView1.Items.AddRange(new ListViewItem[] { item });
+            //        //MessageBox.Show(fileN.fileName);
+            //        //MessageBox.Show(fileN.fileSize);
+            //        //MessageBox.Show(fileN.fileCreatedDate);
+            //    }
+            //}
         }
 
         public static List<FileList> getFileListAll()
@@ -103,14 +113,43 @@ namespace ProcScribe
             }
         }
 
-        private void listVSearch_MouseClick2(object sender, MouseEventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            
+            Close();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
+            List<FileList> lFile = new List<FileList>();
+            lFile = getFileListAll();
+            var items = listView1.Items;
+            if (lFile != null)
+            {
+                foreach (FileList fileN in lFile)
+                {
+                    ListViewItem item = new ListViewItem(fileN.fileName);
+                    item.SubItems.Add(fileN.fileSize);
+                    item.SubItems.Add(fileN.fileCreatedDate);
+                    listView1.Items.AddRange(new ListViewItem[] { item });
+                }
+            }
+        }
 
+        private void webBrowser_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        {
+            btnRefresh_Click(sender, e);
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems != null)
+            {
+                ListViewItem lvi = listView1.SelectedItems[0];
+                frmEdit.taskUse.attachmentDetail = global.PathSharedFile + lvi.Text;
+                frmEdit.Controls["groupBox2"].Controls["txtAddress"].Text = global.PathSharedFile + lvi.Text;
+                Close();
+            }
         }
 
 

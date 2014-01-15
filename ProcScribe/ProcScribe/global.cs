@@ -74,8 +74,8 @@ namespace ProcScribe
         public static List<Assignment> assignmentSentList;
         public static List<Assignment> assignmentReceivedList;
 
-        //fix values for file upload test
-        //public static string localFilePath = "C:\\Users\\SvenLaptop\\Downloads";
+
+        public static string PathSharedFile = "http://pakorn.somee.com/upload/files/";
 
 
         public static DataTable processTable;

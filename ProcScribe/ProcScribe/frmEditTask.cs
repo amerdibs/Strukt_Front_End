@@ -185,7 +185,7 @@ namespace ProcScribe
                     else
                         if (rbFile.Checked)
                         {
-                            frmUploadFile frmUpload = new frmUploadFile();
+                            frmUploadFile frmUpload = new frmUploadFile(this);
                             DialogResult diaUpload = frmUpload.ShowDialog();
                             if (diaUpload == DialogResult.OK)
                             {
@@ -199,6 +199,7 @@ namespace ProcScribe
         private void rbNone_Click(object sender, EventArgs e)
         {
             txtAddress.Text = "";
+            btnBrowse.Text = "Browse";
             txtAddress.Enabled = false;
             txtAddress.ReadOnly = true;
         }
@@ -206,6 +207,7 @@ namespace ProcScribe
         private void rbLink_Click(object sender, EventArgs e)
         {
             txtAddress.Text = "";
+            btnBrowse.Text = "Browse";
             txtAddress.Enabled = true;
             txtAddress.ReadOnly = false;
         }
@@ -213,6 +215,7 @@ namespace ProcScribe
         private void rbApp_Click(object sender, EventArgs e)
         {
             txtAddress.Text = "";
+            btnBrowse.Text = "Browse";
             txtAddress.Enabled = true;
             txtAddress.ReadOnly = true;
         }
