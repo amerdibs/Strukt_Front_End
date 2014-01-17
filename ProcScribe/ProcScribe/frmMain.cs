@@ -98,7 +98,7 @@ namespace ProcScribe
             tsUserName.Text = "User: " + global.userName + ", Machine: " + global.machineName + ", Domain: " + global.domainName;
             
             this.MinimumSize = new Size(global.minFrmWidth,global.minFrmHeight);
-            this.Width = (int)(Screen.PrimaryScreen.Bounds.Width / 3.2);
+            this.Width = (int)(Screen.PrimaryScreen.Bounds.Width / 3);
 
             //Set appearance by options from registry
             RegistryKey readReg;

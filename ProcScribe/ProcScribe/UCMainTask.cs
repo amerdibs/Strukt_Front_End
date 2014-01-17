@@ -461,15 +461,49 @@ namespace ProcScribe
             if (this.Height == global.heightControlTaskNormal)
             {
                 this.Height = global.heightControlTaskDesc;
-                btnDescEx.Visible = true;
+                //btnDescEx.Visible = true;
                 lbDesc.Height = 30;
-                btnDescEx.Top = lbDesc.Top + lbDesc.Height - btnDescEx.Height - 1;
+                btnLink.Top = lbDesc.Top + lbDesc.Height + 2;
+                //btnDescEx.Top = lbDesc.Top + lbDesc.Height - btnDescEx.Height - 1;
             }
-            else
+            else if (this.Height == global.heightControlTaskDesc)
             {
+                TextBox tb = new TextBox();
+                this.Controls.Add(tb);
+                tb.Multiline = true;
+                tb.BorderStyle = BorderStyle.FixedSingle;
+                tb.Width = lbDesc.Width;
+                tb.Top = lbDesc.Top;
+                tb.Left = lbDesc.Left;
+                tb.Height = 150;
+                tb.ScrollBars = ScrollBars.Vertical;
+                tb.Text = taskMember.description.Replace("\n", Environment.NewLine);
+                tb.Name = "tbDescLong";
+                tb.ReadOnly = true;
+                tb.Anchor = lbDesc.Anchor;
+                tb.BringToFront();
+                btnLink.Top = tb.Top + tb.Height + 2;
+                pbDesc.BringToFront();
+                //btnDescEx.Top = tb.Top + tb.Height - btnDescEx.Height - 1;
+                //btnDescEx.BringToFront();
+                this.Height = global.heightControlTaskDescLong;
+                //this.Height = global.heightControlTaskNormal;
+                //btnDescEx.Visible = false;
+                //lbDesc.Height = 14;
+            }
+            else if (this.Height == global.heightControlTaskDescLong)
+            {
+                if (this.Controls["tbDescLong"] != null)
+                {
+                    this.Controls.Remove(this.Controls["tbDescLong"]);
+                }
+                //this.Height = global.heightControlTaskDesc;
+                //btnDescEx.Top = lbDesc.Top + lbDesc.Height - btnDescEx.Height - 1;
+                //btnLink.Top = 56;
                 this.Height = global.heightControlTaskNormal;
                 btnDescEx.Visible = false;
                 lbDesc.Height = 14;
+                btnLink.Top = lbDesc.Top + lbDesc.Height + 2;
             }
         }
 

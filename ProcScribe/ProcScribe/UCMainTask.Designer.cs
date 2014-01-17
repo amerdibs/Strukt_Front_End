@@ -183,6 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
+            this.Controls.Add(this.btnLink);
             this.Controls.Add(this.btnDescEx);
             this.Controls.Add(this.pbDesc);
             this.Controls.Add(this.lbDesc);
@@ -192,7 +193,6 @@
             this.Controls.Add(this.lbTail);
             this.Controls.Add(this.lbTop);
             this.Controls.Add(this.lbTitle);
-            this.Controls.Add(this.btnLink);
             this.Controls.Add(this.cbCheck);
             this.Controls.Add(this.btnProp);
             this.Name = "UCMainTask";
