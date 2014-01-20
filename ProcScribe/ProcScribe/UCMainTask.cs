@@ -292,61 +292,61 @@ namespace ProcScribe
                     lbTail.Visible = true;
                 }
             }
+            undrawTaskHeirarchy(this.taskMember.workflowParent.taskParent, 0);
+            //undrawTaskHeirarchy(this.taskMember.workflowParent.taskParent);
+            //if (this.taskMember.workflowParent.taskParent != null)
+            //{
+            //    if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.precedes_id))
+            //    {
+            //        for (int i = iLevel - 1 ; i < iLevel; i++)
+            //        {
+            //            if (this.Controls["lbTail_" + i.ToString()] != null)
+            //            {
+            //                Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+            //                lb.Visible = false;
+            //            }
+            //        }
+            //    }
+
+            //    if (this.taskMember.workflowParent.taskParent.workflowParent.taskParent != null)
+            //    {
+            //        if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.workflowParent.taskParent.precedes_id))
+            //        {
+            //            for (int i = iLevel-2; i < iLevel; i++)
+            //            {
+            //                if (this.Controls["lbTail_" + i.ToString()] != null)
+            //                {
+            //                    Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+            //                    lb.Visible = false;
+            //                }
+            //            }
+            //        }
 
 
-            if (this.taskMember.workflowParent.taskParent != null)
-            {
-                if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.precedes_id))
-                {
-                    for (int i = iLevel - 1 ; i < iLevel; i++)
-                    {
-                        if (this.Controls["lbTail_" + i.ToString()] != null)
-                        {
-                            Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
-                            lb.Visible = false;
-                        }
-                    }
-                }
 
-                if (this.taskMember.workflowParent.taskParent.workflowParent.taskParent != null)
-                {
-                    if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.workflowParent.taskParent.precedes_id))
-                    {
-                        for (int i = iLevel-2; i < iLevel; i++)
-                        {
-                            if (this.Controls["lbTail_" + i.ToString()] != null)
-                            {
-                                Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
-                                lb.Visible = false;
-                            }
-                        }
-                    }
-
-
-
-                        if (this.taskMember.workflowParent.taskParent.workflowParent.taskParent.workflowParent.taskParent != null)
-                        {
-                            if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.workflowParent.taskParent.workflowParent.taskParent.precedes_id))
-                            {
-                                for (int i = iLevel - 3; i < iLevel; i++)
-                                {
-                                    if (this.Controls["lbTail_" + i.ToString()] != null)
-                                    {
-                                        Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
-                                        lb.Visible = false;
-                                    }
-                                }
-                            }
-                        }
+            //            if (this.taskMember.workflowParent.taskParent.workflowParent.taskParent.workflowParent.taskParent != null)
+            //            {
+            //                if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.workflowParent.taskParent.workflowParent.taskParent.precedes_id))
+            //                {
+            //                    for (int i = iLevel - 3; i < iLevel; i++)
+            //                    {
+            //                        if (this.Controls["lbTail_" + i.ToString()] != null)
+            //                        {
+            //                            Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+            //                            lb.Visible = false;
+            //                        }
+            //                    }
+            //                }
+            //            }
                     
 
 
-                }
+             //   }
 
                 
 
                 
-            }
+            //}
 
             if (String.IsNullOrEmpty(this.taskMember.attachmentDetail))
             {
@@ -369,6 +369,121 @@ namespace ProcScribe
 
 
         }
+
+        public void undrawTaskHeirarchy(Task taskParam, int iCutLevel)
+        {
+            //if (this.taskMember.workflowParent.taskParent != null)
+            //{
+            //    if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.precedes_id))
+            //    {
+            //        for (int i = iLevel - 1 ; i < iLevel; i++)
+            //        {
+            //            if (this.Controls["lbTail_" + i.ToString()] != null)
+            //            {
+            //                Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+            //                lb.Visible = false;
+            //            }
+            //        }
+            //    }
+            if (taskParam != null)
+            {
+                if  (String.IsNullOrEmpty(taskParam.precedes_id))
+                {
+                    iCutLevel++;
+                    //for (int i = 0; i < iLevel; i++)
+                    //{
+
+                    //        if (this.Controls["lbTail_" + i.ToString()] != null)
+                    //        {
+                    //            Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+                    //            lb.Visible = true;
+                    //        }
+
+                    //}
+
+                    //for (int i = iLevel - 1; i >= 0; i--)
+                    for (int i = 0; i < iLevel; i++)
+                    {
+                        if (!checkIfParentHasPrecedes(taskParam, 0, i))
+                        //if (true)
+                        {
+                            if (this.Controls["lbTail_" + i.ToString()] != null)
+                            {
+                                Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+                                lb.Visible = false;
+                            }
+                        }
+                    }
+                }
+                undrawTaskHeirarchy(taskParam.workflowParent.taskParent, iCutLevel); 
+            }
+        }
+
+        public Boolean checkIfParentHasPrecedes(Task taskParam, int iDesiredLevel, int iLevel)
+        {
+            if (taskParam != null)
+            {
+                if (iDesiredLevel == iLevel)
+                {
+                    //if ((taskParam.workflowChild.taskChildList != null) && (taskParam.workflowChild.taskChildList.Count > 0))
+                    if (String.IsNullOrEmpty(taskParam.precedes_id))
+                        return false;
+                    else
+                        //return checkIfParentHasChild(taskParam.workflowParent.taskParent, iDesiredLevel, iLevel);
+                        return true;
+                }
+                else
+                {
+                    iDesiredLevel++;
+                    return checkIfParentHasPrecedes(taskParam.workflowParent.taskParent, iDesiredLevel, iLevel);
+                }
+            }
+            else
+                return false;
+
+
+
+
+            //checkIfParentHasChild(taskParam.workflowParent.taskParent, iDesiredLevel, iLevel);
+            //iDesiredLevel++;
+            //if (taskParam != null)
+            //{
+            //    if (iDesiredLevel == iLevel)
+            //    {
+            //        if ((taskParam.workflowChild.taskChildList != null) && (taskParam.workflowChild.taskChildList.Count > 0))
+            //            return true;
+            //        else
+            //            return false;
+            //    }
+            //    else
+            //        return false;
+            //}
+            //else
+            //    return false;
+            ////checkIfParentHasChild(taskParam.workflowParent.taskParent, iDesiredLevel, iLevel);
+
+            
+        }
+
+        public void drawTaskHeirarchyIfParentHasChild(Task taskParam)
+        {
+            if (taskParam != null)
+            {
+                if (String.IsNullOrEmpty(taskParam.precedes_id))
+                {
+                    for (int i = 0; i < iLevel; i++)
+                    {
+                        if (this.Controls["lbTail_" + i.ToString()] != null)
+                        {
+                            Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
+                            lb.Visible = false;
+                        }
+                    }
+                }
+                drawTaskHeirarchyIfParentHasChild(taskParam.workflowParent.taskParent);
+            }
+        }
+
 
         public void setExistenceCollapeButtonRoleChild()
         {
@@ -461,10 +576,8 @@ namespace ProcScribe
             if (this.Height == global.heightControlTaskNormal)
             {
                 this.Height = global.heightControlTaskDesc;
-                //btnDescEx.Visible = true;
                 lbDesc.Height = 30;
                 btnLink.Top = lbDesc.Top + lbDesc.Height + 2;
-                //btnDescEx.Top = lbDesc.Top + lbDesc.Height - btnDescEx.Height - 1;
             }
             else if (this.Height == global.heightControlTaskDesc)
             {
@@ -484,11 +597,8 @@ namespace ProcScribe
                 tb.BringToFront();
                 btnLink.Top = tb.Top + tb.Height + 2;
                 pbDesc.BringToFront();
-                //btnDescEx.Top = tb.Top + tb.Height - btnDescEx.Height - 1;
-                //btnDescEx.BringToFront();
                 this.Height = global.heightControlTaskDescLong;
                 //this.Height = global.heightControlTaskNormal;
-                //btnDescEx.Visible = false;
                 //lbDesc.Height = 14;
             }
             else if (this.Height == global.heightControlTaskDescLong)
@@ -498,10 +608,8 @@ namespace ProcScribe
                     this.Controls.Remove(this.Controls["tbDescLong"]);
                 }
                 //this.Height = global.heightControlTaskDesc;
-                //btnDescEx.Top = lbDesc.Top + lbDesc.Height - btnDescEx.Height - 1;
                 //btnLink.Top = 56;
                 this.Height = global.heightControlTaskNormal;
-                btnDescEx.Visible = false;
                 lbDesc.Height = 14;
                 btnLink.Top = lbDesc.Top + lbDesc.Height + 2;
             }
@@ -523,40 +631,6 @@ namespace ProcScribe
             
         }
 
-        private void btnDescEx_Click(object sender, EventArgs e)
-        {
-            if (this.Controls["tbDescLong"] == null)
-            {
-                TextBox tb = new TextBox();
-                this.Controls.Add(tb);
-                tb.Multiline = true;
-                tb.BorderStyle = BorderStyle.FixedSingle;
-                tb.Width = lbDesc.Width;
-                tb.Top = lbDesc.Top;
-                tb.Left = lbDesc.Left;
-                tb.Height = 150;
-                tb.ScrollBars = ScrollBars.Vertical;
-                tb.Text = taskMember.description.Replace("\n", Environment.NewLine);
-                tb.Name = "tbDescLong";
-                tb.ReadOnly = true;
-                tb.Anchor = lbDesc.Anchor;
-                tb.BringToFront();
-                btnLink.Top = tb.Top + tb.Height + 2;
-                btnDescEx.Top = tb.Top + tb.Height - btnDescEx.Height - 1;
-                btnDescEx.BringToFront();
-                this.Height = global.heightControlTaskDescLong;
-            }
-            else
-            {
-                if (this.Controls["tbDescLong"] != null)
-                {
-                    this.Controls.Remove(this.Controls["tbDescLong"]);
-                }
-                this.Height = global.heightControlTaskDesc;
-                btnDescEx.Top = lbDesc.Top + lbDesc.Height - btnDescEx.Height - 1;
-                btnLink.Top = 56;
-            }
-        }
 
         
     }

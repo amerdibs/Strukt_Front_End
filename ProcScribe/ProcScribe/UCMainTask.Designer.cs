@@ -41,7 +41,6 @@
             this.lbCenter = new System.Windows.Forms.Label();
             this.lbTail2 = new System.Windows.Forms.Label();
             this.lbDesc = new System.Windows.Forms.Label();
-            this.btnDescEx = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCollape)).BeginInit();
             this.SuspendLayout();
@@ -163,20 +162,6 @@
             this.lbDesc.Size = new System.Drawing.Size(286, 14);
             this.lbDesc.TabIndex = 17;
             // 
-            // btnDescEx
-            // 
-            this.btnDescEx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDescEx.BackColor = System.Drawing.Color.PowderBlue;
-            this.btnDescEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescEx.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDescEx.Location = new System.Drawing.Point(294, 47);
-            this.btnDescEx.Name = "btnDescEx";
-            this.btnDescEx.Size = new System.Drawing.Size(12, 4);
-            this.btnDescEx.TabIndex = 18;
-            this.btnDescEx.UseVisualStyleBackColor = false;
-            this.btnDescEx.Visible = false;
-            this.btnDescEx.Click += new System.EventHandler(this.btnDescEx_Click);
-            // 
             // UCMainTask
             // 
             this.AllowDrop = true;
@@ -184,7 +169,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.Controls.Add(this.btnLink);
-            this.Controls.Add(this.btnDescEx);
             this.Controls.Add(this.pbDesc);
             this.Controls.Add(this.lbDesc);
             this.Controls.Add(this.lbTail2);
@@ -224,6 +208,5 @@
         private System.Windows.Forms.Label lbCenter;
         private System.Windows.Forms.Label lbTail2;
         private System.Windows.Forms.Label lbDesc;
-        private System.Windows.Forms.Button btnDescEx;
     }
 }
