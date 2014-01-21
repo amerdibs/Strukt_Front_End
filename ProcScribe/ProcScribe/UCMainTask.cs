@@ -292,61 +292,7 @@ namespace ProcScribe
                     lbTail.Visible = true;
                 }
             }
-            undrawTaskHeirarchy(this.taskMember.workflowParent.taskParent, 0);
-            //undrawTaskHeirarchy(this.taskMember.workflowParent.taskParent);
-            //if (this.taskMember.workflowParent.taskParent != null)
-            //{
-            //    if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.precedes_id))
-            //    {
-            //        for (int i = iLevel - 1 ; i < iLevel; i++)
-            //        {
-            //            if (this.Controls["lbTail_" + i.ToString()] != null)
-            //            {
-            //                Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
-            //                lb.Visible = false;
-            //            }
-            //        }
-            //    }
-
-            //    if (this.taskMember.workflowParent.taskParent.workflowParent.taskParent != null)
-            //    {
-            //        if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.workflowParent.taskParent.precedes_id))
-            //        {
-            //            for (int i = iLevel-2; i < iLevel; i++)
-            //            {
-            //                if (this.Controls["lbTail_" + i.ToString()] != null)
-            //                {
-            //                    Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
-            //                    lb.Visible = false;
-            //                }
-            //            }
-            //        }
-
-
-
-            //            if (this.taskMember.workflowParent.taskParent.workflowParent.taskParent.workflowParent.taskParent != null)
-            //            {
-            //                if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.workflowParent.taskParent.workflowParent.taskParent.precedes_id))
-            //                {
-            //                    for (int i = iLevel - 3; i < iLevel; i++)
-            //                    {
-            //                        if (this.Controls["lbTail_" + i.ToString()] != null)
-            //                        {
-            //                            Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
-            //                            lb.Visible = false;
-            //                        }
-            //                    }
-            //                }
-            //            }
-                    
-
-
-             //   }
-
-                
-
-                
-            //}
+            undrawTaskHeirarchy();
 
             if (String.IsNullOrEmpty(this.taskMember.attachmentDetail))
             {
@@ -370,120 +316,47 @@ namespace ProcScribe
 
         }
 
-        public void undrawTaskHeirarchy(Task taskParam, int iCutLevel)
+        public void undrawTaskHeirarchy()
         {
-            //if (this.taskMember.workflowParent.taskParent != null)
-            //{
-            //    if (String.IsNullOrEmpty(this.taskMember.workflowParent.taskParent.precedes_id))
-            //    {
-            //        for (int i = iLevel - 1 ; i < iLevel; i++)
-            //        {
-            //            if (this.Controls["lbTail_" + i.ToString()] != null)
-            //            {
-            //                Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
-            //                lb.Visible = false;
-            //            }
-            //        }
-            //    }
-            if (taskParam != null)
+            if (this.taskMember != null)
             {
-                if  (String.IsNullOrEmpty(taskParam.precedes_id))
-                {
-                    iCutLevel++;
-                    //for (int i = 0; i < iLevel; i++)
-                    //{
-
-                    //        if (this.Controls["lbTail_" + i.ToString()] != null)
-                    //        {
-                    //            Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
-                    //            lb.Visible = true;
-                    //        }
-
-                    //}
-
-                    //for (int i = iLevel - 1; i >= 0; i--)
-                    for (int i = 0; i < iLevel; i++)
+                for (int i = iLevel - 1; i >= 0; i--)
+                { 
+                    if (this.Controls["lbTail_" + i.ToString()] != null)
                     {
-                        if (!checkIfParentHasPrecedes(taskParam, 0, i))
-                        //if (true)
-                        {
-                            if (this.Controls["lbTail_" + i.ToString()] != null)
-                            {
-                                Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
-                                lb.Visible = false;
-                            }
-                        }
-                    }
-                }
-                undrawTaskHeirarchy(taskParam.workflowParent.taskParent, iCutLevel); 
-            }
-        }
-
-        public Boolean checkIfParentHasPrecedes(Task taskParam, int iDesiredLevel, int iLevel)
-        {
-            if (taskParam != null)
-            {
-                if (iDesiredLevel == iLevel)
-                {
-                    //if ((taskParam.workflowChild.taskChildList != null) && (taskParam.workflowChild.taskChildList.Count > 0))
-                    if (String.IsNullOrEmpty(taskParam.precedes_id))
-                        return false;
-                    else
-                        //return checkIfParentHasChild(taskParam.workflowParent.taskParent, iDesiredLevel, iLevel);
-                        return true;
-                }
-                else
-                {
-                    iDesiredLevel++;
-                    return checkIfParentHasPrecedes(taskParam.workflowParent.taskParent, iDesiredLevel, iLevel);
-                }
-            }
-            else
-                return false;
-
-
-
-
-            //checkIfParentHasChild(taskParam.workflowParent.taskParent, iDesiredLevel, iLevel);
-            //iDesiredLevel++;
-            //if (taskParam != null)
-            //{
-            //    if (iDesiredLevel == iLevel)
-            //    {
-            //        if ((taskParam.workflowChild.taskChildList != null) && (taskParam.workflowChild.taskChildList.Count > 0))
-            //            return true;
-            //        else
-            //            return false;
-            //    }
-            //    else
-            //        return false;
-            //}
-            //else
-            //    return false;
-            ////checkIfParentHasChild(taskParam.workflowParent.taskParent, iDesiredLevel, iLevel);
-
-            
-        }
-
-        public void drawTaskHeirarchyIfParentHasChild(Task taskParam)
-        {
-            if (taskParam != null)
-            {
-                if (String.IsNullOrEmpty(taskParam.precedes_id))
-                {
-                    for (int i = 0; i < iLevel; i++)
-                    {
-                        if (this.Controls["lbTail_" + i.ToString()] != null)
+                        if (!checkIfParentHasPrecedes(this.taskMember.workflowParent.taskParent, iLevel - 1, i))
                         {
                             Label lb = (Label)this.Controls["lbTail_" + i.ToString()];
                             lb.Visible = false;
                         }
-                    }
-                }
-                drawTaskHeirarchyIfParentHasChild(taskParam.workflowParent.taskParent);
+                    }        
+                } 
             }
         }
 
+        public Boolean checkIfParentHasPrecedes(Task taskParam, int pDesiredLevel, int pLevel)
+        {
+            if (taskParam != null)
+            {
+                if (pDesiredLevel == pLevel)
+                {
+                    if (!String.IsNullOrEmpty(taskParam.precedes_id))
+                    {
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+                else
+                {
+                    pDesiredLevel--;
+                    return checkIfParentHasPrecedes(taskParam.workflowParent.taskParent, pDesiredLevel, pLevel);
+                }
+            }
+            else
+                return false;
+        
+        }
 
         public void setExistenceCollapeButtonRoleChild()
         {
@@ -630,8 +503,6 @@ namespace ProcScribe
             }
             
         }
-
-
         
     }
 }

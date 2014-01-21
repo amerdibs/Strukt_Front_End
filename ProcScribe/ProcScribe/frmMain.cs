@@ -808,11 +808,12 @@ namespace ProcScribe
                 uMain.Controls["lbTail"].Left = uSelect.Controls["lbTail"].Left;
                 uMain.Controls["lbTail2"].Left = uSelect.Controls["lbTail2"].Left;
                 uMain.Controls["lbCenter"].Left = uSelect.Controls["lbCenter"].Left;
+                uMain.iLevel = uSelect.iLevel;
                 uMain.generateLabelHierarchy();
                 uMain.setExistenceCollapeButtonRole();
                 uMain.BackColor = global.getColorTaskControlBackground(uMain.BackColor, uSelect.iLevel);
                 uMain.colorBackGround = uMain.BackColor;
-                uMain.iLevel = uSelect.iLevel;
+
 
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);

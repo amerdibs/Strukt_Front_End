@@ -66,7 +66,7 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Black;
             this.lbTitle.Location = new System.Drawing.Point(39, 3);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(213, 14);
+            this.lbTitle.Size = new System.Drawing.Size(213, 16);
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "[New Task]";
             this.lbTitle.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragDrop);
