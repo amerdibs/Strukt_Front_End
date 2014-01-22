@@ -55,17 +55,26 @@ namespace ProcScribeOutlook
 
             if (mailItem != null)
             {
-                String strMail = mailItem.Body;
+                String strMail = mailItem.Body.ToLower();
+
                 foreach (TaskProcess taskP in taskProcessList)
                 {
                     if (!String.IsNullOrEmpty(taskP.keyword))
                     {
-                        if (strMail.Contains(taskP.keyword))
+                        String[] asKeyword = taskP.keyword.Split(',');
+                        foreach (String sKeyword in asKeyword)
                         {
-                            globalOutlook.taskProcessFoundList.Add(taskP);
+                            String sKeyTrim = sKeyword.Trim().ToLower();
+                            if (!String.IsNullOrEmpty(sKeyTrim))
+                            {
+                                if (strMail.Contains(sKeyTrim))
+                                {
+                                    if (!globalOutlook.taskProcessFoundList.Contains(taskP))
+                                        globalOutlook.taskProcessFoundList.Add(taskP);
+                                }
+                            }    
                         }
                     }
-
                 }
                 if (globalOutlook.taskProcessFoundList.Count > 0)
                 {

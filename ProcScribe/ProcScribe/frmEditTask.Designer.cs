@@ -142,9 +142,9 @@
             // txtKeyword
             // 
             this.txtKeyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtKeyword.Location = new System.Drawing.Point(70, 73);
+            this.txtKeyword.Location = new System.Drawing.Point(136, 73);
             this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(261, 20);
+            this.txtKeyword.Size = new System.Drawing.Size(195, 20);
             this.txtKeyword.TabIndex = 19;
             // 
             // label2
@@ -153,9 +153,9 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(16, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(114, 13);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Keyword";
+            this.label2.Text = "Keyword ( e.g. k1, k2 )";
             // 
             // label13
             // 
