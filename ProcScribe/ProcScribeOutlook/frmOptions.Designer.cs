@@ -48,7 +48,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(397, 88);
+            this.groupBox1.Size = new System.Drawing.Size(397, 82);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
@@ -56,7 +56,7 @@
             // 
             this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrowse.Location = new System.Drawing.Point(316, 32);
+            this.btnBrowse.Location = new System.Drawing.Point(316, 28);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnBrowse.TabIndex = 5;
@@ -66,7 +66,7 @@
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(6, 32);
+            this.txtPath.Location = new System.Drawing.Point(6, 28);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(307, 20);
             this.txtPath.TabIndex = 1;
@@ -74,7 +74,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 67);
+            this.label2.Location = new System.Drawing.Point(6, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(381, 13);
             this.label2.TabIndex = 0;
@@ -83,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(6, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 0;
@@ -92,7 +92,7 @@
             // btnOK
             // 
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.Location = new System.Drawing.Point(302, 94);
+            this.btnOK.Location = new System.Drawing.Point(302, 88);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(89, 23);
             this.btnOK.TabIndex = 11;
@@ -108,7 +108,7 @@
             // btnSave
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(207, 94);
+            this.btnSave.Location = new System.Drawing.Point(207, 88);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(89, 23);
             this.btnSave.TabIndex = 11;
@@ -120,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 120);
+            this.ClientSize = new System.Drawing.Size(397, 118);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox1);

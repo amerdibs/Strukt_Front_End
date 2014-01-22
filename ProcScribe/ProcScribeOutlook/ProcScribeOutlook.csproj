@@ -255,6 +255,9 @@
   <ItemGroup>
     <None Include="Service References\StruktMain\StruktMain.disco" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_apply.gif" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

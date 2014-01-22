@@ -38,6 +38,8 @@
             this.group1 = this.Factory.CreateRibbonGroup();
             this.rbtnDiscover = this.Factory.CreateRibbonButton();
             this.rbtnOption = this.Factory.CreateRibbonButton();
+            this.tbtnAuto = this.Factory.CreateRibbonToggleButton();
+            this.separator1 = this.Factory.CreateRibbonSeparator();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             // 
@@ -51,6 +53,8 @@
             // group1
             // 
             this.group1.Items.Add(this.rbtnDiscover);
+            this.group1.Items.Add(this.tbtnAuto);
+            this.group1.Items.Add(this.separator1);
             this.group1.Items.Add(this.rbtnOption);
             this.group1.Label = "Proscribe";
             this.group1.Name = "group1";
@@ -68,10 +72,22 @@
             // 
             this.rbtnOption.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.rbtnOption.Image = global::ProcScribeOutlook.Properties.Resources.applications;
-            this.rbtnOption.Label = "Options";
+            this.rbtnOption.Label = "Advance Options";
             this.rbtnOption.Name = "rbtnOption";
             this.rbtnOption.ShowImage = true;
             this.rbtnOption.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rbtnOption_Click);
+            // 
+            // tbtnAuto
+            // 
+            this.tbtnAuto.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.tbtnAuto.Image = global::ProcScribeOutlook.Properties.Resources.file_apply;
+            this.tbtnAuto.Label = "Automatic Discover";
+            this.tbtnAuto.Name = "tbtnAuto";
+            this.tbtnAuto.ShowImage = true;
+            // 
+            // separator1
+            // 
+            this.separator1.Name = "separator1";
             // 
             // RibbonMenu
             // 
@@ -92,6 +108,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton rbtnDiscover;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton rbtnOption;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton tbtnAuto;
+        internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
     }
 
     partial class ThisRibbonCollection
