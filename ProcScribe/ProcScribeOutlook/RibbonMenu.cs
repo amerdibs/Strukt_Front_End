@@ -18,9 +18,15 @@ namespace ProcScribeOutlook
         private void RibbonMenu_Load(object sender, RibbonUIEventArgs e)
         {
             if (globalOutlook.boolAuto)
+            {
                 tbtnAuto.Checked = true;
+                tbtnAuto.Label = "Automatic On";
+            }
             else
+            {
                 tbtnAuto.Checked = false;
+                tbtnAuto.Label = "Automatic Off";
+            }
         }
 
         private void rbtnOption_Click(object sender, RibbonControlEventArgs e)
@@ -107,12 +113,14 @@ namespace ProcScribeOutlook
             {
                 globalOutlook.boolAuto = true;
                 readReg.SetValue("OUTLOOKAUTO", "true");
+                tbtnAuto.Label = "Automatic On";
                 discoverAction();
             }
             else
             {
                 globalOutlook.boolAuto = false;
                 readReg.SetValue("OUTLOOKAUTO", "false");
+                tbtnAuto.Label = "Automatic Off";
             }
         }
     }
