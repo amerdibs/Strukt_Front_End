@@ -61,7 +61,7 @@
             this.columnHeader6,
             this.columnHeader8});
             this.listVSearchProcess.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listVSearchProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listVSearchProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listVSearchProcess.FullRowSelect = true;
             this.listVSearchProcess.GridLines = true;
             this.listVSearchProcess.HotTracking = true;

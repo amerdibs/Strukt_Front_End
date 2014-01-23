@@ -46,6 +46,7 @@ namespace ProcScribeOutlook
                 p.StartInfo.UseShellExecute = false;
                 p.StartInfo.RedirectStandardOutput = true;
                 p.Start();
+                this.Close();
             }
         }
 

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Drawing;
 using Microsoft.Win32;
+using Microsoft.Office.Tools.Ribbon;
 
 namespace ProcScribeOutlook
 {
@@ -59,7 +60,23 @@ namespace ProcScribeOutlook
 
             globalOutlook.proscribePath = readReg.GetValue("PROSCRIBEPATH").ToString();
 
-            
+            if (readReg.GetValue("OUTLOOKAUTO") == null)
+            {
+                readReg.SetValue("OUTLOOKAUTO", "false");
+            }
+            else
+            {
+                String strAuto = readReg.GetValue("OUTLOOKAUTO").ToString();
+                if (strAuto == "true")
+                {
+                    globalOutlook.boolAuto = true;
+                }
+                else
+                {
+                    globalOutlook.boolAuto = false;
+                }
+            }
+
             //MessageBox.Show(strIdentity);
             //MessageBox.Show(String.Format("There are {0} inspectors and {1} exploeres open.", this.Application.Inspectors.Count, this.Application.Explorers.Count));
         }
@@ -78,12 +95,7 @@ namespace ProcScribeOutlook
         {
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
-            //this.Application.Inspectors.NewInspector += Inspectors_NewInspector;
-            this.Application.ItemLoad += Application_ItemLoad;
-            
-            //this.Application.Inspectors.NewInspector += Outlook.InspectorsEvents(ThisAddIn_NewInspector);
-            //this.Application.Inspectors.NewInspector += new System.EventHandler(ThisAddIn_NewInspector);
-            //this.Application.Inspectors.NewInspector += new Outlook.InspectorEvents_NewInspectorEventHandler(ThisAddIn_NewInspector);
+            this.Application.ItemLoad += Application_ItemLoad;     
         }
 
         void Application_ItemLoad(object Item)
@@ -91,72 +103,11 @@ namespace ProcScribeOutlook
             //MessageBox.Show("yyy");
             if (globalOutlook.boolAuto)
             {
-                globalOutlook.taskProcessFoundList = new List<TaskProcess>();
-                List<TaskProcess> taskProcessList = TaskProcess.getTaskProcessAll();
-                Outlook.MailItem mailItem = null;
-                if (globalOutlook.proscribeAddIn.Application.ActiveInspector() != null)
-                {
-                    Outlook.Inspector activeInsp = globalOutlook.proscribeAddIn.Application.ActiveInspector();
-                    if (activeInsp.CurrentItem is Outlook.MailItem)
-                    {
-                        mailItem = (Outlook.MailItem)activeInsp.CurrentItem;
-                    }
-                }
-                else
-                    if (globalOutlook.proscribeAddIn.Application.ActiveExplorer() != null)
-                    {
-                        Outlook.Explorer activeExp = globalOutlook.proscribeAddIn.Application.ActiveExplorer();
-                        if (activeExp.CurrentFolder.DefaultItemType == Outlook.OlItemType.olMailItem)
-                        {
-                            object selObject = activeExp.Selection[1];
-                            if (selObject is Outlook.MailItem)
-                            {
-                                mailItem = (Outlook.MailItem)selObject;
-                            }
-                        }
-                    }
-
-                if (mailItem != null)
-                {
-                    String strMail = mailItem.Body.ToLower();
-
-                    foreach (TaskProcess taskP in taskProcessList)
-                    {
-                        if (!String.IsNullOrEmpty(taskP.keyword))
-                        {
-                            String[] asKeyword = taskP.keyword.Split(',');
-                            foreach (String sKeyword in asKeyword)
-                            {
-                                String sKeyTrim = sKeyword.Trim().ToLower();
-                                if (!String.IsNullOrEmpty(sKeyTrim))
-                                {
-                                    if (strMail.Contains(sKeyTrim))
-                                    {
-                                        if (!globalOutlook.taskProcessFoundList.Contains(taskP))
-                                            globalOutlook.taskProcessFoundList.Add(taskP);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (globalOutlook.taskProcessFoundList.Count > 0)
-                    {
-                        frmSearchResult frmSR = new frmSearchResult();
-                        frmSR.ShowDialog();
-                    }
-                }
+                RibbonMenu.discoverAction();
             }
             
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
-
-        //private void Inspectors_NewInspector(Outlook.Inspector Inspector)
-        //{
-        //    MessageBox.Show("xxx");
-        //    throw new NotImplementedException();
-        //}
-
-
 
         #endregion
     }

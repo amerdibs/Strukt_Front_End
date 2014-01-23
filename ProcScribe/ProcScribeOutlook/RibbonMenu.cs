@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using Microsoft.Office.Tools.Ribbon;
 using Outlook = Microsoft.Office.Interop.Outlook;
-//using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using System.Windows.Forms;
 using System.Data;
 using System.Drawing;
+using Microsoft.Win32;
 
 
 namespace ProcScribeOutlook
@@ -17,7 +17,10 @@ namespace ProcScribeOutlook
     {
         private void RibbonMenu_Load(object sender, RibbonUIEventArgs e)
         {
-
+            if (globalOutlook.boolAuto)
+                tbtnAuto.Checked = true;
+            else
+                tbtnAuto.Checked = false;
         }
 
         private void rbtnOption_Click(object sender, RibbonControlEventArgs e)
@@ -26,7 +29,7 @@ namespace ProcScribeOutlook
             frmOp.ShowDialog();
         }
 
-        private void rbtnDiscover_Click(object sender, RibbonControlEventArgs e)
+        public static void discoverAction()
         {
             globalOutlook.taskProcessFoundList = new List<TaskProcess>();
             List<TaskProcess> taskProcessList = TaskProcess.getTaskProcessAll();
@@ -72,7 +75,7 @@ namespace ProcScribeOutlook
                                     if (!globalOutlook.taskProcessFoundList.Contains(taskP))
                                         globalOutlook.taskProcessFoundList.Add(taskP);
                                 }
-                            }    
+                            }
                         }
                     }
                 }
@@ -81,6 +84,34 @@ namespace ProcScribeOutlook
                     frmSearchResult frmSR = new frmSearchResult();
                     frmSR.ShowDialog();
                 }
+            }
+        }
+
+
+        private void rbtnDiscover_Click(object sender, RibbonControlEventArgs e)
+        {
+            discoverAction();
+        }
+
+        private void tbtnAuto_Click(object sender, RibbonControlEventArgs e)
+        {
+            RegistryKey readReg;
+            readReg = Registry.CurrentUser.OpenSubKey(globalOutlook.registryPath, true);
+            if (readReg == null)
+            {
+                Registry.CurrentUser.CreateSubKey(globalOutlook.registryPath);
+                readReg = Registry.CurrentUser.OpenSubKey(globalOutlook.registryPath, true);
+            }
+
+            if (tbtnAuto.Checked)
+            {
+                globalOutlook.boolAuto = true;
+                readReg.SetValue("OUTLOOKAUTO", "true");
+            }
+            else
+            {
+                globalOutlook.boolAuto = false;
+                readReg.SetValue("OUTLOOKAUTO", "false");
             }
         }
     }

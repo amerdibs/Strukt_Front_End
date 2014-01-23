@@ -37,9 +37,9 @@
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.rbtnDiscover = this.Factory.CreateRibbonButton();
-            this.rbtnOption = this.Factory.CreateRibbonButton();
             this.tbtnAuto = this.Factory.CreateRibbonToggleButton();
             this.separator1 = this.Factory.CreateRibbonSeparator();
+            this.rbtnOption = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             // 
@@ -66,16 +66,8 @@
             this.rbtnDiscover.Label = "Discover";
             this.rbtnDiscover.Name = "rbtnDiscover";
             this.rbtnDiscover.ShowImage = true;
+            this.rbtnDiscover.SuperTip = "Discover keyword";
             this.rbtnDiscover.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rbtnDiscover_Click);
-            // 
-            // rbtnOption
-            // 
-            this.rbtnOption.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.rbtnOption.Image = global::ProcScribeOutlook.Properties.Resources.applications;
-            this.rbtnOption.Label = "Advance Options";
-            this.rbtnOption.Name = "rbtnOption";
-            this.rbtnOption.ShowImage = true;
-            this.rbtnOption.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rbtnOption_Click);
             // 
             // tbtnAuto
             // 
@@ -84,10 +76,22 @@
             this.tbtnAuto.Label = "Automatic Discover";
             this.tbtnAuto.Name = "tbtnAuto";
             this.tbtnAuto.ShowImage = true;
+            this.tbtnAuto.SuperTip = "Toggle to automatic discover keyword";
+            this.tbtnAuto.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.tbtnAuto_Click);
             // 
             // separator1
             // 
             this.separator1.Name = "separator1";
+            // 
+            // rbtnOption
+            // 
+            this.rbtnOption.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.rbtnOption.Image = global::ProcScribeOutlook.Properties.Resources.applications;
+            this.rbtnOption.Label = "Advance Options";
+            this.rbtnOption.Name = "rbtnOption";
+            this.rbtnOption.ShowImage = true;
+            this.rbtnOption.SuperTip = "Advance Option";
+            this.rbtnOption.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rbtnOption_Click);
             // 
             // RibbonMenu
             // 
