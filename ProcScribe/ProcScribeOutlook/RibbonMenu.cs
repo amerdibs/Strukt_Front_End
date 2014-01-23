@@ -107,6 +107,7 @@ namespace ProcScribeOutlook
             {
                 globalOutlook.boolAuto = true;
                 readReg.SetValue("OUTLOOKAUTO", "true");
+                discoverAction();
             }
             else
             {
