@@ -161,6 +161,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Strukt.cs" />
+    <Compile Include="StruktProcess.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskProcess.cs" />
     <Compile Include="TestFunction.cs">

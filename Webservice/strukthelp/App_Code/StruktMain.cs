@@ -70,7 +70,158 @@ public class StruktMain : System.Web.Services.WebService {
         }
        
     }
-    
+
+    [WebMethod]
+    public string addStruktProcess(String strProcessName)
+    {
+        string strAnswer= "";
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        try
+        {
+			// Create empty workflow
+		    dbConnection.Open();
+            string strD = "insert into Workflow (type) values (@type); SELECT SCOPE_IDENTITY();";
+            SqlCommand qCommand = new SqlCommand(strD, dbConnection);
+            qCommand.Parameters.Add(new SqlParameter("type", "http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow"));
+            qCommand.CommandText = strD;
+            object intKey = qCommand.ExecuteScalar();
+
+            strD = "update Workflow set id = @id where real_id = @real_id";
+            qCommand.Parameters.Clear();
+            qCommand.Parameters.Add(new SqlParameter("real_id", intKey));
+            qCommand.Parameters.Add(new SqlParameter("id", Strukt.Type_Workflow + intKey.ToString()));
+            qCommand.CommandText = strD;
+            qCommand.ExecuteNonQuery();
+
+            strD = "select * from Workflow where real_id = @real_id";
+            qCommand.Parameters.Clear();
+            qCommand.Parameters.Add(new SqlParameter("real_id", intKey));
+            qCommand.CommandText = strD;
+            SqlDataReader qReader = qCommand.ExecuteReader();
+            DataTable dtTable = new DataTable();
+            dtTable.Load(qReader);
+            dtTable.TableName = "WorkFlow";
+
+
+			// Create Process
+            strD = "insert into struktProcess (p_name,p_workflow_id) values (@p_name,@p_workflow_id); SELECT SCOPE_IDENTITY();";
+            SqlCommand qCommandP = new SqlCommand(strD, dbConnection);
+			qCommandP.Parameters.Add(new SqlParameter("p_name", strProcessName));
+			qCommandP.Parameters.Add(new SqlParameter("@p_workflow_id", dtTable.Rows[0]["real_id"].ToString()));
+            qCommandP.CommandText = strD;
+            object intKeyP = qCommandP.ExecuteScalar();
+
+            strD = "select * from struktProcess where p_id = @p_id";
+            qCommandP.Parameters.Clear();
+            qCommandP.Parameters.Add(new SqlParameter("@p_id", intKeyP));
+            qCommandP.CommandText = strD;
+            SqlDataReader qReaderP = qCommandP.ExecuteReader();
+            DataTable dtTableP = new DataTable();
+            dtTableP.Load(qReaderP);
+            dtTableP.TableName = "struktProcess";
+
+            StruktProcess sp = new StruktProcess();
+            sp.id = dtTableP.Rows[0]["p_id"].ToString();
+            sp.name = dtTableP.Rows[0]["p_name"].ToString();
+			sp.workflowID = dtTableP.Rows[0]["p_workflow_id"].ToString();
+			sp.createDate = dtTableP.Rows[0]["p_create_date"].ToString();
+
+            JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+            jsSetting.NullValueHandling = NullValueHandling.Ignore;
+            strAnswer = JsonConvert.SerializeObject(sp, jsSetting);
+            return strAnswer;
+         
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        finally
+        {
+            dbConnection.Close();
+        }
+       
+    }
+	
+    [WebMethod]
+    public string editStruktProcessName(int strStruktProcessID, String strStruktProcessName)
+    {
+        string strAnswer = "";
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        try
+        {
+            dbConnection.Open();
+            string strD = "update StruktProcess set p_name = @p_name where p_id = @p_id";
+            SqlCommand qCommand = new SqlCommand(strD, dbConnection);
+			qCommand.Parameters.Add(new SqlParameter("p_name", strStruktProcessName));
+			qCommand.Parameters.Add(new SqlParameter("p_id", strStruktProcessID));
+            qCommand.CommandText = strD;
+            qCommand.ExecuteNonQuery();
+
+            strD = "select * from struktProcess where p_id = @p_id";
+            qCommand.Parameters.Clear();
+            qCommand.Parameters.Add(new SqlParameter("p_id", strStruktProcessID));
+            qCommand.CommandText = strD;
+            SqlDataReader qReader = qCommand.ExecuteReader();
+            DataTable dtTable = new DataTable();
+            dtTable.Load(qReader);
+            dtTable.TableName = "struktProcess";
+
+            StruktProcess sp = new StruktProcess();
+            sp.id = dtTable.Rows[0]["p_id"].ToString();
+            sp.name = dtTable.Rows[0]["p_name"].ToString();
+			sp.workflowID = dtTable.Rows[0]["p_workflow_id"].ToString();
+			sp.createDate = dtTable.Rows[0]["p_create_date"].ToString();
+			
+			
+            JsonSerializerSettings jsSetting = new JsonSerializerSettings();
+            jsSetting.NullValueHandling = NullValueHandling.Ignore;
+            strAnswer = JsonConvert.SerializeObject(sp, jsSetting);
+            return strAnswer;
+
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        finally
+        {
+            dbConnection.Close();
+        }
+
+    }
+	
+	[WebMethod]
+    public string deleteStruktProcess(String strStruktProcessID)
+    {
+        SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
+        try
+        {
+			// This function does not delete workflow object, because we let programmer makes up his mind to keep workflow or not.
+			// Programmer can delete workflow object separately by deleteWorkflow function.
+            dbConnection.Open();
+            string strD = "delete from StruktProcess where p_id = @p_id";
+            SqlCommand qCommand = new SqlCommand(strD, dbConnection);
+            qCommand.Parameters.Add(new SqlParameter("p_id", strStruktProcessID));
+            qCommand.CommandText = strD;
+            qCommand.ExecuteNonQuery();
+            return "{\"type\":\"success\"}";
+
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        finally
+        {
+            dbConnection.Close();
+        }
+
+    }
+	
     [WebMethod]
     public string addWorkflow()
     {
