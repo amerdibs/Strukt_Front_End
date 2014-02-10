@@ -77,6 +77,9 @@
             this.ttMainForm = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnDesigner = new System.Windows.Forms.Panel();
+            this.btn_createProcess = new System.Windows.Forms.Button();
+            this.btn_modifyProcess = new System.Windows.Forms.Button();
+            this.btn_deleteProcess = new System.Windows.Forms.Button();
             this.tabCenter.SuspendLayout();
             this.tpGuide.SuspendLayout();
             this.pnCenterHead.SuspendLayout();
@@ -536,6 +539,9 @@
             // 
             // pnDesigner
             // 
+            this.pnDesigner.Controls.Add(this.btn_deleteProcess);
+            this.pnDesigner.Controls.Add(this.btn_modifyProcess);
+            this.pnDesigner.Controls.Add(this.btn_createProcess);
             this.pnDesigner.Controls.Add(this.btnDelete);
             this.pnDesigner.Controls.Add(this.btnAdd);
             this.pnDesigner.Controls.Add(this.btnSubAdd);
@@ -544,6 +550,35 @@
             this.pnDesigner.Name = "pnDesigner";
             this.pnDesigner.Size = new System.Drawing.Size(384, 24);
             this.pnDesigner.TabIndex = 4;
+            // 
+            // btn_createProcess
+            // 
+            this.btn_createProcess.Location = new System.Drawing.Point(7, 1);
+            this.btn_createProcess.Name = "btn_createProcess";
+            this.btn_createProcess.Size = new System.Drawing.Size(91, 23);
+            this.btn_createProcess.TabIndex = 8;
+            this.btn_createProcess.Text = "Create process";
+            this.btn_createProcess.UseVisualStyleBackColor = true;
+            this.btn_createProcess.Click += new System.EventHandler(this.btn_createProcess_Click);
+            // 
+            // btn_modifyProcess
+            // 
+            this.btn_modifyProcess.Location = new System.Drawing.Point(97, 1);
+            this.btn_modifyProcess.Name = "btn_modifyProcess";
+            this.btn_modifyProcess.Size = new System.Drawing.Size(87, 23);
+            this.btn_modifyProcess.TabIndex = 9;
+            this.btn_modifyProcess.Text = "Modify Process";
+            this.btn_modifyProcess.UseVisualStyleBackColor = true;
+            this.btn_modifyProcess.Click += new System.EventHandler(this.btn_modifyProcess_Click);
+            // 
+            // btn_deleteProcess
+            // 
+            this.btn_deleteProcess.Location = new System.Drawing.Point(186, 1);
+            this.btn_deleteProcess.Name = "btn_deleteProcess";
+            this.btn_deleteProcess.Size = new System.Drawing.Size(75, 23);
+            this.btn_deleteProcess.TabIndex = 10;
+            this.btn_deleteProcess.Text = "Delete process";
+            this.btn_deleteProcess.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -628,6 +663,9 @@
         private System.Windows.Forms.ListView listVSearchProcessName;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Button btn_deleteProcess;
+        private System.Windows.Forms.Button btn_modifyProcess;
+        private System.Windows.Forms.Button btn_createProcess;
     }
 }
 

@@ -2028,6 +2028,19 @@ namespace ProcScribe
 
         }
 
+        private void btn_createProcess_Click(object sender, EventArgs e)
+        {
+            frmProcess frmProcess = new frmProcess();
+            frmProcess.ShowDialog();
+        }
+
+        private void btn_modifyProcess_Click(object sender, EventArgs e)
+        {
+            frmProcess frmProcess = new frmProcess();
+            frmProcess.Text = "Modify Process Name";
+            frmProcess.ShowDialog();
+        }
+
        
 
 

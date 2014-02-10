@@ -84,6 +84,12 @@
     <Compile Include="Assignment.cs" />
     <Compile Include="Condition.cs" />
     <Compile Include="FileList.cs" />
+    <Compile Include="frmProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProcess.Designer.cs">
+      <DependentUpon>frmProcess.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUploadFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Workflow.cs" />
+    <EmbeddedResource Include="frmProcess.resx">
+      <DependentUpon>frmProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUploadFile.resx">
       <DependentUpon>frmUploadFile.cs</DependentUpon>
     </EmbeddedResource>
