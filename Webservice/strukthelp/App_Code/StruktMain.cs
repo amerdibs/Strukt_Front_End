@@ -194,7 +194,7 @@ public class StruktMain : System.Web.Services.WebService {
     }
 	
 	[WebMethod]
-    public string deleteStruktProcess(String strStruktProcessID)
+    public string deleteStruktProcess(int intStruktProcessID)
     {
         SqlConnection dbConnection = new SqlConnection(constantClass.dbConnectStr);
         try
@@ -204,7 +204,7 @@ public class StruktMain : System.Web.Services.WebService {
             dbConnection.Open();
             string strD = "delete from StruktProcess where p_id = @p_id";
             SqlCommand qCommand = new SqlCommand(strD, dbConnection);
-            qCommand.Parameters.Add(new SqlParameter("p_id", strStruktProcessID));
+            qCommand.Parameters.Add(new SqlParameter("p_id", intStruktProcessID));
             qCommand.CommandText = strD;
             qCommand.ExecuteNonQuery();
             return "{\"type\":\"success\"}";

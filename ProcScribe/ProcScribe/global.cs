@@ -57,6 +57,7 @@ namespace ProcScribe
         public static string domainName;
 
         public static string processName;
+        public static int processID;
 
         // limitation
         public static int minFrmHeight = 600;
@@ -75,7 +76,8 @@ namespace ProcScribe
         public static List<Assignment> assignmentReceivedList;
 
 
-        public static string PathSharedFile = "http://pakorn.somee.com/upload/files/";
+        //public static string PathSharedFile = "http://pakorn.somee.com/upload/files/";
+        public static string PathSharedFile = "http://localhost/upload/Files/";
 
 
         public static DataTable processTable;

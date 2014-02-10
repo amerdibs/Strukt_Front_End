@@ -19,6 +19,18 @@ namespace ProcScribeOutlook.StruktMain {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/selectWorkflow", ReplyAction="*")]
         ProcScribeOutlook.StruktMain.selectWorkflowResponse selectWorkflow(ProcScribeOutlook.StruktMain.selectWorkflowRequest request);
         
+        // CODEGEN: Generating message contract since element name strProcessName from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/addStruktProcess", ReplyAction="*")]
+        ProcScribeOutlook.StruktMain.addStruktProcessResponse addStruktProcess(ProcScribeOutlook.StruktMain.addStruktProcessRequest request);
+        
+        // CODEGEN: Generating message contract since element name strStruktProcessName from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/editStruktProcessName", ReplyAction="*")]
+        ProcScribeOutlook.StruktMain.editStruktProcessNameResponse editStruktProcessName(ProcScribeOutlook.StruktMain.editStruktProcessNameRequest request);
+        
+        // CODEGEN: Generating message contract since element name deleteStruktProcessResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/deleteStruktProcess", ReplyAction="*")]
+        ProcScribeOutlook.StruktMain.deleteStruktProcessResponse deleteStruktProcess(ProcScribeOutlook.StruktMain.deleteStruktProcessRequest request);
+        
         // CODEGEN: Generating message contract since element name addWorkflowResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/addWorkflow", ReplyAction="*")]
         ProcScribeOutlook.StruktMain.addWorkflowResponse addWorkflow(ProcScribeOutlook.StruktMain.addWorkflowRequest request);
@@ -129,6 +141,214 @@ namespace ProcScribeOutlook.StruktMain {
         
         public selectWorkflowResponseBody(string selectWorkflowResult) {
             this.selectWorkflowResult = selectWorkflowResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addStruktProcessRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addStruktProcess", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribeOutlook.StruktMain.addStruktProcessRequestBody Body;
+        
+        public addStruktProcessRequest() {
+        }
+        
+        public addStruktProcessRequest(ProcScribeOutlook.StruktMain.addStruktProcessRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class addStruktProcessRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string strProcessName;
+        
+        public addStruktProcessRequestBody() {
+        }
+        
+        public addStruktProcessRequestBody(string strProcessName) {
+            this.strProcessName = strProcessName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addStruktProcessResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addStruktProcessResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribeOutlook.StruktMain.addStruktProcessResponseBody Body;
+        
+        public addStruktProcessResponse() {
+        }
+        
+        public addStruktProcessResponse(ProcScribeOutlook.StruktMain.addStruktProcessResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class addStruktProcessResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string addStruktProcessResult;
+        
+        public addStruktProcessResponseBody() {
+        }
+        
+        public addStruktProcessResponseBody(string addStruktProcessResult) {
+            this.addStruktProcessResult = addStruktProcessResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class editStruktProcessNameRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="editStruktProcessName", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribeOutlook.StruktMain.editStruktProcessNameRequestBody Body;
+        
+        public editStruktProcessNameRequest() {
+        }
+        
+        public editStruktProcessNameRequest(ProcScribeOutlook.StruktMain.editStruktProcessNameRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class editStruktProcessNameRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int strStruktProcessID;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string strStruktProcessName;
+        
+        public editStruktProcessNameRequestBody() {
+        }
+        
+        public editStruktProcessNameRequestBody(int strStruktProcessID, string strStruktProcessName) {
+            this.strStruktProcessID = strStruktProcessID;
+            this.strStruktProcessName = strStruktProcessName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class editStruktProcessNameResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="editStruktProcessNameResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribeOutlook.StruktMain.editStruktProcessNameResponseBody Body;
+        
+        public editStruktProcessNameResponse() {
+        }
+        
+        public editStruktProcessNameResponse(ProcScribeOutlook.StruktMain.editStruktProcessNameResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class editStruktProcessNameResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string editStruktProcessNameResult;
+        
+        public editStruktProcessNameResponseBody() {
+        }
+        
+        public editStruktProcessNameResponseBody(string editStruktProcessNameResult) {
+            this.editStruktProcessNameResult = editStruktProcessNameResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteStruktProcessRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="deleteStruktProcess", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribeOutlook.StruktMain.deleteStruktProcessRequestBody Body;
+        
+        public deleteStruktProcessRequest() {
+        }
+        
+        public deleteStruktProcessRequest(ProcScribeOutlook.StruktMain.deleteStruktProcessRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class deleteStruktProcessRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int intStruktProcessID;
+        
+        public deleteStruktProcessRequestBody() {
+        }
+        
+        public deleteStruktProcessRequestBody(int intStruktProcessID) {
+            this.intStruktProcessID = intStruktProcessID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteStruktProcessResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="deleteStruktProcessResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ProcScribeOutlook.StruktMain.deleteStruktProcessResponseBody Body;
+        
+        public deleteStruktProcessResponse() {
+        }
+        
+        public deleteStruktProcessResponse(ProcScribeOutlook.StruktMain.deleteStruktProcessResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class deleteStruktProcessResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string deleteStruktProcessResult;
+        
+        public deleteStruktProcessResponseBody() {
+        }
+        
+        public deleteStruktProcessResponseBody(string deleteStruktProcessResult) {
+            this.deleteStruktProcessResult = deleteStruktProcessResult;
         }
     }
     
@@ -897,6 +1117,46 @@ namespace ProcScribeOutlook.StruktMain {
             inValue.Body.strWorkflowID = strWorkflowID;
             ProcScribeOutlook.StruktMain.selectWorkflowResponse retVal = ((ProcScribeOutlook.StruktMain.StruktMainSoap)(this)).selectWorkflow(inValue);
             return retVal.Body.selectWorkflowResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ProcScribeOutlook.StruktMain.addStruktProcessResponse ProcScribeOutlook.StruktMain.StruktMainSoap.addStruktProcess(ProcScribeOutlook.StruktMain.addStruktProcessRequest request) {
+            return base.Channel.addStruktProcess(request);
+        }
+        
+        public string addStruktProcess(string strProcessName) {
+            ProcScribeOutlook.StruktMain.addStruktProcessRequest inValue = new ProcScribeOutlook.StruktMain.addStruktProcessRequest();
+            inValue.Body = new ProcScribeOutlook.StruktMain.addStruktProcessRequestBody();
+            inValue.Body.strProcessName = strProcessName;
+            ProcScribeOutlook.StruktMain.addStruktProcessResponse retVal = ((ProcScribeOutlook.StruktMain.StruktMainSoap)(this)).addStruktProcess(inValue);
+            return retVal.Body.addStruktProcessResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ProcScribeOutlook.StruktMain.editStruktProcessNameResponse ProcScribeOutlook.StruktMain.StruktMainSoap.editStruktProcessName(ProcScribeOutlook.StruktMain.editStruktProcessNameRequest request) {
+            return base.Channel.editStruktProcessName(request);
+        }
+        
+        public string editStruktProcessName(int strStruktProcessID, string strStruktProcessName) {
+            ProcScribeOutlook.StruktMain.editStruktProcessNameRequest inValue = new ProcScribeOutlook.StruktMain.editStruktProcessNameRequest();
+            inValue.Body = new ProcScribeOutlook.StruktMain.editStruktProcessNameRequestBody();
+            inValue.Body.strStruktProcessID = strStruktProcessID;
+            inValue.Body.strStruktProcessName = strStruktProcessName;
+            ProcScribeOutlook.StruktMain.editStruktProcessNameResponse retVal = ((ProcScribeOutlook.StruktMain.StruktMainSoap)(this)).editStruktProcessName(inValue);
+            return retVal.Body.editStruktProcessNameResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ProcScribeOutlook.StruktMain.deleteStruktProcessResponse ProcScribeOutlook.StruktMain.StruktMainSoap.deleteStruktProcess(ProcScribeOutlook.StruktMain.deleteStruktProcessRequest request) {
+            return base.Channel.deleteStruktProcess(request);
+        }
+        
+        public string deleteStruktProcess(int intStruktProcessID) {
+            ProcScribeOutlook.StruktMain.deleteStruktProcessRequest inValue = new ProcScribeOutlook.StruktMain.deleteStruktProcessRequest();
+            inValue.Body = new ProcScribeOutlook.StruktMain.deleteStruktProcessRequestBody();
+            inValue.Body.intStruktProcessID = intStruktProcessID;
+            ProcScribeOutlook.StruktMain.deleteStruktProcessResponse retVal = ((ProcScribeOutlook.StruktMain.StruktMainSoap)(this)).deleteStruktProcess(inValue);
+            return retVal.Body.deleteStruktProcessResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

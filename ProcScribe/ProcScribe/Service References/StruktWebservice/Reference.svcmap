@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://pakorn.somee.com/strukthelp/StruktUser.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/strukthelp/StruktUser.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StruktUser.wsdl" MetadataType="Wsdl" ID="a4169e0a-0c4b-4d1c-91f5-b339a5b28b51" SourceId="1" SourceUrl="http://pakorn.somee.com/strukthelp/StruktUser.asmx?wsdl" />
-    <MetadataFile FileName="StruktUser.disco" MetadataType="Disco" ID="4f720196-f227-4b78-9237-3fb77873b06f" SourceId="1" SourceUrl="http://pakorn.somee.com/strukthelp/StruktUser.asmx?disco" />
+    <MetadataFile FileName="StruktUser1.wsdl" MetadataType="Wsdl" ID="d118d468-0c2e-4b67-8d2e-6cb7b33fb359" SourceId="1" SourceUrl="http://localhost/strukthelp/StruktUser.asmx?wsdl" />
+    <MetadataFile FileName="StruktUser1.disco" MetadataType="Disco" ID="f94eed86-69da-4636-9cd1-15878da22756" SourceId="1" SourceUrl="http://localhost/strukthelp/StruktUser.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

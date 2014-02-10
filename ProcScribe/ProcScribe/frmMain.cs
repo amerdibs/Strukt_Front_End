@@ -13,6 +13,7 @@ using Microsoft.Win32;
 using System.Text.RegularExpressions;
 
 
+
 namespace ProcScribe
 {
     public partial class frmMain : Form
@@ -524,12 +525,9 @@ namespace ProcScribe
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-
-
-            if ((global.workflowMain == null) && ((global.workflowMain.taskChildList == null) || (global.workflowMain.taskChildList.Count == 0)))
+            if (global.workflowMain == null) 
             {
-                MessageBox.Show("Please load a process first.********************************** This step is under construction!");
+                MessageBox.Show("Please load a process first.");
                 return;
             }
             else
@@ -1344,6 +1342,7 @@ namespace ProcScribe
                 Workflow wfMain = Workflow.getWorkflowHierarchybyID(cbProcess.SelectedValue.ToString(),null);
                 DataRowView dr = (DataRowView)cbProcess.SelectedItem;
                 global.processName = dr["p_name"].ToString();
+                global.processID = (int)dr["p_id"];
                 lbProcess.Text = global.processName;
                 lbProcessHead.Visible = true;
                 global.workflowMain = wfMain;
@@ -2030,15 +2029,121 @@ namespace ProcScribe
 
         private void btn_createProcess_Click(object sender, EventArgs e)
         {
-            frmProcess frmProcess = new frmProcess();
-            frmProcess.ShowDialog();
+            frmProcess frmProc = new frmProcess(this);
+            frmProc.Text = "Create New Process";
+            frmProc.formMode = "N";
+            frmProc.ShowDialog();
+            if (frmProc.boolOK)
+            {
+                //Get all processes
+                StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
+                global.processTable = wsStrukt.getProcessAll();
+                global.taskProcessListSearch = TaskProcess.getTaskProcessAll();
+
+                cbProcess.DataSource = global.processTable;
+                cbProcess.ValueMember = "p_workflow_id";
+                cbProcess.DisplayMember = "p_name";
+
+                cbProcess.SelectedValue = frmProc.strWorkflowID;
+                //Load empty process
+                btnLoadProcess_Click(sender, e);
+            }
         }
 
         private void btn_modifyProcess_Click(object sender, EventArgs e)
         {
-            frmProcess frmProcess = new frmProcess();
-            frmProcess.Text = "Modify Process Name";
-            frmProcess.ShowDialog();
+            if (global.workflowMain == null) 
+            {
+                MessageBox.Show("Please load a process first.");
+                return;
+            }
+            frmProcess frmProc = new frmProcess(this);
+            frmProc.Text = "Modify Process Name";
+            frmProc.formMode = "E";
+            frmProc.Controls["txtProcessName"].Text = global.processName;
+            frmProc.ShowDialog();
+            if (frmProc.boolOK)
+            {
+                //Get all processes
+                StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
+                global.processTable = wsStrukt.getProcessAll();
+                global.taskProcessListSearch = TaskProcess.getTaskProcessAll();
+
+                cbProcess.DataSource = global.processTable;
+                cbProcess.ValueMember = "p_workflow_id";
+                cbProcess.DisplayMember = "p_name";
+
+                cbProcess.SelectedValue = frmProc.strWorkflowID;
+                //Load empty process
+                btnLoadProcess_Click(sender, e);
+            }
+        }
+
+        private void btnDeleteProcess_Click(object sender, EventArgs e)
+        {
+            if (global.workflowMain == null) 
+            {
+                MessageBox.Show("Please load a process first.");
+                return;
+            }
+            DialogResult dResult = MessageBox.Show("Please confirm to delete this process?", "Delete Process", MessageBoxButtons.OKCancel);
+            if (dResult == DialogResult.OK)
+            {
+                if (global.workflowMain.taskChildList != null)
+                {
+                    if (global.workflowMain.taskChildList.Count > 0)
+                    {
+                        MessageBox.Show("You can delete only empty process. Please delete all tasks beforehand.");
+                    }
+                    else
+                    {
+                        StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                        String strReturn = wsStrukt.deleteStruktProcess(global.processID);
+
+                        //Get all processes
+                        StruktWebservice.StruktUserSoapClient wsStruktU = new StruktWebservice.StruktUserSoapClient();
+                        global.processTable = wsStruktU.getProcessAll();
+                        global.taskProcessListSearch = TaskProcess.getTaskProcessAll();
+
+                        cbProcess.DataSource = global.processTable;
+                        cbProcess.ValueMember = "p_workflow_id";
+                        cbProcess.DisplayMember = "p_name";
+
+                        global.processName = "";
+                        global.processID = 0;
+                        lbProcess.Text = "";
+                        lbProcessHead.Visible = false;
+                        global.workflowMain = null;
+                        pnCenter.Controls.Clear();
+                        listVSearch.Items.Clear();
+                        txtSearch.Text = "";
+                    }
+                }
+                else
+                {
+                    StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                    String strReturn = wsStrukt.deleteStruktProcess(global.processID);
+
+                    //Get all processes
+                    StruktWebservice.StruktUserSoapClient wsStruktU = new StruktWebservice.StruktUserSoapClient();
+                    global.processTable = wsStruktU.getProcessAll();
+                    global.taskProcessListSearch = TaskProcess.getTaskProcessAll();
+
+                    cbProcess.DataSource = global.processTable;
+                    cbProcess.ValueMember = "p_workflow_id";
+                    cbProcess.DisplayMember = "p_name";
+
+                    global.processName = "";
+                    global.processID = 0;
+                    lbProcess.Text = "";
+                    lbProcessHead.Visible = false;
+                    global.workflowMain = null;
+                    pnCenter.Controls.Clear();
+                    listVSearch.Items.Clear();
+                    txtSearch.Text = "";
+                }
+            }
+                
         }
 
        
