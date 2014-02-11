@@ -13,7 +13,8 @@ namespace ProcScribe.Tests1
         [TestMethod()]
         public void getTaskProcessAllTest()
         {
-            Assert.Fail();
+            int temp = TaskProcess.getTaskProcessAll().Count;
+            Assert.AreNotEqual(temp, 0);
         }
     }
 }
