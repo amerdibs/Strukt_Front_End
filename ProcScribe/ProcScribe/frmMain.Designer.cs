@@ -554,9 +554,9 @@
             // btnDeleteProcess
             // 
             this.btnDeleteProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteProcess.Location = new System.Drawing.Point(186, 1);
+            this.btnDeleteProcess.Location = new System.Drawing.Point(189, 1);
             this.btnDeleteProcess.Name = "btnDeleteProcess";
-            this.btnDeleteProcess.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteProcess.Size = new System.Drawing.Size(91, 23);
             this.btnDeleteProcess.TabIndex = 10;
             this.btnDeleteProcess.Text = "Delete process";
             this.btnDeleteProcess.UseVisualStyleBackColor = true;
@@ -565,9 +565,9 @@
             // btn_modifyProcess
             // 
             this.btn_modifyProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_modifyProcess.Location = new System.Drawing.Point(97, 1);
+            this.btn_modifyProcess.Location = new System.Drawing.Point(98, 1);
             this.btn_modifyProcess.Name = "btn_modifyProcess";
-            this.btn_modifyProcess.Size = new System.Drawing.Size(87, 23);
+            this.btn_modifyProcess.Size = new System.Drawing.Size(91, 23);
             this.btn_modifyProcess.TabIndex = 9;
             this.btn_modifyProcess.Text = "Modify Process";
             this.btn_modifyProcess.UseVisualStyleBackColor = true;
