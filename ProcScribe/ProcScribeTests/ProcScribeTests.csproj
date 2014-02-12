@@ -61,7 +61,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskProcessTests.cs" />
     <Compile Include="TaskTests.cs" />
-    <Compile Include="UserTests.cs" />
     <Compile Include="WorkflowTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -143,9 +143,15 @@ namespace ProcScribe
         //Extract the value from type
         public static string getValueFromStruktValue(string strParam)
         {
-            string strExtract = "";
-            strExtract = strParam.Substring(strParam.IndexOf("/", (strParam.IndexOf(Strukt.TypeStruktEnding) + Strukt.TypeStruktEndingChecking)) + 1);
-            return strExtract;
+            if (strParam != "" && strParam != null)
+            {
+                string strExtract = "";
+                strExtract = strParam.Substring(strParam.IndexOf("/", (strParam.IndexOf(Strukt.TypeStruktEnding) + Strukt.TypeStruktEndingChecking)) + 1);
+                return strExtract;
+            }else{
+                return "";
+            }
+
         }
 
         //Send Get to Strukt and receive data
@@ -311,7 +317,7 @@ namespace ProcScribe
             {
                 getTaskListFromAllWorkflow(tEach.workflowChild, taskList);
                 taskList.Add(tEach);
-                //Console.WriteLine("\n" + tEach.id);
+                Console.WriteLine("\n" + tEach.id);
 
             }
 
@@ -348,19 +354,7 @@ namespace ProcScribe
             }
         }
 
-        public void uploadMyFile(string fileToUpload)
-        {
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-                global.getExceptionThrow(e);
-                throw e;
-            }
-
-        }
+        
 
 
     }
