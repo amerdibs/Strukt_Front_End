@@ -72,7 +72,9 @@ namespace ProcScribe
 
         private void frmUploadFile_Load(object sender, EventArgs e)
         {
+            webBrowser.Url = new Uri(global.PathUploadFile);
             btnRefresh_Click(sender, e);
+
             //listView1.Items.Clear();
             //List<FileList> lFile = new List<FileList>();
             //lFile = getFileListAll();

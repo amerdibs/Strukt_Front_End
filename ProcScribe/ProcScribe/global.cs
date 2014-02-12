@@ -78,7 +78,7 @@ namespace ProcScribe
 
         //public static string PathSharedFile = "http://pakorn.somee.com/upload/files/";
         public static string PathSharedFile = "http://localhost/upload/Files/";
-
+        public static string PathUploadFile = "http://localhost/upload/upload.aspx";
 
         public static DataTable processTable;
         public static DataTable userTable;
