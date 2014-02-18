@@ -25,18 +25,21 @@ namespace ProcScribe.Tests
         public void getWorkflowHierarchybyIDTest()
         {
             Assert.Fail();
+            //Can not be tested at the moment because the application is temporary not working
         }
 
         [TestMethod()]
         public void addWorkflowTest()
         {
             Assert.Fail();
+            //Can not be tested at the moment because the application is temporary not working
         }
 
         [TestMethod()]
         public void editWorkflowTest()
         {
             Assert.Fail();
+            //Can not be tested at the moment because the application is temporary not working
         }
 
         [TestMethod()]

@@ -52,6 +52,7 @@ namespace ProcScribe.Tests
         public void sortTaskListTest()
         {
             Assert.Fail();
+            //Can not be tested at the moment because the application is temporary not working
         }
 
         [TestMethod()]
