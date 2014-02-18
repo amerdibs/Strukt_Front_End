@@ -14,30 +14,38 @@ namespace ProcScribe.Tests
         public void addTaskTest()
         {
             Assert.Fail();
+            //Can not be tested at the moment because the application is temporary not working
         }
 
         [TestMethod()]
         public void editTaskTest()
         {
             Assert.Fail();
+            //Can not be tested at the moment because the application is temporary not working
         }
 
         [TestMethod()]
         public void getTaskByParentWorkflowIDTest()
         {
-            Assert.Fail();
+            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("1072"), null);
+            Assert.AreEqual(Task.getTaskByParentWorkflowID(null), null);
+            Assert.AreEqual(Task.getTaskByParentWorkflowID(""), null);
         }
 
         [TestMethod()]
         public void getTaskByUserIDTest()
         {
-            Assert.Fail();
+            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("1072"), null);
+            Assert.AreEqual(Task.getTaskByParentWorkflowID(null), null);
+            Assert.AreEqual(Task.getTaskByParentWorkflowID(""), null);
         }
 
         [TestMethod()]
         public void getTaskByIDTest()
         {
-            Assert.Fail();
+            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("1072"), null);
+            Assert.AreEqual(Task.getTaskByParentWorkflowID(null), null);
+            Assert.AreEqual(Task.getTaskByParentWorkflowID(""), null);
         }
 
         [TestMethod()]
@@ -49,13 +57,17 @@ namespace ProcScribe.Tests
         [TestMethod()]
         public void getDeepestChildTest()
         {
-            Assert.Fail();
+            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("1072"), null);
+            Assert.AreEqual(Task.getTaskByParentWorkflowID(null), null);
+            Assert.AreEqual(Task.getTaskByParentWorkflowID(""), null);
         }
 
         [TestMethod()]
         public void deleteTaskTest()
         {
             Assert.Fail();
+            //Can not be tested at the moment because the application is temporary not working
+
         }
     }
 }

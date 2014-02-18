@@ -14,9 +14,11 @@ namespace ProcScribe.Tests
         public void getWorkflowByIDTest()
         {
             List<Workflow> lst = Workflow.getWorkflowByID("31");
-            //List<Workflow> lst = Workflow.getWorkflowByID("");
-            //List<Workflow> lst = Workflow.getWorkflowByID(null);
+            List<Workflow> lst2 = Workflow.getWorkflowByID("");
+            List<Workflow> lst3 = Workflow.getWorkflowByID(null);
             Assert.AreNotEqual(lst,null);
+            Assert.AreEqual(lst2, null);
+            Assert.AreEqual(lst3, null);
         }
 
         [TestMethod()]
@@ -40,7 +42,9 @@ namespace ProcScribe.Tests
         [TestMethod()]
         public void deleteWorkflowTest()
         {
-            Assert.Fail();
+            Assert.AreNotEqual(Workflow.deleteWorkflow("1072"), null);
+            //Assert.AreEqual(Workflow.deleteWorkflow(null), null);
+            //Assert.AreEqual(Workflow.deleteWorkflow(""), null);
         }
     }
 }
