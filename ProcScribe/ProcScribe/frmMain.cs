@@ -202,9 +202,8 @@ namespace ProcScribe
                 pnDesigner.Visible = true;
                 global.roleUser = User.roleDesigner;
                 tsRole.Text = "Designer";
-                
                 tpGuide.Text += "/Edit";
-               cbProcess.Visible = true;
+                cbProcess.Visible = true;
                 btnLoadProcess.Visible = true;
             }
             else
@@ -337,6 +336,13 @@ namespace ProcScribe
             int left_position = this.Left;
             int width = this.Width;
             int height = this.Height;
+            // Protect error
+            if (top_position < 0)
+                top_position = 5;
+            if (left_position < 0)
+                left_position = 5;
+
+
             Rectangle resolution = Screen.PrimaryScreen.Bounds;
             int resolution_height = resolution.Size.Height;
             int resolution_width = resolution.Size.Width;
@@ -1044,7 +1050,7 @@ namespace ProcScribe
         private void btnOption_Click(object sender, EventArgs e)
         {
             frmOption fOp = new frmOption(this);
-            fOp.Show();
+            fOp.ShowDialog();
         }
 
         private void addMainTaskToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1828,6 +1834,8 @@ namespace ProcScribe
         {
             if (tabCenter.SelectedTab.Name == "tpSearch")
             {
+                global.taskProcessListSearch = TaskProcess.getTaskProcessAll();
+
                 if (global.workflowMain != null)
                 {
                     List<Task> listTaskSearch = new List<Task>();
@@ -2039,6 +2047,7 @@ namespace ProcScribe
                 StruktWebservice.StruktUserSoapClient wsStrukt = new StruktWebservice.StruktUserSoapClient();
                 global.processTable = wsStrukt.getProcessAll();
                 global.taskProcessListSearch = TaskProcess.getTaskProcessAll();
+
 
                 cbProcess.DataSource = global.processTable;
                 cbProcess.ValueMember = "p_workflow_id";

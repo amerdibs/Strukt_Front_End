@@ -31,6 +31,13 @@ namespace ProcScribe
 
         private void btn_process_Click(object sender, EventArgs e)
         {
+            if (txtProcessName.Text.Trim() == "")
+            {
+                DialogResult = DialogResult.None;
+                MessageBox.Show("Please input process name!", "Error Message");
+                return;
+            }
+
             if (formMode == "N")
             {
                 StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
