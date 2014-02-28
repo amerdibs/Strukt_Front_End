@@ -17,7 +17,6 @@ namespace ProcScribe
        public List<Status> statusList;
        public List<TaskType> taskTypeList;
        public List<Tool> toolList;
-       // List<Resource> resourceList;
 
         public static PropertiesStrukt getPropertiesStruktAll()
         {
@@ -287,7 +286,7 @@ namespace ProcScribe
 
 
             }
-            //Error 
+            
             public static void updateTaskParentStatusFromActiveToComplete(Task parmtask, List<Task> taskList)
             {
                 Workflow wfparent = parmtask.workflowParent;

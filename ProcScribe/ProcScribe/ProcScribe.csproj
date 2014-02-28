@@ -108,12 +108,6 @@
     <Compile Include="frmAssign.Designer.cs">
       <DependentUpon>frmAssign.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHelpInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmHelpInfo.Designer.cs">
-      <DependentUpon>frmHelpInfo.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,13 +169,6 @@
     <Compile Include="TestFunction.Designer.cs">
       <DependentUpon>TestFunction.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCListItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCListItem.Designer.cs">
-      <DependentUpon>UCListItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserTests.cs" />
     <Compile Include="UCMainTask.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,9 +188,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAssign.resx">
       <DependentUpon>frmAssign.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmHelpInfo.resx">
-      <DependentUpon>frmHelpInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -236,13 +220,9 @@
     <EmbeddedResource Include="TestFunction.resx">
       <DependentUpon>TestFunction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCListItem.resx">
-      <DependentUpon>UCListItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UCMainTask.resx">
       <DependentUpon>UCMainTask.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">

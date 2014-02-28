@@ -122,6 +122,8 @@
             this.txtMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMsg.Size = new System.Drawing.Size(193, 143);
             this.txtMsg.TabIndex = 2;
+            this.txtMsg.Text = "////Hide assignment feature at phase 2\r\n////The advisor said, keep this code for " +
+    "someone who wants to use it in future.";
             // 
             // label1
             // 
@@ -141,7 +143,6 @@
             this.Controls.Add(this.pnBody);
             this.Name = "frmMessage";
             this.Text = "Message sending";
-            this.Load += new System.EventHandler(this.frmMessage_Load);
             this.pnControl.ResumeLayout(false);
             this.pnBody.ResumeLayout(false);
             this.pnBody.PerformLayout();

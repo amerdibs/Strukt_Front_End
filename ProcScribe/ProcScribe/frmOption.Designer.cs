@@ -32,7 +32,6 @@
             this.cbTop = new System.Windows.Forms.CheckBox();
             this.cdDialog = new System.Windows.Forms.ColorDialog();
             this.gbColor = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnTaskHoverColor = new System.Windows.Forms.Button();
             this.txtTaskHoverColor = new System.Windows.Forms.TextBox();
             this.btnDefault = new System.Windows.Forms.Button();
@@ -80,7 +79,6 @@
             // 
             // gbColor
             // 
-            this.gbColor.Controls.Add(this.label1);
             this.gbColor.Controls.Add(this.btnTaskHoverColor);
             this.gbColor.Controls.Add(this.txtTaskHoverColor);
             this.gbColor.Controls.Add(this.btnDefault);
@@ -99,15 +97,6 @@
             this.gbColor.TabStop = false;
             this.gbColor.Text = "Color";
             this.gbColor.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 111);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "* Color will be effect on new starting.";
             // 
             // btnTaskHoverColor
             // 
@@ -299,7 +288,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAdvance;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbUserRole;
         private System.Windows.Forms.RadioButton rdbtnExecutor;
         private System.Windows.Forms.RadioButton rdbtnDesigner;

@@ -72,6 +72,8 @@
             this.lbTitle.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragDrop);
             this.lbTitle.DragEnter += new System.Windows.Forms.DragEventHandler(this.lbTitle_DragEnter);
             this.lbTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitle_MouseDown);
+            this.lbTitle.MouseEnter += new System.EventHandler(this.lbTitle_MouseEnter);
+            this.lbTitle.MouseLeave += new System.EventHandler(this.lbTitle_MouseLeave);
             // 
             // pbDesc
             // 

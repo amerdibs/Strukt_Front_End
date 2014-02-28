@@ -19,7 +19,8 @@ namespace ProcScribe
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());
 
-            // Pakorn comments Logi Page at 15.09.13
+            // Pakorn comments Login Page at 15.09.13
+            ////The advisor said, keep this code for someone who wants to use it in future.
             //frmLogin fLogin = new frmLogin();
             //if (fLogin.ShowDialog() == DialogResult.Cancel) 
             //{
@@ -31,9 +32,6 @@ namespace ProcScribe
             //    Application.Run(frM);
             //}
 
-            //Application.Run(new frmMain());
-            //Application.Run(new TestFunction());
-            //Application.Run(new frmTaskEdit());
         }
     }
 }

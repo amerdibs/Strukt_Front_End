@@ -21,7 +21,6 @@ namespace ProcScribe
         public Color colorBackGround { get; set; }
         public Task taskMember { get; set; }
         public int iLevel { get; set; }
-        //public Task taskUse { get; set; }
         public byte collapseType { get; set; }
         public const byte collapseType_nochild = 0;
         public const byte collapseType_collapse = 1;
@@ -236,7 +235,7 @@ namespace ProcScribe
         private void cbCheck_CheckStateChanged(object sender, EventArgs e)
         {
             //this is only for the first prototype since the cbCheck_Click is called once again after the this if finish
-            //the actuall state is back to active afterwords 
+            //the actual state is back to active afterwords 
             if (this.taskMember.status_id == PropertiesStrukt.Status.statusNoNActive)
             {
                 Cursor.Current = Cursors.WaitCursor;
@@ -251,18 +250,6 @@ namespace ProcScribe
 
         private void UCMainTask_Paint(object sender, PaintEventArgs e)
         {
-            //do not use gradient color
-            //if (this.Height > 0)
-            //{
-            //    Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
-            //    using (LinearGradientBrush brush = new LinearGradientBrush(rc, this.BackColor, Color.White, LinearGradientMode.Horizontal))
-            //    {
-
-            //        e.Graphics.FillRectangle(brush, rc);
-
-            //    }
-            //}
-
             if (global.roleUser == User.roleExecutor)
                 btnProp.Visible = false;
             else
@@ -369,14 +356,9 @@ namespace ProcScribe
             }
             else
             {
-                //pbCollape.Visible = false;
                 collapseType = collapseType_nochild;
                 pbCollape.Image = null;
             }
-
-            //User's role control
-            //if (global.roleUser == User.roleExecutor)
-            //    btnProp.Visible = false;
 
         }
         public void setExistenceCollapeButtonRole()
@@ -389,14 +371,9 @@ namespace ProcScribe
             }
             else
             {
-                //pbCollape.Visible = false;
                 collapseType = collapseType_nochild;
                 pbCollape.Image = null;
             }
-
-            //User's role control
-            //if (global.roleUser == User.roleExecutor)
-            //    btnProp.Visible = false;
 
         }
 
@@ -471,8 +448,6 @@ namespace ProcScribe
                 btnLink.Top = tb.Top + tb.Height + 2;
                 pbDesc.BringToFront();
                 this.Height = global.heightControlTaskDescLong;
-                //this.Height = global.heightControlTaskNormal;
-                //lbDesc.Height = 14;
             }
             else if (this.Height == global.heightControlTaskDescLong)
             {
@@ -480,8 +455,6 @@ namespace ProcScribe
                 {
                     this.Controls.Remove(this.Controls["tbDescLong"]);
                 }
-                //this.Height = global.heightControlTaskDesc;
-                //btnLink.Top = 56;
                 this.Height = global.heightControlTaskNormal;
                 lbDesc.Height = 14;
                 btnLink.Top = lbDesc.Top + lbDesc.Height + 2;
@@ -502,6 +475,16 @@ namespace ProcScribe
                 lb.BackColor = Color.Black;
             }
             
+        }
+
+        private void lbTitle_MouseEnter(object sender, EventArgs e)
+        {
+            UCMainTask_MouseEnter(sender, e);
+        }
+
+        private void lbTitle_MouseLeave(object sender, EventArgs e)
+        {
+            UCMainTask_MouseLeave(sender, e);
         }
         
     }

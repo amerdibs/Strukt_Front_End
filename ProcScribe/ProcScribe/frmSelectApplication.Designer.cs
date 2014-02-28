@@ -97,7 +97,6 @@
             this.lvAppList.TabIndex = 1;
             this.lvAppList.UseCompatibleStateImageBehavior = false;
             this.lvAppList.View = System.Windows.Forms.View.Details;
-            this.lvAppList.SelectedIndexChanged += new System.EventHandler(this.lvAppList_SelectedIndexChanged);
             // 
             // name
             // 

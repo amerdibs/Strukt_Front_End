@@ -133,6 +133,7 @@
             this.txtTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtTest.Size = new System.Drawing.Size(100, 100);
             this.txtTest.TabIndex = 6;
+            this.txtTest.Text = " ////The advisor said, keep this code for someone who wants to use it in future.";
             // 
             // frmLogin
             // 

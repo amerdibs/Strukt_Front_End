@@ -91,12 +91,6 @@ namespace ProcScribe
                         bResult = true;
                 }
 
-            //if (global.assignmentSentList != null)
-            //    foreach (Assignment asEach in global.assignmentSentList)
-            //    {
-            //        if (asEach.acknowledged == "false")
-            //            bResult = true;
-            //    }
             return bResult;
         }
 

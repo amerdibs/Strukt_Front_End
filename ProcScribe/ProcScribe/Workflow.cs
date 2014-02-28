@@ -33,7 +33,8 @@ namespace ProcScribe
                 lwf.Add(JsonConvert.DeserializeObject<Workflow>(strReturn));
                 return lwf;
 
-
+                ////Change from Strukt system to webservice
+                ////The advisor said, keep this code for someone who wants to use it in future.
                 //string strSect = global.getExtractValueFromRespond(global.getRespondFromStruktGet(Strukt.URL_Workflow, "/" + strWorkflowID));
 
                 //if (strSect == "")
@@ -82,6 +83,9 @@ namespace ProcScribe
                 StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
                 strReturn = wsStrukt.addWorkflow();
                 return JsonConvert.DeserializeObject<Workflow>(strReturn);
+
+                ////Change from Strukt system to webservice
+                ////The advisor said, keep this code for someone who wants to use it in future.
                 //JsonSerializerSettings jsSetting = new JsonSerializerSettings();
                 //jsSetting.NullValueHandling = NullValueHandling.Ignore;
                 //string strInitial = "{\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}";
@@ -108,7 +112,9 @@ namespace ProcScribe
                 StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
                 strReturn = wsStrukt.editWorkflow(strObj);
                 return JsonConvert.DeserializeObject<Workflow>(strReturn);
-                
+
+                ////Change from Strukt system to webservice
+                ////The advisor said, keep this code for someone who wants to use it in future.
                 //JsonSerializerSettings jsSetting = new JsonSerializerSettings();
                 //jsSetting.NullValueHandling = NullValueHandling.Ignore;
                 //jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -131,6 +137,8 @@ namespace ProcScribe
                 StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
                 String strReturn = wsStrukt.deleteWorkflow(Strukt.Type_Workflow + strParam);
 
+                ////Change from Strukt system to webservice
+                ////The advisor said, keep this code for someone who wants to use it in future.
                 //string strSect = global.getRespondFromStruktDelete(Strukt.URL_Workflow, "/" + strParam);
 
                 if (strReturn == "")

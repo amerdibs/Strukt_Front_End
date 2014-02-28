@@ -15,8 +15,6 @@ public class FileList
 
 	public FileList()
 	{
-		//
-		// TODO: Add constructor logic here
-		//
+
 	}
 }

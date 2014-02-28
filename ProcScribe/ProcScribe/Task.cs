@@ -37,6 +37,9 @@ namespace ProcScribe
         
         public Workflow workflowChild { get; set; }
         public Workflow workflowParent { get; set; }
+
+        ////Hide assignment feature at phase 2
+        ////The advisor said, keep this code for someone who wants to use it in future.
         //public bool hasAssignmentSent { get; set; }
         //public bool hasAssignmentReceived { get; set; }
 
@@ -55,7 +58,8 @@ namespace ProcScribe
                 strReturn = wsStrukt.addTask(strObj);
                 return JsonConvert.DeserializeObject<Task>(strReturn);
 
-
+                ////Change from Strukt system to webservice
+                ////The advisor said, keep this code for someone who wants to use it in future.
                 //string strReturn = "";
                 //JsonSerializerSettings jsSetting = new JsonSerializerSettings();
                 //jsSetting.NullValueHandling = NullValueHandling.Ignore;
@@ -83,7 +87,8 @@ namespace ProcScribe
                 strReturn = wsStrukt.editTask(strObj);
                 return JsonConvert.DeserializeObject<Task>(strReturn);
 
-
+                ////Change from Strukt system to webservice
+                ////The advisor said, keep this code for someone who wants to use it in future.
                 //string strReturn = "";
                 //JsonSerializerSettings jsSetting = new JsonSerializerSettings();
                 //jsSetting.NullValueHandling = NullValueHandling.Ignore;
@@ -113,6 +118,8 @@ namespace ProcScribe
                 lTask = JsonConvert.DeserializeObject<List<Task>>(strReturn);
                 return lTask;
 
+                ////Change from Strukt system to webservice
+                ////The advisor said, keep this code for someone who wants to use it in future.
                 //string strFlowID = global.getExtractValueFromRespond(
                 //                    global.getRespondFromStruktGet(Strukt.URL_Task, "?parent_workflow_id=" + Strukt.Type_Workflow + strParentWorkflowID));
 
@@ -142,6 +149,8 @@ namespace ProcScribe
                 lTask.Add(JsonConvert.DeserializeObject<Task>(strReturn));
                 return lTask;
 
+                ////Change from Strukt system to webservice
+                ////The advisor said, keep this code for someone who wants to use it in future.
                 //string strUser = global.getExtractValueFromRespond(
                 //                    global.getRespondFromStruktGet(Strukt.URL_Task, "?user_id=" + Strukt.Type_User + strUserID));
 
@@ -171,6 +180,8 @@ namespace ProcScribe
                 lTask.Add(JsonConvert.DeserializeObject<Task>(strReturn));
                 return lTask;
 
+                ////Change from Strukt system to webservice
+                ////The advisor said, keep this code for someone who wants to use it in future.
                 //string strUser = global.getExtractValueFromRespond(
                 //                    global.getRespondFromStruktGet(Strukt.URL_Task, "/" + strID));
 
@@ -234,6 +245,9 @@ namespace ProcScribe
                 {
                     StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
                     String strReturn = wsStrukt.deleteTask(Strukt.Type_Task + strParam);
+
+                    ////Change from Strukt system to webservice
+                    ////The advisor said, keep this code for someone who wants to use it in future.
                     //string strSect = global.getRespondFromStruktDelete(Strukt.URL_Task, "/" + strParam);
 
                     if (strReturn == "")

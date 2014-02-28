@@ -57,7 +57,6 @@
             this.btnOK.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Visible = false;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // button1
             // 
@@ -72,7 +71,6 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -81,11 +79,9 @@
             this.textBox1.Size = new System.Drawing.Size(163, 20);
             this.textBox1.TabIndex = 8;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // webBrowser
             // 
@@ -115,7 +111,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(410, 196);
             this.panel1.TabIndex = 12;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // listView1
             // 

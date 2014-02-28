@@ -41,8 +41,6 @@ namespace ProcScribe
                 //User's role control
                 if (global.roleUser == User.roleExecutor)
                     txtTaskName.ReadOnly = true;
-                
-                //PropertiesStrukt propertie = PropertiesStrukt.getPropertiesStruktAll();
    
             }
             catch (Exception ex)
@@ -153,17 +151,6 @@ namespace ProcScribe
                 this.DialogResult = DialogResult.None;
         }
 
-        private void frmTaskEdit_Paint(object sender, PaintEventArgs e)
-        {
-            //Rectangle rc = new Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
-            //using (LinearGradientBrush brush = new LinearGradientBrush(rc, Color.WhiteSmoke, Color.Tan, LinearGradientMode.Vertical))
-            //{
-
-            //    e.Graphics.FillRectangle(brush, rc);
-
-            //}
-        }
-
         private void btnBrowse_Click(object sender, EventArgs e)
         {
 
@@ -227,19 +214,6 @@ namespace ProcScribe
             txtAddress.Enabled = true;
             txtAddress.ReadOnly = true;
         }
-
-        private void rbNone_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTaskName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-      
+ 
     }
 }

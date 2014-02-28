@@ -38,10 +38,5 @@ namespace ProcScribe
         {
             Hide();
         }
-
-        private void lvAppList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

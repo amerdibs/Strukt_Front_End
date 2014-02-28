@@ -63,10 +63,6 @@ namespace ProcScribe
             jsSetting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             string strObj = JsonConvert.SerializeObject(taskAssign, jsSetting);
             Task taskNew = JsonConvert.DeserializeObject<Task>(strObj);
-            //Task taskNew = taskTempList[0];
-
-            //Task taskNew = new Task();
-            //Task taskFollow = global.workflowMain.taskChildList[0];
             
             taskNew.parent_workflow_id = taskFollow.parent_workflow_id;
             taskNew.follows_id = taskFollow.id;
@@ -108,12 +104,6 @@ namespace ProcScribe
             struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(returnTaskAdd.id), taskAssign.description, taskAssign.attachmentType, taskAssign.attachmentDetail, taskAssign.keyword, taskAssign.linkDetail);
 
             MessageBox.Show("Assign Complete");
-            //returnTaskAdd.workflowChild = returnChildWorkflow;
-            //returnTaskAdd.workflowParent = global.workflowMain;
-
-            //global.workflowMain.taskChildList.Insert(0, returnTaskAdd);
-            //global.workflowMain.taskChildList[1].precedes_id = returnTaskAdd.id;
-            //Task returnTaskFollow = Task.editTask(global.workflowMain.taskChildList[1]);
 
         }
 

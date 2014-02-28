@@ -45,6 +45,24 @@ namespace ProcScribe
             readReg.SetValue("COLORHOVER", txtTaskHoverColor.BackColor.ToArgb());
             readReg.SetValue("COLORSELECT", txtTaskSelectColor.BackColor.ToArgb());
             readReg.SetValue("COLORMAINTASK", txtColorTask.BackColor.ToArgb());
+            global.ColorHover = Color.FromArgb(txtTaskHoverColor.BackColor.ToArgb());
+            global.ColorSelect = Color.FromArgb(txtTaskSelectColor.BackColor.ToArgb());
+            global.ColorMainTask = Color.FromArgb(txtColorTask.BackColor.ToArgb());
+            TabControl tabCon = (TabControl)frmParent.Controls["tabCenter"];
+            TabPage tabPage0 = (TabPage)tabCon.TabPages[0];
+            foreach (object objEach in tabPage0.Controls["pnCenter"].Controls)
+            {
+                UCMainTask ucTask = (UCMainTask)objEach;
+                ucTask.BackColor = global.ColorMainTask;
+                ucTask.colorBackGround = global.ColorMainTask;
+            }
+            if (global.currentTaskControlObject != null)
+            {
+                Object uControl = global.currentTaskControlObject;
+                UCMainTask uSelect = (UCMainTask)uControl;
+                uSelect.BackColor = global.ColorSelect;
+            }
+
             this.Close();
         }
 
@@ -55,6 +73,13 @@ namespace ProcScribe
             RegistryKey readReg;
             readReg = Registry.CurrentUser.OpenSubKey(global.registryPath, true);
             String strTop = readReg.GetValue("ALLWAYTOP", "FALSE").ToString();
+
+            txtColorTask.BackColor = global.ColorMainTask;
+            txtColorTask.Tag = global.ColorMainTask;
+            txtTaskSelectColor.BackColor = global.ColorSelect;
+            txtTaskSelectColor.Tag = global.ColorSelect;
+            txtTaskHoverColor.BackColor = global.ColorHover;
+            txtTaskHoverColor.Tag = global.ColorHover;
 
             if (strTop == "FALSE")
             {

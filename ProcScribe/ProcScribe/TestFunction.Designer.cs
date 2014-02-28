@@ -30,6 +30,7 @@
         {
             this.btnClose = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -52,16 +53,28 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(260, 73);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "This form is used to test function both inside client and webservice.\r\nDeveloper " +
+    "can use it in the future.";
+            // 
             // TestFunction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 121);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnClose);
             this.Name = "TestFunction";
             this.Text = "TestFunction";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,5 +82,6 @@
 
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

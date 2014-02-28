@@ -39,7 +39,7 @@ namespace ProcScribe
 
 
         public static int iIndentOfCheckBox = 12;
-        public static int iGradientOfColor = 0; // old 0
+        public static int iGradientOfColor = 0; 
 
         public static int heightControlTaskNormal = 40;
         public static int heightControlTaskReceive = heightControlTaskNormal + 39;
@@ -66,8 +66,6 @@ namespace ProcScribe
 
 
         // fix value is used for the first prototype only
-        //public static string strWorkflowID = "354249471";
-        //public static string strUserID = "4";
         public static Workflow workflowMain;
         public static List<Task> taskListSearch;
         public static List<TaskProcess> taskProcessListSearch;
@@ -97,6 +95,8 @@ namespace ProcScribe
         //calculate height of Task control
         public static int getHeightTaskControl(Task tTask)
         {
+            //Move calculation into paint function
+            //Keep code for future adaptation
             //if (!tTask.hasAssignmentSent && !tTask.hasAssignmentReceived)
             //{
             //    return heightControlTaskNormal;
@@ -253,7 +253,8 @@ namespace ProcScribe
         public static string postJSONintoStrukt(string strURLResource, string strJSON)
         {
             System.Net.WebRequest req = System.Net.WebRequest.Create(Strukt.URLStrukt + strURLResource);
-            //req.Proxy = new System.Net.WebProxy(ProxyString, true); // still did not define Proxy
+            //still did not define Proxy, keep code for future option
+            //req.Proxy = new System.Net.WebProxy(ProxyString, true); 
             //Add these, as we're doing a POST
             req.ContentType = "application/json";
             req.Method = "POST";

@@ -35,6 +35,8 @@ namespace ProcScribe
             
         }
 
+        ////Hide assignment feature at phase 2
+        //// The advisor said, keep this code for someone who wants to use it in future.
         //private void checkAssignmentUpdateControl(object sender, EventArgs e)
         //{
         //    if (global.processTable.Columns.Contains("u_name"))
@@ -244,32 +246,8 @@ namespace ProcScribe
             }
             
 
-            //Change idea of role in second phase
-            //if (global.processTable.Columns.Contains("u_name"))
-            //{
-            //    this.Text = global.processTable.Rows[0]["u_name"].ToString() + "Welcome to ProcScribe - Your User Guidance Application";
-
-            //    //Set user role
-            //    if (global.processTable.Rows[0]["u_role"] != null)
-            //        global.roleUser = global.processTable.Rows[0]["u_role"].ToString();
-
-            //    if (global.roleUser == User.roleExecutor)
-            //    {
-            //        btnAdd.Visible = false;
-            //        btnSubAdd.Visible = false;
-            //        btnDelete.Visible = false;
-            //    }
-
-
-            //    if (global.roleUser == User.roleExecutor)
-            //        tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Executor" ;
-            //    else
-            //        if (global.roleUser == User.roleDesigner)
-            //            tsUserName.Text = "User: " + global.processTable.Rows[0]["u_name"].ToString() + "     Role: Process Designer";
-                
-
-
             //    //Hide assignment feature at phase 2
+            //    //The advisor said, keep this code for someone who wants to use it in future.
             //    ////Assignment Checking
             //    //bool bResult = Assignment.checkGetAssignmentByUserID(global.processTable.Rows[0]["u_strukt_user_id"].ToString());
             //    //if (bResult)
@@ -456,16 +434,6 @@ namespace ProcScribe
                     int iIndex = 0;
                     if ((uSelect.taskMember.workflowChild.taskChildList != null) && (uSelect.taskMember.workflowChild.taskChildList.Count > 0))
                     {
-                        //Task taskFollow = taskParent.workflowChild.taskChildList[0];
-                        //taskParent.workflowChild.taskChildList.Insert(0, returnTaskAdd);
-                        //foreach (UCMainTask ucmEach in pnCenter.Controls)
-                        //{
-                        //    if (ucmEach.taskMember.id == taskFollow.id)
-                        //    {
-                        //        iIndex = pnCenter.Controls.GetChildIndex(ucmEach, true);
-                        //        break;
-                        //    }
-                        //}
                         Task taskFollow = taskParent.workflowChild.taskChildList[0];
                         taskParent.workflowChild.taskChildList.Insert(0, returnTaskAdd);
                         Task taskFollowDeepest = Task.getDeepestChild(taskFollow);
@@ -523,7 +491,8 @@ namespace ProcScribe
                     StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
                     struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
 
-
+                    ////Hide assignment feature at phase 2
+                    ////The advisor said, keep this code for someone who wants to use it in future.
                     //checkAssignmentUpdateControl(sender, e);
                 }
 
@@ -838,6 +807,8 @@ namespace ProcScribe
                 struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(uMain.taskMember.id), uMain.taskMember.description, uMain.taskMember.attachmentType, uMain.taskMember.attachmentDetail, uMain.taskMember.keyword, uMain.taskMember.linkDetail);
             }
 
+            ////Hide assignment feature at phase 2
+            ////The advisor said, keep this code for someone who wants to use it in future.
             //checkAssignmentUpdateControl(sender, e);
         }
 
@@ -1008,43 +979,10 @@ namespace ProcScribe
 
             }
 
+            ////Hide assignment feature at phase 2
+            ////The advisor said, keep this code for someone who wants to use it in future.
             //checkAssignmentUpdateControl(sender, e);
 
-
-            /*
-            if (pnCenter.Controls.Count == 0)
-            {
-                MessageBox.Show("There are no any tasks.");
-                return;
-            }
-
-            if (global.currentTaskControlID == 0)
-            {
-                MessageBox.Show("Please select a task to delete.");
-                return;
-            }
-
-            DialogResult result1 = MessageBox.Show("Do you want to delete this task?",
-                                        "Please confirm",
-                                        MessageBoxButtons.OKCancel);
-            if (result1 == System.Windows.Forms.DialogResult.OK)
-            {
-                Object uControl = global.currentTaskControlObject;
-                if (uControl.GetType() == typeof(UCMainTask))
-                {
-                    UCMainTask uSelect = (UCMainTask)uControl;
-                    pnCenter.Controls.Remove(uSelect);
-                }
-                else if (uControl.GetType() == typeof(UCSubTask))
-                {
-                    UCSubTask uSelect = (UCSubTask)uControl;
-                    pnCenter.Controls.Remove(uSelect);
-                }
-                
-                global.currentTas= null;
-                global.currentTaskControlID = 0;
-            }
-             */
         }
 
         private void btnOption_Click(object sender, EventArgs e)
@@ -1101,9 +1039,6 @@ namespace ProcScribe
 
         private void pnCenter_DragDrop(object sender, DragEventArgs e)
         {   
-            //For test
-            //MessageBox.Show((string)e.Data.GetData(typeof(string)));
-
             //Check user role
             if (global.roleUser == User.roleExecutor)
                 return;
@@ -1291,42 +1226,6 @@ namespace ProcScribe
             
         }
 
-        private void EventHandlerFromMainTask_CollapseClick(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-        private void EventHandlerFromSubTask_DragDrop(object sender, DragEventArgs e)
-        {
-            /*
-            // --- Mouse clicked event
-            clearOtherSelectColor();
-
-            // --- Drag drop event
-            Object uControl = global.dragTaskControlObject;
-            Object receiveControl = global.dropTaskControlObject;
-
-            UCSubTask UCSubReceive = (UCSubTask)receiveControl;
-            int intReceive = pnCenter.Controls.GetChildIndex(UCSubReceive);
-
-            if (uControl.GetType() == typeof(UCMainTask))
-            {
-                UCMainTask uSelect = (UCMainTask)uControl;
-                pnCenter.Controls.SetChildIndex(uSelect, intReceive);
-            }
-            else if (uControl.GetType() == typeof(UCSubTask))
-            {
-                UCSubTask uSelect = (UCSubTask)uControl;
-                pnCenter.Controls.SetChildIndex(uSelect, intReceive);
-            }
-
-            global.dragTaskControlObject = null;
-            global.dragTaskControlID = 0;
-            */
-        }
-
         private void clearOtherSelectColor()
         {
             foreach (Object uClickControl in pnCenter.Controls)
@@ -1401,11 +1300,6 @@ namespace ProcScribe
 
                 }
 
-
-
-                //if (global.getValueFromStruktValue(wfMain.id) == "2120706644")
-                //    MessageBox.Show("Please load the other process (Procument). Do not use this process to test! Please read only.");
-
             }
             catch (Exception ex)
             {
@@ -1417,25 +1311,6 @@ namespace ProcScribe
                 Cursor.Current = Cursors.Default;
             }
         }
-
-        //private void btnHide_Click(object sender, EventArgs e)
-        //{
-
-        //    if (global.hideWindows == false)
-        //    {
-        //        frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 33;
-        //        btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_bk));
-        //        global.hideWindows = true;
-
-                
-        //    }
-        //    else
-        //    {
-        //        frmMain.ActiveForm.Left = System.Windows.Forms.Screen.AllScreens[0].Bounds.Width - 420;
-        //        btnHide.Image = ((System.Drawing.Image)(Properties.Resources.bt_skip_sw));
-        //        global.hideWindows = false;
-        //    }
-        //}
 
         //Create hierachy of Task Controls
         private void generateTaskControl(Workflow wfParam, int iLevel)
@@ -1490,32 +1365,6 @@ namespace ProcScribe
             
             
 
-        }
-
-        
-
-        private void btnSaveProcessAs_Click(object sender, EventArgs e)
-        {
-
-            MessageBox.Show("Save as...****************************** Please wait for phase 2");
-
-
-            //UCMainTask uSelect = (UCMainTask)global.currentTaskControlObject;
-            //Task tTask = Task.getDeepestChild(uSelect.taskMember);
-            //MessageBox.Show(tTask.name);
-
-
-            //PropertiesStrukt.TaskType ttTest = new PropertiesStrukt.TaskType();
-            //ttTest.name = "Creating Email";
-            //ttTest.id = Strukt.Type_Task_type + "1087742252";
-            //PropertiesStrukt.TaskType ttResult = PropertiesStrukt.TaskType.editTaskType(ttTest);
-            //MessageBox.Show(ttResult.id);
-            
-        }
-
-        private void btnAddProcess_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Add new process...***************************** Please wait for phase 2");
         }
 
         private void editNameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1715,15 +1564,6 @@ namespace ProcScribe
                         ListViewItem lvi = new ListViewItem(new String[] { tk.name, tk.description, tk.keyword });
                         lvi.Tag = tk.id;
                         listVSearch.Items.Add(lvi);
-
-
-                        //UCListItem uclItem = new UCListItem();
-                        //uclItem.Controls["lbTaskName"].Text = tk.name;
-                        //uclItem.Controls["lbTaskDesc"].Text = tk.description;
-                        //uclItem.Controls["lbTaskKey"].Text = tk.keyword;
-                        //pnSearchResult.Controls.Add(uclItem);
-                        //uclItem.Dock = DockStyle.Top;
-                        //uclItem.BringToFront();
                     }
                 }
                 catch (NullReferenceException)
@@ -2013,13 +1853,6 @@ namespace ProcScribe
                         img.Image = Properties.Resources.uncollapes;
                     }
                 }
-                //UCMainTask ucMain = getUCMainTaskByTaskID(lvi.Tag.ToString());
-                //pnCenter.ScrollControlIntoView(ucMain);
-                //global.currentTaskControlID = ucMain.GetHashCode();
-                //global.currentTaskControlType = global.currentTaskControlTypeMainTask;
-                //global.currentTaskControlObject = ucMain;
-                //ucMain.preColor = ucMain.BackColor;
-                //ucMain.BackColor = global.ColorSelect;
                 tabCenter.SelectedTab = tpGuide;
             }
             
@@ -2154,14 +1987,6 @@ namespace ProcScribe
             }
                 
         }
-
-       
-
-
-
-
-
-
 
     }
 }

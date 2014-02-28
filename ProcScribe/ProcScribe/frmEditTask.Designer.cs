@@ -73,7 +73,6 @@
             this.txtTaskName.Name = "txtTaskName";
             this.txtTaskName.Size = new System.Drawing.Size(300, 20);
             this.txtTaskName.TabIndex = 1;
-            this.txtTaskName.TextChanged += new System.EventHandler(this.txtTaskName_TextChanged);
             // 
             // label1
             // 
@@ -230,7 +229,6 @@
             this.rbNone.TabStop = true;
             this.rbNone.Text = "None";
             this.rbNone.UseVisualStyleBackColor = true;
-            this.rbNone.CheckedChanged += new System.EventHandler(this.rbNone_CheckedChanged);
             this.rbNone.Click += new System.EventHandler(this.rbNone_Click);
             // 
             // btnBrowse
@@ -304,7 +302,6 @@
             this.Text = "Edit Task Form";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmTaskEdit_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmTaskEdit_Paint);
             this.pnName.ResumeLayout(false);
             this.pnName.PerformLayout();
             this.panel2.ResumeLayout(false);

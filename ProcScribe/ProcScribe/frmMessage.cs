@@ -30,9 +30,5 @@ namespace ProcScribe
             Close();
         }
 
-        private void frmMessage_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

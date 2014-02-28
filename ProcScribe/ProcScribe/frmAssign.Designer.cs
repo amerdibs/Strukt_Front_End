@@ -70,6 +70,8 @@
             this.txtMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMsg.Size = new System.Drawing.Size(193, 143);
             this.txtMsg.TabIndex = 2;
+            this.txtMsg.Text = "////Hide assignment feature at phase 2\r\n////The advisor said, keep this code for " +
+    "someone who wants to use it in future.";
             // 
             // label1
             // 

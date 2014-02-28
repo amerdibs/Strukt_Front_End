@@ -17,9 +17,6 @@ public class StruktProcess
 
 	public StruktProcess()
 	{
-		//
-		// TODO: Add constructor logic here
-		//
 
 	}
 }
