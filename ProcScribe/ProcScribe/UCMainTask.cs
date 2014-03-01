@@ -84,8 +84,12 @@ namespace ProcScribe
            StruktWebservice.StruktUserSoapClient struktWS = new StruktWebservice.StruktUserSoapClient();
            struktWS.setUpdateTaskExtend(global.getValueFromStruktValue(taskMember.id), taskMember.description, taskMember.attachmentType, taskMember.attachmentDetail, taskMember.keyword, taskMember.linkDetail);
            lbTitle.Text = returnTask.name;
-           
 
+           if (String.IsNullOrEmpty(taskMember.description) && String.IsNullOrEmpty(taskMember.linkDetail) && String.IsNullOrEmpty(taskMember.attachmentDetail))
+               pbDesc.Visible = false;
+           else
+               pbDesc.Visible = true;
+           
         }
 
         private void UCMainTask_DragDrop(object sender, DragEventArgs e)

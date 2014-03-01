@@ -38,8 +38,30 @@ namespace ProcScribe
                 return;
             }
 
+
+
+
             if (formMode == "N")
             {
+                global.taskProcessListSearch = TaskProcess.getTaskProcessAll();
+                //Find process name duplication
+                var VStr = from objTask in global.taskProcessListSearch
+                            where (objTask.process_name.ToLower().Equals(txtProcessName.Text.ToLower()))
+                            select new { objTask.process_name, objTask.process_workflow_id };
+                if (VStr != null)
+                {
+                    int iCount = 0;
+                    foreach (var tk in VStr.GroupBy(x => x.process_name).Select(y => y.First()))
+                    {
+                        iCount++;
+                    }
+                    if (iCount > 0)
+                    {
+                        MessageBox.Show("Please change the process name. This name exists in system.");
+                        return;
+                    }
+                }
+
                 StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
                 String strReturn = wsStrukt.addStruktProcess(txtProcessName.Text);
                 StruktProcess strkP = JsonConvert.DeserializeObject<StruktProcess>(strReturn);
@@ -47,8 +69,27 @@ namespace ProcScribe
             }
             else if (formMode == "E")
             {
-                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
+                global.taskProcessListSearch = TaskProcess.getTaskProcessAll();
 
+                //Find process name duplication
+                var VStr = from objTask in global.taskProcessListSearch
+                            where (objTask.process_name.ToLower().Equals(txtProcessName.Text.ToLower()))
+                            select new { objTask.process_name, objTask.process_workflow_id };
+                if (VStr != null)
+                {
+                    int iCount = 0;
+                    foreach (var tk in VStr.GroupBy(x => x.process_name).Select(y => y.First()))
+                    {
+                        iCount++;
+                    }
+                    if (iCount > 0)
+                    {
+                        MessageBox.Show("Please change the process name. This name exists in system or was not changed.");
+                        return;
+                    }
+                }
+
+                StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
                 String strReturn = wsStrukt.editStruktProcessName(global.processID, txtProcessName.Text);
                 StruktProcess strkP = JsonConvert.DeserializeObject<StruktProcess>(strReturn);
                 strWorkflowID = strkP.workflowID;

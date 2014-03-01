@@ -162,6 +162,7 @@
             // cbProcess
             // 
             this.cbProcess.AccessibleName = "";
+            this.cbProcess.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProcess.FormattingEnabled = true;
             this.cbProcess.Items.AddRange(new object[] {
             "910664516",
@@ -170,7 +171,6 @@
             this.cbProcess.Name = "cbProcess";
             this.cbProcess.Size = new System.Drawing.Size(139, 21);
             this.cbProcess.TabIndex = 1;
-            this.cbProcess.Text = "‏Search for Processes...";
             this.cbProcess.Visible = false;
             // 
             // tabCenter

@@ -484,7 +484,7 @@ namespace ProcScribe
                     //Update Task Extend in Webservice
                     ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
                     uMain.Controls["lbDesc"].Text = uMain.taskMember.description;
-                    if (String.IsNullOrEmpty(uMain.taskMember.description) && String.IsNullOrEmpty(uMain.taskMember.linkDetail))
+                    if (String.IsNullOrEmpty(uMain.taskMember.description) && String.IsNullOrEmpty(uMain.taskMember.linkDetail) && String.IsNullOrEmpty(uMain.taskMember.attachmentDetail))
                         uMain.Controls["pbDesc"].Visible = false;
                     else
                         uMain.Controls["pbDesc"].Visible = true;
@@ -569,7 +569,7 @@ namespace ProcScribe
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
                 uMain.Controls["lbDesc"].Text = uMain.taskMember.description;
-                if (String.IsNullOrEmpty(uMain.taskMember.description) && String.IsNullOrEmpty(uMain.taskMember.linkDetail))
+                if (String.IsNullOrEmpty(uMain.taskMember.description) && String.IsNullOrEmpty(uMain.taskMember.linkDetail) && String.IsNullOrEmpty(uMain.taskMember.attachmentDetail))
                     uMain.Controls["pbDesc"].Visible = false;
                 else
                     uMain.Controls["pbDesc"].Visible = true;
@@ -659,7 +659,7 @@ namespace ProcScribe
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
                 uMain.Controls["lbDesc"].Text = uMain.taskMember.description;
-                if (String.IsNullOrEmpty(uMain.taskMember.description) && String.IsNullOrEmpty(uMain.taskMember.linkDetail))
+                if (String.IsNullOrEmpty(uMain.taskMember.description) && String.IsNullOrEmpty(uMain.taskMember.linkDetail) && String.IsNullOrEmpty(uMain.taskMember.attachmentDetail))
                     uMain.Controls["pbDesc"].Visible = false;
                 else
                     uMain.Controls["pbDesc"].Visible = true;
@@ -799,7 +799,7 @@ namespace ProcScribe
                 //Update Task Extend in Webservice
                 ttMainForm.SetToolTip(uMain.Controls["lbTitle"], uMain.taskMember.description);
                 uMain.Controls["lbDesc"].Text = uMain.taskMember.description;
-                if (String.IsNullOrEmpty(uMain.taskMember.description) && String.IsNullOrEmpty(uMain.taskMember.linkDetail))
+                if (String.IsNullOrEmpty(uMain.taskMember.description) && String.IsNullOrEmpty(uMain.taskMember.linkDetail) && String.IsNullOrEmpty(uMain.taskMember.attachmentDetail))
                     uMain.Controls["pbDesc"].Visible = false;
                 else
                     uMain.Controls["pbDesc"].Visible = true;
@@ -1282,7 +1282,7 @@ namespace ProcScribe
                             {
                                 ttMainForm.SetToolTip(ucMain.Controls["lbTitle"], dtRow["tk_description"].ToString());
                                 ucMain.Controls["lbDesc"].Text = dtRow["tk_description"].ToString();
-                                if (String.IsNullOrEmpty(dtRow["tk_description"].ToString()) && String.IsNullOrEmpty(dtRow["tk_link_detail"].ToString()))
+                                if (String.IsNullOrEmpty(dtRow["tk_description"].ToString()) && String.IsNullOrEmpty(dtRow["tk_link_detail"].ToString()) && String.IsNullOrEmpty(dtRow["tk_address"].ToString()))
                                     ucMain.Controls["pbDesc"].Visible = false;
                                 else
                                     ucMain.Controls["pbDesc"].Visible = true;
