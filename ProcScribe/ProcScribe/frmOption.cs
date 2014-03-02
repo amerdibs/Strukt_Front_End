@@ -45,9 +45,11 @@ namespace ProcScribe
             readReg.SetValue("COLORHOVER", txtTaskHoverColor.BackColor.ToArgb());
             readReg.SetValue("COLORSELECT", txtTaskSelectColor.BackColor.ToArgb());
             readReg.SetValue("COLORMAINTASK", txtColorTask.BackColor.ToArgb());
-            global.ColorHover = Color.FromArgb(txtTaskHoverColor.BackColor.ToArgb());
-            global.ColorSelect = Color.FromArgb(txtTaskSelectColor.BackColor.ToArgb());
+            readReg.SetValue("COLORDESC", txtTaskDescColor.BackColor.ToArgb());
+
+            //Change object color
             global.ColorMainTask = Color.FromArgb(txtColorTask.BackColor.ToArgb());
+            global.ColorDesc = Color.FromArgb(txtTaskDescColor.BackColor.ToArgb());
             TabControl tabCon = (TabControl)frmParent.Controls["tabCenter"];
             TabPage tabPage0 = (TabPage)tabCon.TabPages[0];
             foreach (object objEach in tabPage0.Controls["pnCenter"].Controls)
@@ -55,13 +57,18 @@ namespace ProcScribe
                 UCMainTask ucTask = (UCMainTask)objEach;
                 ucTask.BackColor = global.ColorMainTask;
                 ucTask.colorBackGround = global.ColorMainTask;
+                ucTask.Controls["lbDesc"].BackColor = global.ColorDesc;
             }
+
+            global.ColorSelect = Color.FromArgb(txtTaskSelectColor.BackColor.ToArgb());
             if (global.currentTaskControlObject != null)
             {
                 Object uControl = global.currentTaskControlObject;
                 UCMainTask uSelect = (UCMainTask)uControl;
                 uSelect.BackColor = global.ColorSelect;
             }
+
+            global.ColorHover = Color.FromArgb(txtTaskHoverColor.BackColor.ToArgb());
 
             this.Close();
         }
@@ -80,6 +87,8 @@ namespace ProcScribe
             txtTaskSelectColor.Tag = global.ColorSelect;
             txtTaskHoverColor.BackColor = global.ColorHover;
             txtTaskHoverColor.Tag = global.ColorHover;
+            txtTaskDescColor.BackColor = global.ColorDesc;
+            txtTaskDescColor.Tag = global.ColorDesc;
 
             if (strTop == "FALSE")
             {
@@ -111,6 +120,26 @@ namespace ProcScribe
             {
                 txtColorTask.BackColor = cdDialog.Color;
                 txtColorTask.Tag = cdDialog.Color;
+                //Change object color
+                global.ColorMainTask = Color.FromArgb(txtColorTask.BackColor.ToArgb());
+                TabControl tabCon = (TabControl)frmParent.Controls["tabCenter"];
+                TabPage tabPage0 = (TabPage)tabCon.TabPages[0];
+                foreach (object objEach in tabPage0.Controls["pnCenter"].Controls)
+                {
+                    UCMainTask ucTask = (UCMainTask)objEach;
+                    ucTask.BackColor = global.ColorMainTask;
+                    ucTask.colorBackGround = global.ColorMainTask;
+                }
+
+                global.ColorSelect = Color.FromArgb(txtTaskSelectColor.BackColor.ToArgb());
+                if (global.currentTaskControlObject != null)
+                {
+                    Object uControl = global.currentTaskControlObject;
+                    UCMainTask uSelect = (UCMainTask)uControl;
+                    uSelect.BackColor = global.ColorSelect;
+                }
+
+                global.ColorHover = Color.FromArgb(txtTaskHoverColor.BackColor.ToArgb());
             }
         }
 
@@ -119,7 +148,7 @@ namespace ProcScribe
             if (!gbColor.Visible)
             {
                 gbColor.Visible = true;
-                this.Height += 134;
+                this.Height += 160;
                 txtColorTask.BackColor = global.ColorMainTask;
                 txtColorTask.Tag = global.ColorMainTask;
                 txtTaskSelectColor.BackColor = global.ColorSelect;
@@ -135,6 +164,15 @@ namespace ProcScribe
             {
                 txtTaskSelectColor.BackColor = cdDialog.Color;
                 txtTaskSelectColor.Tag = cdDialog.Color;
+
+                //Change object color
+                global.ColorSelect = Color.FromArgb(txtTaskSelectColor.BackColor.ToArgb());
+                if (global.currentTaskControlObject != null)
+                {
+                    Object uControl = global.currentTaskControlObject;
+                    UCMainTask uSelect = (UCMainTask)uControl;
+                    uSelect.BackColor = global.ColorSelect;
+                }
             }
         }
 
@@ -146,6 +184,32 @@ namespace ProcScribe
             txtTaskSelectColor.Tag = global.ColorSelectDefault;
             txtTaskHoverColor.BackColor = global.ColorHoverDefault;
             txtTaskHoverColor.Tag = global.ColorHoverDefault;
+            txtTaskDescColor.BackColor = global.ColorDescDefault;
+            txtTaskDescColor.Tag = global.ColorDescDefault;
+
+            //Change object color
+            global.ColorMainTask = Color.FromArgb(txtColorTask.BackColor.ToArgb());
+            TabControl tabCon = (TabControl)frmParent.Controls["tabCenter"];
+            TabPage tabPage0 = (TabPage)tabCon.TabPages[0];
+            foreach (object objEach in tabPage0.Controls["pnCenter"].Controls)
+            {
+                UCMainTask ucTask = (UCMainTask)objEach;
+                ucTask.BackColor = global.ColorMainTask;
+                ucTask.colorBackGround = global.ColorMainTask;
+                ucTask.Controls["lbDesc"].BackColor = global.ColorDesc;
+            }
+
+            global.ColorSelect = Color.FromArgb(txtTaskSelectColor.BackColor.ToArgb());
+            if (global.currentTaskControlObject != null)
+            {
+                Object uControl = global.currentTaskControlObject;
+                UCMainTask uSelect = (UCMainTask)uControl;
+                uSelect.BackColor = global.ColorSelect;
+            }
+
+            global.ColorHover = Color.FromArgb(txtTaskHoverColor.BackColor.ToArgb());
+
+
         }
 
         private void btnTaskHoverColor_Click(object sender, EventArgs e)
@@ -154,6 +218,9 @@ namespace ProcScribe
             {
                 txtTaskHoverColor.BackColor = cdDialog.Color;
                 txtTaskHoverColor.Tag = cdDialog.Color;
+
+                //Change the object color
+                global.ColorHover = Color.FromArgb(txtTaskHoverColor.BackColor.ToArgb());
             }
         }
 
@@ -196,6 +263,26 @@ namespace ProcScribe
            
          
             }
+        }
+
+        private void btnTaskDescColor_Click(object sender, EventArgs e)
+        {
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtTaskDescColor.BackColor = cdDialog.Color;
+                txtTaskDescColor.Tag = cdDialog.Color;
+
+                //Change the object color
+                global.ColorDesc = Color.FromArgb(txtTaskDescColor.BackColor.ToArgb());
+                TabControl tabCon = (TabControl)frmParent.Controls["tabCenter"];
+                TabPage tabPage0 = (TabPage)tabCon.TabPages[0];
+                foreach (object objEach in tabPage0.Controls["pnCenter"].Controls)
+                {
+                    UCMainTask ucTask = (UCMainTask)objEach;
+                    ucTask.Controls["lbDesc"].BackColor = global.ColorDesc;
+                }
+            }
+
         }
 
        

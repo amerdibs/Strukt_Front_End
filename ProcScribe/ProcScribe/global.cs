@@ -32,10 +32,12 @@ namespace ProcScribe
         public static Color ColorMainTask = Color.WhiteSmoke;
         public static Color ColorHover = Color.LightGray;
         public static Color ColorSelect = Color.FromArgb(161, 202, 241);
+        public static Color ColorDesc = Color.Gainsboro;
 
         public static Color ColorMainTaskDefault = Color.WhiteSmoke;
         public static Color ColorHoverDefault = Color.LightGray;
         public static Color ColorSelectDefault = Color.FromArgb(161, 202, 241);
+        public static Color ColorDescDefault = Color.Gainsboro;
 
 
         public static int iIndentOfCheckBox = 12;

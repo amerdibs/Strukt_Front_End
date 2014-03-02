@@ -47,6 +47,9 @@
             this.gbUserRole = new System.Windows.Forms.GroupBox();
             this.rdbtnExecutor = new System.Windows.Forms.RadioButton();
             this.rdbtnDesigner = new System.Windows.Forms.RadioButton();
+            this.btnTaskDescColor = new System.Windows.Forms.Button();
+            this.txtTaskDescColor = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbUserRole.SuspendLayout();
@@ -79,6 +82,9 @@
             // 
             // gbColor
             // 
+            this.gbColor.Controls.Add(this.btnTaskDescColor);
+            this.gbColor.Controls.Add(this.txtTaskDescColor);
+            this.gbColor.Controls.Add(this.label1);
             this.gbColor.Controls.Add(this.btnTaskHoverColor);
             this.gbColor.Controls.Add(this.txtTaskHoverColor);
             this.gbColor.Controls.Add(this.btnDefault);
@@ -92,7 +98,7 @@
             this.gbColor.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbColor.Location = new System.Drawing.Point(0, 64);
             this.gbColor.Name = "gbColor";
-            this.gbColor.Size = new System.Drawing.Size(298, 134);
+            this.gbColor.Size = new System.Drawing.Size(298, 160);
             this.gbColor.TabIndex = 3;
             this.gbColor.TabStop = false;
             this.gbColor.Text = "Color";
@@ -118,7 +124,7 @@
             // 
             // btnDefault
             // 
-            this.btnDefault.Location = new System.Drawing.Point(203, 105);
+            this.btnDefault.Location = new System.Drawing.Point(203, 131);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.Size = new System.Drawing.Size(89, 23);
             this.btnDefault.TabIndex = 10;
@@ -216,7 +222,7 @@
             this.gbUserRole.Controls.Add(this.rdbtnExecutor);
             this.gbUserRole.Controls.Add(this.rdbtnDesigner);
             this.gbUserRole.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbUserRole.Location = new System.Drawing.Point(0, 198);
+            this.gbUserRole.Location = new System.Drawing.Point(0, 224);
             this.gbUserRole.Name = "gbUserRole";
             this.gbUserRole.Size = new System.Drawing.Size(298, 48);
             this.gbUserRole.TabIndex = 4;
@@ -247,11 +253,38 @@
             this.rdbtnDesigner.UseVisualStyleBackColor = true;
             this.rdbtnDesigner.CheckedChanged += new System.EventHandler(this.rdbtnDesigner_CheckedChanged);
             // 
+            // btnTaskDescColor
+            // 
+            this.btnTaskDescColor.Location = new System.Drawing.Point(203, 102);
+            this.btnTaskDescColor.Name = "btnTaskDescColor";
+            this.btnTaskDescColor.Size = new System.Drawing.Size(89, 23);
+            this.btnTaskDescColor.TabIndex = 33;
+            this.btnTaskDescColor.Text = "Choose color";
+            this.btnTaskDescColor.UseVisualStyleBackColor = true;
+            this.btnTaskDescColor.Click += new System.EventHandler(this.btnTaskDescColor_Click);
+            // 
+            // txtTaskDescColor
+            // 
+            this.txtTaskDescColor.Location = new System.Drawing.Point(136, 102);
+            this.txtTaskDescColor.Name = "txtTaskDescColor";
+            this.txtTaskDescColor.ReadOnly = true;
+            this.txtTaskDescColor.Size = new System.Drawing.Size(53, 20);
+            this.txtTaskDescColor.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Task Description Color";
+            // 
             // frmOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 258);
+            this.ClientSize = new System.Drawing.Size(298, 275);
             this.ControlBox = false;
             this.Controls.Add(this.gbUserRole);
             this.Controls.Add(this.gbColor);
@@ -291,5 +324,8 @@
         private System.Windows.Forms.GroupBox gbUserRole;
         private System.Windows.Forms.RadioButton rdbtnExecutor;
         private System.Windows.Forms.RadioButton rdbtnDesigner;
+        private System.Windows.Forms.Button btnTaskDescColor;
+        private System.Windows.Forms.TextBox txtTaskDescColor;
+        private System.Windows.Forms.Label label1;
     }
 }

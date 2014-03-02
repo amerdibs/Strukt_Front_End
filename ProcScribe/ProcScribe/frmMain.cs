@@ -132,12 +132,15 @@ namespace ProcScribe
                 readReg.SetValue("COLORHOVER", global.ColorHoverDefault.ToArgb()); 
             if (readReg.GetValue("COLORSELECT") == null)
                 readReg.SetValue("COLORSELECT", global.ColorSelectDefault.ToArgb());
+            if (readReg.GetValue("COLORDESC") == null)
+                readReg.SetValue("COLORDESC", global.ColorSelectDefault.ToArgb());
 
             readReg.SetValue("PROSCRIBEPATH", Application.ExecutablePath);
 
             global.ColorHover = Color.FromArgb((int)readReg.GetValue("COLORHOVER", global.ColorHoverDefault.ToArgb()));
             global.ColorMainTask = Color.FromArgb((int)readReg.GetValue("COLORMAINTASK", global.ColorMainTaskDefault.ToArgb()));
             global.ColorSelect = Color.FromArgb((int)readReg.GetValue("COLORSELECT", global.ColorSelectDefault.ToArgb()));
+            global.ColorDesc = Color.FromArgb((int)readReg.GetValue("COLORDESC", global.ColorDescDefault.ToArgb()));
 
             int resolution_width = Convert.ToInt32(readReg.GetValue("resolution_width").ToString());
             int resolution_height = Convert.ToInt32(readReg.GetValue("resolution_height").ToString());
@@ -228,6 +231,7 @@ namespace ProcScribe
                     UCMainTask ucTask = (UCMainTask)objEach;
                     ucTask.Height = global.heightControlTaskNormal;
                     ucTask.BackColor = global.ColorMainTask;
+                    ucTask.Controls["lbDesc"].BackColor = global.ColorDesc;
                     if (ucTask.taskMember.workflowChild.taskChildList != null)
                     {
                         ucTask.collapseType = UCMainTask.collapseType_uncollapse;
@@ -455,6 +459,7 @@ namespace ProcScribe
 
                     uMain.iLevel = uSelect.iLevel + 1;
                     uMain.BackColor = global.ColorMainTask;
+                    uMain.Controls["lbDesc"].BackColor = global.ColorDesc;
                     uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left + global.iIndentOfCheckBox;
                     uMain.Controls["lbTitle"].Width = uMain.Controls["lbTitle"].Width - global.iIndentOfCheckBox;
                     uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left + global.iIndentOfCheckBox;
@@ -556,6 +561,7 @@ namespace ProcScribe
 
                 uMain.BackColor = global.ColorMainTask;
                 uMain.colorBackGround = uMain.BackColor;
+                uMain.Controls["lbDesc"].BackColor = global.ColorDesc;
 
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
@@ -647,6 +653,7 @@ namespace ProcScribe
 
                 uMain.BackColor = global.ColorMainTask;
                 uMain.colorBackGround = uMain.BackColor;
+                uMain.Controls["lbDesc"].BackColor = global.ColorDesc;
 
                 uMain.MouseDown += new MouseEventHandler(EventHandlerFromMainTask_MouseDown);
                 uMain.DragDrop += new DragEventHandler(EventHandlerFromMainTask_DragDrop);
@@ -771,6 +778,7 @@ namespace ProcScribe
                 uMain.Controls["lbTitle"].Text = returnTaskAdd.name;
 
                 uMain.BackColor = global.ColorMainTask;
+                uMain.Controls["lbDesc"].BackColor = global.ColorDesc;
                 uMain.Controls["cbCheck"].Left = uSelect.Controls["cbCheck"].Left;
                 uMain.Controls["lbTitle"].Left = uSelect.Controls["lbTitle"].Left;
                 uMain.Controls["lbTitle"].Width = uSelect.Controls["lbTitle"].Width;
@@ -1330,6 +1338,7 @@ namespace ProcScribe
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
                 uMain.BackColor = global.ColorMainTask;
+                uMain.Controls["lbDesc"].BackColor = global.ColorDesc;
                 uMain.Controls["lbTitle"].Text = tEach.name;
                 uMain.Controls["cbCheck"].Left = uMain.Controls["cbCheck"].Left + (global.iIndentOfCheckBox * iLevel);
                 uMain.Controls["lbTitle"].Width = uMain.Controls["lbTitle"].Width - (global.iIndentOfCheckBox * iLevel);
@@ -1722,6 +1731,7 @@ namespace ProcScribe
                         UCMainTask ucTask = (UCMainTask)objEach;
                         ucTask.Height = global.heightControlTaskNormal;
                         ucTask.BackColor = global.ColorMainTask;
+                        ucTask.Controls["lbDesc"].BackColor = global.ColorDesc;
                         if (ucTask.taskMember.workflowChild.taskChildList != null)
                         {
                             ucTask.collapseType = UCMainTask.collapseType_uncollapse;
@@ -1758,6 +1768,7 @@ namespace ProcScribe
                         UCMainTask ucTask = (UCMainTask)objEach;
                         ucTask.Height = global.heightControlTaskNormal;
                         ucTask.BackColor = global.ColorMainTask;
+                        ucTask.Controls["lbDesc"].BackColor = global.ColorDesc;
                         if (ucTask.taskMember.workflowChild.taskChildList != null)
                         {
                             ucTask.collapseType = UCMainTask.collapseType_uncollapse;
@@ -1785,6 +1796,7 @@ namespace ProcScribe
                         UCMainTask ucTask = (UCMainTask)objEach;
                         ucTask.Height = global.heightControlTaskNormal;
                         ucTask.BackColor = global.ColorMainTask;
+                        ucTask.Controls["lbDesc"].BackColor = global.ColorDesc;
                         if (ucTask.taskMember.workflowChild.taskChildList != null)
                         {
                             ucTask.collapseType = UCMainTask.collapseType_uncollapse;
@@ -1846,6 +1858,7 @@ namespace ProcScribe
                     UCMainTask ucTask = (UCMainTask)objEach;
                     ucTask.Height = global.heightControlTaskNormal;
                     ucTask.BackColor = global.ColorMainTask;
+                    ucTask.Controls["lbDesc"].BackColor = global.ColorDesc;
                     if (ucTask.taskMember.workflowChild.taskChildList != null)
                     {
                         ucTask.collapseType = UCMainTask.collapseType_uncollapse;

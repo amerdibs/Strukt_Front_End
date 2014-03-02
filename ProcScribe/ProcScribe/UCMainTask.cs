@@ -159,9 +159,6 @@ namespace ProcScribe
                     }
         }
 
-
-       
-
         private void cbCheck_Click(object sender, EventArgs e)
         {
             if (cbCheck.Checked)
