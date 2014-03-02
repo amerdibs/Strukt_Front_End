@@ -15,14 +15,12 @@ namespace ProcScribe
     public class global
     {
         // Users Interface part --------------
-        public static bool hideWindows;
 
         public static int currentTaskControlID;
         public static Object currentTaskControlObject;
 
         public static byte currentTaskControlType;
         public static byte currentTaskControlTypeMainTask = 0;
-        public static byte currentTaskControlTypeSubTask = 1;
 
         public static int dragTaskControlID;
         public static Object dragTaskControlObject;
@@ -41,6 +39,7 @@ namespace ProcScribe
 
 
         public static int iIndentOfCheckBox = 12;
+        //Developer can decide to use it in future for gradient of Task color
         public static int iGradientOfColor = 0; 
 
         public static int heightControlTaskNormal = 40;
