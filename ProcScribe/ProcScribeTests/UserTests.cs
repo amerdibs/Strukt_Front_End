@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProcScribe;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace ProcScribe.Tests
 {
     [TestClass()]
@@ -13,7 +14,8 @@ namespace ProcScribe.Tests
         [TestMethod()]
         public void getUserNameByStruktIDTest()
         {
-            Assert.Fail();
+            System.Data.DataRow dw =  User.getUserNameByStruktID("1");
+            Assert.IsNotNull(dw);
         }
     }
 }

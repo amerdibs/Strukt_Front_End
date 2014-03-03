@@ -22,24 +22,19 @@ namespace ProcScribe.Tests
         }
 
         [TestMethod()]
-        public void getWorkflowHierarchybyIDTest()
-        {
-            Assert.Fail();
-            //Can not be tested at the moment because the application is temporary not working
-        }
-
-        [TestMethod()]
         public void addWorkflowTest()
         {
-            Assert.Fail();
-            //Can not be tested at the moment because the application is temporary not working
+            Workflow wf = Workflow.addWorkflow();
+            Assert.IsNotNull(wf);
+            
         }
 
         [TestMethod()]
         public void editWorkflowTest()
         {
-            Assert.Fail();
-            //Can not be tested at the moment because the application is temporary not working
+            List<Workflow> lwf = Workflow.getWorkflowByID("1072");
+            lwf[0].type = "test";
+            Assert.IsNotNull(Workflow.editWorkflow(lwf[0]));
         }
 
         [TestMethod()]
@@ -49,12 +44,5 @@ namespace ProcScribe.Tests
             //Assert.AreEqual(Workflow.deleteWorkflow(null), null);
             //Assert.AreEqual(Workflow.deleteWorkflow(""), null);
         }
-    }
-}
-
-namespace ProcScribeTests
-{
-    class WorkflowTests
-    {
     }
 }

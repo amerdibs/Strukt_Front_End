@@ -1332,8 +1332,6 @@ namespace ProcScribe
                 generateTaskControl(tEach.workflowChild, iLevel + 1);
                 UCMainTask uMain = new UCMainTask();
                 uMain.taskMember = tEach;
-                //comment after collapse implementation
-                //uMain.Height = global.getHeightTaskControl(tEach);
                 uMain.iLevel = iLevel;
                 pnCenter.Controls.Add(uMain);
                 uMain.Dock = DockStyle.Top;
@@ -1465,7 +1463,7 @@ namespace ProcScribe
                 Task tFind = global.workflowMain.taskChildList.Find(o => o.id == ucTask.taskMember.id);
                 if (tFind != null)
                 {
-                    ucTask.Height = global.getHeightTaskControl(tFind);
+                    ucTask.Height = global.heightControlTaskNormal;
                 }
             }
 
@@ -1490,7 +1488,7 @@ namespace ProcScribe
                     }
                     else
                     {
-                        ucTask.Height = global.getHeightTaskControl(ucTask.taskMember);
+                        ucTask.Height = global.heightControlTaskNormal;
                     }
                 }
                 

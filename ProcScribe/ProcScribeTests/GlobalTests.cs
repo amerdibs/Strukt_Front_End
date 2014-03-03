@@ -27,98 +27,85 @@ namespace ProcScribe.Tests1
         }
 
         [TestMethod()]
-        public void getHeightTaskControlTest()
-        {
-            Assert.IsTrue(true);
-        }
-
-        [TestMethod()]
         public void getColorTaskControlBackgroundTest()
         {
-            Assert.IsTrue(true);
+            System.Drawing.Color cColor;
+            cColor= System.Drawing.Color.WhiteSmoke;
+            System.Drawing.Color rColor = global.getColorTaskControlBackground(cColor, 0);
+            //System.Drawing.Color rColor = global.getColorTaskControlBackground(cColor, -1);
+            //System.Drawing.Color rColor = global.getColorTaskControlBackground(cColor, +1);
+            if (rColor != null)
+                Assert.IsTrue(true);
+            else
+                Assert.Fail();
         }
 
         [TestMethod()]
         public void getValueFromStruktValueTest()
         {
             Assert.AreEqual(global.getValueFromStruktValue("1072"), "1072");
-            Assert.AreNotEqual(global.getValueFromStruktValue(""), "1072");
+            //Assert.AreNotEqual(global.getValueFromStruktValue(""), "1072");
         }
 
-        //Strukt method which is never used anymore because we are not using strukt 
         [TestMethod()]
         public void getRespondFromStruktGetTest()
         {
-            Assert.IsTrue(true);
+            Assert.AreEqual(global.getRespondFromStruktGet("1072",""), "");
         }
 
-        //Strukt method which is never used anymore because we are not using strukt 
         [TestMethod()]
         public void getRespondFromStruktDeleteTest()
         {
-            Assert.IsTrue(true);
-        }
+            Assert.AreEqual(global.getRespondFromStruktDelete(Strukt.URL_Workflow, "1072"), "{\"type\":\"success\"}");
+            //Assert.AreEqual(global.getRespondFromStruktDelete(Strukt.URL_Workflow, ""), "");
 
-        //Strukt method which is never used anymore because we are not using strukt 
+        }
+ 
         [TestMethod()]
         public void getExtractValueFromRespondTest()
         {
-            Assert.IsTrue(true);
+            //Assert.AreEqual(global.getExtractValueFromRespond("{\"values\":[null]}"), "");
+            //Assert.AreEqual(global.getExtractValueFromRespond(""), "");
+            Assert.AreEqual(global.getExtractValueFromRespond("{\"values\":[{\"workflow\":{\"id\":\"http://strukt.west.uni-koblenz.de/workflow/1745797700\",\"parent_task_id\":\"http://strukt.west.uni-koblenz.de/task/null8122\",\"user_id\":\"http://strukt.west.uni-koblenz.de/user/47\",\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}}]}"), "[{\"id\":\"http://strukt.west.uni-koblenz.de/workflow/1745797700\",\"parent_task_id\":\"http://strukt.west.uni-koblenz.de/task/null8122\",\"user_id\":\"http://strukt.west.uni-koblenz.de/user/47\",\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}]");
         }
 
-        //Strukt method which is never used anymore because we are not using strukt 
         [TestMethod()]
         public void getExtractValueFromRespondSingleTest()
         {
-            Assert.IsTrue(true);
+            //Assert.AreEqual(global.getExtractValueFromRespondSingle("{\"values\":[null]}"), "");
+            //Assert.AreEqual(global.getExtractValueFromRespondSingle(""), "");
+            Assert.AreEqual(global.getExtractValueFromRespondSingle("{\"values\":[{\"workflow\":{\"id\":\"http://strukt.west.uni-koblenz.de/workflow/1745797700\",\"parent_task_id\":\"http://strukt.west.uni-koblenz.de/task/null8122\",\"user_id\":\"http://strukt.west.uni-koblenz.de/user/47\",\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}}]}"), "[{\"id\":\"http://strukt.west.uni-koblenz.de/workflow/1745797700\",\"parent_task_id\":\"http://strukt.west.uni-koblenz.de/task/null8122\",\"user_id\":\"http://strukt.west.uni-koblenz.de/user/47\",\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}]");
+  
         }
 
-        //Strukt method which is never used anymore because we are not using strukt 
         [TestMethod()]
         public void postJSONintoStruktTest()
         {
-            Assert.IsTrue(true);
+            Assert.IsNotNull(global.postJSONintoStrukt(Strukt.URL_Workflow, "{\"values\": [{\"workflow\": {\"type\":“http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow”}}]}"));
+            //Assert.AreNotEqual(global.postJSONintoStrukt(Strukt.URL_Workflow, "{\"values\": [{\"workflow\": {\"type\":“http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow”}}]}"), "{\"values\":[null]}");
+            //Assert.AreNotEqual(global.postJSONintoStrukt(Strukt.URL_Workflow, "{\"values\": [{\"workflow\": {\"type\":“http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow”}}]}"), "{\"type\":\"error\"}");
         }
 
-        //Strukt method which is never used anymore because we are not using strukt 
         [TestMethod()]
         public void composeJSONforStruktTest()
         {
-            Assert.IsTrue(true);
+            Assert.AreEqual(global.composeJSONforStrukt(Strukt.Type_Workflow,"[{\"id\":\"http://strukt.west.uni-koblenz.de/workflow/1745797700\",\"parent_task_id\":\"http://strukt.west.uni-koblenz.de/task/null8122\",\"user_id\":\"http://strukt.west.uni-koblenz.de/user/47\",\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}]"),"{\"values\":[{\"workflow\":{\"id\":\"http://strukt.west.uni-koblenz.de/workflow/1745797700\",\"parent_task_id\":\"http://strukt.west.uni-koblenz.de/task/null8122\",\"user_id\":\"http://strukt.west.uni-koblenz.de/user/47\",\"type\":\"http://strukt.west.uni-koblenz.de/WeaklyStructuredWorkflow\"}}]}");
         }
 
-        //Strukt method which is never used anymore because we are not using strukt 
         [TestMethod()]
         public void convertFromStruktDateTimeTest()
         {
-            Assert.IsTrue(true);
+            DateTime dt = global.convertFromStruktDateTime("02-25-1998");
+            Assert.IsNotNull(dt);
         }
 
-        //Strukt method which is never used anymore because we are not using strukt 
         [TestMethod()]
         public void convertStruktDateTimeToStringTest()
         {
-            Assert.IsTrue(true);
+            DateTime dt = DateTime.Now;
+            Assert.AreEqual(global.convertStruktDateTimeToString(dt), Convert.ToString(DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year));
         }
-
-        [TestMethod()]
-        public void getTaskListFromAllWorkflowTest()
-        {
-            //String test = global.getTaskListFromAllWorkflow();
-            Assert.Fail();
-        }
-
-        //Regarding some internet search, it is only possible to check if a process (meaning external application)
-        //is running. In our case, we have several external processes and not only one specific. 
-        //So we decided not to make a unit test here
-        //
-        [TestMethod()]
-        public void openLinkTest()
-        {
-            Assert.IsTrue(true);
-        }
-
-        
+       
 
     }
 }

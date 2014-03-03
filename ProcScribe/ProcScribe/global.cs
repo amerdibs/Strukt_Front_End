@@ -93,31 +93,6 @@ namespace ProcScribe
             Console.WriteLine(" Source: {0}", e.Source);
         }
 
-        //calculate height of Task control
-        public static int getHeightTaskControl(Task tTask)
-        {
-            //Move calculation into paint function
-            //Keep code for future adaptation
-            //if (!tTask.hasAssignmentSent && !tTask.hasAssignmentReceived)
-            //{
-            //    return heightControlTaskNormal;
-            //}
-            //else if (tTask.hasAssignmentSent && tTask.hasAssignmentReceived)
-            //{
-            //    return heightControlTaskNormal + 130;
-            //}
-            //else if (tTask.hasAssignmentSent && !tTask.hasAssignmentReceived)
-            //{
-            //    return heightControlTaskAssign;
-            //}
-            //else if (!tTask.hasAssignmentSent && tTask.hasAssignmentReceived)
-            //{
-            //    return heightControlTaskReceive;
-            //}
-            //else
-            return heightControlTaskNormal;
-        }
-
         //calculate color for Task control background
         public static Color getColorTaskControlBackground(Color cColor, int iLevel)
         {

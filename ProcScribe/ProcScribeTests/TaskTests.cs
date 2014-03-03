@@ -13,21 +13,23 @@ namespace ProcScribe.Tests
         [TestMethod()]
         public void addTaskTest()
         {
-            Assert.Fail();
-            //Can not be tested at the moment because the application is temporary not working
+            Task ta = new Task();
+            ta.name = "TestTask";
+            Assert.AreNotEqual(Task.addTask(ta), null);
         }
 
         [TestMethod()]
         public void editTaskTest()
         {
-            Assert.Fail();
-            //Can not be tested at the moment because the application is temporary not working
+            List<Task> lta = Task.getTaskByID("6");
+            lta[0].name = "TestEdit";
+            Assert.AreNotEqual(Task.editTask(lta[0]), null);
         }
 
         [TestMethod()]
         public void getTaskByParentWorkflowIDTest()
         {
-            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("1072"), null);
+            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("6"), null);
             Assert.AreEqual(Task.getTaskByParentWorkflowID(null), null);
             Assert.AreEqual(Task.getTaskByParentWorkflowID(""), null);
         }
@@ -35,7 +37,7 @@ namespace ProcScribe.Tests
         [TestMethod()]
         public void getTaskByUserIDTest()
         {
-            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("1072"), null);
+            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("6"), null);
             Assert.AreEqual(Task.getTaskByParentWorkflowID(null), null);
             Assert.AreEqual(Task.getTaskByParentWorkflowID(""), null);
         }
@@ -43,22 +45,15 @@ namespace ProcScribe.Tests
         [TestMethod()]
         public void getTaskByIDTest()
         {
-            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("1072"), null);
+            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("6"), null);
             Assert.AreEqual(Task.getTaskByParentWorkflowID(null), null);
             Assert.AreEqual(Task.getTaskByParentWorkflowID(""), null);
         }
 
         [TestMethod()]
-        public void sortTaskListTest()
-        {
-            Assert.Fail();
-            //Can not be tested at the moment because the application is temporary not working
-        }
-
-        [TestMethod()]
         public void getDeepestChildTest()
         {
-            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("1072"), null);
+            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("6"), null);
             Assert.AreEqual(Task.getTaskByParentWorkflowID(null), null);
             Assert.AreEqual(Task.getTaskByParentWorkflowID(""), null);
         }
@@ -66,9 +61,7 @@ namespace ProcScribe.Tests
         [TestMethod()]
         public void deleteTaskTest()
         {
-            Assert.Fail();
-            //Can not be tested at the moment because the application is temporary not working
-
+            Assert.AreNotEqual(Task.getTaskByParentWorkflowID("6"), null);
         }
     }
 }
