@@ -240,15 +240,15 @@ namespace ProcScribe
                     parmtask.status_id = statusCompleted;
                 else
                     parmtask.status_id = statusActive;
-                Task.editTask(parmtask);         
+                //Pakorn - We don't need real status update since 15.09.13
+                //Task.editTask(parmtask);         
                 
                 
             }
 
             public static void updateTaskChildStatusFromActiveToComplete(Task parmtask, List<Task> taskList)
             {
-                //Pakorn - We don't need real status update 15.09.13
-                //PropertiesStrukt.Status.updateStatus(parmtask, true);
+                PropertiesStrukt.Status.updateStatus(parmtask, true);
                 taskList.Add(parmtask);
                 Workflow work = parmtask.workflowChild;
                 List<Task> child = work.taskChildList;
@@ -260,8 +260,7 @@ namespace ProcScribe
             }
             public static void updateTaskChildStatusFromCompleteToActive(Task parmtask ,List<Task> taskList)
             {
-                //Pakorn - We don't need real status update 15.09.13
-                //PropertiesStrukt.Status.updateStatus(parmtask, false);
+                PropertiesStrukt.Status.updateStatus(parmtask, false);
                 taskList.Add(parmtask);
                 Workflow work = parmtask.workflowChild;
                 List<Task> child = work.taskChildList;
@@ -274,8 +273,7 @@ namespace ProcScribe
             }
             public static void updateTaskParentStatusFromCompleteToActive(Task parmtask,List<Task> taskList)
             {
-                //Pakorn - We don't need real status update 15.09.13
-                //PropertiesStrukt.Status.updateStatus(parmtask, false);
+                PropertiesStrukt.Status.updateStatus(parmtask, false);
                 taskList.Add(parmtask);
                 Workflow work = parmtask.workflowParent;
                 Task parent = work.taskParent;
