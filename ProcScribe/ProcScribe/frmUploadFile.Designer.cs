@@ -80,9 +80,6 @@
             this.textBox1.TabIndex = 8;
             this.textBox1.Visible = false;
             // 
-            // openFileDialog1
-            // 
-            // 
             // webBrowser
             // 
             this.webBrowser.Location = new System.Drawing.Point(7, 12);
@@ -181,7 +178,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnOK);
             this.Name = "frmUploadFile";
-            this.Text = "frmUploadFile";
+            this.Text = "File Attachment";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmUploadFile_Load);
             this.panel1.ResumeLayout(false);
