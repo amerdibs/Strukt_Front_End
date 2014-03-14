@@ -281,8 +281,8 @@
     <None Include="Service References\StruktMain\ProcScribe.StruktMain.selectWorkflowResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\StruktMain\StruktMain1.wsdl" />
-    <None Include="Service References\StruktWebservice\StruktUser1.wsdl" />
+    <None Include="Service References\StruktMain\StruktMain.wsdl" />
+    <None Include="Service References\StruktWebservice\StruktUser.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -384,8 +384,8 @@
     <Content Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
-    <None Include="Service References\StruktMain\StruktMain1.disco" />
-    <None Include="Service References\StruktWebservice\StruktUser1.disco" />
+    <None Include="Service References\StruktMain\StruktMain.disco" />
+    <None Include="Service References\StruktWebservice\StruktUser.disco" />
     <Content Include="user.ico" />
   </ItemGroup>
   <ItemGroup>

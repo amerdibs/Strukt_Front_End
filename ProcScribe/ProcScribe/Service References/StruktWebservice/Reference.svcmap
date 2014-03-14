@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/strukthelp/StruktUser.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://eris-vm02/strukthelp/StruktUser.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StruktUser1.wsdl" MetadataType="Wsdl" ID="d118d468-0c2e-4b67-8d2e-6cb7b33fb359" SourceId="1" SourceUrl="http://localhost/strukthelp/StruktUser.asmx?wsdl" />
-    <MetadataFile FileName="StruktUser1.disco" MetadataType="Disco" ID="f94eed86-69da-4636-9cd1-15878da22756" SourceId="1" SourceUrl="http://localhost/strukthelp/StruktUser.asmx?disco" />
+    <MetadataFile FileName="StruktUser.disco" MetadataType="Disco" ID="4a13d67c-d438-4ce2-b2c4-fdeade0e688c" SourceId="1" SourceUrl="http://eris-vm02/strukthelp/StruktUser.asmx?disco" />
+    <MetadataFile FileName="StruktUser.wsdl" MetadataType="Wsdl" ID="c8790391-9a3f-4cf2-8960-24fee6f6046c" SourceId="1" SourceUrl="http://eris-vm02/strukthelp/StruktUser.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -633,10 +633,10 @@
   </wsdl:binding>
   <wsdl:service name="StruktMain">
     <wsdl:port name="StruktMainSoap" binding="tns:StruktMainSoap">
-      <soap:address location="http://localhost/strukthelp/StruktMain.asmx" />
+      <soap:address location="http://eris-vm02/strukthelp/StruktMain.asmx" />
     </wsdl:port>
     <wsdl:port name="StruktMainSoap12" binding="tns:StruktMainSoap12">
-      <soap12:address location="http://localhost/strukthelp/StruktMain.asmx" />
+      <soap12:address location="http://eris-vm02/strukthelp/StruktMain.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -74,10 +74,10 @@ namespace ProcScribe
         public static List<Assignment> assignmentSentList;
         public static List<Assignment> assignmentReceivedList;
 
-
+        // ToDo: change for remote server
         //public static string PathSharedFile = "http://pakorn.somee.com/upload/files/";
-        public static string PathSharedFile = "http://localhost/upload/Files/";
-        public static string PathUploadFile = "http://localhost/upload/upload.aspx";
+        public static string PathSharedFile = "http://eris-vm02/upload/Files/";
+        public static string PathUploadFile = "http://eris-vm02/upload/upload.aspx";
 
         public static DataTable processTable;
         public static DataTable userTable;

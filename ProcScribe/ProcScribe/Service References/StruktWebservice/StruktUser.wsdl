@@ -432,10 +432,10 @@
   </wsdl:binding>
   <wsdl:service name="StruktUser">
     <wsdl:port name="StruktUserSoap" binding="tns:StruktUserSoap">
-      <soap:address location="http://localhost/strukthelp/StruktUser.asmx" />
+      <soap:address location="http://eris-vm02/strukthelp/StruktUser.asmx" />
     </wsdl:port>
     <wsdl:port name="StruktUserSoap12" binding="tns:StruktUserSoap12">
-      <soap12:address location="http://localhost/strukthelp/StruktUser.asmx" />
+      <soap12:address location="http://eris-vm02/strukthelp/StruktUser.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

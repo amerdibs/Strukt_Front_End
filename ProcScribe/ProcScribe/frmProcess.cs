@@ -45,23 +45,26 @@ namespace ProcScribe
             {
                 global.taskProcessListSearch = TaskProcess.getTaskProcessAll();
                 //Find process name duplication
-                var VStr = from objTask in global.taskProcessListSearch
-                            where (objTask.process_name.ToLower().Equals(txtProcessName.Text.ToLower()))
-                            select new { objTask.process_name, objTask.process_workflow_id };
-                if (VStr != null)
+                if (global.taskProcessListSearch != null )
                 {
-                    int iCount = 0;
-                    foreach (var tk in VStr.GroupBy(x => x.process_name).Select(y => y.First()))
+                    var VStr = from objTask in global.taskProcessListSearch
+                               where (objTask.process_name.ToLower().Equals(txtProcessName.Text.ToLower()))
+                               select new { objTask.process_name, objTask.process_workflow_id };
+                    if (VStr != null)
                     {
-                        iCount++;
-                    }
-                    if (iCount > 0)
-                    {
-                        MessageBox.Show("Please change the process name. This name exists in system.");
-                        return;
+                        int iCount = 0;
+                        foreach (var tk in VStr.GroupBy(x => x.process_name).Select(y => y.First()))
+                        {
+                            iCount++;
+                        }
+                        if (iCount > 0)
+                        {
+                            MessageBox.Show("Please change the process name. This name exists in system.");
+                            return;
+                        }
                     }
                 }
-
+               
                 StruktMain.StruktMainSoapClient wsStrukt = new StruktMain.StruktMainSoapClient();
                 String strReturn = wsStrukt.addStruktProcess(txtProcessName.Text);
                 StruktProcess strkP = JsonConvert.DeserializeObject<StruktProcess>(strReturn);
